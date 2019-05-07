@@ -65,6 +65,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Ajax-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/05/07/Ajax-note/" class="article-date">
+  <time datetime="2019-05-07T15:13:13.000Z" itemprop="datePublished">2019-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/05/07/Ajax-note/">Ajax_note</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
+<p>form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。</p>
+</blockquote>
+<h6 id="封装Ajax的具体参数"><a href="#封装Ajax的具体参数" class="headerlink" title="封装Ajax的具体参数"></a>封装Ajax的具体参数</h6><ol>
+<li>Mothod : GET POST等。</li>
+<li>action : address;</li>
+<li>enctype : 固定在发送表单数据之前如何对其进行编码，application /x -www-form -urlencoded<br>在发送前编码所有的字符（默认）。</li>
+<li>multipart / form-data (<input type=" file ">)<br>不对字符编码，在使用包含文件上擦黄空间的表单时，必须使用该值。</li>
+</ol>
+<blockquote>
+<p>因为IE中并没有xmlHttpRequest() 这种方法， 所以要使用  new ActiveXObject(‘Microsoft.XMLHttp’)</p>
+</blockquote>
+<h6 id="如何封装一个自己的Ajax"><a href="#如何封装一个自己的Ajax" class="headerlink" title="如何封装一个自己的Ajax"></a>如何封装一个自己的Ajax</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var xhr = null;</span><br><span class="line">    if(window.XMLHttpRequest) &#123;</span><br><span class="line">        xhr =  new XMLHttpRequest();    //判断是否为主流浏览器</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        xhr = new ActiveXObject(&apos;Microsoft.XMLHttp&apos;)    //IE浏览器</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="Ajax的几种状态"><a href="#Ajax的几种状态" class="headerlink" title="Ajax的几种状态"></a>Ajax的几种状态</h6><ol>
+<li>ajax.open (method , url ,true);</li>
+<li>ajax.send();</li>
+<li>onreadystatechage 4     // ajax状态每次变化都会触发 </li>
+</ol>
+<ul>
+<li>0 = 未初始化，未调用send（） 方法</li>
+<li>1= 读取中，已调用send () 发送请求</li>
+<li>2 = 已读取  ,send 方法执行完成，接收到全部相应内容</li>
+<li>3 = 交互中， 正在解析响应内容</li>
+<li>4 = 完成 ，响应内容解析完成   //只关系这个过程</li>
+<li>status == 200 403 503   </li>
+<li>200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/07/Ajax-note/" data-id="cjvdxpjly0000jouro78142dp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-douban" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/05/07/douban/" class="article-date">
@@ -115,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvdwiktv0004lkur0r677loy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvdxpjmf0005jourq338e2fd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li></ul>
@@ -235,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvdwikve000glkurihhpp0cf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvdxpjn6000ljourhs45z5ly" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li></ul>
@@ -346,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvdwiktc0000lkurdj20tqlc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvdxpjm40001jour4q9ldkj0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -431,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvdwikti0001lkurip1n6fh9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvdxpjm80003joursr4ynljq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -470,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvdwiktq0003lkurvbk5h032" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvdxpjn4000kjourssvcx5c6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,7 +580,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvdwiku30005lkurjk74tyic" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvdxpjmb0004jourodp5wlgj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -538,7 +603,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li></ul>
     </div>
   </div>
 
@@ -548,7 +613,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/blog/tags/实战项目/" style="font-size: 10px;">实战项目</a> <a href="/blog/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/blog/tags/实战项目/" style="font-size: 10px;">实战项目</a> <a href="/blog/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
     </div>
   </div>
 
@@ -570,6 +635,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2019/05/07/Ajax-note/">Ajax_note</a>
+          </li>
+        
+          <li>
             <a href="/blog/2019/05/07/douban/">douban</a>
           </li>
         
@@ -583,10 +652,6 @@
         
           <li>
             <a href="/blog/2019/04/26/HTMLnote/">HTML 学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2019/04/25/hello/">hello</a>
           </li>
         
       </ul>
