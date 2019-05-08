@@ -5,18 +5,20 @@
   
 
   
-  <title>Tag: 前端技术 | 欢迎来到何泽丰的博客</title>
+  <title>浏览器渲染原理 | 欢迎来到何泽丰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="怕，你就输一辈子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到何泽丰的博客">
-<meta property="og:url" content="http://yoursite.com/tags/前端技术/index.html">
+  <meta name="description" content="浏览器渲染原理 -步骤：  清楚HTML 生成DOM树 处理CSS生成 CSSDOM树 将两树合并成render 树 将render 树进行布局计算 将render树中的每一个节点绘制到屏幕上   重排，重绘   当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。 重绘。当render t">
+<meta name="keywords" content="浏览器渲染原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器渲染原理">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/browser-note/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="怕，你就输一辈子">
+<meta property="og:description" content="浏览器渲染原理 -步骤：  清楚HTML 生成DOM树 处理CSS生成 CSSDOM树 将两树合并成render 树 将render 树进行布局计算 将render树中的每一个节点绘制到屏幕上   重排，重绘   当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。 重绘。当render t">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-08T04:08:01.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到何泽丰的博客">
-<meta name="twitter:description" content="怕，你就输一辈子">
+<meta name="twitter:title" content="浏览器渲染原理">
+<meta name="twitter:description" content="浏览器渲染原理 -步骤：  清楚HTML 生成DOM树 处理CSS生成 CSSDOM树 将两树合并成render 树 将render 树进行布局计算 将render树中的每一个节点绘制到屏幕上   重排，重绘   当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。 重绘。当render t">
   
     <link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
   
@@ -63,97 +65,81 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/05/07/Ajax-note/" class="archive-article-date">
-  <time datetime="2019-05-07T15:13:13.000Z" itemprop="datePublished">May 7</time>
+        <section id="main"><article id="post-browser-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/05/08/browser-note/" class="article-date">
+  <time datetime="2019-05-08T04:02:16.000Z" itemprop="datePublished">2019-05-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/05/07/Ajax-note/">Ajax_note</a>
+    <h1 class="article-title" itemprop="name">
+      浏览器渲染原理
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/05/07/douban/" class="archive-article-date">
-  <time datetime="2019-05-07T01:03:25.000Z" itemprop="datePublished">May 7</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/05/07/douban/">douban</a>
-    </h1>
-  
+        <h4 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h4><p> -步骤：</p>
+<ol>
+<li>清楚HTML 生成DOM树</li>
+<li>处理CSS生成 CSSDOM树</li>
+<li>将两树合并成render 树</li>
+<li>将render 树进行布局计算</li>
+<li>将render树中的每一个节点绘制到屏幕上</li>
+</ol>
+<ul>
+<li>重排，重绘</li>
+</ul>
+<ol>
+<li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li>
+<li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/04/26/CSSnote/" class="archive-article-date">
-  <time datetime="2019-04-26T07:13:39.000Z" itemprop="datePublished">Apr 26</time>
-</a>
+<blockquote>
+<p>蓝色代表网络通信和HTML 解析</p>
+</blockquote>
+<blockquote>
+<p>黄色代表javascipt执行</p>
+</blockquote>
+<blockquote>
+<p>紫色代表样式计算和布局，即重排</p>
+</blockquote>
+<blockquote>
+<p>绿色代表重绘</p>
+</blockquote>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/04/26/CSSnote/">CSS2.0学习笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/04/26/HTMLnote/" class="archive-article-date">
-  <time datetime="2019-04-26T04:32:34.000Z" itemprop="datePublished">Apr 26</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/08/browser-note/" data-id="cjvepcvzz00052gur5ojphkc5" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/04/26/HTMLnote/">HTML 学习笔记</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/浏览器渲染原理/">浏览器渲染原理</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/blog/2019/05/08/jonp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jonp跨域</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
