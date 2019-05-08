@@ -5,18 +5,20 @@
   
 
   
-  <title>Tag: 实战项目 | 欢迎来到何泽丰的博客</title>
+  <title>jonp跨域 | 欢迎来到何泽丰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="怕，你就输一辈子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到何泽丰的博客">
-<meta property="og:url" content="http://yoursite.com/tags/实战项目/index.html">
+  <meta name="description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上引入js文件时则不受是否跨域的影响（sr">
+<meta name="keywords" content="跨域,jsonp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jonp跨域">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/jonp/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="怕，你就输一辈子">
+<meta property="og:description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上引入js文件时则不受是否跨域的影响（sr">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-08T03:18:53.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到何泽丰的博客">
-<meta name="twitter:description" content="怕，你就输一辈子">
+<meta name="twitter:title" content="jonp跨域">
+<meta name="twitter:description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上引入js文件时则不受是否跨域的影响（sr">
   
     <link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
   
@@ -63,40 +65,78 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2019/05/07/douban/" class="archive-article-date">
-  <time datetime="2019-05-07T01:03:25.000Z" itemprop="datePublished">May 7</time>
+        <section id="main"><article id="post-jonp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/05/08/jonp/" class="article-date">
+  <time datetime="2019-05-08T03:18:14.000Z" itemprop="datePublished">2019-05-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2019/05/07/douban/">douban</a>
+    <h1 class="article-title" itemprop="name">
+      jonp跨域
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制"><a href="#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制" class="headerlink" title="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制"></a>jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制</h5><blockquote>
+<p>解决跨域问题的几种方法:</p>
+<ol>
+<li>Flash (很少了)</li>
+<li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li>
+<li>Jsonp</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>jsonp跨域的原理</p>
+</blockquote>
+<ol>
+<li>web页面上<script>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</li>
+<li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li>
+<li>因为我们无法监控<script>的src属性是否把数据获取完成，所以我们需要做一个处理。</li>
+<li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li>
+<li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li>
+</ol>
+<blockquote>
+<p>doucument.domain （针对基础域名相同的情况）  //基础域名必须相同</p>
+<ul>
+<li>bj.58.com  document.domain  = ‘58.com’</li>
+<li>tj.58.com   document.domain = ‘58.com’</li>
+</ul>
+</blockquote>
+</script></li></ol>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/08/jonp/" data-id="cjvenltuc0008dcurij2kus5a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/jsonp/">jsonp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/跨域/">跨域</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2019/05/07/Ajax-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Ajax_note</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
