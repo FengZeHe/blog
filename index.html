@@ -65,6 +65,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-brower-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2019/05/08/brower-note/" class="article-date">
+  <time datetime="2019-05-08T04:02:16.000Z" itemprop="datePublished">2019-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2019/05/08/brower-note/">brower_note</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h4><p> -步骤：</p>
+<ol>
+<li>清楚HTML 生成DOM树</li>
+<li>处理CSS生成 CSSDOM树</li>
+<li>将两树合并成render 树</li>
+<li>将render 树进行布局计算</li>
+<li>将render树中的每一个节点绘制到屏幕上</li>
+</ol>
+<ul>
+<li>重排，重绘</li>
+</ul>
+<ol>
+<li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li>
+<li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li>
+</ol>
+<img src="/blog/2019/05/08/brower-note/1.png" title="如图">
+<blockquote>
+<p>蓝色代表网络通信和HTML 解析</p>
+</blockquote>
+<blockquote>
+<p>黄色代表javascipt执行</p>
+</blockquote>
+<blockquote>
+<p>紫色代表样式计算和布局，即重排</p>
+</blockquote>
+<blockquote>
+<p>绿色代表重绘</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/08/brower-note/" data-id="cjvepa5uw0004mgurkdax6p9n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/浏览器渲染原理/">浏览器渲染原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-jonp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2019/05/08/jonp/" class="article-date">
@@ -124,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/08/jonp/" data-id="cjvenpn990008hgurk3m90ote" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/08/jonp/" data-id="cjvepa5v5000amgurqxzxybq8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/jsonp/">jsonp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/跨域/">跨域</a></li></ul>
@@ -191,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/Ajax-note/" data-id="cjvenpn8a0000hgurnz2huku3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/Ajax-note/" data-id="cjvepa5uj0000mgur0u2jbhaz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -253,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvenpn8u0004hgurdyy8v376" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvepa5uy0005mgurwbxq62i0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li></ul>
@@ -373,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvenpn9e000ahgur9c1gs9el" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvepa5w3000tmgurh80rrs8f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li></ul>
@@ -484,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvenpn8h0001hgurq4h4q1x0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvepa5uq0001mgurhkcqln51" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -569,7 +635,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvenpn8n0003hgur62q6jjeq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvepa5uv0003mgurw446dncf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -608,7 +674,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvenpn970007hgurx2hbqk0s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvepa5v00007mgur5kjzy51s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -653,7 +719,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvenpn910005hgurqso95nxt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvepa5v20008mgurb1m6jwek" class="article-share-link">Share</a>
       
       
     </footer>
@@ -676,7 +742,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jsonp/">jsonp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/跨域/">跨域</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jsonp/">jsonp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/浏览器渲染原理/">浏览器渲染原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/跨域/">跨域</a></li></ul>
     </div>
   </div>
 
@@ -686,7 +752,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/blog/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/blog/tags/实战项目/" style="font-size: 10px;">实战项目</a> <a href="/blog/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/blog/tags/跨域/" style="font-size: 10px;">跨域</a>
+      <a href="/blog/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/blog/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/blog/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/blog/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/blog/tags/实战项目/" style="font-size: 10px;">实战项目</a> <a href="/blog/tags/浏览器渲染原理/" style="font-size: 10px;">浏览器渲染原理</a> <a href="/blog/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/blog/tags/跨域/" style="font-size: 10px;">跨域</a>
     </div>
   </div>
 
@@ -708,6 +774,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2019/05/08/brower-note/">brower_note</a>
+          </li>
+        
+          <li>
             <a href="/blog/2019/05/08/jonp/">jonp跨域</a>
           </li>
         
@@ -721,10 +791,6 @@
         
           <li>
             <a href="/blog/2019/04/27/network-note/">图解HTTP</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2019/04/26/CSSnote/">CSS2.0学习笔记</a>
           </li>
         
       </ul>
