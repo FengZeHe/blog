@@ -99,9 +99,17 @@
 <p>jsonp跨域的原理</p>
 </blockquote>
 <ol>
-<li>web页面上<script>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</li>
+<li>web页面上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</p>
+<ol start="2">
 <li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li>
-<li>因为我们无法监控<script>的src属性是否把数据获取完成，所以我们需要做一个处理。</li>
+<li>因为我们无法监控<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>的src属性是否把数据获取完成，所以我们需要做一个处理。</p>
+<ol start="4">
 <li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li>
 <li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li>
 </ol>
@@ -112,11 +120,11 @@
 <li>tj.58.com   document.domain = ‘58.com’</li>
 </ul>
 </blockquote>
-</script></li></ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/08/jonp/" data-id="cjvenltuc0008dcurij2kus5a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/08/jonp/" data-id="cjvenpn990008hgurk3m90ote" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/jsonp/">jsonp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/跨域/">跨域</a></li></ul>
@@ -183,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/Ajax-note/" data-id="cjvenltu80005dcurn61zlyck" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/Ajax-note/" data-id="cjvenpn8a0000hgurnz2huku3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -245,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvenltu40003dcurlocxemmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/07/douban/" data-id="cjvenpn8u0004hgurdyy8v376" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/实战项目/">实战项目</a></li></ul>
@@ -365,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvenltvc000qdcureey21utz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="cjvenpn9e000ahgur9c1gs9el" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/读书笔记/">读书笔记</a></li></ul>
@@ -476,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvenlttt0000dcurm7yw885g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="cjvenpn8h0001hgurq4h4q1x0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -561,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvenltu00001dcurmphvgmov" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="cjvenpn8n0003hgur62q6jjeq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/前端技术/">前端技术</a></li></ul>
@@ -600,7 +608,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvenltua0007dcurmrxhn9qr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="cjvenpn970007hgurx2hbqk0s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -645,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvenltu60004dcur9f7otlvj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/25/hello-world/" data-id="cjvenpn910005hgurqso95nxt" class="article-share-link">Share</a>
       
       
     </footer>
