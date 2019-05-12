@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Muse',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="CSS3学习笔记CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。  CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。  CSS3的特性 border-radius">
+<meta name="keywords" content="前端技术,CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/CSS3-note/index.html">
+<meta property="og:site_name" content="欢迎来到何泽丰的博客">
+<meta property="og:description" content="CSS3学习笔记CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。  CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。  CSS3的特性 border-radius">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/CSS3-note/5BBF1DA61A8244279F216D20EC2B3914">
+<meta property="og:image" content="http://yoursite.com/2019/05/12/CSS3-note/CD966B00DCAD4A50B302D5608EA3CC86">
+<meta property="og:updated_time" content="2019-05-12T06:47:54.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3学习笔记">
+<meta name="twitter:description" content="CSS3学习笔记CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。  CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。  CSS3的特性 border-radius">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/12/CSS3-note/5BBF1DA61A8244279F216D20EC2B3914">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/CSS3-note/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CSS3学习笔记 | 欢迎来到何泽丰的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">欢迎来到何泽丰的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Navigationsleiste an/ausschalten">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/12/CSS3-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS3学习笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-05-12 14:47:13 / Geändert am: 14:47:54" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="CSS3学习笔记"><a href="#CSS3学习笔记" class="headerlink" title="CSS3学习笔记"></a>CSS3学习笔记</h4><p>CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。</p>
+<ul>
+<li>CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等<br>但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。</li>
+</ul>
+<h5 id="CSS3的特性"><a href="#CSS3的特性" class="headerlink" title="CSS3的特性"></a>CSS3的特性</h5><ol>
+<li><p>border-radius –圆角，实现一个叶子的形状，画一个半圆 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100px 100px 0 0；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>box-shadow  盒子的阴影  box-shadow   x代表偏移量，y代表偏移量， ，阴影模糊半径，阴影扩展半径，阴影颜色，投影方式<br>text-shadow<br>==不过shodow都是性能杀手==</p>
+</li>
+</ol>
+<ol start="3">
+<li>线性渐变 语法：linear-gradient[方向，颜色，颜色，颜色…]</li>
+<li><p>径向渐变 语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">radial-gradient(shape at position ,color[percent ] ,color)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shape ：放射的形状，可以为原型circle 或拖延ellipse,position 为圆心位置</p>
+</li>
+<li>border-image</li>
+<li>border-origin:content-box / border-box / padding-box</li>
+<li><p>background-clip : </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-box / padding-box /conteent-box  /no-clip</span><br></pre></td></tr></table></figure>
+<p>参数分别从边框，或内填充，或内容区域向外剪裁背景</p>
+</li>
+<li>text :background-clip :text;</li>
+<li>background-size :auto |&lt;长度值&gt;|&lt;百分比&gt;</li>
+<li>background-position: center</li>
+</ol>
+<h5 id="CSS3-选择器："><a href="#CSS3-选择器：" class="headerlink" title="CSS3 选择器："></a>CSS3 选择器：</h5><h6 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h6><ol>
+<li>E[att ^= “val” ]{….}  选择匹配元素E，且E元素定义了属性att ，其属性值以val 开头的任何字符串</li>
+<li>E[att $= “val”]{….} 选择匹配元素E ，且E元素定义了属性att ,其属性以val为结尾的任何字符串</li>
+<li>E[att *= “val”]{….}  选择匹配元素E， 且E元素定义了属性att ，其属性值任意位置出现了’val’ ,即属性值包含了“val”，位置不限。</li>
+<li>~=的意思是只要有item 的元素都被选中了。</li>
+</ol>
+<h6 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h6><p>伪元素选择：伪元素的效果是需要通过添加一个实际的元素才能达到的.</p>
+<p>CSS3 对伪元素进行一定的调整，在以前的基础上增加了一个：也就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">::first-letter, ::first-line ,::before ::after</span><br></pre></td></tr></table></figure></p>
+<p>另外还增加了一个 ::selection </p>
+<h6 id="root选择器"><a href="#root选择器" class="headerlink" title="root选择器"></a>root选择器</h6><p>等同于html ,但权重比html更高</p>
+<h6 id="not-选择器"><a href="#not-选择器" class="headerlink" title="not 选择器"></a>not 选择器</h6><p>除了那一个，其他都选中</p>
+<h6 id="empty-空标签选择器"><a href="#empty-空标签选择器" class="headerlink" title="empty 空标签选择器"></a>empty 空标签选择器</h6><h6 id="target-目标元素选择器"><a href="#target-目标元素选择器" class="headerlink" title="target 目标元素选择器"></a>target 目标元素选择器</h6><p>被锚点的元素，被选中的元素被进行操作。</p>
+<h5 id="伪类选择器："><a href="#伪类选择器：" class="headerlink" title="伪类选择器："></a>伪类选择器：</h5><ol>
+<li>first-child 第一个子元素</li>
+<li>last-child 最后一个子元素</li>
+<li>:nth-child（）{}  第XXX个子元素，n代表变量自然数</li>
+<li>first-of-type 第一个子元素</li>
+<li>:last-of-child 最后一个子元素</li>
+<li>:only-of-type  唯一一个子元素</li>
+</ol>
+<p>表示状态的伪类选择器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:enabled 可用的元素</span><br><span class="line">:disabled  禁用的元素</span><br></pre></td></tr></table></figure>
+<p>有些表单元素才会有这样的元素，例如输入框，密码框，复选框</p>
+<p>:check  已经被选中的状态   check-box<br>read-only  选中只读的元素</p>
+<h6 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h6><p>::first-letter  首个字母<br>:first-line 首行<br>::selection  被选中时候的文本</p>
+<h6 id="条件选择器"><a href="#条件选择器" class="headerlink" title="条件选择器"></a>条件选择器</h6><p>E &gt; F 直接子元素选择器<br> E + F  后面紧挨着的兄弟节点<br> E ~ F 后面的兄弟节点</p>
+<p>例如单选框旁的div ，被选中的时候隔壁也被选中。 input:checked + div</p>
+<h5 id="CSS3-动画"><a href="#CSS3-动画" class="headerlink" title="CSS3 动画"></a>CSS3 动画</h5><h6 id="形状变换"><a href="#形状变换" class="headerlink" title="形状变换"></a>形状变换</h6><ol>
+<li>transform 可以实现元素的形状，角度，位置等变化（包括旋转）。transform: rotateX /Y/ Z(  deg);不写默认是Z。</li>
+<li>rotate3d(x , y, z, Angel)</li>
+<li>scale () 以x/y 轴进行缩放    </li>
+<li>scale(x,y)接受两个值，如果第二个参数未提供，则第二个参数使用第一个参数的值。</li>
+<li>skew() 对元素进行倾斜扭曲<br>shew（） 接受两个值，分别对应X轴 和Y轴， 如果第二个参数未提供，则默认为0；</li>
+<li>translate(x ,[y])  移动</li>
+<li>使用CSS3属性实现水平垂直居中当使用：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置。</span><br><span class="line">    translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>transition 过渡动画</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transition 第一项选择属性(什么width height fontsize opacity ，就是一项属性，用于监听)，第二项选择时间，第三项选择速度，第四项指定过渡函数，第五项为动画的延迟时间</span><br></pre></td></tr></table></figure>
+<p><img src="5BBF1DA61A8244279F216D20EC2B3914" alt="image"></p>
+<ol start="9">
+<li>animation  动画<ol>
+<li>animation-iteration-count   属性主要用来定义动画的播放次数</li>
+<li>animation-direction 。normal 正常播放， reverse 反向播放</li>
+<li>animation-play-state 用来控制动画的播放状态 running播放，paused 暂停。</li>
+</ol>
+</li>
+</ol>
+<h5 id="CSS-多列布局"><a href="#CSS-多列布局" class="headerlink" title="CSS 多列布局"></a>CSS 多列布局</h5><p>为了能在Web页面中方便实现类似报纸，杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">columns:[column-width][column-count]  columns:2;  变成两列</span><br><span class="line">column-gap ：</span><br></pre></td></tr></table></figure></p>
+<p> 设置列与列之间的宽度，直接用数值即可（eg:10px）<br>column-span  设置多列布局的子元素可以跨列，类似标题效果。 </p>
+<h5 id="CSS3-盒模型："><a href="#CSS3-盒模型：" class="headerlink" title="CSS3 盒模型："></a>CSS3 盒模型：</h5><p>IE6混杂模式，首先要触发一个怪异模式。 在IE6混杂模式盒模型下(IE6及以下浏览器)，内容宽度（盒子） = width - padding -border.width包含padding 和 border<br>W3C标准下的空间高度（盒子）= width +padding +border;  width 为内容宽度，不包括padding 和 border</p>
+<h5 id="CSS3-弹性盒子-display-flex"><a href="#CSS3-弹性盒子-display-flex" class="headerlink" title="CSS3 弹性盒子 display :flex"></a>CSS3 弹性盒子 display :flex</h5><p>==flex为复合属性，必须配合父元素display :flex使用==<br>如图</p>
+<p><img src="CD966B00DCAD4A50B302D5608EA3CC86" alt="image"></p>
+<h6 id="6个属性"><a href="#6个属性" class="headerlink" title="6个属性"></a>6个属性</h6><ol>
+<li>flex-grow    把盒子分成多少份，要是1 的话就分成1分自己独占。默认是0；</li>
+<li>flex-shrink 多出盒子的部分，按照比例的大小砍掉相应的大小，即比例越大，被砍的越大。</li>
+<li>flex-basis    伸缩基准值，占据主轴空间。<br>4.flex    order    可以进行排序，从小到大进行排列</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">align-self &#123;</span><br><span class="line">auto / flex-start /flex-end  / center /baseline（基准线对齐） /stretch </span><br><span class="line">&#125;</span><br><span class="line">主轴 /侧轴/交叉轴</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>flex-direction 决定主轴的方向<br>row 从左向右， row-reverse , column ,column-reverse</p>
+</li>
+<li><p>flex-wrap 是否换行    </p>
+</li>
+<li>flex-flow 是dirction 和 wrap的简写方式</li>
+<li>justify-content<br> 1.flex-start    左对齐<ol start="2">
+<li>flex-end    右对齐</li>
+<li>conter     居中</li>
+<li>space-between    两端对齐，项目之间的间隔都相等</li>
+<li>space-around 每个项目两侧的间隔相等。</li>
+<li>align-items  属性如何在侧轴上对齐</li>
+<li>flex-start 交叉轴的起点对齐。</li>
+<li>flex-end 交叉轴终点对齐</li>
+<li>center 交叉轴中点对齐</li>
+<li>baseline 项目的第一行文字基准线对齐</li>
+<li>stretch 如果未设置高度或设为auton ,将占满整个容器的高度</li>
+</ol>
+</li>
+</ol>
+<p>transparent 透明色颜色值。</p>
+<h6 id="CSS3响应式布局"><a href="#CSS3响应式布局" class="headerlink" title="CSS3响应式布局"></a>CSS3响应式布局</h6><p>通过设备不同的宽度，相应出不同的布局。这就叫做响应式布局。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; </span><br><span class="line"></span><br><span class="line">width=device-width 意思是宽度等于设备的宽度，user-scalable = no 意思是不允许用户缩放</span><br></pre></td></tr></table></figure>
+<p>媒体查询：媒体查询是向不同设备提供不同样式的一种方式，为每种类型的用户提供了更佳的体验。<br>CSS2 :mdeia type 是CSS2中一个非常有用的属性，通过media type 我们可以对不同设备执行不同的样式<br>CSS3 mdeia query 是CSS3对meida type的增强。</p>
+<p>添加方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一种插入样式，需要多个CSS文件</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;screen and (max-width:800px)&quot; href=&quot;./text.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>第二种插入方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width:300px)&#123;</span><br><span class="line">    div&#123;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background-color: blue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (min-width:301px)&#123;</span><br><span class="line">    div&#123;</span><br><span class="line">        width: 499px;</span><br><span class="line">        height: 293px;</span><br><span class="line">        background-color: aqua;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>and not only 这三个值。only是仅有的意思。 and是再添加这个属性的意思</p>
+<p>demo–&gt;从四列变三列再变成两列一列的CSS3响应式布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: 100%;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div&#123;</span><br><span class="line">    width: 20%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    flex-grow: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div img&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:1000px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 25%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:800px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 33.33%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (max-width:400px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 50%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:200px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CSS3动画</span><br><span class="line">transform-style ：flat | preserve-3d； </span><br><span class="line">注意：属性需要设置在父元素中，高于任何嵌套的变形元素。</span><br><span class="line">设置了tranform-style :preserve-3d的原型，就不能设置overflow:hidden 否则preserve-3d失效</span><br><span class="line">元素旋转，其他轴也在旋转</span><br><span class="line">translate3d 这样写好了之后浏览器就会使用GPU加速。</span><br><span class="line"></span><br><span class="line">下图代码块为爱的魔力转圈圈</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .wrapper&#123;     </span><br><span class="line">            position: relative;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            transform-style: preserve-3d;</span><br><span class="line">            /* transform: rotateX(-20deg); */</span><br><span class="line">            margin-top: 200px;</span><br><span class="line">            animation: turn 5s linear infinite;</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper div&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            opacity: 0.5;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 200px;</span><br><span class="line">            color :#fff;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrapper .item:nth-of-type(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            transform: rotateY(0deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(2)&#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            transform: rotateY(60deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(3)&#123;</span><br><span class="line">            background-color: green;</span><br><span class="line">            transform: rotateY(120deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(4)&#123;</span><br><span class="line">            background-color: blueviolet;</span><br><span class="line">            transform: rotateY(180deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(5)&#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            transform: rotateY(240deg)translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(6)&#123;</span><br><span class="line">            background-color: yellowgreen;</span><br><span class="line">            transform: rotateY(300deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @keyframes turn&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(0deg);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(-360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;1&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;2&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;3&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;4&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;5&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;6&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/前端技术/" rel="tag"># 前端技术</a>
+          
+            <a href="/blog/tags/CSS3/" rel="tag"># CSS3</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/05/12/JQuery-note/" rel="next" title="JQuery_note">
+                <i class="fa fa-chevron-left"></i> JQuery_note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">何泽丰</p>
+              <div class="site-description motion-element" itemprop="description">怕，你就输一辈子</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/blog/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">schlagwörter</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS3学习笔记"><span class="nav-number">1.</span> <span class="nav-text">CSS3学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3的特性"><span class="nav-number">1.1.</span> <span class="nav-text">CSS3的特性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3-选择器："><span class="nav-number">1.2.</span> <span class="nav-text">CSS3 选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#伪类选择器"><span class="nav-number">1.2.2.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#root选择器"><span class="nav-number">1.2.3.</span> <span class="nav-text">root选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#not-选择器"><span class="nav-number">1.2.4.</span> <span class="nav-text">not 选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#empty-空标签选择器"><span class="nav-number">1.2.5.</span> <span class="nav-text">empty 空标签选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#target-目标元素选择器"><span class="nav-number">1.2.6.</span> <span class="nav-text">target 目标元素选择器</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#伪类选择器："><span class="nav-number">1.3.</span> <span class="nav-text">伪类选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#伪元素选择器"><span class="nav-number">1.3.1.</span> <span class="nav-text">伪元素选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#条件选择器"><span class="nav-number">1.3.2.</span> <span class="nav-text">条件选择器</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3-动画"><span class="nav-number">1.4.</span> <span class="nav-text">CSS3 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#形状变换"><span class="nav-number">1.4.1.</span> <span class="nav-text">形状变换</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS-多列布局"><span class="nav-number">1.5.</span> <span class="nav-text">CSS 多列布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3-盒模型："><span class="nav-number">1.6.</span> <span class="nav-text">CSS3 盒模型：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3-弹性盒子-display-flex"><span class="nav-number">1.7.</span> <span class="nav-text">CSS3 弹性盒子 display :flex</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#6个属性"><span class="nav-number">1.7.1.</span> <span class="nav-text">6个属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#CSS3响应式布局"><span class="nav-number">1.7.2.</span> <span class="nav-text">CSS3响应式布局</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">何泽丰</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/blog/js/utils.js?v=7.1.1"></script>
+
+  <script src="/blog/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/blog/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
