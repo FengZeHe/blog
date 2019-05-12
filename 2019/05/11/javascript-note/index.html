@@ -104,10 +104,12 @@
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
 <meta property="og:description" content="JavaScript笔记Web 发展史： Mosaic：是全世界第一款可以显示图片的浏览器 Netscape Navigator -&amp;gt;2003 firefox 浏览器 IE6 -&amp;gt;IE6浏览器 2008 -&amp;gt; Chrome 浏览器    关于浏览器的内核部分：   渲染引擎（语法规则和渲染） js引擎 其他模块   JavaScript的语言特点：  解释性语言 –（不需要编译成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-12T01:05:49.016Z">
+<meta property="og:image" content="http://yoursite.com/blog/2019/05/11/javascript-note/深克隆.png">
+<meta property="og:updated_time" content="2019-05-12T02:12:52.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript学习笔记">
 <meta name="twitter:description" content="JavaScript笔记Web 发展史： Mosaic：是全世界第一款可以显示图片的浏览器 Netscape Navigator -&amp;gt;2003 firefox 浏览器 IE6 -&amp;gt;IE6浏览器 2008 -&amp;gt; Chrome 浏览器    关于浏览器的内核部分：   渲染引擎（语法规则和渲染） js引擎 其他模块   JavaScript的语言特点：  解释性语言 –（不需要编译成">
+<meta name="twitter:image" content="http://yoursite.com/blog/2019/05/11/javascript-note/深克隆.png">
 
 
 
@@ -350,7 +352,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-05-12 09:05:49" itemprop="dateModified" datetime="2019-05-12T09:05:49+08:00">2019-05-12</time>
+                <time title="Geändert am: 2019-05-12 10:12:52" itemprop="dateModified" datetime="2019-05-12T10:12:52+08:00">2019-05-12</time>
               
             
           </span>
@@ -660,7 +662,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] instanceof Array -&gt;true</span><br><span class="line">    Object -&gt;true</span><br></pre></td></tr></table></figure>
 <p>toString方法：<br>    toString() 方法可把一个逻辑值转换为字符串，并返回结果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">object.prototype.toString.call([]);</span><br><span class="line">object.prototype.toString = function ()&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="克隆："><a href="#克隆：" class="headerlink" title="克隆："></a>克隆：</h5><h6 id="浅层克隆，深层克隆。"><a href="#浅层克隆，深层克隆。" class="headerlink" title="浅层克隆，深层克隆。"></a>浅层克隆，深层克隆。</h6><p>function clone ()</p>
+<h5 id="克隆："><a href="#克隆：" class="headerlink" title="克隆："></a>克隆：</h5><h6 id="浅层克隆，深层克隆。"><a href="#浅层克隆，深层克隆。" class="headerlink" title="浅层克隆，深层克隆。"></a>浅层克隆，深层克隆。</h6><img src="/blog/2019/05/11/javascript-note/深克隆.png" title="深克隆">
+<p>function clone ()</p>
 <ul>
 <li>对象序列化指的是对象的状态转换为字符串，也可以将字符串还原为对象。ECMAScript5提供了JSON.stringify()和 json.parse()用来序列化和还原js对象。但注意函数，RegExp,Error和underfind不能序列化和还原。</li>
 </ul>
