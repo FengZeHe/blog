@@ -227,6 +227,23 @@
         
         
           
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/blog/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>Kategorien</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -1255,189 +1272,6 @@ DocumentFragment
 <li>tj.58.com   document.domain = ‘58.com’</li>
 </ul>
 </blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/07/Ajax-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰">
-      <meta itemprop="description" content="怕，你就输一辈子">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/07/Ajax-note/" class="post-title-link" itemprop="url">Ajax_note</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-07 23:13:13" itemprop="dateCreated datePublished" datetime="2019-05-07T23:13:13+08:00">2019-05-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-05-11 16:15:51" itemprop="dateModified" datetime="2019-05-11T16:15:51+08:00">2019-05-11</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
-<p>form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。</p>
-</blockquote>
-<h6 id="封装Ajax的具体参数"><a href="#封装Ajax的具体参数" class="headerlink" title="封装Ajax的具体参数"></a>封装Ajax的具体参数</h6><ol>
-<li>Mothod : GET POST等。</li>
-<li>action : address;</li>
-<li>enctype : 固定在发送表单数据之前如何对其进行编码，application /x -www-form -urlencoded<br>在发送前编码所有的字符（默认）。</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multipart / form-data (&lt;input type =&apos; file &apos;&gt;)</span><br></pre></td></tr></table></figure>
-<p>不对字符编码，在使用包含文件上擦黄空间的表单时，必须使用该值。</p>
-</li>
-</ol>
-<blockquote>
-<p>因为IE中并没有xmlHttpRequest() 这种方法， 所以要使用  new ActiveXObject(‘Microsoft.XMLHttp’)</p>
-</blockquote>
-<h6 id="如何封装一个自己的Ajax"><a href="#如何封装一个自己的Ajax" class="headerlink" title="如何封装一个自己的Ajax"></a>如何封装一个自己的Ajax</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var xhr = null;</span><br><span class="line">    if(window.XMLHttpRequest) &#123;</span><br><span class="line">        xhr =  new XMLHttpRequest();    //判断是否为主流浏览器</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        xhr = new ActiveXObject(&apos;Microsoft.XMLHttp&apos;)    //IE浏览器</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h6 id="Ajax的几种状态"><a href="#Ajax的几种状态" class="headerlink" title="Ajax的几种状态"></a>Ajax的几种状态</h6><ol>
-<li>ajax.open (method , url ,true);</li>
-<li>ajax.send();</li>
-<li>onreadystatechage 4     // ajax状态每次变化都会触发 </li>
-</ol>
-<ul>
-<li>0 = 未初始化，未调用send（） 方法</li>
-<li>1= 读取中，已调用send () 发送请求</li>
-<li>2 = 已读取  ,send 方法执行完成，接收到全部相应内容</li>
-<li>3 = 交互中， 正在解析响应内容</li>
-<li>4 = 完成 ，响应内容解析完成   //只关系这个过程</li>
-<li>status == 200 403 503   </li>
-<li>200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。</li>
-</ul>
 
           
         
@@ -2633,7 +2467,7 @@ DocumentFragment
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -2668,9 +2502,7 @@ DocumentFragment
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
