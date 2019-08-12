@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
+  <meta name="description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令： LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 1212;">
 <meta name="keywords" content="前端技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6">
 <meta property="og:url" content="http://yoursite.com/2019/08/12/ES6/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
+<meta property="og:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令： LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 1212;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-12T13:40:53.827Z">
+<meta property="og:updated_time" content="2019-08-12T13:50:09.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
-<meta name="twitter:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
+<meta name="twitter:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令： LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 1212;">
 
 
 
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 21:40:53" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 21:50:09" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -372,30 +372,26 @@
       
 
       
-        <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h6 id="ES6语法的一个特性："><a href="#ES6语法的一个特性：" class="headerlink" title="ES6语法的一个特性："></a>ES6语法的一个特性：</h6><p>块级作用域：<br>{</p>
+        <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h3 id="ES6语法的一个特性："><a href="#ES6语法的一个特性：" class="headerlink" title="ES6语法的一个特性："></a>ES6语法的一个特性：</h3><p>块级作用域：<br>{</p>
 <p>}</p>
-<h5 id="LET命令："><a href="#LET命令：" class="headerlink" title="LET命令："></a>LET命令：</h5><h6 id="1-LET声明的变量具有块级作用域的概念"><a href="#1-LET声明的变量具有块级作用域的概念" class="headerlink" title="1. LET声明的变量具有块级作用域的概念"></a>1. LET声明的变量具有块级作用域的概念</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)//Uncaught ReferenceError: Cannot access &apos;a&apos; before initialization</span><br><span class="line">    let a = 42;</span><br><span class="line">    var b = 1212;</span><br><span class="line">    console.log(typeof a)  //number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  //underfind</span><br></pre></td></tr></table></figure>
-<h4 id="2-不存在变量提升。在Let声明之前使用就会报错"><a href="#2-不存在变量提升。在Let声明之前使用就会报错" class="headerlink" title="2. 不存在变量提升。在Let声明之前使用就会报错"></a>2. 不存在变量提升。在Let声明之前使用就会报错</h4><h4 id="3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"><a href="#3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响" class="headerlink" title="3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"></a>3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</h4><h4 id="4-不允许重复声明"><a href="#4-不允许重复声明" class="headerlink" title="4. 不允许重复声明"></a>4. 不允许重复声明</h4><blockquote>
+<h3 id="LET命令："><a href="#LET命令：" class="headerlink" title="LET命令："></a>LET命令：</h3><ol>
+<li>LET声明的变量具有块级作用域的概念<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)//Uncaught ReferenceError: Cannot access &apos;a&apos; before initialization</span><br><span class="line">    let a = 42;</span><br><span class="line">    var b = 1212;</span><br><span class="line">    console.log(typeof a)  //number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  //underfind</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="2">
+<li>不存在变量提升。在Let声明之前使用就会报错</li>
+<li>暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</li>
+<li>不允许重复声明<blockquote>
 <p>注意：因为let的不存在变量提升和暂时性死区，因此在let之前使用该变量会报错，在此变量作用域外使用会无效。</p>
 </blockquote>
-<h5 id="const命令："><a href="#const命令：" class="headerlink" title="const命令："></a>const命令：</h5><h6 id="1-const声明一个只读常量，一旦声明，常量的值就不能更改"><a href="#1-const声明一个只读常量，一旦声明，常量的值就不能更改" class="headerlink" title="1. const声明一个只读常量，一旦声明，常量的值就不能更改"></a>1. const声明一个只读常量，一旦声明，常量的值就不能更改</h6><h6 id="2-const变量只声明不赋值就会报错"><a href="#2-const变量只声明不赋值就会报错" class="headerlink" title="2. const变量只声明不赋值就会报错"></a>2. const变量只声明不赋值就会报错</h6><h6 id="3-只在作用域内生效以及不允许重复声明"><a href="#3-只在作用域内生效以及不允许重复声明" class="headerlink" title="3. 只在作用域内生效以及不允许重复声明"></a>3. 只在作用域内生效以及不允许重复声明</h6><h6 id="4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"><a href="#4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。" class="headerlink" title="4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"></a>4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。</h6><pre><code> const foo = {};
-     foo.prop = 123;//添加一个属性，没有问题
-     console.log(foo.prop)
-     foo= 123;//就会报错
+</li>
+</ol>
+<h3 id="const命令："><a href="#const命令：" class="headerlink" title="const命令："></a>const命令：</h3><pre><code>1. const声明一个只读常量，一旦声明，常量的值就不能更改
+2. const变量只声明不赋值就会报错
+3. 只在作用域内生效以及不允许重复声明
+4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动.
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> const foo = &#123;&#125;;</span><br><span class="line">     foo.prop = 123;//添加一个属性，没有问题</span><br><span class="line">     console.log(foo.prop)</span><br><span class="line">     foo= 123;//就会报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 浏览器的 ES6 环境</span><br><span class="line">function f() &#123; console.log(&apos;I am outside!&apos;); &#125;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    // 重复声明一次函数f</span><br><span class="line">    function f() &#123; console.log(&apos;I am inside!&apos;); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line">//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定</span><br></pre></td></tr></table></figure>
 
-
-// 浏览器的 ES6 环境
-function f() { console.log(&apos;I am outside!&apos;); }
-
-(function () {
-  if (false) {
-    // 重复声明一次函数f
-    function f() { console.log(&apos;I am inside!&apos;); }
-  }
-  f();
-}());
-//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定
-</code></pre>
       
     </div>
 
@@ -587,7 +583,7 @@ function f() { console.log(&apos;I am outside!&apos;); }
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6学习笔记"><span class="nav-number">1.</span> <span class="nav-text">ES6学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ES6语法的一个特性："><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">ES6语法的一个特性：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LET命令："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">LET命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-LET声明的变量具有块级作用域的概念"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">1. LET声明的变量具有块级作用域的概念</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#2-不存在变量提升。在Let声明之前使用就会报错"><span class="nav-number">1.0.1.</span> <span class="nav-text">2. 不存在变量提升。在Let声明之前使用就会报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"><span class="nav-number">1.0.2.</span> <span class="nav-text">3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-不允许重复声明"><span class="nav-number">1.0.3.</span> <span class="nav-text">4. 不允许重复声明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#const命令："><span class="nav-number">1.0.3.1.</span> <span class="nav-text">const命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-const声明一个只读常量，一旦声明，常量的值就不能更改"><span class="nav-number">1.0.3.1.1.</span> <span class="nav-text">1. const声明一个只读常量，一旦声明，常量的值就不能更改</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-const变量只声明不赋值就会报错"><span class="nav-number">1.0.3.1.2.</span> <span class="nav-text">2. const变量只声明不赋值就会报错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-只在作用域内生效以及不允许重复声明"><span class="nav-number">1.0.3.1.3.</span> <span class="nav-text">3. 只在作用域内生效以及不允许重复声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"><span class="nav-number">1.0.3.1.4.</span> <span class="nav-text">4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6学习笔记"><span class="nav-number">1.</span> <span class="nav-text">ES6学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6语法的一个特性："><span class="nav-number">1.1.</span> <span class="nav-text">ES6语法的一个特性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LET命令："><span class="nav-number">1.2.</span> <span class="nav-text">LET命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const命令："><span class="nav-number">1.3.</span> <span class="nav-text">const命令：</span></a></li></ol></li></ol></div>
             
 
           </div>
