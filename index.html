@@ -334,7 +334,7 @@
                 
               
 
-              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 21:53:35" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 22:19:00" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -377,7 +377,7 @@
           
             <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h3 id="ES6语法的一个特性："><a href="#ES6语法的一个特性：" class="headerlink" title="ES6语法的一个特性："></a>ES6语法的一个特性：</h3><p>块级作用域：<br>{</p>
 <p>}</p>
-<h3 id="LET命令"><a href="#LET命令" class="headerlink" title="LET命令"></a>LET命令</h3><ol>
+<h3 id="LET命令："><a href="#LET命令：" class="headerlink" title="LET命令："></a>LET命令：</h3><ol>
 <li>LET声明的变量具有块级作用域的概念<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)//Uncaught ReferenceError: Cannot access &apos;a&apos; before initialization</span><br><span class="line">    let a = 42;</span><br><span class="line">    var b = 1212;</span><br><span class="line">    console.log(typeof a)  //number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  //underfind</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -393,7 +393,132 @@
 2. const变量只声明不赋值就会报错
 3. 只在作用域内生效以及不允许重复声明
 4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动.
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> const foo = &#123;&#125;;</span><br><span class="line">     foo.prop = 123;//添加一个属性，没有问题</span><br><span class="line">     console.log(foo.prop)</span><br><span class="line">     foo= 123;//就会报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 浏览器的 ES6 环境</span><br><span class="line">function f() &#123; console.log(&apos;I am outside!&apos;); &#125;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    // 重复声明一次函数f</span><br><span class="line">    function f() &#123; console.log(&apos;I am inside!&apos;); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line">//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> const foo = &#123;&#125;;</span><br><span class="line">     foo.prop = 123;//添加一个属性，没有问题</span><br><span class="line">     console.log(foo.prop)</span><br><span class="line">     foo= 123;//就会报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 浏览器的 ES6 环境</span><br><span class="line">function f() &#123; console.log(&apos;I am outside!&apos;); &#125;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    // 重复声明一次函数f</span><br><span class="line">    function f() &#123; console.log(&apos;I am inside!&apos;); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line">//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定</span><br><span class="line">//1.允许在块级作用于内声明函数</span><br><span class="line">//2.函数声明类似于var ,即会提升到全局作用于函数作用于的头部</span><br><span class="line">//3.同时，函数声明还会提升到所在的块级作用于的头部</span><br><span class="line"></span><br><span class="line">注意：以上三条规则只对ES6浏览器内有效，其他环境还是将块级作用于的函数声明当做let处理</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：在ES6中一共有6种赋值的方式，有var 和 function 命令，还有let 和const命令，以及import和class命令。var 和 function 命令声明的全局变量是顶层对象的属性；let、const和class命令声明全局变量，不属于顶层对象的属性。 </p>
+</blockquote>
+<h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3><ol>
+<li>数组的解构赋值</li>
+<li>概念：ES6允许按照一定的模式，从数组和对象中提取，对变量进行赋值<br>注意：要是被赋值一边有一项没有被赋值或者赋值underfind，则被称为解构失败；要是赋值一边有三个值，被赋值一边只有两个变量，则被称为不完全解构</li>
+<li>匹配模式其实是懒散匹配，如第6行代码，如果赋值一方对应位置有值，x就不会管默认值是10,而当赋值一边【】啥都没有的时候，才取默认值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//模式匹配</span><br><span class="line">let [a , b, c] = [1, 2, 3]</span><br><span class="line"></span><br><span class="line">let [a ,[b,[c]]] = [1,[2,[3]]]</span><br><span class="line"></span><br><span class="line">let [x = 10] =[20] //x = 20 </span><br><span class="line"></span><br><span class="line">对象的解构赋值</span><br><span class="line">无序性：只要变量与属性同名，就能取到正确的值。当右边没有同名的属性，那么不叫取不到值而取得underfind</span><br><span class="line">let &#123;bar ,foo &#125; = &#123;foo :234, bar:123&#125;</span><br><span class="line">//无论赋值的一方的顺序是怎么样的，赋值都不影响</span><br><span class="line"></span><br><span class="line">let &#123;foo:bar&#125; = &#123;foo:123&#125;</span><br><span class="line">        console.log(bar);//123</span><br><span class="line">        console.log(foo);// foo is not defined</span><br><span class="line">        </span><br><span class="line">        let&#123;length&#125; = &quot;123&quot; //length = 3</span><br><span class="line">        </span><br><span class="line">        //可用于嵌套</span><br><span class="line">let obj = &#123;</span><br><span class="line">  p: [</span><br><span class="line">    &apos;abcabc&apos;,</span><br><span class="line">    &#123; y: &apos;123123&apos; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; p, p: [x, &#123; y &#125;] &#125; = obj;//&apos;abcabc&apos; &apos;123123&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const [a,b,c,d,e] = &apos;hello&apos;;</span><br><span class="line">        </span><br><span class="line">        console.log(a);</span><br><span class="line">        console.log(b);</span><br><span class="line">        console.log(d);</span><br><span class="line"></span><br><span class="line">        let&#123; length :len&#125; = &apos;hello&apos;</span><br><span class="line">        console.log(len)</span><br><span class="line">// a b l 5</span><br></pre></td></tr></table></figure>
+<h3 id="数值和布尔值的解构赋值"><a href="#数值和布尔值的解构赋值" class="headerlink" title="数值和布尔值的解构赋值"></a>数值和布尔值的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">解构赋值时，如果等号右边是数值和布尔值，则会先转换成对象</span><br><span class="line">函数参数的解构赋值</span><br><span class="line">        function add([x,y])&#123;</span><br><span class="line">            return x + y;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        add([1,2])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不能使用圆括号的情况：<br>使用场景：</p>
+<ol>
+<li>交换变量的值</li>
+<li>从函数返回多个值</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function example()&#123;</span><br><span class="line">    return [1,2,3];</span><br><span class="line">&#125;</span><br><span class="line">let [a,b,c] = example();</span><br><span class="line"></span><br><span class="line">console.log(a,b,c) //1 2 3</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>提取JSON数据–解构赋值对提取JSON对象中的数据，尤其有用</li>
+</ol>
+<p>便利Map结构：<br>部署了Iterator接口的对象，都可以用for…of循环遍历。配合变量的解构赋值，获取键名和键值就肥肠方便</p>
+<h3 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h3><ol>
+<li><p>字符串的遍历器接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = `hzfnb`;</span><br><span class="line"></span><br><span class="line">for(let  condePoint of a )&#123;</span><br><span class="line">    console.log(condePoint)</span><br><span class="line">&#125;        </span><br><span class="line">// h z f n b</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板字符串</p>
+</li>
+<li>增强字符串:可以保留字符串在编辑器的模式 ，如果代码中的模板字符串都要用反引号表示，则前面需要用反斜杠转义</li>
+<li>在字符串中添加变量（表达式）<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3></li>
+<li>${}对变量进行抓取</li>
+<li>${} 对变量进行运算<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str = &apos;hello&apos;;</span><br><span class="line">var newStr = `hello world`;</span><br><span class="line"></span><br><span class="line"> var xm = &#123;</span><br><span class="line">            age :19,</span><br><span class="line">            height:180,</span><br><span class="line">            name :&apos;xiaoming&apos;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        var &#123;age ,name, height&#125; = xm;</span><br><span class="line"></span><br><span class="line">        var newstr =`name: $&#123;name&#125; age: $&#123;age&#125; `</span><br><span class="line">        console.log(newstr);//通过对象的解构拿到对象的值， 再通过$&#123;&#125;直接取得这个值</span><br><span class="line">        //$&#123;&#125;也是可以进行运算的，还可以添加方法</span><br><span class="line">        </span><br><span class="line">        var x = 3, y = 5;</span><br><span class="line">        function getName()&#123;</span><br><span class="line">            return &apos;xiaoming&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        var str = `my name is $&#123;getName()&#125;`;</span><br><span class="line">        console.log(str);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        var arr = [1,2,3,4,5];</span><br><span class="line">        var resStr =`$&#123;arr.map(function(item,index)&#123;</span><br><span class="line">            return `$&#123;item&#125;: $&#123;index&#125;`</span><br><span class="line">        &#125;)&#125;`//通过增强字符串与函数把值赋给另外一个变量（对象）</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="标签模板"><a href="#标签模板" class="headerlink" title="标签模板"></a>标签模板</h3><ol>
+<li>它可以紧跟在一个函数名后面，该函数将被调用来处理这个模板字符串<br>标签模板的实质，函数调用的特殊形式<br>重要应用，过滤HTML字符串–防止用户恶意注意内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">safeHtml `&lt;p&gt;$&#123;name&#125; Welcome&lt;/p&gt;`</span><br><span class="line"></span><br><span class="line">function safeHtml(data)&#123;</span><br><span class="line">    var str =  data[0]</span><br><span class="line">    for(let i = 1; i&lt;arguments.length;i++)&#123;</span><br><span class="line">        var arg = String(arguments[i])</span><br><span class="line"></span><br><span class="line">        str += arg.replace(/&amp;/g,&apos;&amp;amp;&apos;).replace(&apos;/&lt;/&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="字符串的新增方法"><a href="#字符串的新增方法" class="headerlink" title="字符串的新增方法"></a>字符串的新增方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">String.fromCodePoint() --用于从Unicode编码返回对应的字符串</span><br><span class="line">String.raw()		--用于转义字符串，往往用于模板字符串的处理方法</span><br><span class="line">        a = String.raw`hi\n\n$&#123;5&#125;!`</span><br><span class="line">        console.log(a); //hi\n\n5!</span><br><span class="line">        </span><br><span class="line">        //String.raw 作为正常的函数使用</span><br><span class="line">        a = String.raw(&#123;raw:&apos;hzfnb&apos;&#125;,0,1,2)</span><br><span class="line">        console.log(a); //h0z1f2nb</span><br><span class="line">```       </span><br><span class="line"></span><br><span class="line">1. 实例方法：codePointAt() --测试一个字符由两字节还是四个字节组成的最简单方法</span><br><span class="line">2. 实例方法：normailza()</span><br><span class="line">3. includes(): 返回布尔值，表示是否找到了参数字符串</span><br><span class="line">4. startsWith() ： 返回布尔值，表示参数字符串是否在原字符串的头部</span><br><span class="line">5. endWith(): 返回布尔值，表示参数字符串是否在原字符串尾部</span><br></pre></td></tr></table></figure>
+<pre><code>var a = &quot;hzfnb zf&quot;
+var r1 = a.includes(&apos;hzfnb&apos;)
+var r2 = a.startsWith(&apos;h&apos;)
+var r3 = a.endsWith(&apos;f&apos;)
+
+console.log(r1,r2,r3)//true true true
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6. 实例方法： repeat()返回一个新的字符串，并将原字符串重复N次</span><br><span class="line">7. 实例方法：padStart() padEnd()：接受两个参数，第一个参数是字符串补全的位数，第二个填的是要补全的字符串</span><br></pre></td></tr></table></figure>
+<p>padStart() 用于补全头部<br>padEnd()  用于补全尾部<br>        console.log(‘hzf’.padStart(5,’nb’)) //hzfnb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">8. 实例方法：trimStart() , trimEnd();</span><br><span class="line">分别用于消除字符串最前面的空格以及最后面的空格</span><br><span class="line">9. 实例方法：matchAll()</span><br><span class="line">方法返回一个正则表达式在当前字符串的所有匹配</span><br><span class="line"></span><br><span class="line">### 正则表达式的扩展</span><br><span class="line">#### 字符串的正则方法</span><br><span class="line">1. match()</span><br><span class="line">2. replace()</span><br><span class="line">3. search()</span><br><span class="line">4. split()</span><br><span class="line">5. u修饰符:含义为unicode模式，用来处理四个字节的UTF-16编码</span><br><span class="line">6. 点字符</span><br><span class="line">7. i修饰符</span><br><span class="line">8. y修饰符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 函数的扩展</span><br><span class="line">函数的默认值</span><br></pre></td></tr></table></figure></p>
+<p>function Persion(name ,age = 100){<br>            console.log(name,age)<br>        }<br>Persion(‘hs’); // hs 100<br>Persion(‘hs’,12); // hs 12</p>
+<p>默认值与解构赋值的使用<br>  function f1( {x = 0, y = 0} ={}){<br>           console.log(x,y)<br>        }</p>
+<pre><code>function f2({x,y} = {x:0,y:0}){
+    console.log(x,y)
+}
+
+f1()
+f2()
+f1({x:1,y:2})
+f2({x:1,y:2})
+f1({x:1})
+f2({x:1})
+
+//0 0
+//0 0
+</code></pre><p> //1 2<br>//1 2<br>//1 0<br>//1 undefined   最后一个解构赋值之后表示为 {x:1} 所以y = underfined</p>
+<p>参数作用域已经注意事项<br>在函数体内用let定义的变量，不能提前当做参数（放在括号内）<br>es6在参数默认值方面是使用let来定义的<br>REST<br>var arr = [1,2,3,4,5];<br>        fn.call(null,…arr) //…相当于把括号去掉<br>        fn.apply(null,arr) //apply 要用数组的形式引入</p>
+<pre><code>// (5) [1, 2, 3, 4, 5]
+// (5) [1, 2, 3, 4, 5]
+
+function fn(...args){
+    console.log(args)
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">### 箭头函数</span><br><span class="line">&gt; 注意事项：箭头函数里面没有this这个对象，它只会依次找到父级，也没有arguments</span><br></pre></td></tr></table></figure>
+<p>var f =            ()   =&gt;   num<br>var f = function  参数      return 参数</p>
+<p>//箭头函数的嵌套<br> function fn(str){<br>         return function(){<br>                return str.splite(<code></code>)<br>         }<br>     }</p>
+<pre><code>var fn = str =&gt; () =&gt;str.splite(``)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组的扩展</span><br><span class="line">### 数组的合并</span><br></pre></td></tr></table></figure>
+<p>var arr = [‘dy1’]<br>        var arr1 = [‘1,2,3,4,5’]<br>        var arr2 = [‘false’,NaN]<br>        var newArr = […arr,…arr1,…arr2]<br>        console.log(newArr)//[“dy1”, “1,2,3,4,5”, “false”, NaN]</p>
+<pre><code>var arr3 = [...&apos;hzf&apos;]
+console.log(arr3);//[&quot;h&quot;, &quot;z&quot;, &quot;f&quot;]
+</code></pre><p>Array.from()<br>把类数组和可遍历的对象转换成数组<br>Array.of()<br> 数组实例的方法copyWithin()<br>   var arr = [1,2,3,4,5]<br>    // Array.prototype.copyWithin(target ,start = 0,end = this.length))<br>       console.log (arr.copyWithin(0,3))<br>       // 0 3 还有一位end没写出来，0代表从第0位开始，3代表start=3, 第三位是4 end 没写表示到一直最后，<br>       //表示从4,5替换掉从0开始的两位 因此结果 = 4,5,3,4,5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组实例方法</span><br><span class="line">#### fill() , entries()，keys()   values()</span><br><span class="line">1. entries() 是对键值对的遍历</span><br><span class="line">2. values() 是对键值的遍历</span><br><span class="line">3. key() 是对键名的遍历</span><br></pre></td></tr></table></figure></p>
+<p> var arr = [1,2,3,4,5]<br>        var a = arr.keys()<br>        console.log(a) //Array Iterator {}</p>
+<pre><code>var arr1 = new Array(5);
+arr1.fill(7,3,4)
+console.log(arr1)  //(5) [empty x 3 ,7 empty x 3] 
+//fill的用法是添加某个数，用法跟copywithin()差不多，
+//添加7这个数字，在第3跟第4个数之间插入数字7
+
+var arr2 = [&apos;2&apos;,2,3,4,5]
+var a = arr2.keys()
+
+for([item, index] of arr.entries())
+{   
+    console.log(item ,index)
+}
+//entries 可以用于遍历数组，列出是第几位的并且把值打印出来
+//  0 &quot;2&quot;
+//  1  2
+//  2  3
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组的实例方法 </span><br><span class="line">#### includes() find() findIndex()</span><br><span class="line">1. includes() ——返回一个布尔值，表示某个数组是否包含给定的值。如果包含则返回true，否则返回false</span><br><span class="line">2. find() ——找到第一个符合条件的数组成员</span><br><span class="line">3. findIndex() 返回第一个负荷而条件的数组成员的位置</span><br></pre></td></tr></table></figure>
+<p>var arr = [20 , 4, -5, 10]<br>        var str = [arr.find((n) =&gt; n &lt;19)]<br>        console.log(str)    //[4]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 对象的扩展</span><br></pre></td></tr></table></figure></p>
+<p>属性的简洁表示法<br> var foo = ‘123’<br> var bar = {foo}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 属性的可枚举性以及属性的遍历</span><br><span class="line">1. 对象的每个属性都有一个遍历对象（Descriptor）用来控制该属性的行为</span><br></pre></td></tr></table></figure></p>
+<p>var obj = {age :123,name:’dv’}</p>
+<p>console.log(Object.getOwnPropertyDescriptor(Object.prototype,’toString’))<br>//enumerable: false 说明不可枚举<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; 但是有4种操作会忽略enumerable 为flase的属性</span><br><span class="line">&gt; 1. for... in 循环：遍历对象自身的和继承的可枚举属性</span><br><span class="line">&gt; 2. object.keys()  返回对象自身的所有可枚举的属性的键名</span><br><span class="line">&gt; 3. JSON.stringify() 只串行话独享自身的可枚举属性</span><br><span class="line">&gt; 4. object.assign() （ES6新增）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 对象的新增方法</span><br><span class="line">1. Object.is()</span><br><span class="line"></span><br><span class="line">ES5判断两个值知否相等只有 == 和 ===。它们的缺点在于， == 回自动转换数据类型， === 会使得Nan不等于自身，-0 不等于 +0</span><br></pre></td></tr></table></figure></p>
+<p>object.is()<br>       console.log (Object.is(-0,+0))      //false<br>       console.log (Object.is(NaN,NaN))    //true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Class类</span><br><span class="line"></span><br><span class="line">&gt; class 一定要先定义再使用</span><br></pre></td></tr></table></figure>
+<pre><code>class Person{
+    constructor( name=&apos;zf&apos;,age = 18){
+        this.name = name
+        this.age = age
+    } //这里不能写  &apos;,&apos; 写了就报错 
+    show(){
+        console.log(this.age,this.name)
+    }
+}
+
+var per = new Person()
+// per.name 表示实例属性
+</code></pre><p>立即执行class<br>var p = new class{ //这个类只能使用一次<br>        }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### this指向</span><br><span class="line"> =&gt; 指向父级作用域，跟ES5里面的this指向有些不同</span><br><span class="line">### 静态方法</span><br><span class="line">### 静态属性	</span><br><span class="line">### 继承</span><br><span class="line">&gt; 与es5的不同之处</span><br><span class="line">&gt;1. 子类 __proto__表示构造函数的继承</span><br><span class="line">&gt;2. 子类 __proto__.prototype 表示方法的继承</span><br><span class="line">&gt;3. 注意：__proto__并不属实语言本身的特征，目前很多浏览器的JS引擎都提供了这个私有属性，但依旧不建议在生产中使用该属性，避免对环境产生依赖。生产环境中，推荐使用Object.getPrototypeof()来获取实例对象的原型，再为原型添加属性</span><br></pre></td></tr></table></figure></p>
+<p>class A{<br>            constructor(){<br>                this.name = ‘zf’<br>            }<br>            print(){<br>                console.log(this.name)//console.log(‘father A’)<br>            }<br>        }<br>        class B extends A{<br>            constructor(){<br>                super() //为啥要调用super？<br>                //子类要调用super方法，才能使用this，给父级绑定才有this<br>                this.name = ‘aasda’<br>            }<br>            print(){<br>                super.print() //b.print() -&gt; father A<br>            }<br>        }</p>
+<pre><code>var b = new B()
+// b.name = &apos;aasda&apos;
+// b.print() aasda 
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">### Promise对象</span><br><span class="line">#### Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）</span><br><span class="line">1. 基本用法</span><br><span class="line">2. 三种状态</span><br><span class="line">    1. pending 就绪状态</span><br><span class="line">    2. resolved 成功状态</span><br><span class="line">    3. rejected 失败状态</span><br></pre></td></tr></table></figure>
+<p>实例方法<br>Promise.all Promise.race</p>
+<p><code>`</code></p>
 
           
         
