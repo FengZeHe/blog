@@ -289,6 +289,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/08/12/ES6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/08/12/ES6/" class="post-title-link" itemprop="url">ES6</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 21:39:22" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h6 id="ES6语法的一个特性："><a href="#ES6语法的一个特性：" class="headerlink" title="ES6语法的一个特性："></a>ES6语法的一个特性：</h6><p>块级作用域：<br>{</p>
+<p>}</p>
+<h5 id="LET命令："><a href="#LET命令：" class="headerlink" title="LET命令："></a>LET命令：</h5><h6 id="1-LET声明的变量具有块级作用域的概念"><a href="#1-LET声明的变量具有块级作用域的概念" class="headerlink" title="1. LET声明的变量具有块级作用域的概念"></a>1. LET声明的变量具有块级作用域的概念</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)//Uncaught ReferenceError: Cannot access &apos;a&apos; before initialization</span><br><span class="line">    let a = 42;</span><br><span class="line">    var b = 1212;</span><br><span class="line">    console.log(typeof a)  //number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  //underfind</span><br></pre></td></tr></table></figure>
+<h6 id="2-不存在变量提升。在Let声明之前使用就会报错"><a href="#2-不存在变量提升。在Let声明之前使用就会报错" class="headerlink" title="2. 不存在变量提升。在Let声明之前使用就会报错"></a>2. 不存在变量提升。在Let声明之前使用就会报错</h6><h6 id="3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"><a href="#3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响" class="headerlink" title="3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"></a>3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</h6><h6 id="4-不允许重复声明"><a href="#4-不允许重复声明" class="headerlink" title="4. 不允许重复声明"></a>4. 不允许重复声明</h6><blockquote>
+<p>注意：因为let的不存在变量提升和暂时性死区，因此在let之前使用该变量会报错，在此变量作用域外使用会无效。</p>
+</blockquote>
+<h5 id="const命令："><a href="#const命令：" class="headerlink" title="const命令："></a>const命令：</h5><h6 id="1-const声明一个只读常量，一旦声明，常量的值就不能更改"><a href="#1-const声明一个只读常量，一旦声明，常量的值就不能更改" class="headerlink" title="1. const声明一个只读常量，一旦声明，常量的值就不能更改"></a>1. const声明一个只读常量，一旦声明，常量的值就不能更改</h6><h6 id="2-const变量只声明不赋值就会报错"><a href="#2-const变量只声明不赋值就会报错" class="headerlink" title="2. const变量只声明不赋值就会报错"></a>2. const变量只声明不赋值就会报错</h6><h6 id="3-只在作用域内生效以及不允许重复声明"><a href="#3-只在作用域内生效以及不允许重复声明" class="headerlink" title="3. 只在作用域内生效以及不允许重复声明"></a>3. 只在作用域内生效以及不允许重复声明</h6><h6 id="4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"><a href="#4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。" class="headerlink" title="4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"></a>4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。</h6><pre><code> const foo = {};
+     foo.prop = 123;//添加一个属性，没有问题
+     console.log(foo.prop)
+     foo= 123;//就会报错
+
+
+// 浏览器的 ES6 环境
+function f() { console.log(&apos;I am outside!&apos;); }
+
+(function () {
+  if (false) {
+    // 重复声明一次函数f
+    function f() { console.log(&apos;I am inside!&apos;); }
+  }
+  f();
+}());
+//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/12/CSS3-note/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2637,195 +2802,6 @@ DocumentFragment
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/04/26/HTMLnote/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰">
-      <meta itemprop="description" content="怕，你就输一辈子">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/04/26/HTMLnote/" class="post-title-link" itemprop="url">HTML 学习笔记</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-04-26 12:32:34 / Geändert am: 15:07:26" itemprop="dateCreated datePublished" datetime="2019-04-26T12:32:34+08:00">2019-04-26</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!-- ## HTML 学习笔记 -->
-<ul>
-<li><p>HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。</p>
-</li>
-<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt; 表示根标签</span><br><span class="line">&lt;head&gt;&lt;body&gt;是结构化标签，&lt;head&gt;是给浏览器看的，&lt;body&gt;是给用户看的。</span><br><span class="line">&lt;titile&gt;表示页面标题 &lt;h&gt;表示标题 &lt;strong&gt;加粗 &lt;em&gt;表示斜体	 &lt;del&gt;表示中划线 &lt;address&gt;表示地址 </span><br><span class="line">容器：&lt;div&gt; &lt;span&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>高级标签：在编辑器里的空格只代表文本分隔符。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&amp;nbsp;代表一个空格</span><br><span class="line">&lt;ol&gt;&lt;ul&gt;常用作网页导航栏</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li>ol表示有序列表，在标签内写type=“A”就是以字母表排序，“1”就是以数字排序，start=”2”就是以数字2开始排序</li>
-<li>ul表示无序列表</li>
-<li>通常通过list-style:none 取消掉圆点样式.</li>
-</ol>
-<p>相对路径：当html文和jpg文件在同一文件夹时，此时为相对路径。</p>
-<p>图片占位置和提示符的区别</p>
-<ol>
-<li>alt=”当图片展示不出来的时候，会用文字展示出来，这就是图片占位符”</li>
-<li>title=”图片提示符，当光标移动过去的时候会提示效果”</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">""</span>&gt; hyper Text reference--超文本引用</span><br></pre></td></tr></table></figure>
-<ul>
-<li>href 与src 之间的区别：</li>
-</ul>
-<ol>
-<li>href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。</li>
-<li>src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。</li>
-</ol>
-<hr>
-<p><a>标签的几个作用：①超链接  ，②锚点， ③打电话 ④协议限定符（可运行js代码）target=“blank”就是在新的空白页中打开。 </a></p>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;标签 能够把前端的数据完全发送给后端</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span>&gt; &lt;input <span class="built_in">type</span>=<span class="string">"password"</span>&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>mothod 表示发送的方法</li>
-<li>action  用来填发送给谁的地址</li>
-</ul>
-<p>单选框＆复选框</p>
-<ol>
-<li>当要做一个单选框的时候，input 里面的type=”radio”，请name相同，则只能单选一个</li>
-<li>当需要进行多选的时候，input 里面的type=“checkbox”，则能多选。</li>
-<li>在某些表单中，可以默认选中某些选项来提高用户体验，则可以使用check=”checked” 表示默认已经选中</li>
-</ol>
-<p>创建下拉框</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=<span class="string">"phone"</span>&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;iphone&lt;/option&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;vivo&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2872,7 +2848,7 @@ DocumentFragment
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>

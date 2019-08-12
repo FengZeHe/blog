@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上1&amp;lt;script&amp;gt;   引入">
-<meta name="keywords" content="跨域,jsonp">
+  <meta name="description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
+<meta name="keywords" content="前端技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jonp跨域">
-<meta property="og:url" content="http://yoursite.com/2019/05/08/jonp/index.html">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/ES6/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上1&amp;lt;script&amp;gt;   引入">
+<meta property="og:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-08T03:21:57.557Z">
+<meta property="og:updated_time" content="2019-08-12T13:39:22.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jonp跨域">
-<meta name="twitter:description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制 解决跨域问题的几种方法:  Flash (很少了) 服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。 Jsonp    jsonp跨域的原理   web页面上1&amp;lt;script&amp;gt;   引入">
+<meta name="twitter:title" content="ES6">
+<meta name="twitter:description" content="ES6学习笔记ES6语法的一个特性：块级作用域：{ } LET命令：1. LET声明的变量具有块级作用域的概念12345678&amp;#123;    console.log(typeof a)//Uncaught ReferenceError: Cannot access &amp;apos;a&amp;apos; before initialization    let a = 42;    var b = 121">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/08/jonp/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/12/ES6/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>jonp跨域 | 欢迎来到何泽丰的博客</title>
+  <title>ES6 | 欢迎来到何泽丰的博客</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/08/jonp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/08/12/ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何泽丰">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jonp跨域
+          <h1 class="post-title" itemprop="name headline">ES6
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Erstellt: 2019-05-08 11:18:14 / Geändert am: 11:21:57" itemprop="dateCreated datePublished" datetime="2019-05-08T11:18:14+08:00">2019-05-08</time>
+              <time title="Erstellt: 2019-08-12 21:10:57 / Geändert am: 21:39:22" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -372,40 +372,30 @@
       
 
       
-        <h5 id="jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制"><a href="#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制" class="headerlink" title="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制"></a>jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制</h5><blockquote>
-<p>解决跨域问题的几种方法:</p>
-<ol>
-<li>Flash (很少了)</li>
-<li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li>
-<li>Jsonp</li>
-</ol>
+        <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h6 id="ES6语法的一个特性："><a href="#ES6语法的一个特性：" class="headerlink" title="ES6语法的一个特性："></a>ES6语法的一个特性：</h6><p>块级作用域：<br>{</p>
+<p>}</p>
+<h5 id="LET命令："><a href="#LET命令：" class="headerlink" title="LET命令："></a>LET命令：</h5><h6 id="1-LET声明的变量具有块级作用域的概念"><a href="#1-LET声明的变量具有块级作用域的概念" class="headerlink" title="1. LET声明的变量具有块级作用域的概念"></a>1. LET声明的变量具有块级作用域的概念</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)//Uncaught ReferenceError: Cannot access &apos;a&apos; before initialization</span><br><span class="line">    let a = 42;</span><br><span class="line">    var b = 1212;</span><br><span class="line">    console.log(typeof a)  //number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  //underfind</span><br></pre></td></tr></table></figure>
+<h6 id="2-不存在变量提升。在Let声明之前使用就会报错"><a href="#2-不存在变量提升。在Let声明之前使用就会报错" class="headerlink" title="2. 不存在变量提升。在Let声明之前使用就会报错"></a>2. 不存在变量提升。在Let声明之前使用就会报错</h6><h6 id="3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"><a href="#3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响" class="headerlink" title="3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"></a>3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</h6><h6 id="4-不允许重复声明"><a href="#4-不允许重复声明" class="headerlink" title="4. 不允许重复声明"></a>4. 不允许重复声明</h6><blockquote>
+<p>注意：因为let的不存在变量提升和暂时性死区，因此在let之前使用该变量会报错，在此变量作用域外使用会无效。</p>
 </blockquote>
-<blockquote>
-<p>jsonp跨域的原理</p>
-</blockquote>
-<ol>
-<li>web页面上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</p>
-<ol start="2">
-<li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li>
-<li>因为我们无法监控<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>的src属性是否把数据获取完成，所以我们需要做一个处理。</p>
-<ol start="4">
-<li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li>
-<li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li>
-</ol>
-<blockquote>
-<p>doucument.domain （针对基础域名相同的情况）  //基础域名必须相同</p>
-<ul>
-<li>bj.58.com  document.domain  = ‘58.com’</li>
-<li>tj.58.com   document.domain = ‘58.com’</li>
-</ul>
-</blockquote>
+<h5 id="const命令："><a href="#const命令：" class="headerlink" title="const命令："></a>const命令：</h5><h6 id="1-const声明一个只读常量，一旦声明，常量的值就不能更改"><a href="#1-const声明一个只读常量，一旦声明，常量的值就不能更改" class="headerlink" title="1. const声明一个只读常量，一旦声明，常量的值就不能更改"></a>1. const声明一个只读常量，一旦声明，常量的值就不能更改</h6><h6 id="2-const变量只声明不赋值就会报错"><a href="#2-const变量只声明不赋值就会报错" class="headerlink" title="2. const变量只声明不赋值就会报错"></a>2. const变量只声明不赋值就会报错</h6><h6 id="3-只在作用域内生效以及不允许重复声明"><a href="#3-只在作用域内生效以及不允许重复声明" class="headerlink" title="3. 只在作用域内生效以及不允许重复声明"></a>3. 只在作用域内生效以及不允许重复声明</h6><h6 id="4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"><a href="#4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。" class="headerlink" title="4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"></a>4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。</h6><pre><code> const foo = {};
+     foo.prop = 123;//添加一个属性，没有问题
+     console.log(foo.prop)
+     foo= 123;//就会报错
 
+
+// 浏览器的 ES6 环境
+function f() { console.log(&apos;I am outside!&apos;); }
+
+(function () {
+  if (false) {
+    // 重复声明一次函数f
+    function f() { console.log(&apos;I am inside!&apos;); }
+  }
+  f();
+}());
+//上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定
+</code></pre>
       
     </div>
 
@@ -428,9 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/跨域/" rel="tag"># 跨域</a>
-          
-            <a href="/blog/tags/jsonp/" rel="tag"># jsonp</a>
+            <a href="/blog/tags/前端技术/" rel="tag"># 前端技术</a>
           
         </div>
       
@@ -443,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/05/07/Ajax-note/" rel="next" title="Ajax_note">
-                <i class="fa fa-chevron-left"></i> Ajax_note
+              <a href="/blog/2019/05/12/CSS3-note/" rel="next" title="CSS3学习笔记">
+                <i class="fa fa-chevron-left"></i> CSS3学习笔记
               </a>
             
           </div>
@@ -452,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2019/05/08/brower-note/" rel="prev" title="浏览器渲染原理">
-                浏览器渲染原理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -603,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制"><span class="nav-number">1.</span> <span class="nav-text">jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6学习笔记"><span class="nav-number">1.</span> <span class="nav-text">ES6学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ES6语法的一个特性："><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">ES6语法的一个特性：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LET命令："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">LET命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-LET声明的变量具有块级作用域的概念"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">1. LET声明的变量具有块级作用域的概念</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-不存在变量提升。在Let声明之前使用就会报错"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">2. 不存在变量提升。在Let声明之前使用就会报错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">3. 暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-不允许重复声明"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">4. 不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const命令："><span class="nav-number">1.0.0.2.</span> <span class="nav-text">const命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-const声明一个只读常量，一旦声明，常量的值就不能更改"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">1. const声明一个只读常量，一旦声明，常量的值就不能更改</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-const变量只声明不赋值就会报错"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">2. const变量只声明不赋值就会报错</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-只在作用域内生效以及不允许重复声明"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">3. 只在作用域内生效以及不允许重复声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。"><span class="nav-number">1.0.0.2.4.</span> <span class="nav-text">4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动。</span></a></li></ol></li></ol></div>
             
 
           </div>
