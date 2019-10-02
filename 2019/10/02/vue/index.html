@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="vue学习笔记">
+  <meta name="description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式">
 <meta name="keywords" content="前端技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/10/02/vue/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="vue学习笔记">
+<meta property="og:description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-02T07:05:58.000Z">
+<meta property="og:updated_time" content="2019-10-02T08:01:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue学习笔记">
-<meta name="twitter:description" content="vue学习笔记">
+<meta name="twitter:description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式">
 
 
 
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Erstellt: 2019-10-02 09:03:25 / Geändert am: 15:05:58" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Erstellt: 2019-10-02 09:03:25 / Geändert am: 16:01:54" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
@@ -372,7 +372,25 @@
       
 
       
-        <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2>
+        <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+</code></pre><h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
+<li>渐进式：vue的侵入性很少，可以与很多其他前端技术联用</li>
+<li>组件化</li>
+<li>响应式：数据响应式，vue会监控数据变化。当数据变化时</li>
+</ol>
+<h3 id="vue的核心功能："><a href="#vue的核心功能：" class="headerlink" title="vue的核心功能："></a>vue的核心功能：</h3><h4 id="关于创建vue工程"><a href="#关于创建vue工程" class="headerlink" title="关于创建vue工程"></a>关于创建vue工程</h4><ol>
+<li>直接在页面上引用vue.js</li>
+<li>使用构建工具vue-cli脚手架</li>
+</ol>
+<h4 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h4><h4 id="vue实例：通过new-vue（配置对象）得到的对象"><a href="#vue实例：通过new-vue（配置对象）得到的对象" class="headerlink" title="vue实例：通过new vue（配置对象）得到的对象"></a>vue实例：通过new vue（配置对象）得到的对象</h4><ol>
+<li>当创建vue实例的时候，vue将会把data（为了实现响应式）methods配置（为了在模板中方便使用）等配置成员提升到vue实例中.</li>
+<li>由于有提升的存在，为了防止命名冲突，vue会将自身的成员名称前加上$ 或 _ , 为了防止命名冲突，vue会将自身的成员加上$(可以使用),_符号就不用用了</li>
+</ol>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ol>
+<li>插值：在模板的元素内部使用</li>
+<li>指令：通常作为元素的属性存在，名称上以v- 开头<br>v-for:用于循环生成元素<br>v-on :用于注册事件。 语法糖@<br>v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用<br>v-show:元素已经显示,display:none<br>v-bind:用于绑定属性, 语法糖:<br>v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件</li>
+</ol>
+
       
     </div>
 
@@ -564,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue学习笔记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的特点："><span class="nav-number">1.2.</span> <span class="nav-text">vue的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的核心功能："><span class="nav-number">1.3.</span> <span class="nav-text">vue的核心功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于创建vue工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">关于创建vue工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例"><span class="nav-number">1.3.2.</span> <span class="nav-text">vue实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例：通过new-vue（配置对象）得到的对象"><span class="nav-number">1.3.3.</span> <span class="nav-text">vue实例：通过new vue（配置对象）得到的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.4.</span> <span class="nav-text">模板</span></a></li></ol></li></ol></div>
             
 
           </div>
