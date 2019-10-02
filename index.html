@@ -334,7 +334,7 @@
                 
               
 
-              <time title="Erstellt: 2019-10-02 09:03:25 / Geändert am: 16:01:54" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Erstellt: 2019-10-02 09:03:25 / Geändert am: 16:32:18" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
@@ -389,9 +389,19 @@
 <li>当创建vue实例的时候，vue将会把data（为了实现响应式）methods配置（为了在模板中方便使用）等配置成员提升到vue实例中.</li>
 <li>由于有提升的存在，为了防止命名冲突，vue会将自身的成员名称前加上$ 或 _ , 为了防止命名冲突，vue会将自身的成员加上$(可以使用),_符号就不用用了</li>
 </ol>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ol>
-<li>插值：在模板的元素内部使用</li>
-<li>指令：通常作为元素的属性存在，名称上以v- 开头<br>v-for:用于循环生成元素<br>v-on :用于注册事件。 语法糖@<br>v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用<br>v-show:元素已经显示,display:none<br>v-bind:用于绑定属性, 语法糖:<br>v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件</li>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h4 id="插值：在模板的元素内部使用"><a href="#插值：在模板的元素内部使用" class="headerlink" title="插值：在模板的元素内部使用"></a>插值：在模板的元素内部使用</h4><h4 id="指令：通常作为元素的属性存在，名称上以v-开头"><a href="#指令：通常作为元素的属性存在，名称上以v-开头" class="headerlink" title="指令：通常作为元素的属性存在，名称上以v- 开头"></a>指令：通常作为元素的属性存在，名称上以v- 开头</h4><p>v-for:用于循环生成元素<br>v-on :用于注册事件。 语法糖@<br>v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用<br>v-show:元素已经显示,display:none<br>v-bind:用于绑定属性, 语法糖:<br>v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件</p>
+<h4 id="模板中的配置"><a href="#模板中的配置" class="headerlink" title="模板中的配置"></a>模板中的配置</h4><ol>
+<li>页面中直接书写</li>
+<li>在template配置中书写（常见）</li>
+<li>在render中手动配置用函数创建，render函数的参数是一个创建虚拟DOM对象，为什么要创建虚拟DOM,因为真实DOM操作特别慢</li>
+</ol>
+<h3 id="配置对象"><a href="#配置对象" class="headerlink" title="配置对象"></a>配置对象</h3><ol>
+<li>template:字符串，配置模板</li>
+<li>el:配置控制的元素，css选择器</li>
+<li>data: 管理的数据，该数据是响应式的</li>
+<li>mothods:配置方法，方法中的this指向vue实例，不能会用箭头函数,会干扰vue绑定this<h3 id="挂在的配置"><a href="#挂在的配置" class="headerlink" title="挂在的配置"></a>挂在的配置</h3></li>
+<li>通过el进行配置</li>
+<li>使用vue实例中的$mount函数进行配置</li>
 </ol>
 
           
