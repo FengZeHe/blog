@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
 <meta property="og:description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-02T08:32:18.000Z">
+<meta property="og:updated_time" content="2019-10-17T02:16:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue学习笔记">
 <meta name="twitter:description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式">
@@ -333,12 +333,24 @@
                 
               
 
-              <time title="Erstellt: 2019-10-02 09:03:25 / Geändert am: 16:32:18" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Erstellt: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
               
             
           </span>
@@ -399,6 +411,75 @@
 <li>mothods:配置方法，方法中的this指向vue实例，不能会用箭头函数,会干扰vue绑定this<h3 id="挂在的配置"><a href="#挂在的配置" class="headerlink" title="挂在的配置"></a>挂在的配置</h3></li>
 <li>通过el进行配置</li>
 <li>使用vue实例中的$mount函数进行配置</li>
+</ol>
+<h3 id="关于computed-–计算属性"><a href="#关于computed-–计算属性" class="headerlink" title="关于computed –计算属性"></a>关于computed –计算属性</h3><ol>
+<li>计算属性，其中的配置会提升到vue实例中，因为在模板中可以直接当做属性使用，使用时，实际上调用的是对应的方法。通常，计算属性用户通过data或其他计算属性得到的数据。</li>
+<li>与方法的区别：vue会检查计算属性的依赖，当依赖没有发生变化时，vue会直接使用之前缓存的结果，而不会重新计算</li>
+<li>能用计算属性尽量使用，因为效率很高。依赖不变时不会重新加载。（计算属性的读取函数不可以有参数，有参数没意义）</li>
+<li>计算属性可以配置get和set. 分别用于读取时和设置时。 get读取属性的时候可以监听到，然后检查那张表函数有没有变化。</li>
+</ol>
+<h3 id="关于v-html指令："><a href="#关于v-html指令：" class="headerlink" title="关于v-html指令："></a>关于v-html指令：</h3><ol>
+<li>vue为了安全，会将元素内部的插值进行实体编码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-html = &quot;html&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        html:&lt;p&gt;带标签的元素&lt;/p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//这样就可以把html标签渲染出来了</span><br></pre></td></tr></table></figure>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件是页面中可复用的功能单元</p>
+<h4 id="VUE中的组建"><a href="#VUE中的组建" class="headerlink" title="VUE中的组建"></a>VUE中的组建</h4><ol>
+<li>组件的创建：组件对于开发者，是一个普通的配置对象</li>
+<li>组件的注册：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//全局注册组件</span><br><span class="line">Vue.component(&quot;组件形成&quot;,pager)</span><br><span class="line"></span><br><span class="line">//局部注册组件 在使用的组件和vue实例配置中进行注册</span><br><span class="line">const config = &#123;</span><br><span class="line">    template:`&lt;div&gt;</span><br><span class="line">        &lt;MyPager&gt;&lt;/MyPager&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        MyPager :pager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="组件名称的规范，以下命名的方式任选其一："><a href="#组件名称的规范，以下命名的方式任选其一：" class="headerlink" title="组件名称的规范，以下命名的方式任选其一："></a>组件名称的规范，以下命名的方式任选其一：</h4><ol>
+<li>使用短横线命名</li>
+<li>使用大驼峰命名<h4 id="组件的使用：把组件当成标签使用即可，标签名任选其一"><a href="#组件的使用：把组件当成标签使用即可，标签名任选其一" class="headerlink" title="组件的使用：把组件当成标签使用即可，标签名任选其一"></a>组件的使用：把组件当成标签使用即可，标签名任选其一</h4></li>
+<li>短横线命名</li>
+<li>大驼峰命名</li>
+</ol>
+<p>组件可以嵌套，因为会形成一个组件树，组件树的根叫做根组件</p>
+<h3 id="组件中的数据通信："><a href="#组件中的数据通信：" class="headerlink" title="组件中的数据通信："></a>组件中的数据通信：</h3><ol>
+<li>prevent修饰符用于v-on指令，表示阻止默认行为</li>
+<li>stop修饰符用于v-on指令，表示阻止事件冒泡</li>
+</ol>
+<h4 id="组件的状态和属性："><a href="#组件的状态和属性：" class="headerlink" title="组件的状态和属性："></a>组件的状态和属性：</h4><ol>
+<li>通常讲组件中需要自身管理的数据（组件配置中的data）叫做组件状态（component state），组件状态只能在组件内部使用，外部原则上不可以使用.</li>
+<li>data(state 状态)在组件中的配置和在vue实例中配置的区别：<br>在组件中data必须是一个函数，而VUE实例中心必须是一个对象。因为组件是可以被复用的，每一个组件都是独立的，所以data必须是一个函数.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//在组件中</span><br><span class="line">export default&#123;</span><br><span class="line">    template,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            //返回的结果是组件的状态</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件中可以有属性（component-props），而vue实例中没有"><a href="#组件中可以有属性（component-props），而vue实例中没有" class="headerlink" title="组件中可以有属性（component props），而vue实例中没有"></a>组件中可以有属性（component props），而vue实例中没有</h4><ol>
+<li>声明组件属性时，使用短横线或小驼峰命名法</li>
+<li>传递组件属性时，使用短横线或小驼峰命名法</li>
+<li>属性会被提升到vue组件实例中</li>
+</ol>
+<p>==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==  </p>
+<h3 id="自定义事件："><a href="#自定义事件：" class="headerlink" title="自定义事件："></a>自定义事件：</h3><ol>
+<li>在组件中触发事件： this.$emit(“事件名”,事件参数…)</li>
+<li>当一个组件状态发生变化时，该组件会重新渲染，在渲染的过程中，可能会导致其子组件的属性发生变化，而属性的变化会导致组件重新渲染。但根本原因，是状态的变化.</li>
+<li>v-model 的本质是一个语法糖，实际上是绑定value属性，同时监听input事件</li>
+</ol>
+<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><ol>
+<li>beforeCreate(){}  –&gt;这个是自动执行的</li>
+<li>created()  –&gt;组件实例中已经提升到实例总，但是没有渲染页面</li>
+<li>beforeMount   –&gt; 组件即将进行渲染，但还没有渲染，此时已经编译好模板</li>
+<li>mounted【常用】  –&gt;组件已经完成渲染（页面可见）</li>
+<li>beforeUpdate –&gt;组件即将更新，还没有更新，此时得到的数据是新的，但页面依旧是旧的</li>
+<li>updated –&gt; 数据，界面都是新的</li>
+<li>beforeDestory –&gt; 当组件即将被销毁  调用vm.$destroy()函数</li>
+<li>destoryed  –&gt; 解除绑定，销毁子组件以及事件监听器</li>
+</ol>
+<h3 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h3><p>vue路由，可以简单理解为，当访问某个地址时，渲染某个组件</p>
+<p>使用路由</p>
+<ol>
+<li>根据一个配置对象创建路由，得到路由对象</li>
+<li>在创建vue实例时，将路由对象配置到实例配置的router中</li>
+<li>在合适的位置写上router-view组件，表示路由匹配到组件渲染的位置，它实际上是vue-router做好的一个组件，并且做好了全局注册</li>
+</ol>
+<p>路由配置对象</p>
+<ol>
+<li>routes:路由规则配置</li>
+<li>mode:配置模式<ol>
+<li>hash模式，兼容性最好，地址出现#号后，切换地址不会导致页面刷新</li>
+<li>history模式，使用的是HTML5 history API，地址直接变化，并且页面不刷新</li>
+</ol>
+</li>
 </ol>
 
       
@@ -592,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的特点："><span class="nav-number">1.2.</span> <span class="nav-text">vue的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的核心功能："><span class="nav-number">1.3.</span> <span class="nav-text">vue的核心功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于创建vue工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">关于创建vue工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例"><span class="nav-number">1.3.2.</span> <span class="nav-text">vue实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例：通过new-vue（配置对象）得到的对象"><span class="nav-number">1.3.3.</span> <span class="nav-text">vue实例：通过new vue（配置对象）得到的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.4.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插值：在模板的元素内部使用"><span class="nav-number">1.4.1.</span> <span class="nav-text">插值：在模板的元素内部使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令：通常作为元素的属性存在，名称上以v-开头"><span class="nav-number">1.4.2.</span> <span class="nav-text">指令：通常作为元素的属性存在，名称上以v- 开头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板中的配置"><span class="nav-number">1.4.3.</span> <span class="nav-text">模板中的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置对象"><span class="nav-number">1.5.</span> <span class="nav-text">配置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂在的配置"><span class="nav-number">1.6.</span> <span class="nav-text">挂在的配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的特点："><span class="nav-number">1.2.</span> <span class="nav-text">vue的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的核心功能："><span class="nav-number">1.3.</span> <span class="nav-text">vue的核心功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于创建vue工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">关于创建vue工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例"><span class="nav-number">1.3.2.</span> <span class="nav-text">vue实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例：通过new-vue（配置对象）得到的对象"><span class="nav-number">1.3.3.</span> <span class="nav-text">vue实例：通过new vue（配置对象）得到的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.4.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插值：在模板的元素内部使用"><span class="nav-number">1.4.1.</span> <span class="nav-text">插值：在模板的元素内部使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令：通常作为元素的属性存在，名称上以v-开头"><span class="nav-number">1.4.2.</span> <span class="nav-text">指令：通常作为元素的属性存在，名称上以v- 开头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板中的配置"><span class="nav-number">1.4.3.</span> <span class="nav-text">模板中的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置对象"><span class="nav-number">1.5.</span> <span class="nav-text">配置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂在的配置"><span class="nav-number">1.6.</span> <span class="nav-text">挂在的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于computed-–计算属性"><span class="nav-number">1.7.</span> <span class="nav-text">关于computed –计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于v-html指令："><span class="nav-number">1.8.</span> <span class="nav-text">关于v-html指令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-number">1.9.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VUE中的组建"><span class="nav-number">1.9.1.</span> <span class="nav-text">VUE中的组建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件名称的规范，以下命名的方式任选其一："><span class="nav-number">1.9.2.</span> <span class="nav-text">组件名称的规范，以下命名的方式任选其一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的使用：把组件当成标签使用即可，标签名任选其一"><span class="nav-number">1.9.3.</span> <span class="nav-text">组件的使用：把组件当成标签使用即可，标签名任选其一</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件中的数据通信："><span class="nav-number">1.10.</span> <span class="nav-text">组件中的数据通信：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的状态和属性："><span class="nav-number">1.10.1.</span> <span class="nav-text">组件的状态和属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件中可以有属性（component-props），而vue实例中没有"><span class="nav-number">1.10.2.</span> <span class="nav-text">组件中可以有属性（component props），而vue实例中没有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义事件："><span class="nav-number">1.11.</span> <span class="nav-text">自定义事件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">1.12.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue路由"><span class="nav-number">1.13.</span> <span class="nav-text">vue路由</span></a></li></ol></li></ol></div>
             
 
           </div>
