@@ -289,6 +289,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/12/14/spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/12/14/spring/" class="post-title-link" itemprop="url">2019-09-03 实习笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-12-14 20:40:13 / Geändert am: 20:45:02" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Spring学习笔记"><a href="#Spring学习笔记" class="headerlink" title="Spring学习笔记"></a>Spring学习笔记</h4><h4 id="框架的概念："><a href="#框架的概念：" class="headerlink" title="框架的概念："></a>框架的概念：</h4><ol>
+<li>高度抽取可重用代码的设计</li>
+<li>高度的通用性</li>
+</ol>
+<h4 id="Spring的特点"><a href="#Spring的特点" class="headerlink" title="Spring的特点:"></a>Spring的特点:</h4><p>优良特性：</p>
+<ol>
+<li>非侵入式</li>
+<li>依赖注入</li>
+<li>面向切面编程</li>
+<li>容器</li>
+<li>组件化</li>
+<li>一站式</li>
+</ol>
+<blockquote>
+<p>Core Container（IOC）核心容器包含Bean Core Context expression 这几个容器</p>
+</blockquote>
+<h4 id="Web：Sping开发Web应用"><a href="#Web：Sping开发Web应用" class="headerlink" title="Web：Sping开发Web应用"></a>Web：Sping开发Web应用</h4><ol>
+<li>WebSocket</li>
+<li>Servlet</li>
+<li>web protlet<blockquote>
+<p>(建议用哪个模块就导哪个包)</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="IOC："><a href="#IOC：" class="headerlink" title="IOC："></a>IOC：</h4><blockquote>
+<p>控制反转;被动式的资源获取方式：资源的获取不是自己创建，而是交给容器创建和设置</p>
+</blockquote>
+<h4 id="DI：（Injevtion-依赖注入）"><a href="#DI：（Injevtion-依赖注入）" class="headerlink" title="DI：（Injevtion  依赖注入）"></a>DI：（Injevtion  依赖注入）</h4><ol>
+<li>容器能知道哪个组件（类运行的时候时候需要另外一个类）</li>
+<li>只要使用管理的组件，都能使用组件提供的强大功能。现在所有的对象交给容器创建，容器中的组件注册。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id = &quot;person03&quot; class=&quot;com.bean.Person&quot;&gt;</span><br><span class="line">		&lt;constructor-arg name=&quot;lastName&quot; value=&quot;小明&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name=&quot;email&quot; value=&quot;skjdhfkjsdfhkd@126.com&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name=&quot;gender&quot; value=&quot;男&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name=&quot;age&quot; value=&quot;18&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line"> //有参构造器 &lt;constructor-arg&gt;就代表一个属性</span><br><span class="line"> </span><br><span class="line"> &lt;bean id=&quot;person01&quot; class=&quot;com.bean.Person&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;lastName&quot; value=&quot;he&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;age&quot; value =&quot;18&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;email&quot; value=&quot;hzf@666.com&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;gender&quot; value=&quot;man&quot;&gt;&lt;/property&gt;	</span><br><span class="line">  &lt;/bean&gt;</span><br><span class="line">  //通过无参构造器</span><br><span class="line">  //如果省略name参数 就要严格按照构造器参数的位置</span><br><span class="line">  //在重载的情况下 type可以指定参数的类型</span><br><span class="line">  </span><br><span class="line">  //名称空间：在xml中名称空间是用来防止标签重复的</span><br><span class="line">  &lt;book&gt;</span><br><span class="line">      &lt;b:name&gt;西游记&lt;/name&gt;</span><br><span class="line">      &lt;author&gt;</span><br><span class="line">         &lt;a:name&gt;吴承恩&lt;/name&gt; </span><br><span class="line">      &lt;/author&gt;</span><br><span class="line">  &lt;/book&gt;</span><br><span class="line">  通过标签的前缀，就可以知道name是指哪个name</span><br><span class="line">  </span><br><span class="line">  xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  &lt;property name=&quot;lastName&quot;&gt;</span><br><span class="line">      &lt;/null&gt; //进行复杂的赋值，在property标签里面</span><br><span class="line">   &lt;/property&gt;</span><br><span class="line">  </span><br><span class="line">  //如果把多个属性赋值给一个对象呢</span><br><span class="line">  </span><br><span class="line">  &lt;bean  id =&quot;car01&quot; class=&quot;com.bean.Car&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;carName&quot; value=&quot;宝马&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;color&quot; value=&quot;pink&quot;&gt;&lt;/property&gt;</span><br><span class="line">		&lt;property name=&quot;price&quot; value=&quot;30000&quot;&gt;&lt;/property&gt;</span><br><span class="line">		</span><br><span class="line">  &lt;/bean&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;property name=&quot;car&quot; ref=&quot;car01&quot;&gt;&lt;/property&gt;</span><br><span class="line">  //在person01的容器中加入这段代码就ok</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  //在bean里面写property写是引用外部bean， 在property里面写bean是引用内部bean</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/10/02/vue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2731,184 +2905,6 @@ DocumentFragment
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/07/douban/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰">
-      <meta itemprop="description" content="怕，你就输一辈子">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/07/douban/" class="post-title-link" itemprop="url">douban</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-07 09:03:25" itemprop="dateCreated datePublished" datetime="2019-05-07T09:03:25+08:00">2019-05-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-05-08 10:37:08" itemprop="dateModified" datetime="2019-05-08T10:37:08+08:00">2019-05-08</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="使用豆瓣api做联想搜索"><a href="#使用豆瓣api做联想搜索" class="headerlink" title="使用豆瓣api做联想搜索"></a>使用豆瓣api做联想搜索</h2><h6 id="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"><a href="#项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。" class="headerlink" title="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"></a>项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。</h6><hr>
-<ol>
-<li>首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。<img src="/blog/2019/05/07/douban/1.png" title="写好的样式，在搜索框内填入信息进行联想搜索">
-<blockquote>
-<p>HTML代码</p>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;src/css/index.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;nav&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;nav-left&quot;&gt;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li&gt;豆瓣&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;读书&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;电影&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;音乐&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;同城&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;小组&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;阅读&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;FM&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;时间&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;豆品&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;更多&lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;nav-right&quot;&gt;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li&gt;下载客户端&lt;/li&gt;</span><br><span class="line">                    &lt;li&gt;注册/登录&lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;main-music&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;main-wrapper&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;main-logo&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;main-search&quot;&gt;</span><br><span class="line">                        &lt;form action=&quot;&quot;&gt;</span><br><span class="line">                            &lt;input type=&quot;text&quot; placeholder=&quot;唱片名，表演者&quot;  class=&quot;search&quot; &gt;</span><br><span class="line">                            &lt;input type=&quot;submit&quot; class=&quot;submit&quot;&gt;</span><br><span class="line">                        &lt;/form&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;main-list&quot;&gt;</span><br><span class="line">                        &lt;ul&gt;</span><br><span class="line">                            </span><br><span class="line">                        &lt;/ul&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=&quot;../jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;src/js/index.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>CSS样式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html body&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 28px;</span><br><span class="line">    min-width: 950px;</span><br><span class="line">    background: #5d5d5d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav li&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    color: #d5d5d5;</span><br><span class="line">    line-height: 28px;</span><br><span class="line">    margin-left: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-left&#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    left: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-right&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-music&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border-bottom: 1px solid black;</span><br><span class="line">    background-color: #f0f3ef;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    left: 100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper .main-logo&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    top: 15px;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height:80px;</span><br><span class="line">    background-image: url(&quot;../bg.png&quot;);</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper .main-search&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    color: #5d5d5d;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-search .search&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-radius: 20px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    left: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-search .submit&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 50px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-radius: 20px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    left: 30px;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-list ul&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 500px;</span><br><span class="line">    left: 225px;</span><br><span class="line">    top: 75px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-list li&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 150px;</span><br><span class="line">    font-size: 18px;</span><br><span class="line">    font-family: &quot;黑体&quot;;</span><br><span class="line">    background: #b1cbe0;</span><br><span class="line">    border: 1px solid #d5d5d5;</span><br><span class="line">    opacity: 0.7;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.main-list img&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<ol start="2">
-<li>上网查找豆瓣开发者API V2, 以前这里有文档写着后台接口，现在没有需要自己摸索（查资料）才能知道豆瓣的后台接口使啥。摸索完接口之后，我们这里用音乐接口作为例子，使用JQuery和封装Ajax,进行后台数据的接受。</li>
-</ol>
-<blockquote>
-<p>javascript代码</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    (function()&#123;</span><br><span class="line">    var $search = $(&apos;.search&apos;);</span><br><span class="line">    var $ul = $(&apos;ul&apos;,&apos;.main-list&apos;);</span><br><span class="line">    $search.on(&apos;input&apos;,function()&#123;</span><br><span class="line">        var value = $(this).val();</span><br><span class="line">        console.log(value);</span><br><span class="line">        getData(value ,7);</span><br><span class="line">    &#125;)</span><br><span class="line">    function getData(value, num)&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&apos;get&apos;,             //获取方式为get</span><br><span class="line">            url :&apos;https://api.douban.com/v2/music/search&apos;,  //豆瓣音乐后台地址</span><br><span class="line">            data: &apos;q=&apos; + value +&apos;&amp;count=&apos; + num,    //获取的数据</span><br><span class="line">            dataType :&apos;jsonp&apos;,      //获取方式为jsonp</span><br><span class="line">            success : addItem       //获取成功之后的函数addItem</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    function addItem(data)&#123;</span><br><span class="line">        var list = data.musics;</span><br><span class="line">        var str = &apos;&apos;;</span><br><span class="line">        list.forEach(function(ele ,index)&#123;</span><br><span class="line">            str += &apos;&lt;li&gt;&quot;&apos;+ele.title+&apos;&quot;&lt;a href=&quot;https://music.douban.com/subject/&apos;+ele.id+&apos;/&quot;&gt;&lt;img src=&quot;&apos;+ele.image+&apos;&quot; &gt;&lt;/a&gt;&lt;/li&gt;&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">        $ul.html($(str));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在数据获取成功之后我们通过foEach循环把获取回来的数据通过JQuery的html()方法插入到指定的文本当中,点击图片会跳转到歌曲页面。<br><img src="/blog/2019/05/07/douban/2.png" title="根据歌曲id，跳转到歌手页面"></p>
-</blockquote>
-<h2 id="豆瓣后台的项目大致就是这样啦。"><a href="#豆瓣后台的项目大致就是这样啦。" class="headerlink" title="豆瓣后台的项目大致就是这样啦。"></a>豆瓣后台的项目大致就是这样啦。</h2>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2955,7 +2951,7 @@ DocumentFragment
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
@@ -2996,7 +2992,9 @@ DocumentFragment
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
