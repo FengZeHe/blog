@@ -192,7 +192,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -220,7 +220,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
 
   </li>
         
@@ -237,7 +237,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
 
@@ -273,6 +273,181 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/08/jonp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2019/05/08/jonp/" class="post-title-link" itemprop="url">jonp跨域</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-08 11:18:14 / Modified: 11:21:58" itemprop="dateCreated datePublished" datetime="2019-05-08T11:18:14+08:00">2019-05-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制"><a href="#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制" class="headerlink" title="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制"></a>jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制</h5><blockquote>
+<p>解决跨域问题的几种方法:</p>
+<ol>
+<li>Flash (很少了)</li>
+<li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li>
+<li>Jsonp</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>jsonp跨域的原理</p>
+</blockquote>
+<ol>
+<li>web页面上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</p>
+<ol start="2">
+<li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li>
+<li>因为我们无法监控<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>的src属性是否把数据获取完成，所以我们需要做一个处理。</p>
+<ol start="4">
+<li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li>
+<li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li>
+</ol>
+<blockquote>
+<p>doucument.domain （针对基础域名相同的情况）  //基础域名必须相同</p>
+<ul>
+<li>bj.58.com  document.domain  = ‘58.com’</li>
+<li>tj.58.com   document.domain = ‘58.com’</li>
+</ul>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -327,14 +502,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-05-07 23:13:13" itemprop="dateCreated datePublished" datetime="2019-05-07T23:13:13+08:00">2019-05-07</time>
+              <time title="Created: 2019-05-07 23:13:13" itemprop="dateCreated datePublished" datetime="2019-05-07T23:13:13+08:00">2019-05-07</time>
             
 
             
@@ -349,9 +524,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Geändert am: 2019-05-12 10:15:12" itemprop="dateModified" datetime="2019-05-12T10:15:12+08:00">2019-05-12</time>
+                <time title="Modified: 2019-05-12 10:15:12" itemprop="dateModified" datetime="2019-05-12T10:15:12+08:00">2019-05-12</time>
               
             
           </span>
@@ -510,14 +685,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-05-07 09:03:25" itemprop="dateCreated datePublished" datetime="2019-05-07T09:03:25+08:00">2019-05-07</time>
+              <time title="Created: 2019-05-07 09:03:25" itemprop="dateCreated datePublished" datetime="2019-05-07T09:03:25+08:00">2019-05-07</time>
             
 
             
@@ -532,9 +707,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Geändert am: 2019-05-08 10:37:08" itemprop="dateModified" datetime="2019-05-08T10:37:08+08:00">2019-05-08</time>
+                <time title="Modified: 2019-05-08 10:37:08" itemprop="dateModified" datetime="2019-05-08T10:37:08+08:00">2019-05-08</time>
               
             
           </span>
@@ -688,14 +863,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-04-27 10:36:18 / Geändert am: 14:56:04" itemprop="dateCreated datePublished" datetime="2019-04-27T10:36:18+08:00">2019-04-27</time>
+              <time title="Created: 2019-04-27 10:36:18 / Modified: 14:56:04" itemprop="dateCreated datePublished" datetime="2019-04-27T10:36:18+08:00">2019-04-27</time>
             
 
             
@@ -912,14 +1087,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-04-26 15:13:39 / Geändert am: 15:52:06" itemprop="dateCreated datePublished" datetime="2019-04-26T15:13:39+08:00">2019-04-26</time>
+              <time title="Created: 2019-04-26 15:13:39 / Modified: 15:52:06" itemprop="dateCreated datePublished" datetime="2019-04-26T15:13:39+08:00">2019-04-26</time>
             
 
             
@@ -1127,14 +1302,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-04-26 12:32:34 / Geändert am: 15:07:28" itemprop="dateCreated datePublished" datetime="2019-04-26T12:32:34+08:00">2019-04-26</time>
+              <time title="Created: 2019-04-26 12:32:34 / Modified: 15:07:28" itemprop="dateCreated datePublished" datetime="2019-04-26T12:32:34+08:00">2019-04-26</time>
             
 
             
@@ -1316,14 +1491,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-04-25 21:04:39" itemprop="dateCreated datePublished" datetime="2019-04-25T21:04:39+08:00">2019-04-25</time>
+              <time title="Created: 2019-04-25 21:04:39" itemprop="dateCreated datePublished" datetime="2019-04-25T21:04:39+08:00">2019-04-25</time>
             
 
             
@@ -1338,9 +1513,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Geändert am: 2019-04-26 13:03:06" itemprop="dateModified" datetime="2019-04-26T13:03:06+08:00">2019-04-26</time>
+                <time title="Modified: 2019-04-26 13:03:06" itemprop="dateModified" datetime="2019-04-26T13:03:06+08:00">2019-04-26</time>
               
             
           </span>
@@ -1422,7 +1597,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/blog/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1464,8 +1639,8 @@
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1508,7 +1683,7 @@
                       
                     
                     <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">schlagwörter</span>
+                    <span class="site-state-item-name">tags</span>
                   
                 </div>
               
@@ -1561,7 +1736,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1569,7 +1744,7 @@
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
