@@ -526,7 +526,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-05-12 10:15:12" itemprop="dateModified" datetime="2019-05-12T10:15:12+08:00">2019-05-12</time>
+                <time title="Geändert am: 2019-12-19 13:56:00" itemprop="dateModified" datetime="2019-12-19T13:56:00+08:00">2019-12-19</time>
               
             
           </span>
@@ -591,6 +591,9 @@
 <li>status == 200 403 503   </li>
 <li>200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。</li>
 </ul>
+<h5 id="Ajax支持的数据类型："><a href="#Ajax支持的数据类型：" class="headerlink" title="Ajax支持的数据类型："></a>Ajax支持的数据类型：</h5><blockquote>
+<p>dataType选项除了单纯的xml,还可以指定html,json,jsonp,script 或者 text</p>
+</blockquote>
 
           
         
@@ -1094,12 +1097,24 @@
                 
               
 
-              <time title="Erstellt: 2019-04-26 15:13:39 / Geändert am: 15:52:06" itemprop="dateCreated datePublished" datetime="2019-04-26T15:13:39+08:00">2019-04-26</time>
+              <time title="Erstellt: 2019-04-26 15:13:39" itemprop="dateCreated datePublished" datetime="2019-04-26T15:13:39+08:00">2019-04-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-12-19 13:55:15" itemprop="dateModified" datetime="2019-12-19T13:55:15+08:00">2019-12-19</time>
               
             
           </span>
@@ -1141,7 +1156,16 @@
 </li>
 <li><p>页面级CSS，在head里面引入一个style标签，在里面写css代码。</p>
 </li>
-<li>引用外部css文件,即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&gt;</span><br></pre></td></tr></table></figure>
+<li><p>引用外部css文件,即</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>link和!import引入的区别</p>
+<ol>
+<li>Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务;@import属于CSS范畴，只能加载CSS</li>
+<li>link引用CSS时，在页面载入是同时加载; @import需要页面网页完全载入后再加载</li>
+<li>link是XHTML标签，无兼容问题; @import是CSS2.1提出的 ，低版本浏览器不支持</li>
+<li>link使用Javascript控制DOM改变样式，而@import不支持</li>
+</ol>
 </li>
 </ol>
 <ul>

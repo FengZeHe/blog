@@ -106,7 +106,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/blog/2019/05/11/javascript-note/map.png">
 <meta property="og:image" content="http://yoursite.com/blog/2019/05/11/javascript-note/深克隆.png">
-<meta property="og:updated_time" content="2019-05-12T03:12:02.000Z">
+<meta property="og:updated_time" content="2019-12-19T05:57:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript学习笔记">
 <meta name="twitter:description" content="JavaScript笔记 Web 发展史： Mosaic：是全世界第一款可以显示图片的浏览器 Netscape Navigator -&amp;gt;2003 firefox 浏览器 IE6 -&amp;gt;IE6浏览器 2008 -&amp;gt; Chrome 浏览器    关于浏览器的内核部分：   渲染引擎（语法规则和渲染） js引擎 其他模块   JavaScript的语言特点：  解释性语言 –（不需要编译">
@@ -353,7 +353,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2019-05-12 11:12:02" itemprop="dateModified" datetime="2019-05-12T11:12:02+08:00">2019-05-12</time>
+                <time title="Geändert am: 2019-12-19 13:57:43" itemprop="dateModified" datetime="2019-12-19T13:57:43+08:00">2019-12-19</time>
               
             
           </span>
@@ -733,7 +733,8 @@
 <li>arguments不再追踪参数的变化<br>禁止使用arguments.callee</li>
 </ol>
 <h5 id="DOM-（Document-Obect-Model）"><a href="#DOM-（Document-Obect-Model）" class="headerlink" title="DOM （Document Obect Model）"></a>DOM （Document Obect Model）</h5><ul>
-<li>DOM定义了表示和修改文档的方法，DOM对象即为宿主对象。由浏览器厂商定义，用来操作html 和xml 。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&apos;div&apos;)[0];  //后面这个0一定要选中。</span><br></pre></td></tr></table></figure>
+<li>DOM定义了表示和修改文档的方法，DOM对象即为宿主对象。由浏览器厂商定义，用来操作html 和xml 。</li>
+<li>DOM树中总共分成以下4种节点：Element(元素),Text类型(文本节点),Comment类型(注释节点),Document类型（document节点）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&apos;div&apos;)[0];  //后面这个0一定要选中。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h6 id="数组去重方法："><a href="#数组去重方法：" class="headerlink" title="数组去重方法："></a>数组去重方法：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.unique = function() &#123;</span><br><span class="line">			var temp = &#123;&#125;;</span><br><span class="line">			var arr = [];</span><br><span class="line">			var len = this.length;</span><br><span class="line">			for (var i = 0; i &lt; this.length ; i++)&#123;</span><br><span class="line">				if(!temp[this[i]])&#123;</span><br><span class="line">					temp[this[i]] = &apos;abc&apos;;</span><br><span class="line">					arr.push(this[i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
