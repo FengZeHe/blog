@@ -105,7 +105,14 @@
 <meta property="og:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&amp;lt;canvas width = 500 height = 500&amp;gt;&amp;lt;/canvas&amp;gt;获取can">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/cookieAndSess.png">
-<meta property="og:updated_time" content="2019-12-20T07:25:20.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/worker.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/geolocation1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/geolocation2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/readyState.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/networkState.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/error_medio.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/webSocket.png">
+<meta property="og:updated_time" content="2019-12-20T07:56:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5学习笔记">
 <meta name="twitter:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&amp;lt;canvas width = 500 height = 500&amp;gt;&amp;lt;/canvas&amp;gt;获取can">
@@ -195,7 +202,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Cambiar a barra de navegación">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -223,7 +230,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Inicio</a>
 
   </li>
         
@@ -240,7 +247,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archivo</a>
 
   </li>
 
@@ -328,14 +335,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
+              <time title="Creado por: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
             
 
             
@@ -350,9 +357,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Modified: 2019-12-20 15:25:20" itemprop="dateModified" datetime="2019-12-20T15:25:20+08:00">2019-12-20</time>
+                <time title="Modificado por: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
               
             
           </span>
@@ -473,6 +480,129 @@
 </ol>
 <h6 id="设置cookie值"><a href="#设置cookie值" class="headerlink" title="设置cookie值"></a>设置cookie值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = “name=aimee”</span><br><span class="line">//（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line">document.cookie = “name=aimee”</span><br><span class="line">//（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getCookie(name) &#123;</span><br><span class="line">  var name = name + &quot;=&quot;;</span><br><span class="line">  var ca = document.cookie.split(&apos;;&apos;);</span><br><span class="line">  for(var i=0; i&lt;ca.length; i++) &#123;</span><br><span class="line">  var c = ca[i];</span><br><span class="line">  while (c.charAt(0)==&apos; &apos;) c = c.substring(1);</span><br><span class="line">  if (c.indexOf(name) != -1) return c.substring(name.length, c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="cookieAndSess.png" alt></p>
+<h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><ol>
+<li>history.back();</li>
+<li>history.forward();</li>
+<li>history.go(n)</li>
+</ol>
+<h5 id="通过修改hash和hashchange事件来实现历史纪录管理"><a href="#通过修改hash和hashchange事件来实现历史纪录管理" class="headerlink" title="通过修改hash和hashchange事件来实现历史纪录管理"></a>通过修改hash和hashchange事件来实现历史纪录管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//1、pushState</span><br><span class="line">history.pushState(state, title, url); //添加一条历史记录</span><br><span class="line"></span><br><span class="line">//2、replaceState</span><br><span class="line">history.replaceState(state, title, url);// 替换当前的历史记录</span><br></pre></td></tr></table></figure>
+<h4 id="worker-异步操作的api"><a href="#worker-异步操作的api" class="headerlink" title="worker(异步操作的api)"></a>worker(异步操作的api)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var worker = new Worker(&apos;workder.js&apos;)</span><br><span class="line">//https://www.w3school.com.cn/html5/html_5_webworkers.asp</span><br></pre></td></tr></table></figure>
+<p><img src="worker.png" alt></p>
+<h4 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h4><ol>
+<li>getCurrentPosition()     //获取当前的位置信息<ol>
+<li>getCurrentPosition(s,e,p)</li>
+<li>success 回调 必须的</li>
+<li>error  回调</li>
+<li>option 参数</li>
+</ol>
+</li>
+<li>watchPosition()    //监视位置变化, 和1参数一样</li>
+<li>clearWatch()  //清除位置监视</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.geolocation.getCurrentPosition(suc)</span><br></pre></td></tr></table></figure>
+<p><img src="geolocation1.png" alt><br><img src="geolocation2.png" alt></p>
+<h4 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h4><ol>
+<li>用户拒绝code = 1;</li>
+<li>获取不到 code = 2;</li>
+<li>连接超时 code  = 3;</li>
+</ol>
+<h5 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h5><p>enableHighAccuracy 是否需要高精度位置默认false<br>timeout 单位ms 请求超时时间 默认infinity<br>maximumAge 单位ms，位置信息过期时间 设置为0就无条件获取新的地理位置信息 默认0<br><a href="https://dev.w3.org/geo/api/spec-source.html#position_options_interface" target="_blank" rel="noopener">https://dev.w3.org/geo/api/spec-source.html#position_options_interface</a></p>
+<h5 id="watchPosition"><a href="#watchPosition" class="headerlink" title="watchPosition"></a>watchPosition</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var id = geolocation.watchPostion()  //用于注册监听器，在设备的地理位置发生个改变的时候自动被调用</span><br><span class="line">clearWatch(id)  //使用clearWatch 清除监听</span><br></pre></td></tr></table></figure>
+<h5 id="devicemotion事件所包含的属性"><a href="#devicemotion事件所包含的属性" class="headerlink" title="devicemotion事件所包含的属性"></a>devicemotion事件所包含的属性</h5><ol>
+<li>accelerationIncludingGravity （包括重心引力）重力加速度</li>
+<li>acceleration 重力加速度<br>（需要陀螺仪支持）</li>
+<li>rotationRate(alpha, beta, gamma)旋转速率</li>
+<li>interval // 获取的时间间隔<br>均为只读属性</li>
+</ol>
+<h4 id="多媒体："><a href="#多媒体：" class="headerlink" title="多媒体："></a>多媒体：</h4><ol>
+<li>audio 音频</li>
+<li>video 视频<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio src= &quot;./demo.mp3&quot; controls = &gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line">autoplay //自动播放控件</span><br><span class="line">controls //设置控件</span><br><span class="line">preload(none/metadata/auto)预加载</span><br><span class="line">metadata :元数据 诸如时长、比特率、帧大小这样的原数据而不是媒体内容需要加载的</span><br><span class="line">loop： 是否循环播放音频or视频</span><br><span class="line">poster:(video独有)，当视频不可用的时候，使用一张图片替代</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="多类型选择器："><a href="#多类型选择器：" class="headerlink" title="多类型选择器："></a>多类型选择器：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio id=&quot;music&quot;&gt;</span><br><span class="line">        &lt;source src=&quot;成都.mp3&quot; type=&quot;audio/mpeg&quot;&gt; //如果没有第一个，就播放第二个</span><br><span class="line">        &lt;source src=&quot;成都.ogg&quot; type=&apos;audio/ogg&quot;&apos;&gt;</span><br><span class="line">        &lt;/audio&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="脚本化："><a href="#脚本化：" class="headerlink" title="脚本化："></a>脚本化：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var audio = document.getElementById(&apos;audio&apos;);</span><br><span class="line"></span><br><span class="line">var audio = new Audio(&apos;./laojie.mp3&apos;);</span><br><span class="line"></span><br><span class="line">var audio = document.createElement(&apos;video&apos;);</span><br></pre></td></tr></table></figure>
+<h5 id="播放的方法"><a href="#播放的方法" class="headerlink" title="播放的方法"></a>播放的方法</h5><ol>
+<li>play() 方法</li>
+<li>pause() 方法    //用于暂停</li>
+<li>load()方法 用于重新加载视频/音频元素</li>
+</ol>
+<blockquote>
+<p>表示播放音量，介于0(静音)~1(最大音量)之间，默认1。将muted属性设置为true则会进入静音模式，设置为false则会恢复之前指定的音量继续播放。超过范围会报错[0, 1]</p>
+</blockquote>
+<blockquote>
+<p>播放速率playbackRate：用于指定媒体播放的速度。该属性值为1.0表示正常播放，大于1则表示快进，0-1之间表示慢放，负值表示回放。</p>
+</blockquote>
+<h5 id="currentTime-duration-属性"><a href="#currentTime-duration-属性" class="headerlink" title="currentTime/duration 属性"></a>currentTime/duration 属性</h5><ol>
+<li>currentTime设置或返回音频视频的当前位置</li>
+<li>duration 返回当前音频/视频的时常<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">audio.currentTime = 50;</span><br><span class="line">button.addEventLidtener(&apos;clkick&apos;,function()&#123;</span><br><span class="line">    consoloe.log(audio.currentTime)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.onload =  function(&#123;</span><br><span class="line">    console.log(audio.duration);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="played-buffered-seekable"><a href="#played-buffered-seekable" class="headerlink" title="played/buffered/seekable"></a>played/buffered/seekable</h6><blockquote>
+<p>played属性返回已经播放(看过)的时间段，buffered属性返回当前已经缓冲的时间段，seekable属性则返回用户可以跳转的时间段。这三个属性都是TimeRanges对象，每个对象都有一个length属性以及start()和end()方法，length属性表示当前的一个时间段，start()与end()分别返回当前时间段的起始时间点和结束时间点(单位是秒，起始参数是0)</p>
+</blockquote>
+<blockquote>
+<p>paused/seeking/ended<br>这三个属性用来查询媒体播放状态，paused为true表示播放器暂停。seeking为true表示播放器正在调到一个新的播放点，如果播放器播放完媒体并且停下来，则ended属性为true。</p>
+</blockquote>
+<h6 id="canPlayType-方法"><a href="#canPlayType-方法" class="headerlink" title="canPlayType()方法"></a>canPlayType()方法</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = new Audio();</span><br><span class="line">if(a.canPlayType(&quot;audio/mp3&quot;))&#123;</span><br><span class="line">    a.src = &quot;./chengdu.mp3&quot;;</span><br><span class="line">    a.play();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h5><ol>
+<li>play 开始播放触发</li>
+<li>pause 暂停触发</li>
+<li>loadedmetadata 浏览器获取完媒体的元数据触发</li>
+<li>loadedata 浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8</li>
+<li>ended 当前播放结束后触发<blockquote>
+<p>readyState属性音频的当前就绪状态<br><img src="readyState.png" alt><br><img src="networkState.png" alt><br><img src="error_medio.png" alt></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="drap-＆-drop-常用语各种拖动操作中"><a href="#drap-＆-drop-常用语各种拖动操作中" class="headerlink" title="drap  ＆ drop(常用语各种拖动操作中)"></a>drap  ＆ drop(常用语各种拖动操作中)</h4><h5 id="创建可拖动元素"><a href="#创建可拖动元素" class="headerlink" title="创建可拖动元素"></a>创建可拖动元素</h5><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;abc&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;//使用draggable之后就能够拖拽元素了</span><br></pre></td></tr></table></figure>
+</code></pre><h5 id="关于拖拽的相关事件："><a href="#关于拖拽的相关事件：" class="headerlink" title="关于拖拽的相关事件："></a>关于拖拽的相关事件：</h5><ol>
+<li>dragstart 被拖拽元素 开始被拖拽时触发  e.dataTransfer.setData(“data”,e.target.id)</li>
+<li>dragend 被拖拽元素 拖拽完成时</li>
+<li>dragenter 目标元素 拖曳元素进入目标元素</li>
+<li>dragover 目标元素 拖拽元素在目标元素上移动</li>
+<li>drop 目标元素 被拖拽的元素在目标元素上同时鼠标放开触发的事件</li>
+<li>e.dataTransfer.getData(“data”)<br>需要阻止dragover的默认行为才会触发drop事件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">        var item = document.getElementById(&quot;abc&quot;);</span><br><span class="line">        item.addEventListener(&apos;dragstart&apos;,function()&#123;</span><br><span class="line">            console.log(&quot;akshd&quot;)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var itemO = document.getElementById(&quot;wrapper&quot;);</span><br><span class="line">        itemO.addEventListener(&apos;dragenter&apos;,function()&#123;</span><br><span class="line">            console.log(&apos;dragenter&apos;)</span><br><span class="line">        &#125;)</span><br><span class="line">//这个是写在被进入的元素里面</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DragEvent 事件对象</span><br><span class="line">//传值</span><br><span class="line">e.dataTranSfer.setData(&quot;data&quot;,e.target.id)</span><br><span class="line"></span><br><span class="line">//取值</span><br><span class="line"> e.dataTransfer.getData(&quot;data&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="FileReader-读取文件"><a href="#FileReader-读取文件" class="headerlink" title="FileReader 读取文件"></a>FileReader 读取文件</h4><ol>
+<li>abrot() 终止读取</li>
+<li>readAsBinaryString(file) 将文件读取为二进制编码</li>
+<li>readAsDataURL(file)     将文件读取为DataURL编码</li>
+<li>readAsText(file,[encoding]) 将文件读取为文本</li>
+<li>readAsArrayBuffer(file)  将文本读取为arraybuffer 通过不同的方式读取文件</li>
+</ol>
+<h5 id="FileReader-事件"><a href="#FileReader-事件" class="headerlink" title="FileReader 事件"></a>FileReader 事件</h5><ol>
+<li>onloadstart 读取开始时触发</li>
+<li>onprogress 读取中</li>
+<li>onloadend 读取完成，无论成功或失败</li>
+<li>onload  文件读取成功完成时触发</li>
+<li>onabort 中断时触发</li>
+<li>onerror 出错时触发<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获取读取的结果</span><br><span class="line">fr.onload  = function()&#123;</span><br><span class="line">    tihs.result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Web-Socket（是一个新的协议）"><a href="#Web-Socket（是一个新的协议）" class="headerlink" title="Web Socket（是一个新的协议）"></a>Web Socket（是一个新的协议）</h4><blockquote>
+<p>WebSocket 对象提供了一组 API，用于创建和管理 WebSocket 连接,<br>​​​​​​​以及通过连接发送和接收数据.<br>Websocket 其实是一个新协议，跟HTTP协议基本没有关系，只是为了兼容现有浏览器的握手规范而已.借用了HTTP的协议来完成握手</p>
+</blockquote>
+<h5 id="产生背景："><a href="#产生背景：" class="headerlink" title="产生背景："></a>产生背景：</h5><ol>
+<li>在 HTTP/1.0 中,大多实现为每个请求/响应交换使用新的连接</li>
+<li>在 HTTP/1.1 中,一个连接可用于一次或多次请求/响应交换</li>
+<li>HTTP协议中，服务端不能主动联系客户端，只能有客户端发起。</li>
+<li>webSoket服务器和客户端均可主动发送数据</li>
+</ol>
+<h5 id="建立连接的握手："><a href="#建立连接的握手：" class="headerlink" title="建立连接的握手："></a>建立连接的握手：</h5><ol>
+<li>当Web应用程序调用new WebSocket(url)接口时，Browser就开始了与地址为url的WebServer建立握手连接的过程。</li>
+<li>Browser与WebSocket服务器通过TCP握手建立连接，如果这个建立连接失败，那么后面的过程就不会执行，Web应用程序将收到错误消息通知。</li>
+<li>在TCP建立连接成功后，Browser通过http协议传送WebSocket支持的版本号，协议的字版本号，原始地址，主机地址等等一些列字段给服务器端。</li>
+<li>WebSocket服务器收到Browser发送来的请求后，如果数据包数据和格式正确，客户端和服务器端的协议版本号匹配等等，就接受本次握手连接，并给出相应的数据回复，同样回复的数据包也是采用http协议传输。</li>
+<li>Browser收到服务器回复的数据包后，如果数据包内容、格式都没有问题的话，就表示本次连接成功，触发onopen消息，此时Web开发者就可以在此时通过send接口向服务器发送数据。否则，握手连接失败，Web应用程序会收到onerror消息，并且能知道连接失败的原因。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建webSocket</span><br><span class="line">var Socket = new WebSocket(url)</span><br></pre></td></tr></table></figure>
+<h5 id="webSocket方法"><a href="#webSocket方法" class="headerlink" title="webSocket方法"></a>webSocket方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket.send() 方法使用连接传输数据</span><br><span class="line">socket.close()  方法用于终止任何现有连接</span><br></pre></td></tr></table></figure>
+<p><img src="webSocket.png" alt></p>
+<h5 id="webSocket的优点"><a href="#webSocket的优点" class="headerlink" title="webSocket的优点"></a>webSocket的优点</h5><ol>
+<li>客户端与服务器都可以主动传递数据给对方</li>
+<li>不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源</li>
+</ol>
 
       
     </div>
@@ -567,10 +697,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Tabla de contenidos
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Inicio
           </li>
         </ul>
       
@@ -591,7 +721,7 @@
                   <a href="/blog/archives/">
                 
                     <span class="site-state-item-count">17</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">entradas</span>
                   </a>
                 </div>
               
@@ -671,7 +801,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas-画布"><span class="nav-number">1.1.</span> <span class="nav-text">Canvas 画布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas应用场景："><span class="nav-number">1.1.1.</span> <span class="nav-text">Canvas应用场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas-发展史"><span class="nav-number">1.1.2.</span> <span class="nav-text">Canvas 发展史</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用canvas"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加canvas标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">添加canvas标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画线段"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何画线段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="nav-number">1.2.3.</span> <span class="nav-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用Canvas画矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">如何使用Canvas画矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画圆角："><span class="nav-number">1.2.5.</span> <span class="nav-text">如何画圆角：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坐标轴的抓换"><span class="nav-number">1.2.6.</span> <span class="nav-text">坐标轴的抓换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变"><span class="nav-number">1.2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阴影："><span class="nav-number">1.2.8.</span> <span class="nav-text">阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本："><span class="nav-number">1.2.9.</span> <span class="nav-text">文本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线段样式"><span class="nav-number">1.2.10.</span> <span class="nav-text">线段样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制图片："><span class="nav-number">1.2.11.</span> <span class="nav-text">绘制图片：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将canvas内容导出"><span class="nav-number">1.2.12.</span> <span class="nav-text">将canvas内容导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas像素信息"><span class="nav-number">1.2.13.</span> <span class="nav-text">获取canvas像素信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG（Scalable-Vector-Graphics）"><span class="nav-number">1.3.</span> <span class="nav-text">SVG（Scalable Vector Graphics）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVG应用场景"><span class="nav-number">1.3.1.</span> <span class="nav-text">SVG应用场景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用svg画各种各样的图形："><span class="nav-number">1.3.2.</span> <span class="nav-text">使用svg画各种各样的图形：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="nav-number">1.3.3.</span> <span class="nav-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG渐变"><span class="nav-number">1.4.</span> <span class="nav-text">SVG渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5动画api-requestAnimationFrame"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5动画api requestAnimationFrame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端存储"><span class="nav-number">1.6.</span> <span class="nav-text">客户端存储</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用storage存储和读取数据"><span class="nav-number">1.6.1.</span> <span class="nav-text">如何使用storage存储和读取数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage作用域"><span class="nav-number">1.6.2.</span> <span class="nav-text">storage作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage-的API"><span class="nav-number">1.6.3.</span> <span class="nav-text">storage 的API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">1.6.4.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设置cookie值"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">设置cookie值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie-与-storage的对比"><span class="nav-number">1.6.5.</span> <span class="nav-text">cookie 与 storage的对比</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas-画布"><span class="nav-number">1.1.</span> <span class="nav-text">Canvas 画布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas应用场景："><span class="nav-number">1.1.1.</span> <span class="nav-text">Canvas应用场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas-发展史"><span class="nav-number">1.1.2.</span> <span class="nav-text">Canvas 发展史</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用canvas"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加canvas标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">添加canvas标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画线段"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何画线段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="nav-number">1.2.3.</span> <span class="nav-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用Canvas画矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">如何使用Canvas画矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画圆角："><span class="nav-number">1.2.5.</span> <span class="nav-text">如何画圆角：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坐标轴的抓换"><span class="nav-number">1.2.6.</span> <span class="nav-text">坐标轴的抓换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变"><span class="nav-number">1.2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阴影："><span class="nav-number">1.2.8.</span> <span class="nav-text">阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本："><span class="nav-number">1.2.9.</span> <span class="nav-text">文本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线段样式"><span class="nav-number">1.2.10.</span> <span class="nav-text">线段样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制图片："><span class="nav-number">1.2.11.</span> <span class="nav-text">绘制图片：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将canvas内容导出"><span class="nav-number">1.2.12.</span> <span class="nav-text">将canvas内容导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas像素信息"><span class="nav-number">1.2.13.</span> <span class="nav-text">获取canvas像素信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG（Scalable-Vector-Graphics）"><span class="nav-number">1.3.</span> <span class="nav-text">SVG（Scalable Vector Graphics）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVG应用场景"><span class="nav-number">1.3.1.</span> <span class="nav-text">SVG应用场景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用svg画各种各样的图形："><span class="nav-number">1.3.2.</span> <span class="nav-text">使用svg画各种各样的图形：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="nav-number">1.3.3.</span> <span class="nav-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG渐变"><span class="nav-number">1.4.</span> <span class="nav-text">SVG渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5动画api-requestAnimationFrame"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5动画api requestAnimationFrame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端存储"><span class="nav-number">1.6.</span> <span class="nav-text">客户端存储</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用storage存储和读取数据"><span class="nav-number">1.6.1.</span> <span class="nav-text">如何使用storage存储和读取数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage作用域"><span class="nav-number">1.6.2.</span> <span class="nav-text">storage作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage-的API"><span class="nav-number">1.6.3.</span> <span class="nav-text">storage 的API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">1.6.4.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设置cookie值"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">设置cookie值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie-与-storage的对比"><span class="nav-number">1.6.5.</span> <span class="nav-text">cookie 与 storage的对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">1.7.</span> <span class="nav-text">history</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过修改hash和hashchange事件来实现历史纪录管理"><span class="nav-number">1.7.1.</span> <span class="nav-text">通过修改hash和hashchange事件来实现历史纪录管理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#worker-异步操作的api"><span class="nav-number">1.8.</span> <span class="nav-text">worker(异步操作的api)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#geolocation"><span class="nav-number">1.9.</span> <span class="nav-text">geolocation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PositionError对象"><span class="nav-number">1.10.</span> <span class="nav-text">PositionError对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置参数"><span class="nav-number">1.10.1.</span> <span class="nav-text">配置参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#watchPosition"><span class="nav-number">1.10.2.</span> <span class="nav-text">watchPosition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#devicemotion事件所包含的属性"><span class="nav-number">1.10.3.</span> <span class="nav-text">devicemotion事件所包含的属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多媒体："><span class="nav-number">1.11.</span> <span class="nav-text">多媒体：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多类型选择器："><span class="nav-number">1.11.1.</span> <span class="nav-text">多类型选择器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脚本化："><span class="nav-number">1.11.2.</span> <span class="nav-text">脚本化：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#播放的方法"><span class="nav-number">1.11.3.</span> <span class="nav-text">播放的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#currentTime-duration-属性"><span class="nav-number">1.11.4.</span> <span class="nav-text">currentTime/duration 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#played-buffered-seekable"><span class="nav-number">1.11.4.1.</span> <span class="nav-text">played/buffered/seekable</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#canPlayType-方法"><span class="nav-number">1.11.4.2.</span> <span class="nav-text">canPlayType()方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件"><span class="nav-number">1.11.5.</span> <span class="nav-text">事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drap-＆-drop-常用语各种拖动操作中"><span class="nav-number">1.12.</span> <span class="nav-text">drap  ＆ drop(常用语各种拖动操作中)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建可拖动元素"><span class="nav-number">1.12.1.</span> <span class="nav-text">创建可拖动元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于拖拽的相关事件："><span class="nav-number">1.12.2.</span> <span class="nav-text">关于拖拽的相关事件：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileReader-读取文件"><span class="nav-number">1.13.</span> <span class="nav-text">FileReader 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FileReader-事件"><span class="nav-number">1.13.1.</span> <span class="nav-text">FileReader 事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-Socket（是一个新的协议）"><span class="nav-number">1.14.</span> <span class="nav-text">Web Socket（是一个新的协议）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#产生背景："><span class="nav-number">1.14.1.</span> <span class="nav-text">产生背景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#建立连接的握手："><span class="nav-number">1.14.2.</span> <span class="nav-text">建立连接的握手：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webSocket方法"><span class="nav-number">1.14.3.</span> <span class="nav-text">webSocket方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webSocket的优点"><span class="nav-number">1.14.4.</span> <span class="nav-text">webSocket的优点</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -704,7 +834,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Creado mediante <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -712,7 +842,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Tema – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
