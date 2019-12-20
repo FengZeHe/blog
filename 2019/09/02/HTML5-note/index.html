@@ -104,10 +104,12 @@
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
 <meta property="og:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&amp;lt;canvas width = 500 height = 500&amp;gt;&amp;lt;/canvas&amp;gt;获取can">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-17T15:59:22.000Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/cookieAndSess.png">
+<meta property="og:updated_time" content="2019-12-20T07:25:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5学习笔记">
 <meta name="twitter:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&amp;lt;canvas width = 500 height = 500&amp;gt;&amp;lt;/canvas&amp;gt;获取can">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/02/HTML5-note/cookieAndSess.png">
 
 
 
@@ -193,7 +195,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -221,7 +223,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
 
   </li>
         
@@ -238,7 +240,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
 
@@ -326,14 +328,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
+              <time title="Created: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
             
 
             
@@ -348,9 +350,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Geändert am: 2019-12-17 23:59:22" itemprop="dateModified" datetime="2019-12-17T23:59:22+08:00">2019-12-17</time>
+                <time title="Modified: 2019-12-20 15:25:20" itemprop="dateModified" datetime="2019-12-20T15:25:20+08:00">2019-12-20</time>
               
             
           </span>
@@ -403,7 +405,7 @@
 <p>如何擦除当前区域： ctx.clearRect</p>
 </blockquote>
 <h5 id="如何画圆角："><a href="#如何画圆角：" class="headerlink" title="如何画圆角："></a>如何画圆角：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ctx.arcTo(x1,y1,x2,y2,r)</span><br><span class="line">//绘制的弧线与当前点和x1,y1连线，x1,y1和x2,y2连线都相切</span><br><span class="line"></span><br><span class="line">贝塞尔曲线：</span><br><span class="line">quadraticCureveTo(x1 ,x2,ex,ey)  二次贝塞尔曲线 x1,y1控制点，ex,ey结束点</span><br><span class="line">bezierCureveTo(x1,y1,x2,y2,ex,ey)  三次贝塞尔曲线</span><br><span class="line">x1 y1  x2 y2 控制点</span><br><span class="line">ex ey结束点</span><br></pre></td></tr></table></figure>
-<h5 id="坐标轴的抓换"><a href="#坐标轴的抓换" class="headerlink" title="坐标轴的抓换"></a>坐标轴的抓换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tanslate(dx,dy) 重新映射到画板上的（0,0）位置</span><br><span class="line">scale(sx,sy) 缩放当前绘图</span><br><span class="line">rotate(Math.PI)  旋转当前的绘图</span><br><span class="line">save()  restore()  </span><br><span class="line">保存当前图像状态的一份拷贝</span><br><span class="line">从栈中弹出存储的图形状态并恢复</span><br><span class="line">setTransform(a,b,c,d,e,f)</span><br><span class="line">transform(a,b,c,d,e,f)  //在之前的基础上变换</span><br></pre></td></tr></table></figure>
+<h5 id="坐标轴的抓换"><a href="#坐标轴的抓换" class="headerlink" title="坐标轴的抓换"></a>坐标轴的抓换</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tanslate(dx,dy) 重新映射到画板上的（0,0）位置</span><br><span class="line">scale(sx,sy) 缩放当前绘图</span><br><span class="line">rotate(Math.PI)  旋转当前的绘图</span><br><span class="line">save()  restore()</span><br><span class="line">保存当前图像状态的一份拷贝</span><br><span class="line">从栈中弹出存储的图形状态并恢复</span><br><span class="line">setTransform(a,b,c,d,e,f)</span><br><span class="line">transform(a,b,c,d,e,f)  //在之前的基础上变换</span><br></pre></td></tr></table></figure>
 <h5 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h5><p> createLinearGradubt(x1,y1,x2,y2);线性渐变，必须在填充渐变区域里定义渐变，否则没有效果</p>
 <ol>
 <li>createRadialGradient(x1, y1, r1, x2, y2, r2); 径向渐变<br>bg.addColorStop(p.color)</li>
@@ -438,6 +440,39 @@
 <li>线性渐变</li>
 <li>径向渐变</li>
 </ol>
+<h4 id="HTML5动画api-requestAnimationFrame"><a href="#HTML5动画api-requestAnimationFrame" class="headerlink" title="HTML5动画api requestAnimationFrame"></a>HTML5动画api requestAnimationFrame</h4><ol>
+<li>页面刷新钱执行一次</li>
+<li>1000ms 60fps -&gt; 16ms</li>
+<li>cancelAnimationFrame</li>
+<li>用法和setTimeout类似</li>
+<li>兼容性(只在IE10以上的浏览器)用老浏览器就用setTimeout</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">window.requestAnimFrame = (function()&#123;</span><br><span class="line">  return window.requestAnimationFrame ||</span><br><span class="line">  window.webkitRequestAnimationFrame ||</span><br><span class="line">  window.mozRequestAnimationFrame ||</span><br><span class="line">  function( callback )&#123;</span><br><span class="line">  window.setTimeout(callback, 1000 / 60);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">//cancelAnimFrame()</span><br><span class="line">window.cancelAnimFrame = (function()&#123;</span><br><span class="line">  return window.cancelAnimationFrame ||</span><br><span class="line">  window.webkitCancelAnimationFrame ||</span><br><span class="line">  window.mozCancelAnimationFrame ||</span><br><span class="line">  function( id)&#123;</span><br><span class="line">  window.clearTimeout(id);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h4 id="客户端存储"><a href="#客户端存储" class="headerlink" title="客户端存储"></a>客户端存储</h4><ol>
+<li>Storage<ol>
+<li>localstorage (永久的)</li>
+<li>sessionstorage(关闭浏览器就没有了)</li>
+</ol>
+</li>
+<li>cookie（存储容量很小，4K左右）</li>
+</ol>
+<h5 id="如何使用storage存储和读取数据"><a href="#如何使用storage存储和读取数据" class="headerlink" title="如何使用storage存储和读取数据"></a>如何使用storage存储和读取数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localStorage.name = &apos;admin&apos; //存字符串</span><br><span class="line">localStorage.info = JSON.stringify(&#123;name:&apos;admin&apos;，company:&apos;jizhu&apos;&#125;) //存对象</span><br><span class="line"></span><br><span class="line">    var info = JSON.parse(localStorage.obj);//取出数据</span><br><span class="line">       console.log(info);</span><br></pre></td></tr></table></figure>
+<h5 id="storage作用域"><a href="#storage作用域" class="headerlink" title="storage作用域"></a>storage作用域</h5><ol>
+<li>localSotrage -&gt; 文档源限制</li>
+<li>sessionStorage -&gt; 文档源显示 + 窗口</li>
+</ol>
+<h5 id="storage-的API"><a href="#storage-的API" class="headerlink" title="storage 的API"></a>storage 的API</h5><ol>
+<li>setItem(name,val) 设置属性值</li>
+<li>getItem(name) 获得属性值</li>
+<li>removeItem(name) 移除属性</li>
+<li>clear() 清除属性</li>
+</ol>
+<h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><ol>
+<li>存储信息到用户的设备上，数据量比较小</li>
+<li>navigator.cookieEnable  监测是否开启了cookie</li>
+</ol>
+<h6 id="设置cookie值"><a href="#设置cookie值" class="headerlink" title="设置cookie值"></a>设置cookie值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = “name=aimee”</span><br><span class="line">//（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line">document.cookie = “name=aimee”</span><br><span class="line">//（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getCookie(name) &#123;</span><br><span class="line">  var name = name + &quot;=&quot;;</span><br><span class="line">  var ca = document.cookie.split(&apos;;&apos;);</span><br><span class="line">  for(var i=0; i&lt;ca.length; i++) &#123;</span><br><span class="line">  var c = ca[i];</span><br><span class="line">  while (c.charAt(0)==&apos; &apos;) c = c.substring(1);</span><br><span class="line">  if (c.indexOf(name) != -1) return c.substring(name.length, c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="cookieAndSess.png" alt></p>
 
       
     </div>
@@ -532,10 +567,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -556,7 +591,7 @@
                   <a href="/blog/archives/">
                 
                     <span class="site-state-item-count">17</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -599,7 +634,7 @@
                       
                     
                     <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">schlagwörter</span>
+                    <span class="site-state-item-name">tags</span>
                   
                 </div>
               
@@ -636,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas-画布"><span class="nav-number">1.1.</span> <span class="nav-text">Canvas 画布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas应用场景："><span class="nav-number">1.1.1.</span> <span class="nav-text">Canvas应用场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas-发展史"><span class="nav-number">1.1.2.</span> <span class="nav-text">Canvas 发展史</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用canvas"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加canvas标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">添加canvas标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画线段"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何画线段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="nav-number">1.2.3.</span> <span class="nav-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用Canvas画矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">如何使用Canvas画矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画圆角："><span class="nav-number">1.2.5.</span> <span class="nav-text">如何画圆角：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坐标轴的抓换"><span class="nav-number">1.2.6.</span> <span class="nav-text">坐标轴的抓换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变"><span class="nav-number">1.2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阴影："><span class="nav-number">1.2.8.</span> <span class="nav-text">阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本："><span class="nav-number">1.2.9.</span> <span class="nav-text">文本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线段样式"><span class="nav-number">1.2.10.</span> <span class="nav-text">线段样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制图片："><span class="nav-number">1.2.11.</span> <span class="nav-text">绘制图片：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将canvas内容导出"><span class="nav-number">1.2.12.</span> <span class="nav-text">将canvas内容导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas像素信息"><span class="nav-number">1.2.13.</span> <span class="nav-text">获取canvas像素信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG（Scalable-Vector-Graphics）"><span class="nav-number">1.3.</span> <span class="nav-text">SVG（Scalable Vector Graphics）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVG应用场景"><span class="nav-number">1.3.1.</span> <span class="nav-text">SVG应用场景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用svg画各种各样的图形："><span class="nav-number">1.3.2.</span> <span class="nav-text">使用svg画各种各样的图形：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="nav-number">1.3.3.</span> <span class="nav-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG渐变"><span class="nav-number">1.4.</span> <span class="nav-text">SVG渐变</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas-画布"><span class="nav-number">1.1.</span> <span class="nav-text">Canvas 画布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas应用场景："><span class="nav-number">1.1.1.</span> <span class="nav-text">Canvas应用场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas-发展史"><span class="nav-number">1.1.2.</span> <span class="nav-text">Canvas 发展史</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用canvas"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加canvas标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">添加canvas标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画线段"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何画线段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="nav-number">1.2.3.</span> <span class="nav-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用Canvas画矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">如何使用Canvas画矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画圆角："><span class="nav-number">1.2.5.</span> <span class="nav-text">如何画圆角：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坐标轴的抓换"><span class="nav-number">1.2.6.</span> <span class="nav-text">坐标轴的抓换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变"><span class="nav-number">1.2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阴影："><span class="nav-number">1.2.8.</span> <span class="nav-text">阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本："><span class="nav-number">1.2.9.</span> <span class="nav-text">文本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线段样式"><span class="nav-number">1.2.10.</span> <span class="nav-text">线段样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制图片："><span class="nav-number">1.2.11.</span> <span class="nav-text">绘制图片：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将canvas内容导出"><span class="nav-number">1.2.12.</span> <span class="nav-text">将canvas内容导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas像素信息"><span class="nav-number">1.2.13.</span> <span class="nav-text">获取canvas像素信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG（Scalable-Vector-Graphics）"><span class="nav-number">1.3.</span> <span class="nav-text">SVG（Scalable Vector Graphics）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVG应用场景"><span class="nav-number">1.3.1.</span> <span class="nav-text">SVG应用场景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用svg画各种各样的图形："><span class="nav-number">1.3.2.</span> <span class="nav-text">使用svg画各种各样的图形：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="nav-number">1.3.3.</span> <span class="nav-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG渐变"><span class="nav-number">1.4.</span> <span class="nav-text">SVG渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5动画api-requestAnimationFrame"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5动画api requestAnimationFrame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端存储"><span class="nav-number">1.6.</span> <span class="nav-text">客户端存储</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用storage存储和读取数据"><span class="nav-number">1.6.1.</span> <span class="nav-text">如何使用storage存储和读取数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage作用域"><span class="nav-number">1.6.2.</span> <span class="nav-text">storage作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage-的API"><span class="nav-number">1.6.3.</span> <span class="nav-text">storage 的API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">1.6.4.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设置cookie值"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">设置cookie值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie-与-storage的对比"><span class="nav-number">1.6.5.</span> <span class="nav-text">cookie 与 storage的对比</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -669,7 +704,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -677,7 +712,7 @@
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
