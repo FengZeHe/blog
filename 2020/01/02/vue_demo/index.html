@@ -96,16 +96,18 @@
 
 
 
-  <meta name="description" content="怕，你就输一辈子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到何泽丰的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/01/index.html">
+  <meta name="description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
+<meta name="keywords" content="前端技术,VUE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何实现一个简单的VUE">
+<meta property="og:url" content="http://yoursite.com/2020/01/02/vue_demo/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="怕，你就输一辈子">
+<meta property="og:description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-01-05T23:41:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到何泽丰的博客">
-<meta name="twitter:description" content="怕，你就输一辈子">
+<meta name="twitter:title" content="如何实现一个简单的VUE">
+<meta name="twitter:description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/2020/01/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/02/vue_demo/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>Archiv | 欢迎来到何泽丰的博客</title>
+  <title>如何实现一个简单的VUE | 欢迎来到何泽丰的博客</title>
   
 
 
@@ -171,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -226,7 +228,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -247,19 +249,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -285,78 +274,192 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Öhm..! Insgesamt 18 Artikel. Bleib dran.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/01/02/vue_demo/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/blog/2020/01/02/vue_demo/" itemprop="url">
-            
-              <span itemprop="name">如何实现一个简单的VUE</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">如何实现一个简单的VUE
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-02T20:15:40+08:00" content="2020-01-02">
-          01-02
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-06 07:41:43" itemprop="dateModified" datetime="2020-01-06T07:41:43+08:00">2020-01-06</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>手写vue模块划分<br>编译模块<br>虚拟节点模块<br>渲染模块<br>数据响应模块<br>Vue构造函数模块</p>
+<p>编译模块 ：<br>提供一个compile函数，将一个模板文本和环境对象编译成一个结果<br>function compile(template,envObj)</p>
+<p>虚拟DOM:<br>提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树<br>function createVNode(readlDOM)</p>
+<p>渲染模块 ：<br>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br>function render(vNode, envObj)</p>
+<p>数据响应模块<br>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数<br>function createResponsive（originalObj,targetObj ,callback）</p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/前端技术/" rel="tag"># 前端技术</a>
+          
+            <a href="/blog/tags/VUE/" rel="tag"># VUE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2019/12/14/spring/" rel="next" title="Spring学习笔记">
+                <i class="fa fa-chevron-left"></i> Spring学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -592,6 +695,10 @@
 
 
   
+  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
+<script src="/blog/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -607,6 +714,8 @@
 
   
 
+
+  
 
 
   
