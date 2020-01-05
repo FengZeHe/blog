@@ -192,7 +192,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Cambiar a barra de navegación">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -220,7 +220,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Inicio</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -237,7 +237,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archivo</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -273,6 +273,153 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/01/06/vue_demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="何泽丰">
+      <meta itemprop="description" content="怕，你就输一辈子">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到何泽丰的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/blog/2020/01/06/vue_demo/" class="post-title-link" itemprop="url">Unbenannt</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-01-06 07:37:58 / Geändert am: 07:39:06" itemprop="dateCreated datePublished" datetime="2020-01-06T07:37:58+08:00">2020-01-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>手写vue模块划分<br>编译模块<br>虚拟节点模块<br>渲染模块<br>数据响应模块<br>Vue构造函数模块</p>
+<p>编译模块 ：<br>提供一个compile函数，将一个模板文本和环境对象编译成一个结果<br>function compile(template,envObj)</p>
+<p>虚拟DOM:<br>提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树<br>function createVNode(readlDOM)</p>
+<p>渲染模块 ：<br>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br>function render(vNode, envObj)</p>
+<p>数据响应模块<br>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数<br>function createResponsive（originalObj,targetObj ,callback）</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -327,14 +474,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-12-14 20:40:13 / Modificado por: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
+              <time title="Erstellt: 2019-12-14 20:40:13 / Geändert am: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
             
 
             
@@ -558,14 +705,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
+              <time title="Erstellt: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
             
 
             
@@ -580,9 +727,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
+                <time title="Geändert am: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
               
             
           </span>
@@ -712,14 +859,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Erstellt: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
@@ -734,9 +881,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
+                <time title="Geändert am: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
               
             
           </span>
@@ -963,14 +1110,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
+              <time title="Erstellt: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
             
 
             
@@ -985,9 +1132,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
+                <time title="Geändert am: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
               
             
           </span>
@@ -1125,14 +1272,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
+              <time title="Erstellt: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
             
 
             
@@ -1147,9 +1294,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
+                <time title="Geändert am: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
               
             
           </span>
@@ -1489,14 +1636,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+              <time title="Erstellt: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -1511,9 +1658,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
+                <time title="Geändert am: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
               
             
           </span>
@@ -1787,14 +1934,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-05-12 14:47:13 / Modificado por: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
+              <time title="Erstellt: 2019-05-12 14:47:13 / Geändert am: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
             
 
             
@@ -2048,14 +2195,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-05-12 14:20:06 / Modificado por: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
+              <time title="Erstellt: 2019-05-12 14:20:06 / Geändert am: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
             
 
             
@@ -2326,14 +2473,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Publicado el</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Creado por: 2019-05-11 17:22:32" itemprop="dateCreated datePublished" datetime="2019-05-11T17:22:32+08:00">2019-05-11</time>
+              <time title="Erstellt: 2019-05-11 17:22:32" itemprop="dateCreated datePublished" datetime="2019-05-11T17:22:32+08:00">2019-05-11</time>
             
 
             
@@ -2348,9 +2495,9 @@ var per = new Person()
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Editado el</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modificado por: 2019-12-19 13:57:43" itemprop="dateModified" datetime="2019-12-19T13:57:43+08:00">2019-12-19</time>
+                <time title="Geändert am: 2019-12-19 13:57:43" itemprop="dateModified" datetime="2019-12-19T13:57:43+08:00">2019-12-19</time>
               
             
           </span>
@@ -2953,181 +3100,11 @@ DocumentFragment
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/05/08/brower-note/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰">
-      <meta itemprop="description" content="怕，你就输一辈子">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/blog/2019/05/08/brower-note/" class="post-title-link" itemprop="url">浏览器渲染原理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Publicado el</span>
-              
-
-              
-                
-              
-
-              <time title="Creado por: 2019-05-08 12:02:16 / Modificado por: 12:11:30" itemprop="dateCreated datePublished" datetime="2019-05-08T12:02:16+08:00">2019-05-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h4><p> -步骤：</p>
-<ol>
-<li>清楚HTML 生成DOM树</li>
-<li>处理CSS生成 CSSDOM树</li>
-<li>将两树合并成render 树</li>
-<li>将render 树进行布局计算</li>
-<li>将render树中的每一个节点绘制到屏幕上</li>
-</ol>
-<ul>
-<li>重排，重绘</li>
-</ul>
-<ol>
-<li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li>
-<li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li>
-</ol>
-<img src="/blog/2019/05/08/brower-note/1.png" title="如图">
-<blockquote>
-<p>蓝色代表网络通信和HTML 解析</p>
-</blockquote>
-<blockquote>
-<p>黄色代表javascipt执行</p>
-</blockquote>
-<blockquote>
-<p>紫色代表样式计算和布局，即重排</p>
-</blockquote>
-<blockquote>
-<p>绿色代表重绘</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -3169,8 +3146,8 @@ DocumentFragment
                 
                   <a href="/blog/archives/">
                 
-                    <span class="site-state-item-count">17</span>
-                    <span class="site-state-item-name">entradas</span>
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -3213,7 +3190,7 @@ DocumentFragment
                       
                     
                     <span class="site-state-item-count">14</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
               
@@ -3254,7 +3231,7 @@ DocumentFragment
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -3266,7 +3243,7 @@ DocumentFragment
 </div>
 
 
-  <div class="powered-by">Creado mediante <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -3274,7 +3251,7 @@ DocumentFragment
 
 
 
-  <div class="theme-info">Tema – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 

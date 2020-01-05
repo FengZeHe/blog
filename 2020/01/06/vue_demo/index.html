@@ -96,18 +96,17 @@
 
 
 
-  <meta name="description" content="背景： 今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。  思路 利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定 通过遍历和累加，计算得出每个字符出现的次数 通过对比出现的次数，返回出现次数最多的字符  12345678910111213141516171819202122232425262728293031323334353637c">
-<meta name="keywords" content="前端技术">
+  <meta name="description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019-09-03 实习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/2019.09.03/index.html">
+<meta property="og:title" content="欢迎来到何泽丰的博客">
+<meta property="og:url" content="http://yoursite.com/2020/01/06/vue_demo/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="背景： 今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。  思路 利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定 通过遍历和累加，计算得出每个字符出现的次数 通过对比出现的次数，返回出现次数最多的字符  12345678910111213141516171819202122232425262728293031323334353637c">
+<meta property="og:description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-04T14:56:18.000Z">
+<meta property="og:updated_time" content="2020-01-05T23:39:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019-09-03 实习笔记">
-<meta name="twitter:description" content="背景： 今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。  思路 利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定 通过遍历和累加，计算得出每个字符出现的次数 通过对比出现的次数，返回出现次数最多的字符  12345678910111213141516171819202122232425262728293031323334353637c">
+<meta name="twitter:title" content="欢迎来到何泽丰的博客">
+<meta name="twitter:description" content="手写vue模块划分编译模块虚拟节点模块渲染模块数据响应模块Vue构造函数模块 编译模块 ：提供一个compile函数，将一个模板文本和环境对象编译成一个结果function compile(template,envObj) 虚拟DOM:提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树function createVNode(readlDOM) 渲染模块 ：用于提取">
 
 
 
@@ -115,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/09/03/2019.09.03/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/06/vue_demo/">
 
 
 
@@ -125,7 +124,7 @@
   };
 </script>
 
-  <title>2019-09-03 实习笔记 | 欢迎来到何泽丰的博客</title>
+  <title> | 欢迎来到何泽丰的博客</title>
   
 
 
@@ -290,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/09/03/2019.09.03/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2020/01/06/vue_demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="何泽丰">
@@ -307,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2019-09-03 实习笔记
+          <h1 class="post-title" itemprop="name headline">
 
               
             
@@ -333,24 +332,12 @@
                 
               
 
-              <time title="Erstellt: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
+              <time title="Erstellt: 2020-01-06 07:37:58 / Geändert am: 07:39:06" itemprop="dateCreated datePublished" datetime="2020-01-06T07:37:58+08:00">2020-01-06</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
               
             
           </span>
@@ -384,15 +371,12 @@
       
 
       
-        <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
-<p>今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。</p>
-</blockquote>
-<h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><ol>
-<li>利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定</li>
-<li>通过遍历和累加，计算得出每个字符出现的次数</li>
-<li>通过对比出现的次数，返回出现次数最多的字符</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const str = &apos;asddfgdfwwqeweqwezczxcsdfgdgd&apos;;</span><br><span class="line"></span><br><span class="line">   var obj = &#123;&#125;;</span><br><span class="line">   var max = 0;</span><br><span class="line">   var maxStr = &quot;&quot;;</span><br><span class="line">   for(let i = 0; i &lt; str.length ; i++)&#123;</span><br><span class="line">     var word = str.charAt(i);</span><br><span class="line">     if(obj[word] != null)&#123;</span><br><span class="line">       obj[word]++;</span><br><span class="line">     &#125;else&#123;</span><br><span class="line">       obj[word] = 1</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     for(let i in obj)&#123;</span><br><span class="line">       if(obj[i]&gt;max)&#123;</span><br><span class="line">         max = obj[i];</span><br><span class="line">         maxStr = i</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">   &#125;</span><br><span class="line">   console.log(&apos;出现最多次:&apos; + max +&apos;的字符是：&apos;+ maxStr)</span><br><span class="line">   console.log(obj);</span><br><span class="line">   // &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;</span><br><span class="line">   // a: 1</span><br><span class="line">   // c: 2</span><br><span class="line">   // d: 6</span><br><span class="line">   // e: 3</span><br><span class="line">   // f: 3</span><br><span class="line">   // g: 3</span><br><span class="line">   // q: 2</span><br><span class="line">   // s: 2</span><br><span class="line">   // w: 4</span><br><span class="line">   // x: 1</span><br><span class="line">   // z: 2</span><br><span class="line">   // __proto__: Object</span><br></pre></td></tr></table></figure>
+        <p>手写vue模块划分<br>编译模块<br>虚拟节点模块<br>渲染模块<br>数据响应模块<br>Vue构造函数模块</p>
+<p>编译模块 ：<br>提供一个compile函数，将一个模板文本和环境对象编译成一个结果<br>function compile(template,envObj)</p>
+<p>虚拟DOM:<br>提供一个函数createVNode ， 根据提供真实的DOM，构建一个虚拟DOM树<br>function createVNode(readlDOM)</p>
+<p>渲染模块 ：<br>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br>function render(vNode, envObj)</p>
+<p>数据响应模块<br>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数<br>function createResponsive（originalObj,targetObj ,callback）</p>
+
       
     </div>
 
@@ -413,12 +397,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/blog/tags/前端技术/" rel="tag"># 前端技术</a>
-          
-        </div>
-      
 
       
       
@@ -428,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2019/09/02/HTML5-note/" rel="next" title="HTML5学习笔记">
-                <i class="fa fa-chevron-left"></i> HTML5学习笔记
+              <a href="/blog/2019/12/14/spring/" rel="next" title="Spring学习笔记">
+                <i class="fa fa-chevron-left"></i> Spring学习笔记
               </a>
             
           </div>
@@ -437,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2019/10/02/vue/" rel="prev" title="vue学习笔记">
-                vue学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,17 +458,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -579,23 +544,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#思路"><span class="nav-number">1.1.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
