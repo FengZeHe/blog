@@ -192,7 +192,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
+    <button aria-label="Cambiar a barra de navegación">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -220,7 +220,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Inicio</a>
 
   </li>
         
@@ -237,7 +237,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archivo</a>
 
   </li>
 
@@ -327,14 +327,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
+              <time title="Creado por: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
             
 
             
@@ -349,9 +349,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2020-01-06 20:35:32" itemprop="dateModified" datetime="2020-01-06T20:35:32+08:00">2020-01-06</time>
+                <time title="Modificado por: 2020-01-06 23:41:02" itemprop="dateModified" datetime="2020-01-06T23:41:02+08:00">2020-01-06</time>
               
             
           </span>
@@ -399,7 +399,8 @@
 </blockquote>
 <h5 id="思想："><a href="#思想：" class="headerlink" title="思想："></a>思想：</h5><ol>
 <li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
-<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组<h5 id="compile-js-代码"><a href="#compile-js-代码" class="headerlink" title="compile.js 代码"></a>compile.js 代码</h5></li>
+<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组<h5 id="compile-js-代码"><a href="#compile-js-代码" class="headerlink" title="compile.js 代码"></a>compile.js 代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span><br><span class="line">function getFragments(template) &#123;</span><br><span class="line">    var matches = template.match(/&#123;&#123;[^&#125;]+&#125;&#125;/g); //万一有人的用户名叫12&#125;  所以这里要处理一下</span><br><span class="line">    return matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function getValue(fragment, envObj) &#123;</span><br><span class="line">    var exp = fragment.replace(&quot;&#123;&#123;&quot;, &quot;&quot;).replace(&quot;&#125;&#125;&quot;, &quot;&quot;);</span><br><span class="line">    var props = exp.split(&quot;.&quot;);//将表达式分割为属性数组</span><br><span class="line">    var obj = envObj;</span><br><span class="line">    for (var i = 0; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default function compile(template, envObj) &#123;</span><br><span class="line">    // 提取模板中的&#123;&#123;&#125;&#125;</span><br><span class="line">    var flags = getFragments(template);</span><br><span class="line">    var result = template;</span><br><span class="line">    for (var i = 0; i &lt; flags.length; i++) &#123;</span><br><span class="line">        var flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h5 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h5><blockquote>
 <p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树</p>
@@ -508,14 +509,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-12-14 20:40:13 / Geändert am: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
+              <time title="Creado por: 2019-12-14 20:40:13 / Modificado por: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
             
 
             
@@ -739,14 +740,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
+              <time title="Creado por: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
             
 
             
@@ -761,9 +762,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
+                <time title="Modificado por: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
               
             
           </span>
@@ -893,14 +894,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Creado por: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
@@ -915,9 +916,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
+                <time title="Modificado por: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
               
             
           </span>
@@ -1144,14 +1145,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
+              <time title="Creado por: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
             
 
             
@@ -1166,9 +1167,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
+                <time title="Modificado por: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
               
             
           </span>
@@ -1306,14 +1307,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
+              <time title="Creado por: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
             
 
             
@@ -1328,9 +1329,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
+                <time title="Modificado por: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
               
             
           </span>
@@ -1670,14 +1671,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+              <time title="Creado por: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -1692,9 +1693,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
+                <time title="Modificado por: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
               
             
           </span>
@@ -1968,14 +1969,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-05-12 14:47:13 / Geändert am: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
+              <time title="Creado por: 2019-05-12 14:47:13 / Modificado por: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
             
 
             
@@ -2229,14 +2230,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-05-12 14:20:06 / Geändert am: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
+              <time title="Creado por: 2019-05-12 14:20:06 / Modificado por: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
             
 
             
@@ -2507,14 +2508,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Publicado el</span>
               
 
               
                 
               
 
-              <time title="Erstellt: 2019-05-11 17:22:32" itemprop="dateCreated datePublished" datetime="2019-05-11T17:22:32+08:00">2019-05-11</time>
+              <time title="Creado por: 2019-05-11 17:22:32" itemprop="dateCreated datePublished" datetime="2019-05-11T17:22:32+08:00">2019-05-11</time>
             
 
             
@@ -2529,9 +2530,9 @@ var per = new Person()
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Bearbeitet am</span>
+                  <span class="post-meta-item-text">Editado el</span>
                 
-                <time title="Geändert am: 2019-12-19 13:57:43" itemprop="dateModified" datetime="2019-12-19T13:57:43+08:00">2019-12-19</time>
+                <time title="Modificado por: 2019-12-19 13:57:43" itemprop="dateModified" datetime="2019-12-19T13:57:43+08:00">2019-12-19</time>
               
             
           </span>
@@ -3138,7 +3139,7 @@ DocumentFragment
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-angle-right" aria-label="Página siguiente"></i></a>
   </nav>
 
 
@@ -3181,7 +3182,7 @@ DocumentFragment
                   <a href="/blog/archives/">
                 
                     <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">Artikel</span>
+                    <span class="site-state-item-name">entradas</span>
                   </a>
                 </div>
               
@@ -3226,7 +3227,7 @@ DocumentFragment
                       
                     
                     <span class="site-state-item-count">15</span>
-                    <span class="site-state-item-name">schlagwörter</span>
+                    <span class="site-state-item-name">tags</span>
                   
                 </div>
               
@@ -3279,7 +3280,7 @@ DocumentFragment
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Creado mediante <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -3287,7 +3288,7 @@ DocumentFragment
 
 
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Tema – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
