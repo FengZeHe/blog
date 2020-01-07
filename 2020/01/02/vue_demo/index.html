@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
 <meta property="og:description" content="如何实现一个简单的VUE              模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码12345678910">
 <meta property="article:published_time" content="2020-01-02T12:15:40.000Z">
-<meta property="article:modified_time" content="2020-01-07T03:32:50.000Z">
+<meta property="article:modified_time" content="2020-01-07T03:37:07.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta property="article:tag" content="VUE">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2020-01-07 11:32:50" itemprop="dateModified" datetime="2020-01-07T11:32:50+08:00">2020-01-07</time>
+                <time title="Geändert am: 2020-01-07 11:37:07" itemprop="dateModified" datetime="2020-01-07T11:37:07+08:00">2020-01-07</time>
               
             
           </span>
@@ -384,7 +384,7 @@
       
 
       
-        <h3 id="如何实现一个简单的VUE"><a href="#如何实现一个简单的VUE" class="headerlink" title="如何实现一个简单的VUE"></a>如何实现一个简单的VUE</h3>
+        <h2 id="如何实现一个简单的VUE"><a href="#如何实现一个简单的VUE" class="headerlink" title="如何实现一个简单的VUE"></a>如何实现一个简单的VUE</h2>
 
 <div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
@@ -393,14 +393,14 @@
 
 
 
-<h4 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h4><ol>
+<h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
 <li>编译模块</li>
 <li>虚拟节点模块</li>
 <li>渲染模块</li>
 <li>数据响应模块</li>
 <li>VUE构造函数模块</li>
 </ol>
-<h5 id="编译模块-："><a href="#编译模块-：" class="headerlink" title="编译模块 ："></a>编译模块 ：</h5><blockquote>
+<h3 id="编译模块-："><a href="#编译模块-：" class="headerlink" title="编译模块 ："></a>编译模块 ：</h3><blockquote>
 <p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果</p>
 </blockquote>
 <h5 id="思想："><a href="#思想：" class="headerlink" title="思想："></a>思想：</h5><ol>
@@ -410,20 +410,20 @@
 
 </li>
 </ol>
-<h5 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h5><blockquote>
+<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
 <p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function VNode(realDom, template) &#123;</span><br><span class="line">    &#x2F;&#x2F; node 构造函数</span><br><span class="line">    this.realDom &#x3D; realDom;</span><br><span class="line">    this.template &#x3D; template;</span><br><span class="line">    this.children &#x3D; [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default function createVNode(realDom) &#123;</span><br><span class="line">    var root &#x3D; new VNode(realDom, &quot;&quot;);</span><br><span class="line">    if (realDom.nodeType &#x3D;&#x3D;&#x3D; Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template &#x3D; realDom.nodeValue;</span><br><span class="line">        &#x2F;&#x2F; 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span><br><span class="line">        &#x2F;&#x2F; 文本节点代表的数字是3</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        for(var i  &#x3D; 0; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            var childNode &#x3D; realDom.childNodes[i];</span><br><span class="line">            var vNode &#x3D; createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 <h5 id="思想：-1"><a href="#思想：-1" class="headerlink" title="思想："></a>思想：</h5><ol>
 <li>需要创建虚拟DOM 以便以后操作数据</li>
 <li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
 </ol>
-<h5 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function VNode(realDom, template) &#123;</span><br><span class="line">    &#x2F;&#x2F; node 构造函数</span><br><span class="line">    this.realDom &#x3D; realDom;</span><br><span class="line">    this.template &#x3D; template;</span><br><span class="line">    this.children &#x3D; [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default function createVNode(realDom) &#123;</span><br><span class="line">    var root &#x3D; new VNode(realDom, &quot;&quot;);</span><br><span class="line">    if (realDom.nodeType &#x3D;&#x3D;&#x3D; Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template &#x3D; realDom.nodeValue;</span><br><span class="line">        &#x2F;&#x2F; 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span><br><span class="line">        &#x2F;&#x2F; 文本节点代表的数字是3</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        for(var i  &#x3D; 0; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            var childNode &#x3D; realDom.childNodes[i];</span><br><span class="line">            var vNode &#x3D; createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
 <p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作</p>
 </blockquote>
-<h5 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h5><blockquote>
+<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
 <p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)<br>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理</p>
 </blockquote>
 
@@ -624,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何实现一个简单的VUE"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个简单的VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模块划分"><span class="nav-number">1.1.</span> <span class="nav-text">模块划分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#编译模块-："><span class="nav-number">1.1.1.</span> <span class="nav-text">编译模块 ：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.1.2.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">compile.js 代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.1.4.</span> <span class="nav-text">虚拟DOM:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.1.5.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染模块"><span class="nav-number">1.1.6.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据响应模块"><span class="nav-number">1.1.7.</span> <span class="nav-text">数据响应模块</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现一个简单的VUE"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个简单的VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">1.1.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块-："><span class="nav-number">1.2.</span> <span class="nav-text">编译模块 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">compile.js 代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟DOM:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染模块"><span class="nav-number">1.4.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应模块"><span class="nav-number">1.5.</span> <span class="nav-text">数据响应模块</span></a></li></ol></li></ol></div>
             
 
           </div>
