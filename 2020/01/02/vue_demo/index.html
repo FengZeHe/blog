@@ -96,14 +96,14 @@
 
 
 
-  <meta name="description" content="如何实现一个简单的VUE 实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123">
+  <meta name="description" content="实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123456789101112">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何实现一个简单的VUE">
 <meta property="og:url" content="http://yoursite.com/2020/01/02/vue_demo/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="如何实现一个简单的VUE 实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123">
+<meta property="og:description" content="实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123456789101112">
 <meta property="article:published_time" content="2020-01-02T12:15:40.000Z">
-<meta property="article:modified_time" content="2020-01-07T03:47:02.000Z">
+<meta property="article:modified_time" content="2020-01-07T03:49:18.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta property="article:tag" content="VUE">
@@ -193,7 +193,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -221,7 +221,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Startseite</a>
 
   </li>
         
@@ -238,7 +238,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archiv</a>
 
   </li>
 
@@ -326,14 +326,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
+              <time title="Erstellt: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
             
 
             
@@ -348,9 +348,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Modified: 2020-01-07 11:47:02" itemprop="dateModified" datetime="2020-01-07T11:47:02+08:00">2020-01-07</time>
+                <time title="Geändert am: 2020-01-07 11:49:18" itemprop="dateModified" datetime="2020-01-07T11:49:18+08:00">2020-01-07</time>
               
             
           </span>
@@ -384,7 +384,7 @@
       
 
       
-        <h2 id="如何实现一个简单的VUE"><a href="#如何实现一个简单的VUE" class="headerlink" title="如何实现一个简单的VUE"></a>如何实现一个简单的VUE</h2><blockquote>
+        <blockquote>
 <p>实现的效果</p>
 </blockquote>
 
@@ -533,10 +533,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -557,7 +557,7 @@
                   <a href="/blog/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">18</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -602,7 +602,7 @@
                       
                     
                     <span class="site-state-item-count">15</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
               
@@ -639,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现一个简单的VUE"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个简单的VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">1.1.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块-："><span class="nav-number">1.2.</span> <span class="nav-text">编译模块 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">compile.js 代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟DOM:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染模块"><span class="nav-number">1.4.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应模块"><span class="nav-number">1.5.</span> <span class="nav-text">数据响应模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在前端页面写一个简单的VUE结构"><span class="nav-number">1.6.</span> <span class="nav-text">在前端页面写一个简单的VUE结构</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">1.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块-："><span class="nav-number">2.</span> <span class="nav-text">编译模块 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">2.0.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">2.0.2.</span> <span class="nav-text">compile.js 代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">3.</span> <span class="nav-text">虚拟DOM:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">3.0.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染模块"><span class="nav-number">4.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应模块"><span class="nav-number">5.</span> <span class="nav-text">数据响应模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在前端页面写一个简单的VUE结构"><span class="nav-number">6.</span> <span class="nav-text">在前端页面写一个简单的VUE结构</span></a></li></ol></div>
             
 
           </div>
@@ -672,7 +672,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
 
 
 
@@ -680,7 +680,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
