@@ -349,7 +349,7 @@
                 
                   <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Geändert am: 2020-01-07 11:13:06" itemprop="dateModified" datetime="2020-01-07T11:13:06+08:00">2020-01-07</time>
+                <time title="Geändert am: 2020-01-07 11:32:50" itemprop="dateModified" datetime="2020-01-07T11:32:50+08:00">2020-01-07</time>
               
             
           </span>
@@ -414,6 +414,9 @@
 <h5 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h5><blockquote>
 <p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function VNode(realDom, template) &#123;</span><br><span class="line">    &#x2F;&#x2F; node 构造函数</span><br><span class="line">    this.realDom &#x3D; realDom;</span><br><span class="line">    this.template &#x3D; template;</span><br><span class="line">    this.children &#x3D; [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default function createVNode(realDom) &#123;</span><br><span class="line">    var root &#x3D; new VNode(realDom, &quot;&quot;);</span><br><span class="line">    if (realDom.nodeType &#x3D;&#x3D;&#x3D; Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template &#x3D; realDom.nodeValue;</span><br><span class="line">        &#x2F;&#x2F; 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span><br><span class="line">        &#x2F;&#x2F; 文本节点代表的数字是3</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        for(var i  &#x3D; 0; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            var childNode &#x3D; realDom.childNodes[i];</span><br><span class="line">            var vNode &#x3D; createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <h5 id="思想：-1"><a href="#思想：-1" class="headerlink" title="思想："></a>思想：</h5><ol>
 <li>需要创建虚拟DOM 以便以后操作数据</li>
 <li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
