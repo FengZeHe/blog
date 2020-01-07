@@ -96,14 +96,14 @@
 
 
 
-  <meta name="description" content="如何实现一个简单的VUE              模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码12345678910">
+  <meta name="description" content="如何实现一个简单的VUE 实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何实现一个简单的VUE">
 <meta property="og:url" content="http://yoursite.com/2020/01/02/vue_demo/index.html">
 <meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="如何实现一个简单的VUE              模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码12345678910">
+<meta property="og:description" content="如何实现一个简单的VUE 实现的效果                模块划分 编译模块 虚拟节点模块 渲染模块 数据响应模块 VUE构造函数模块  编译模块 ： 提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果  思想： 使用正则表达式匹配到html代码中包含 括号 的字符串 拿到字符串之后把两边括号替换掉，把表达式分割成数组compile.js 代码123">
 <meta property="article:published_time" content="2020-01-02T12:15:40.000Z">
-<meta property="article:modified_time" content="2020-01-07T03:42:40.000Z">
+<meta property="article:modified_time" content="2020-01-07T03:47:02.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta property="article:tag" content="VUE">
@@ -350,7 +350,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-01-07 11:42:40" itemprop="dateModified" datetime="2020-01-07T11:42:40+08:00">2020-01-07</time>
+                <time title="Modified: 2020-01-07 11:47:02" itemprop="dateModified" datetime="2020-01-07T11:47:02+08:00">2020-01-07</time>
               
             
           </span>
@@ -384,7 +384,10 @@
       
 
       
-        <h2 id="如何实现一个简单的VUE"><a href="#如何实现一个简单的VUE" class="headerlink" title="如何实现一个简单的VUE"></a>如何实现一个简单的VUE</h2>
+        <h2 id="如何实现一个简单的VUE"><a href="#如何实现一个简单的VUE" class="headerlink" title="如何实现一个简单的VUE"></a>如何实现一个简单的VUE</h2><blockquote>
+<p>实现的效果</p>
+</blockquote>
+
 
 <div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
@@ -433,6 +436,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 将原始对象的prop属性添加到代理对象中</span><br><span class="line">function proxyProp(originalObj, targetObj, prop, callback) &#123;</span><br><span class="line">    if (typeof originalObj[prop] &#x3D;&#x3D;&#x3D; &quot;object&quot;) &#123;</span><br><span class="line">        &#x2F;&#x2F; 要代理的属性是一个对象,对象要单独处理</span><br><span class="line">        var newTarget &#x3D; &#123;&#125;;&#x2F;&#x2F;新的 要代理的对象</span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        Object.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            get:function()&#123;</span><br><span class="line">                return newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            set:function(value)&#123;</span><br><span class="line">                originalObj[prop] &#x3D; value;</span><br><span class="line">                newTarget &#x3D; value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        Object.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            get: function () &#123;</span><br><span class="line">                return originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (value) &#123;</span><br><span class="line">                originalObj[prop] &#x3D; value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 将原始对象的属性，提取到代理对象中</span><br><span class="line">&#x2F;&#x2F; org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span><br><span class="line">export default function createResponsive(originalObj, targetObj, callback) &#123;</span><br><span class="line">    for (var prop in originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    import Vue from &quot;.&#x2F;vue&#x2F;index.js&quot;</span><br><span class="line">        window.vm &#x3D; new Vue(&#123;</span><br><span class="line">            el: &quot;#app&quot;,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:&quot;FengZe&quot;,</span><br><span class="line">                age:16,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:&quot;广东&quot;,</span><br><span class="line">                    city:&quot;佛山&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>大概就是这样实现的了.</p>
+</blockquote>
 
       
     </div>
@@ -631,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现一个简单的VUE"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个简单的VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">1.1.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块-："><span class="nav-number">1.2.</span> <span class="nav-text">编译模块 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">compile.js 代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟DOM:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染模块"><span class="nav-number">1.4.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应模块"><span class="nav-number">1.5.</span> <span class="nav-text">数据响应模块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现一个简单的VUE"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个简单的VUE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块划分"><span class="nav-number">1.1.</span> <span class="nav-text">模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块-："><span class="nav-number">1.2.</span> <span class="nav-text">编译模块 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想："><span class="nav-number">1.2.0.1.</span> <span class="nav-text">思想：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#compile-js-代码"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">compile.js 代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.3.</span> <span class="nav-text">虚拟DOM:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#思想：-1"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">思想：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染模块"><span class="nav-number">1.4.</span> <span class="nav-text">渲染模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据响应模块"><span class="nav-number">1.5.</span> <span class="nav-text">数据响应模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在前端页面写一个简单的VUE结构"><span class="nav-number">1.6.</span> <span class="nav-text">在前端页面写一个简单的VUE结构</span></a></li></ol></li></ol></div>
             
 
           </div>
