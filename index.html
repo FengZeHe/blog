@@ -190,7 +190,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -218,7 +218,7 @@
 
     
 
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Beranda</a>
+    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Startseite</a>
 
   </li>
         
@@ -235,7 +235,7 @@
 
     
 
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Arsip</a>
+    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archiv</a>
 
   </li>
 
@@ -325,14 +325,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2020-01-10 10:03:40 / Updated at: 10:10:09" itemprop="dateCreated datePublished" datetime="2020-01-10T10:03:40+08:00">2020-01-10</time>
+              <time title="Erstellt: 2020-01-10 10:03:40 / Geändert am: 11:21:46" itemprop="dateCreated datePublished" datetime="2020-01-10T10:03:40+08:00">2020-01-10</time>
             
 
             
@@ -388,9 +388,20 @@
 
 <p>实现功能简介：</p>
 <ol>
-<li>扫码骑车计费功能</li>
+<li>扫码骑车记时功能</li>
 <li>用户登录及充值功能</li>
 <li>用户报障功能</li>
+</ol>
+<p>思路：</p>
+<ol>
+<li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
+<li>回到当前定位功能直接调用this.movetoCenter()函数</li>
+<li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
+<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<br><img src="ride_logic.png" alt=""></li>
+</ol>
+</li>
+<li>单车报障功能</li>
+<li>用户登录及充值功能</li>
 </ol>
 
           
@@ -486,14 +497,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
+              <time title="Erstellt: 2020-01-02 20:15:40" itemprop="dateCreated datePublished" datetime="2020-01-02T20:15:40+08:00">2020-01-02</time>
             
 
             
@@ -508,9 +519,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2020-01-07 11:54:36" itemprop="dateModified" datetime="2020-01-07T11:54:36+08:00">2020-01-07</time>
+                <time title="Geändert am: 2020-01-07 11:54:36" itemprop="dateModified" datetime="2020-01-07T11:54:36+08:00">2020-01-07</time>
               
             
           </span>
@@ -702,14 +713,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-12-14 20:40:13 / Updated at: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
+              <time title="Erstellt: 2019-12-14 20:40:13 / Geändert am: 20:58:03" itemprop="dateCreated datePublished" datetime="2019-12-14T20:40:13+08:00">2019-12-14</time>
             
 
             
@@ -948,14 +959,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
+              <time title="Erstellt: 2019-12-12 14:47:13" itemprop="dateCreated datePublished" datetime="2019-12-12T14:47:13+08:00">2019-12-12</time>
             
 
             
@@ -970,9 +981,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
+                <time title="Geändert am: 2019-12-16 17:41:13" itemprop="dateModified" datetime="2019-12-16T17:41:13+08:00">2019-12-16</time>
               
             
           </span>
@@ -1102,14 +1113,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
+              <time title="Erstellt: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
             
 
             
@@ -1124,9 +1135,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
+                <time title="Geändert am: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
               
             
           </span>
@@ -1355,14 +1366,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
+              <time title="Erstellt: 2019-09-03 22:58:13" itemprop="dateCreated datePublished" datetime="2019-09-03T22:58:13+08:00">2019-09-03</time>
             
 
             
@@ -1377,9 +1388,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
+                <time title="Geändert am: 2019-09-04 22:56:18" itemprop="dateModified" datetime="2019-09-04T22:56:18+08:00">2019-09-04</time>
               
             
           </span>
@@ -1517,14 +1528,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
+              <time title="Erstellt: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
             
 
             
@@ -1539,9 +1550,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
+                <time title="Geändert am: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
               
             
           </span>
@@ -1912,14 +1923,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
+              <time title="Erstellt: 2019-08-12 21:10:57" itemprop="dateCreated datePublished" datetime="2019-08-12T21:10:57+08:00">2019-08-12</time>
             
 
             
@@ -1934,9 +1945,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="Updated at: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
+                <time title="Geändert am: 2019-08-13 12:33:42" itemprop="dateModified" datetime="2019-08-13T12:33:42+08:00">2019-08-13</time>
               
             
           </span>
@@ -2220,14 +2231,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-12 14:47:13 / Updated at: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
+              <time title="Erstellt: 2019-05-12 14:47:13 / Geändert am: 14:50:18" itemprop="dateCreated datePublished" datetime="2019-05-12T14:47:13+08:00">2019-05-12</time>
             
 
             
@@ -2504,14 +2515,14 @@ var per = new Person()
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Post created: 2019-05-12 14:20:06 / Updated at: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
+              <time title="Erstellt: 2019-05-12 14:20:06 / Geändert am: 14:20:52" itemprop="dateCreated datePublished" datetime="2019-05-12T14:20:06+08:00">2019-05-12</time>
             
 
             
@@ -2763,7 +2774,7 @@ var per = new Person()
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot; aria-label&#x3D;&quot;Halaman selanjutnya&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot; aria-label&#x3D;&quot;Nächste Seite&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -2806,7 +2817,7 @@ var per = new Person()
                   <a href="/blog/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">19</span>
-                    <span class="site-state-item-name">posting</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -2853,7 +2864,7 @@ var per = new Person()
                       
                     
                     <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
+                    <span class="site-state-item-name">schlagwörter</span>
                   
                 </div>
               
@@ -2906,7 +2917,7 @@ var per = new Person()
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
 
 
 
@@ -2914,7 +2925,7 @@ var per = new Person()
 
 
 
-  <div class="theme-info">Tema – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
 
 
 
