@@ -332,7 +332,7 @@
                 
               
 
-              <time title="Erstellt: 2020-01-10 10:03:40 / Geändert am: 11:28:24" itemprop="dateCreated datePublished" datetime="2020-01-10T10:03:40+08:00">2020-01-10</time>
+              <time title="Erstellt: 2020-01-10 10:03:40 / Geändert am: 11:36:56" itemprop="dateCreated datePublished" datetime="2020-01-10T10:03:40+08:00">2020-01-10</time>
             
 
             
@@ -401,8 +401,16 @@
 <li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
 </ol>
 </li>
-<li>单车报障功能</li>
-<li>用户登录及充值功能</li>
+<li>单车报障功能<ol>
+<li>这里要说一嘴的是故障类型跟上传照片是必填，要验证内容是否为空。这里我只是判断了input框中的长度是否大于0；</li>
+<li>上传照片这里调用了微信的chooseImage()接口；我使用了一个数组存储上传的照片，所以在删除的时候直接在数组干掉就好了。</li>
+</ol>
+</li>
+<li>用户登录及充值功能<ol>
+<li>用户登录这里要注意下微信新版本是要授权，在按钮处设置open-type 为 getUserInfo才能使用。</li>
+<li>另外我把用户数据存进了storage,这样处理下一次就可以自动登录了。同时在登出的时候也会删除storage.</li>
+</ol>
+</li>
 </ol>
 
           
