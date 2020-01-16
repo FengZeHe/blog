@@ -1,388 +1,143 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    <meta charset="UTF-8" />
 
+    
 
+    
 
+    <title>vue学习笔记 | 欢迎来到何泽丰的博客</title>
+    <meta name="author" content="何泽丰" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。vue的特点：渐进式：vue的侵入性很少，可以与很多其他前端技术联用组件化响应式：数据响应式，vue会监控数据变化。当数据变化时vue的核心功能：关于创建vue工程直接在页面上引用v..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
+    
+    <link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/blog/images/favicon.ico">
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
-
-<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=7.1.1">
-
-
-  <link rel="mask-icon" href="/blog/images/logo.svg?v=7.1.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/blog/',
-    scheme: 'Muse',
-    version: '7.1.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/blog/fonts/icomoon.eot?q628ml");
+        src: url("/blog/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/blog/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/blog/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/blog/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
     }
-  };
-</script>
+    </style>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
-  
-
-
-
-
-  <meta name="description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vue学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/10/02/vue/index.html">
-<meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。vue的特点： 渐进式：vue的侵入性很少，可以与很多其他前端技术联用 组件化 响应式：数据响应式，">
-<meta property="article:published_time" content="2019-10-02T01:03:25.000Z">
-<meta property="article:modified_time" content="2019-10-17T02:16:09.000Z">
-<meta property="article:author" content="何泽丰">
-<meta property="article:tag" content="前端技术">
-<meta name="twitter:card" content="summary">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://yoursite.com/2019/10/02/vue/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>vue学习笔记 | 欢迎来到何泽丰的博客</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
 <meta name="generator" content="Hexo 4.2.0"></head>
+<body>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">欢迎来到何泽丰的博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">欢迎来到何泽丰的博客</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
-    
-    
-  </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/blog/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
 </div>
 
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
         
         
         
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Startseite</a>
-
-  </li>
         
+
         
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue学习笔记"><span class="toc-number">1.</span> <span class="toc-text">vue学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念："><span class="toc-number">1.1.</span> <span class="toc-text">概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue的特点："><span class="toc-number">1.2.</span> <span class="toc-text">vue的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue的核心功能："><span class="toc-number">1.3.</span> <span class="toc-text">vue的核心功能：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于创建vue工程"><span class="toc-number">1.3.1.</span> <span class="toc-text">关于创建vue工程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue实例"><span class="toc-number">1.3.2.</span> <span class="toc-text">vue实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue实例：通过new-vue（配置对象）得到的对象"><span class="toc-number">1.3.3.</span> <span class="toc-text">vue实例：通过new vue（配置对象）得到的对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板"><span class="toc-number">1.4.</span> <span class="toc-text">模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#插值：在模板的元素内部使用"><span class="toc-number">1.4.1.</span> <span class="toc-text">插值：在模板的元素内部使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指令：通常作为元素的属性存在，名称上以v-开头"><span class="toc-number">1.4.2.</span> <span class="toc-text">指令：通常作为元素的属性存在，名称上以v- 开头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模板中的配置"><span class="toc-number">1.4.3.</span> <span class="toc-text">模板中的配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置对象"><span class="toc-number">1.5.</span> <span class="toc-text">配置对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂在的配置"><span class="toc-number">1.6.</span> <span class="toc-text">挂在的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于computed-–计算属性"><span class="toc-number">1.7.</span> <span class="toc-text">关于computed –计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于v-html指令："><span class="toc-number">1.8.</span> <span class="toc-text">关于v-html指令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件"><span class="toc-number">1.9.</span> <span class="toc-text">组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VUE中的组建"><span class="toc-number">1.9.1.</span> <span class="toc-text">VUE中的组建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件名称的规范，以下命名的方式任选其一："><span class="toc-number">1.9.2.</span> <span class="toc-text">组件名称的规范，以下命名的方式任选其一：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件的使用：把组件当成标签使用即可，标签名任选其一"><span class="toc-number">1.9.3.</span> <span class="toc-text">组件的使用：把组件当成标签使用即可，标签名任选其一</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件中的数据通信："><span class="toc-number">1.10.</span> <span class="toc-text">组件中的数据通信：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#组件的状态和属性："><span class="toc-number">1.10.1.</span> <span class="toc-text">组件的状态和属性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件中可以有属性（component-props），而vue实例中没有"><span class="toc-number">1.10.2.</span> <span class="toc-text">组件中可以有属性（component props），而vue实例中没有</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义事件："><span class="toc-number">1.11.</span> <span class="toc-text">自定义事件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件的生命周期"><span class="toc-number">1.12.</span> <span class="toc-text">组件的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue路由"><span class="toc-number">1.13.</span> <span class="toc-text">vue路由</span></a></li></ol></li></ol>
         
-          
-          <li class="menu-item menu-item-archives">
+    </div>
+</aside>
 
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
     
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            vue学习笔记
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2019/10/02/vue/index.html">
     
+    <i class="icon-calendar"></i>
     
-      
-    
+    <time datetime="2019-10-02T01:03:25.000Z" itemprop="datePublished">2019-10-02</time>
+</a>
 
-    
-
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archiv</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/10/02/vue/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰"/>
-      <meta itemprop="description" content="怕，你就输一辈子"/>
-      <meta itemprop="image" content="/blog/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">vue学习笔记
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-10-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-10-02T09:03:25+08:00">2019-10-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-10-17 10:16:09" itemprop="dateModified" datetime="2019-10-17T10:16:09+08:00">2019-10-17</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
 
         </div>
-      </header>
+    </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+    <section class="article-body markdown-body">
+        
         <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre><h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
 <li>渐进式：vue的侵入性很少，可以与很多其他前端技术联用</li>
 <li>组件化</li>
@@ -483,396 +238,128 @@
 </li>
 </ol>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag"># 前端技术</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2019/09/03/2019.09.03/" rel="next" title="2019-09-03 实习笔记">
-                <i class="fa fa-chevron-left"></i> 2019-09-03 实习笔记
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2019/12/12/frontEnd_Loading/" rel="prev" title="用CSS3做LoadIng动画">
-                用CSS3做LoadIng动画 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">何泽丰</p>
-              <div class="site-description motion-element" itemprop="description">怕，你就输一辈子</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/blog/archives/%20%7C%7C%20archive">
-                
-                    <span class="site-state-item-count">19</span>
-                    <span class="site-state-item-name">Artikel</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">schlagwörter</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue学习笔记"><span class="nav-number">1.</span> <span class="nav-text">vue学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的特点："><span class="nav-number">1.2.</span> <span class="nav-text">vue的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue的核心功能："><span class="nav-number">1.3.</span> <span class="nav-text">vue的核心功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关于创建vue工程"><span class="nav-number">1.3.1.</span> <span class="nav-text">关于创建vue工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例"><span class="nav-number">1.3.2.</span> <span class="nav-text">vue实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue实例：通过new-vue（配置对象）得到的对象"><span class="nav-number">1.3.3.</span> <span class="nav-text">vue实例：通过new vue（配置对象）得到的对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">1.4.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插值：在模板的元素内部使用"><span class="nav-number">1.4.1.</span> <span class="nav-text">插值：在模板的元素内部使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令：通常作为元素的属性存在，名称上以v-开头"><span class="nav-number">1.4.2.</span> <span class="nav-text">指令：通常作为元素的属性存在，名称上以v- 开头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板中的配置"><span class="nav-number">1.4.3.</span> <span class="nav-text">模板中的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置对象"><span class="nav-number">1.5.</span> <span class="nav-text">配置对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂在的配置"><span class="nav-number">1.6.</span> <span class="nav-text">挂在的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于computed-–计算属性"><span class="nav-number">1.7.</span> <span class="nav-text">关于computed –计算属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于v-html指令："><span class="nav-number">1.8.</span> <span class="nav-text">关于v-html指令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-number">1.9.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VUE中的组建"><span class="nav-number">1.9.1.</span> <span class="nav-text">VUE中的组建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件名称的规范，以下命名的方式任选其一："><span class="nav-number">1.9.2.</span> <span class="nav-text">组件名称的规范，以下命名的方式任选其一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的使用：把组件当成标签使用即可，标签名任选其一"><span class="nav-number">1.9.3.</span> <span class="nav-text">组件的使用：把组件当成标签使用即可，标签名任选其一</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件中的数据通信："><span class="nav-number">1.10.</span> <span class="nav-text">组件中的数据通信：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的状态和属性："><span class="nav-number">1.10.1.</span> <span class="nav-text">组件的状态和属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件中可以有属性（component-props），而vue实例中没有"><span class="nav-number">1.10.2.</span> <span class="nav-text">组件中可以有属性（component props），而vue实例中没有</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义事件："><span class="nav-number">1.11.</span> <span class="nav-text">自定义事件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件的生命周期"><span class="nav-number">1.12.</span> <span class="nav-text">组件的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue路由"><span class="nav-number">1.13.</span> <span class="nav-text">vue路由</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
+    </section>
+</article>
 
 
-        
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">何泽丰</span>
+<a id="pagenext" href="/blog/2019/09/03/2019.09.03/" class="article-next" title="2019-09-03 实习笔记"><i class="icon-arrow-right"></i></a>
 
-  
 
-  
+<a id="pageprev" href="/blog/2019/12/12/frontEnd_Loading/" class="article-prev" title="用CSS3做LoadIng动画"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2019/10/02/vue",
+        distractionFreeMode: true,
+        title: "vue学习笔记",
+        body: "http://yoursite.com/2019/10/02/vue/",
+        labels: ["前端技术"]
+    }).render('comments');
+    </script>
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
 
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
 
+    </main>
 
-  <span class="post-meta-divider">|</span>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
 
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
 
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
-
-
-
-
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
         
+<script src="/blog/js/scrollspy.min.js"></script>
 
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
 
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
 
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
 
-
-
-
-
-        
-      </div>
-    </footer>
-
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/blog/js/utils.js?v=7.1.1"></script>
-
-  <script src="/blog/js/motion.js?v=7.1.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/blog/js/schemes/muse.js?v=7.1.1"></script>
-
-
-
-  
-  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
-<script src="/blog/js/post-details.js?v=7.1.1"></script>
-
-
-
-  
-
-
-  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

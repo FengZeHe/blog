@@ -1,397 +1,143 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222"/>
+    <meta charset="UTF-8" />
 
+    
 
+    
 
+    <title>HTML5学习笔记 | 欢迎来到何泽丰的博客</title>
+    <meta name="author" content="何泽丰" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="HTML5学习笔记Canvas 画布Canvas应用场景：游戏图表动画condepen.io（HTML5动效）Canvas 发展史最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas如何使用canvas添加canvas标签1234567&amp;lt;canvas width &amp;#x3D; 500 height &amp;#x3D; 500&amp;gt;&amp;lt;&amp;#x2F;canvas&amp;gt;获取cancas元素var canvas &amp;#x3D; document...." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
+    
+    <link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/blog/images/favicon.ico">
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
-
-<link rel="stylesheet" href="/blog/css/main.css?v=7.1.1"/>
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=7.1.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=7.1.1">
-
-
-  <link rel="mask-icon" href="/blog/images/logo.svg?v=7.1.1" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/blog/',
-    scheme: 'Muse',
-    version: '7.1.1',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/blog/fonts/icomoon.eot?q628ml");
+        src: url("/blog/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/blog/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/blog/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/blog/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
     }
-  };
-</script>
+    </style>
+    
+<link rel="stylesheet" href="/blog/css/style.css">
 
 
-  
-
-
-
-
-  <meta name="description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&lt;canvas width &#x3D; 500 height &#x3D; 500&gt;&lt;&#x2F;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTML5学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/09/02/HTML5-note/index.html">
-<meta property="og:site_name" content="欢迎来到何泽丰的博客">
-<meta property="og:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&lt;canvas width &#x3D; 500 height &#x3D; 500&gt;&lt;&#x2F;">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/cookieAndSess.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/worker.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/geolocation1.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/geolocation2.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/readyState.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/networkState.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/error_medio.png">
-<meta property="og:image" content="http://yoursite.com/2019/09/02/HTML5-note/webSocket.png">
-<meta property="article:published_time" content="2019-09-02T01:03:25.000Z">
-<meta property="article:modified_time" content="2019-12-20T07:56:09.000Z">
-<meta property="article:author" content="何泽丰">
-<meta property="article:tag" content="前端技术">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2019/09/02/HTML5-note/cookieAndSess.png">
-
-
-
-
-
-  
-  
-  <link rel="canonical" href="http://yoursite.com/2019/09/02/HTML5-note/"/>
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>HTML5学习笔记 | 欢迎来到何泽丰的博客</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
 <meta name="generator" content="Hexo 4.2.0"></head>
+<body>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/blog/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">欢迎来到何泽丰的博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">欢迎来到何泽丰的博客</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
-    
-    
-  </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Navigationsleiste an/ausschalten">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/blog/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/categories/front-end">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/categories/back-end">
+                <span class="nav-text">后端</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/atom.xml">
+                <span class="nav-text">订阅</span>
+            </a>
+        
+            <a class="nav-item" href="/blog/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
 </div>
 
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
         
         
         
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Startseite</a>
-
-  </li>
         
+
         
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5学习笔记"><span class="toc-number">1.</span> <span class="toc-text">HTML5学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Canvas-画布"><span class="toc-number">1.1.</span> <span class="toc-text">Canvas 画布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Canvas应用场景："><span class="toc-number">1.1.1.</span> <span class="toc-text">Canvas应用场景：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Canvas-发展史"><span class="toc-number">1.1.2.</span> <span class="toc-text">Canvas 发展史</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用canvas"><span class="toc-number">1.2.</span> <span class="toc-text">如何使用canvas</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#添加canvas标签"><span class="toc-number">1.2.1.</span> <span class="toc-text">添加canvas标签</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何画线段"><span class="toc-number">1.2.2.</span> <span class="toc-text">如何画线段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="toc-number">1.2.3.</span> <span class="toc-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何使用Canvas画矩阵"><span class="toc-number">1.2.4.</span> <span class="toc-text">如何使用Canvas画矩阵</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何画圆角："><span class="toc-number">1.2.5.</span> <span class="toc-text">如何画圆角：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#坐标轴的抓换"><span class="toc-number">1.2.6.</span> <span class="toc-text">坐标轴的抓换</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#渐变"><span class="toc-number">1.2.7.</span> <span class="toc-text">渐变</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#阴影："><span class="toc-number">1.2.8.</span> <span class="toc-text">阴影：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文本："><span class="toc-number">1.2.9.</span> <span class="toc-text">文本：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#线段样式"><span class="toc-number">1.2.10.</span> <span class="toc-text">线段样式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#绘制图片："><span class="toc-number">1.2.11.</span> <span class="toc-text">绘制图片：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将canvas内容导出"><span class="toc-number">1.2.12.</span> <span class="toc-text">将canvas内容导出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取canvas像素信息"><span class="toc-number">1.2.13.</span> <span class="toc-text">获取canvas像素信息</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SVG（Scalable-Vector-Graphics）"><span class="toc-number">1.3.</span> <span class="toc-text">SVG（Scalable Vector Graphics）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#SVG应用场景"><span class="toc-number">1.3.1.</span> <span class="toc-text">SVG应用场景:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用svg画各种各样的图形："><span class="toc-number">1.3.2.</span> <span class="toc-text">使用svg画各种各样的图形：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="toc-number">1.3.3.</span> <span class="toc-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SVG渐变"><span class="toc-number">1.4.</span> <span class="toc-text">SVG渐变</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5动画api-requestAnimationFrame"><span class="toc-number">1.5.</span> <span class="toc-text">HTML5动画api requestAnimationFrame</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端存储"><span class="toc-number">1.6.</span> <span class="toc-text">客户端存储</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何使用storage存储和读取数据"><span class="toc-number">1.6.1.</span> <span class="toc-text">如何使用storage存储和读取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#storage作用域"><span class="toc-number">1.6.2.</span> <span class="toc-text">storage作用域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#storage-的API"><span class="toc-number">1.6.3.</span> <span class="toc-text">storage 的API</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cookie"><span class="toc-number">1.6.4.</span> <span class="toc-text">cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#设置cookie值"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">设置cookie值</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cookie-与-storage的对比"><span class="toc-number">1.6.5.</span> <span class="toc-text">cookie 与 storage的对比</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#history"><span class="toc-number">1.7.</span> <span class="toc-text">history</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#通过修改hash和hashchange事件来实现历史纪录管理"><span class="toc-number">1.7.1.</span> <span class="toc-text">通过修改hash和hashchange事件来实现历史纪录管理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#worker-异步操作的api"><span class="toc-number">1.8.</span> <span class="toc-text">worker(异步操作的api)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#geolocation"><span class="toc-number">1.9.</span> <span class="toc-text">geolocation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PositionError对象"><span class="toc-number">1.10.</span> <span class="toc-text">PositionError对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置参数"><span class="toc-number">1.10.1.</span> <span class="toc-text">配置参数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#watchPosition"><span class="toc-number">1.10.2.</span> <span class="toc-text">watchPosition</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#devicemotion事件所包含的属性"><span class="toc-number">1.10.3.</span> <span class="toc-text">devicemotion事件所包含的属性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多媒体："><span class="toc-number">1.11.</span> <span class="toc-text">多媒体：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#多类型选择器："><span class="toc-number">1.11.1.</span> <span class="toc-text">多类型选择器：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#脚本化："><span class="toc-number">1.11.2.</span> <span class="toc-text">脚本化：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#播放的方法"><span class="toc-number">1.11.3.</span> <span class="toc-text">播放的方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#currentTime-duration-属性"><span class="toc-number">1.11.4.</span> <span class="toc-text">currentTime&#x2F;duration 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#played-buffered-seekable"><span class="toc-number">1.11.4.1.</span> <span class="toc-text">played&#x2F;buffered&#x2F;seekable</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#canPlayType-方法"><span class="toc-number">1.11.4.2.</span> <span class="toc-text">canPlayType()方法</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#事件"><span class="toc-number">1.11.5.</span> <span class="toc-text">事件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#drap-＆-drop-常用语各种拖动操作中"><span class="toc-number">1.12.</span> <span class="toc-text">drap  ＆ drop(常用语各种拖动操作中)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建可拖动元素"><span class="toc-number">1.12.1.</span> <span class="toc-text">创建可拖动元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#关于拖拽的相关事件："><span class="toc-number">1.12.2.</span> <span class="toc-text">关于拖拽的相关事件：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FileReader-读取文件"><span class="toc-number">1.13.</span> <span class="toc-text">FileReader 读取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#FileReader-事件"><span class="toc-number">1.13.1.</span> <span class="toc-text">FileReader 事件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Socket（是一个新的协议）"><span class="toc-number">1.14.</span> <span class="toc-text">Web Socket（是一个新的协议）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#产生背景："><span class="toc-number">1.14.1.</span> <span class="toc-text">产生背景：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#建立连接的握手："><span class="toc-number">1.14.2.</span> <span class="toc-text">建立连接的握手：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#webSocket方法"><span class="toc-number">1.14.3.</span> <span class="toc-text">webSocket方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#webSocket的优点"><span class="toc-number">1.14.4.</span> <span class="toc-text">webSocket的优点</span></a></li></ol></li></ol></li></ol>
         
-          
-          <li class="menu-item menu-item-archives">
+    </div>
+</aside>
 
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
     
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            HTML5学习笔记
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2019/09/02/HTML5-note/index.html">
     
+    <i class="icon-calendar"></i>
     
-      
-    
+    <time datetime="2019-09-02T01:03:25.000Z" itemprop="datePublished">2019-09-02</time>
+</a>
 
-    
-
-    <a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archiv</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
 </div>
-    </header>
 
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/blog/2019/09/02/HTML5-note/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="何泽丰"/>
-      <meta itemprop="description" content="怕，你就输一辈子"/>
-      <meta itemprop="image" content="/blog/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到何泽丰的博客"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">HTML5学习笔记
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-09-02 09:03:25" itemprop="dateCreated datePublished" datetime="2019-09-02T09:03:25+08:00">2019-09-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-12-20 15:56:09" itemprop="dateModified" datetime="2019-12-20T15:56:09+08:00">2019-12-20</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
 
         </div>
-      </header>
+    </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
+    <section class="article-body markdown-body">
+        
         <h3 id="HTML5学习笔记"><a href="#HTML5学习笔记" class="headerlink" title="HTML5学习笔记"></a>HTML5学习笔记</h3><h4 id="Canvas-画布"><a href="#Canvas-画布" class="headerlink" title="Canvas 画布"></a>Canvas 画布</h4><h5 id="Canvas应用场景："><a href="#Canvas应用场景：" class="headerlink" title="Canvas应用场景："></a>Canvas应用场景：</h5><ol>
 <li>游戏</li>
 <li>图表</li>
@@ -634,396 +380,128 @@
 <li>不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源</li>
 </ol>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag"># 前端技术</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blog/2019/08/12/ES6/" rel="next" title="ES6">
-                <i class="fa fa-chevron-left"></i> ES6
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/2019/09/03/2019.09.03/" rel="prev" title="2019-09-03 实习笔记">
-                2019-09-03 实习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">何泽丰</p>
-              <div class="site-description motion-element" itemprop="description">怕，你就输一辈子</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/blog/archives/%20%7C%7C%20archive">
-                
-                    <span class="site-state-item-count">19</span>
-                    <span class="site-state-item-name">Artikel</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">schlagwörter</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5学习笔记"><span class="nav-number">1.</span> <span class="nav-text">HTML5学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Canvas-画布"><span class="nav-number">1.1.</span> <span class="nav-text">Canvas 画布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas应用场景："><span class="nav-number">1.1.1.</span> <span class="nav-text">Canvas应用场景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Canvas-发展史"><span class="nav-number">1.1.2.</span> <span class="nav-text">Canvas 发展史</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何使用canvas"><span class="nav-number">1.2.</span> <span class="nav-text">如何使用canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加canvas标签"><span class="nav-number">1.2.1.</span> <span class="nav-text">添加canvas标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画线段"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何画线段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill和stroke方法都是作用在当前的所有子路径"><span class="nav-number">1.2.3.</span> <span class="nav-text">fill和stroke方法都是作用在当前的所有子路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用Canvas画矩阵"><span class="nav-number">1.2.4.</span> <span class="nav-text">如何使用Canvas画矩阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何画圆角："><span class="nav-number">1.2.5.</span> <span class="nav-text">如何画圆角：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#坐标轴的抓换"><span class="nav-number">1.2.6.</span> <span class="nav-text">坐标轴的抓换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#渐变"><span class="nav-number">1.2.7.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阴影："><span class="nav-number">1.2.8.</span> <span class="nav-text">阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文本："><span class="nav-number">1.2.9.</span> <span class="nav-text">文本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线段样式"><span class="nav-number">1.2.10.</span> <span class="nav-text">线段样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制图片："><span class="nav-number">1.2.11.</span> <span class="nav-text">绘制图片：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将canvas内容导出"><span class="nav-number">1.2.12.</span> <span class="nav-text">将canvas内容导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取canvas像素信息"><span class="nav-number">1.2.13.</span> <span class="nav-text">获取canvas像素信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG（Scalable-Vector-Graphics）"><span class="nav-number">1.3.</span> <span class="nav-text">SVG（Scalable Vector Graphics）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVG应用场景"><span class="nav-number">1.3.1.</span> <span class="nav-text">SVG应用场景:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用svg画各种各样的图形："><span class="nav-number">1.3.2.</span> <span class="nav-text">使用svg画各种各样的图形：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path指令：（大写代表绝对定位，小写表示相对定位）"><span class="nav-number">1.3.3.</span> <span class="nav-text">path指令：（大写代表绝对定位，小写表示相对定位）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVG渐变"><span class="nav-number">1.4.</span> <span class="nav-text">SVG渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML5动画api-requestAnimationFrame"><span class="nav-number">1.5.</span> <span class="nav-text">HTML5动画api requestAnimationFrame</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端存储"><span class="nav-number">1.6.</span> <span class="nav-text">客户端存储</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#如何使用storage存储和读取数据"><span class="nav-number">1.6.1.</span> <span class="nav-text">如何使用storage存储和读取数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage作用域"><span class="nav-number">1.6.2.</span> <span class="nav-text">storage作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#storage-的API"><span class="nav-number">1.6.3.</span> <span class="nav-text">storage 的API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">1.6.4.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#设置cookie值"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">设置cookie值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie-与-storage的对比"><span class="nav-number">1.6.5.</span> <span class="nav-text">cookie 与 storage的对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">1.7.</span> <span class="nav-text">history</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通过修改hash和hashchange事件来实现历史纪录管理"><span class="nav-number">1.7.1.</span> <span class="nav-text">通过修改hash和hashchange事件来实现历史纪录管理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#worker-异步操作的api"><span class="nav-number">1.8.</span> <span class="nav-text">worker(异步操作的api)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#geolocation"><span class="nav-number">1.9.</span> <span class="nav-text">geolocation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PositionError对象"><span class="nav-number">1.10.</span> <span class="nav-text">PositionError对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置参数"><span class="nav-number">1.10.1.</span> <span class="nav-text">配置参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#watchPosition"><span class="nav-number">1.10.2.</span> <span class="nav-text">watchPosition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#devicemotion事件所包含的属性"><span class="nav-number">1.10.3.</span> <span class="nav-text">devicemotion事件所包含的属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多媒体："><span class="nav-number">1.11.</span> <span class="nav-text">多媒体：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多类型选择器："><span class="nav-number">1.11.1.</span> <span class="nav-text">多类型选择器：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#脚本化："><span class="nav-number">1.11.2.</span> <span class="nav-text">脚本化：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#播放的方法"><span class="nav-number">1.11.3.</span> <span class="nav-text">播放的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#currentTime-duration-属性"><span class="nav-number">1.11.4.</span> <span class="nav-text">currentTime&#x2F;duration 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#played-buffered-seekable"><span class="nav-number">1.11.4.1.</span> <span class="nav-text">played&#x2F;buffered&#x2F;seekable</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#canPlayType-方法"><span class="nav-number">1.11.4.2.</span> <span class="nav-text">canPlayType()方法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件"><span class="nav-number">1.11.5.</span> <span class="nav-text">事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drap-＆-drop-常用语各种拖动操作中"><span class="nav-number">1.12.</span> <span class="nav-text">drap  ＆ drop(常用语各种拖动操作中)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建可拖动元素"><span class="nav-number">1.12.1.</span> <span class="nav-text">创建可拖动元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于拖拽的相关事件："><span class="nav-number">1.12.2.</span> <span class="nav-text">关于拖拽的相关事件：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileReader-读取文件"><span class="nav-number">1.13.</span> <span class="nav-text">FileReader 读取文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FileReader-事件"><span class="nav-number">1.13.1.</span> <span class="nav-text">FileReader 事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-Socket（是一个新的协议）"><span class="nav-number">1.14.</span> <span class="nav-text">Web Socket（是一个新的协议）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#产生背景："><span class="nav-number">1.14.1.</span> <span class="nav-text">产生背景：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#建立连接的握手："><span class="nav-number">1.14.2.</span> <span class="nav-text">建立连接的握手：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webSocket方法"><span class="nav-number">1.14.3.</span> <span class="nav-text">webSocket方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webSocket的优点"><span class="nav-number">1.14.4.</span> <span class="nav-text">webSocket的优点</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
+    </section>
+</article>
 
 
-        
-      </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">何泽丰</span>
+<a id="pagenext" href="/blog/2019/08/12/ES6/" class="article-next" title="ES6"><i class="icon-arrow-right"></i></a>
 
-  
 
-  
+<a id="pageprev" href="/blog/2019/09/03/2019.09.03/" class="article-prev" title="2019-09-03 实习笔记"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2019/09/02/HTML5-note",
+        distractionFreeMode: true,
+        title: "HTML5学习笔记",
+        body: "http://yoursite.com/2019/09/02/HTML5-note/",
+        labels: ["前端技术"]
+    }).render('comments');
+    </script>
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0</div>
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
 
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
 
+    </main>
 
-  <span class="post-meta-divider">|</span>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
 
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
 
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
 
-  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.1</div>
-
-
-
-
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
         
+<script src="/blog/js/scrollspy.min.js"></script>
 
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
 
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
 
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
 
-
-
-
-
-        
-      </div>
-    </footer>
-
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/blog/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/blog/js/utils.js?v=7.1.1"></script>
-
-  <script src="/blog/js/motion.js?v=7.1.1"></script>
-
-
-
-  
-  
-
-
-  <script src="/blog/js/schemes/muse.js?v=7.1.1"></script>
-
-
-
-  
-  <script src="/blog/js/scrollspy.js?v=7.1.1"></script>
-<script src="/blog/js/post-details.js?v=7.1.1"></script>
-
-
-
-  
-
-
-  <script src="/blog/js/next-boot.js?v=7.1.1"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
