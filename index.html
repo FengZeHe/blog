@@ -147,6 +147,154 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/blog/2020/02/12/vue-demo-1/">vue_demo</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-02-12T00:33:19.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/blog/tags/vue/" rel="tag">vue</a>, <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <blockquote>
+<p>实现的效果</p>
+</blockquote>
+
+
+<div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
+</div>
+
+
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
+ 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
+ 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
+<li>编译模块</li>
+<li>虚拟节点模块</li>
+<li>渲染模块</li>
+<li>数据响应模块</li>
+<li>VUE构造函数模块</li>
+</ol>
+<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><blockquote>
+<p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果<br>思想：</p>
+</blockquote>
+<ol>
+<li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
+<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
+<li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
+</ol>
+<img src="/blog/2020/02/12/vue-demo-1/2020/02/12/vue-demo-1/1.png" class title="是这个意思">
+
+<blockquote>
+<p>compile.js 代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFragments</span>(<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> matches = template.match(<span class="regexp">/&#123;&#123;[^&#125;]+&#125;&#125;/g</span>); <span class="comment">//万一有人的用户名叫12&#125;  所以这里要处理一下</span></span><br><span class="line">    <span class="keyword">return</span> matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">fragment, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = fragment.replace(<span class="string">"&#123;&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> props = exp.split(<span class="string">"."</span>);<span class="comment">//将表达式分割为属性数组</span></span><br><span class="line">    <span class="keyword">var</span> obj = envObj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">template, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 提取模板中的&#123;&#123;&#125;&#125;</span></span><br><span class="line">    <span class="keyword">var</span> flags = getFragments(template);</span><br><span class="line">    <span class="keyword">var</span> result = template;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; flags.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
+<p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树<br>思想：</p>
+</blockquote>
+<ol>
+<li>需要创建虚拟DOM 以便以后操作数据</li>
+<li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VNode</span>(<span class="params">realDom, template</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// node 构造函数</span></span><br><span class="line">    <span class="keyword">this</span>.realDom = realDom;</span><br><span class="line">    <span class="keyword">this</span>.template = template;</span><br><span class="line">    <span class="keyword">this</span>.children = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">realDom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> root = <span class="keyword">new</span> VNode(realDom, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template = realDom.nodeValue;</span><br><span class="line">        <span class="comment">// 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span></span><br><span class="line">        <span class="comment">// 文本节点代表的数字是3</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = realDom.childNodes[i];</span><br><span class="line">            <span class="keyword">var</span> vNode = createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
+<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作</p>
+</blockquote>
+<img src="/blog/2020/02/12/vue-demo-1/2020/02/12/vue-demo-1/vnode.png" class title="虚拟节点">
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
+<p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)</p>
+</blockquote>
+<ol>
+<li><p>使用Object.defineProperty来实现数据的响应式</p>
+</li>
+<li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
+</li>
+</ol>
+<img src="/blog/2020/02/12/vue-demo-1/2020/02/12/vue-demo-1/newTarget.png" class title="是这个意思">
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><blockquote>
+<p>在前端页面写一个简单的VUE结构，测试一下是否正确</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"./vue/index.js"</span></span><br><span class="line">        <span class="built_in">window</span>.vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:<span class="string">"FengZe"</span>,</span><br><span class="line">                age:<span class="number">16</span>,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:<span class="string">"广东"</span>,</span><br><span class="line">                    city:<span class="string">"佛山"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="大概就是这样实现的了"><a href="#大概就是这样实现的了" class="headerlink" title="大概就是这样实现的了."></a>大概就是这样实现的了.</h4><blockquote>
+<p>源码地址：<a href="https://github.com/FengZeHe/vue_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue_demo</a></p>
+</blockquote>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/blog/2020/02/12/vue-demo/">vue_demo</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-02-12T00:31:43.000Z" itemprop="datePublished">2020-02-12</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/blog/2020/01/10/ofo_demo/">如何实现一个简单的ofo微信小程序</a>
         </h1>
         
@@ -214,125 +362,6 @@
 </blockquote>
 <blockquote>
 <p>源码地址：<a href="https://github.com/FengZeHe/ofo_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/ofo_demo</a></p>
-</blockquote>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/blog/2020/01/02/vue_demo/">如何实现一个简单的VUE</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-01-02T12:15:40.000Z" itemprop="datePublished">2020-01-02</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/blog/tags/VUE/" rel="tag">VUE</a>, <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <blockquote>
-<p>实现的效果</p>
-</blockquote>
-
-
-<div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
-</div>
-
-
-<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
- 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
- 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
-<li>编译模块</li>
-<li>虚拟节点模块</li>
-<li>渲染模块</li>
-<li>数据响应模块</li>
-<li>VUE构造函数模块</li>
-</ol>
-<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><blockquote>
-<p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果<br>思想：</p>
-</blockquote>
-<ol>
-<li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
-<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
-<li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
-</ol>
-
-
-<blockquote>
-<p>compile.js 代码</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFragments</span>(<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> matches = template.match(<span class="regexp">/&#123;&#123;[^&#125;]+&#125;&#125;/g</span>); <span class="comment">//万一有人的用户名叫12&#125;  所以这里要处理一下</span></span><br><span class="line">    <span class="keyword">return</span> matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">fragment, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = fragment.replace(<span class="string">"&#123;&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> props = exp.split(<span class="string">"."</span>);<span class="comment">//将表达式分割为属性数组</span></span><br><span class="line">    <span class="keyword">var</span> obj = envObj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">template, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 提取模板中的&#123;&#123;&#125;&#125;</span></span><br><span class="line">    <span class="keyword">var</span> flags = getFragments(template);</span><br><span class="line">    <span class="keyword">var</span> result = template;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; flags.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
-<p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树<br>思想：</p>
-</blockquote>
-<ol>
-<li>需要创建虚拟DOM 以便以后操作数据</li>
-<li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VNode</span>(<span class="params">realDom, template</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// node 构造函数</span></span><br><span class="line">    <span class="keyword">this</span>.realDom = realDom;</span><br><span class="line">    <span class="keyword">this</span>.template = template;</span><br><span class="line">    <span class="keyword">this</span>.children = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">realDom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> root = <span class="keyword">new</span> VNode(realDom, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template = realDom.nodeValue;</span><br><span class="line">        <span class="comment">// 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span></span><br><span class="line">        <span class="comment">// 文本节点代表的数字是3</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = realDom.childNodes[i];</span><br><span class="line">            <span class="keyword">var</span> vNode = createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
-<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作</p>
-</blockquote>
-
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
-<p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)</p>
-</blockquote>
-<ol>
-<li><p>使用Object.defineProperty来实现数据的响应式</p>
-</li>
-<li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
-</li>
-</ol>
-
-
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><blockquote>
-<p>在前端页面写一个简单的VUE结构，测试一下是否正确</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"./vue/index.js"</span></span><br><span class="line">        <span class="built_in">window</span>.vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:<span class="string">"FengZe"</span>,</span><br><span class="line">                age:<span class="number">16</span>,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:<span class="string">"广东"</span>,</span><br><span class="line">                    city:<span class="string">"佛山"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="大概就是这样实现的了"><a href="#大概就是这样实现的了" class="headerlink" title="大概就是这样实现的了."></a>大概就是这样实现的了.</h4><blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/vue_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue_demo</a></p>
 </blockquote>
 
         
@@ -1320,206 +1349,6 @@ var per = new Person()
 <p>and not only 这三个值。only是仅有的意思。 and是再添加这个属性的意思</p>
 <p>demo–&gt;从四列变三列再变成两列一列的CSS3响应式布局</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: 100%;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div&#123;</span><br><span class="line">    width: 20%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    flex-grow: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div img&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:1000px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 25%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:800px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 33.33%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (max-width:400px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 50%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:200px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CSS3动画</span><br><span class="line">transform-style ：flat | preserve-3d； </span><br><span class="line">注意：属性需要设置在父元素中，高于任何嵌套的变形元素。</span><br><span class="line">设置了tranform-style :preserve-3d的原型，就不能设置overflow:hidden 否则preserve-3d失效</span><br><span class="line">元素旋转，其他轴也在旋转</span><br><span class="line">translate3d 这样写好了之后浏览器就会使用GPU加速。</span><br><span class="line"></span><br><span class="line">下图代码块为爱的魔力转圈圈</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .wrapper&#123;     </span><br><span class="line">            position: relative;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            transform-style: preserve-3d;</span><br><span class="line">            &#x2F;* transform: rotateX(-20deg); *&#x2F;</span><br><span class="line">            margin-top: 200px;</span><br><span class="line">            animation: turn 5s linear infinite;</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper div&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            opacity: 0.5;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 200px;</span><br><span class="line">            color :#fff;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrapper .item:nth-of-type(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            transform: rotateY(0deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(2)&#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            transform: rotateY(60deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(3)&#123;</span><br><span class="line">            background-color: green;</span><br><span class="line">            transform: rotateY(120deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(4)&#123;</span><br><span class="line">            background-color: blueviolet;</span><br><span class="line">            transform: rotateY(180deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(5)&#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            transform: rotateY(240deg)translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(6)&#123;</span><br><span class="line">            background-color: yellowgreen;</span><br><span class="line">            transform: rotateY(300deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @keyframes turn&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(0deg);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(-360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;1&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;2&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;3&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;4&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;5&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;6&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/blog/2019/05/12/JQuery-note/">JQuery笔记</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-05-12T06:20:06.000Z" itemprop="datePublished">2019-05-12</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/blog/tags/JQuery/" rel="tag">JQuery</a>, <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h4 id="JQuery学习笔记"><a href="#JQuery学习笔记" class="headerlink" title="JQuery学习笔记"></a>JQuery学习笔记</h4><h5 id="jQuery是啥呢？"><a href="#jQuery是啥呢？" class="headerlink" title="jQuery是啥呢？"></a>jQuery是啥呢？</h5><p>它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
-<h5 id="jQuery的用法："><a href="#jQuery的用法：" class="headerlink" title="jQuery的用法："></a>jQuery的用法：</h5><h6 id="选择元素："><a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h6><ol>
-<li>$(); 里面和CSS一样，不过对选择出的一组元素，一起处理，省略循环，这里是js不允许的。</li>
-<li>里面可以写CSS选择器原生dmo,jQuery对象、 null  /undefind / function(){}    selector/content等</li>
-<li>jQuery特有的选择规则，选出来是jquery对象</li>
-<li>filter可以用来筛选，例如说筛选类名。not的话可以用来反向选择，没有这一项的就被选中，is则相反。has说明里面有这一项的选项被选中。find跟has的区别是，找到这里有这一项的然后选中。</li>
-<li>jQuery可以进行链式操作。 </li>
-<li>sizzle是用来选择特殊写法的，是查到dom最快的方式。</li>
-</ol>
-<h6 id="函数写法："><a href="#函数写法：" class="headerlink" title="函数写法："></a>函数写法：</h6><ol>
-<li>都是函数式的写法。</li>
-<li>CSS取值相当于getComputed，赋值相当于<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dom.style.***</span><br></pre></td></tr></table></figure>
-，就写width，然后啥也不写</li>
-<li>css赋值一组，取值取一个（）</li>
-<li>xxx.setAttribute(‘son’,’’Feng)  这样就可以给对象添加属性了。  </li>
-<li>attr() 用于设置或返回被选中元素的属性值</li>
-<li>prop() 如果是检索html元素则使用attr()替代。</li>
-<li>next()下一个兄弟节点。</li>
-<li>prev()上一个兄弟节点</li>
-<li>index 当前兄弟节点</li>
-<li>addClass removeClass</li>
-<li>toggleClass 删除或者添加类名  没有的话帮你添加，有话帮你删除</li>
-<li>insertBefore  插入到谁谁的前面。</li>
-<li>appendTo()   –这个比较常用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A添加到B的里面（添加到最后一个子元素后） $(&#39;p&#39;).appendTo($(&#39;ul&#39;)</span><br><span class="line">D.append（C）  D里加上C</span><br></pre></td></tr></table></figure></li>
-<li>remove detach 可以删除元素并且可以return 删除的元素。remove的话点击删除之后也删除了方法，因此第二次点击不能再删除了，而detach则可以。不断的进行删除和添加</li>
-<li>on方法绑定时间 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.on(&#39;click&#39; ,&#39;a&#39;, function()&#123;&#125;)  &#x2F;&#x2F;off可以解除绑定 $(&#39;.item&#39;).off(&#39;click&#39;), 如果想指定解绑的元素，那就要传值以更精准</span><br></pre></td></tr></table></figure>
-<ol start="16">
-<li>one() 只绑定之间一次<br>scrollTop()  滚出去的高度 </li>
-<li>动态生成标签 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;&lt;div&gt;&lt;&#x2F;div&gt;&#39;)</span><br></pre></td></tr></table></figure>
-经常用于动态添加图片或者选项框</li>
-</ol>
-<h5 id="关于事件："><a href="#关于事件：" class="headerlink" title="关于事件："></a>关于事件：</h5><ol>
-<li><p>时间对象 e-&gt;e.pageX 相对文档而言，e.clinetX 相对于浏览窗口而言。 e.which 哪个键或按钮  e.button哪个鼠标按键被按</p>
-</li>
-<li><p>e.preventDefalut()  s.stopPrpagation()  return false;  这些都是用来解绑事件的</p>
-</li>
-<li><p>offset().left/top position().left/top。</p>
-<ol>
-<li>offset()方法返回或设置匹配元素相对于文档的偏移（位置）。</li>
-</ol>
-</li>
-<li><p>parent() 返回父节点 </p>
-</li>
-<li><p>offsetParent() 返回离它最近有定位的父级        </p>
-</li>
-<li><p>paerents()  返回多个父级</p>
-</li>
-<li><p>closet()  查找最近的祖先节点        </p>
-</li>
-<li><p>val是jQuery里面代表.value的参数</p>
-</li>
-<li><p>each 遍历 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;li&#39;)each(function (index  , ele )&#123;&#125; )</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>end() 回退操作,可以使jQuery 可以连续实现点操作。就说可以用一行代码搞定。</p>
-</li>
-<li><p>slblings()  当前元素节点的所有兄弟节点</p>
-<ol>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#39;li.third-item&#39;).siblings().css(&#39;background-color&#39;, &#39;red&#39;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>prevAll()  当前元素上面的所有兄弟节点</p>
-</li>
-<li><p>nextAll() 当前元素下面的所有兄弟节点 </p>
-</li>
-<li><p>prevUntil()  nextUntil() 掐头去尾选中元素，传jQuery 对象dom</p>
-</li>
-<li><p>clone 克隆节点，参数为true的时候，事件也能克隆</p>
-</li>
-<li><p>wrap 包裹的意思  wrapall    包裹选中所有的元素 会破坏结构  unwrap 接触包装，接过话标签不能删除。</p>
-</li>
-<li><p>A.add(B)  选中元素A和B集中操作。</p>
-</li>
-<li><p>slice(0，2)  截取，算头不算尾</p>
-</li>
-<li><p>serialize 串联表单数据 serializeArray 串联数据成数组</p>
-</li>
-<li><p>animate()</p>
-<ol>
-<li>参数target  </li>
-<li>参数durition    </li>
-<li>参数代表速度变化方式  </li>
-<li>回调函数</li>
-</ol>
-</li>
-<li><p>stop(true, true) 停止当前所有的运动，停在当前目标带点  ,后面的参数决定是否立即到达目标点上  </p>
-<ol>
-<li>是否停止后续所有运动     false：不停止，继续运动  true :停止后续所有运动</li>
-<li>是否立即到达当前目标点     flase :不到达    true：到达</li>
-</ol>
-</li>
-</ol>
-<p>22.stop（flase ,true） 跳过当前运动并到达目标点，执行后续运动</p>
-<ol start="23">
-<li><p>finish()  停止当前运动  </p>
-</li>
-<li><p>delay （）延迟，参数，延迟运动   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jquery.easing.js 是专门用来做jQuery 运动的.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>slideToggle(speed ,callback)  通过滑动效果来切换元素的可见状态</p>
-</li>
-<li><p>sildeUp   sildedown   隐藏起来元素/显示元素——根据之前的不同状态进行切换- none–block  or  block–none</p>
-</li>
-<li><p>toggleClass(active)  对设置或移除备选元素的一个或多个类进行切换</p>
-</li>
-<li><p>fade in/out   淡入淡出</p>
-</li>
-<li><p>tigger 方法触发被选元素的指定事件类型。<br>==tigger出发事件是会冒泡，触发里面会影响外面  tigger可以触发自定义事件==  </p>
-</li>
-</ol>
-<h5 id="工具方法："><a href="#工具方法：" class="headerlink" title="工具方法："></a>工具方法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">以$.xxx  jQuery.xxx这种方式调用 ，此类方法定位在jQuery 函数上面</span><br></pre></td></tr></table></figure>
-
-<p>$.type()  判断 参数的数据类型<br> 原生js判断类型的三种方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. arr.instanceof Aarray  </span><br><span class="line">2. arr.constructor &#x3D;&#x3D;Array  </span><br><span class="line">3. Object.prototype.toString.call(arr)</span><br></pre></td></tr></table></figure>
-
-<p>1,2两种有局限性，3 比较通用</p>
-<p>trim()方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.trim 消除空格</span><br></pre></td></tr></table></figure>
-
-
-<p>$proxy() 改变this指针方向 参数1：function , 参数2：函数执行期上下文。</p>
-<p>$noConflict() 防止冲突 在很多javascript库使用$作为一个函数或变量名，正如我们同时需要使用jQuery和其他库一样，我们可以使用$.noConfilct把$控制权交给其他库。</p>
-<p>$.parseJSON()  字符转换成json ,要求非常严格，外部是单引号，内部属性是双引号，不需要回车符</p>
-<p>$.makeArray 把类数组转换成数组。</p>
-<h5 id="jQuery高级方法："><a href="#jQuery高级方法：" class="headerlink" title="jQuery高级方法："></a>jQuery高级方法：</h5><p>$.extend()  插件扩展1 提供最新的jQuery 工具方法</p>
-<p>$.fn.extend()  插件扩展2 提供最新的jQuery 实例方法，是实例不是工具方法 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编写方法1， $.extend(&#123;keftTrim :function ()&#123;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.fn.extend(&#123;drag : function()&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. var cd &#x3D; $.Callback()   回调函数--》返回回调对象</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. once 只执行一次fire()  方法 放在回调函数的参数里面。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var cd &#x3D; $.Callbacks(&#39;once&#39;);</span><br><span class="line">cd.add(fn1 ,fn2 ,fn3);</span><br><span class="line">cd.fire();</span><br></pre></td></tr></table></figure>
-
-
-<p>memory记忆  前面触发函数，后面添加也会被添加并触发  unique也是只执行一遍</p>
-<p>$.Deferred() 延迟对象相当于有状态的Callbacks();</p>
-<p>添加函数；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">done		fail		progress		</span><br><span class="line">触发成功，   失败 ，    进行中</span><br></pre></td></tr></table></figure>
-
-<p>触发函数：<br>resolve          reject    notify</p>
-<p>$.deferred.promise() —-&gt;不能触发函数（无状态）</p>
-<p>$(when) —-&gt;返回的是延迟对象，参数也是延迟对象。当参数延迟对象全部触发done的时候最后会触发when返回延迟对象的done函数。</p>
-<ol>
-<li>延迟对象作用控制的关键点，做链式运动的效果</li>
-<li>$.ajax这种有状态的异步操作核心是deferred </li>
-<li>when当发生多个ajax请求的时候，因为都是异步的，所以可以用多个deferred ，每当ajax 成功后我们触发一个，最后全部成功在when后一并处理。</li>
-</ol>
-<p>$() 里面可以填什么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(false &#x2F;null &#x2F;undefined) </span><br><span class="line"> $(&#39;&lt;li&gt;,&lt;&#x2F;li&gt;&#39;)   $(&lt;li&#x2F;&gt;s1234)  $(&#39;&lt;li&gt;&#39;, &#123;html : 123 ,dg :&#39; ds&#39;&#125;)</span><br><span class="line">$(&#39;#id&#39; &#x2F;  &#39;.class&#39;   &#x2F;  div &#x2F; ul &#x2F;li &#x2F;    li:eq(0)) </span><br><span class="line">$(dom)</span><br></pre></td></tr></table></figure>
-<p>//在JQuery中，init()函数里面会判断返回的类型，如果是DOM则是因为后面有.nodeType<br>$(function () {})<br>$($())</p>
-<p>jQuery .extend()  拓展工具方法<br>$().extend()   拓展实例方法</p>
-<p>extend：<br>拓展<br>合并（传两个参数 ，合并到第一个对象里面去）</p>
-<p>原始值的话并不会变化，而改个引用值就ok。</p>
-<p>extends的四种写法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.extend(obj1)</span><br><span class="line">$.extend(obj1, obj2)</span><br><span class="line">$.extend(true ,obj1)</span><br><span class="line">$.extend(true ,obj1,obj2)</span><br></pre></td></tr></table></figure>
-
-
-<p>其实就是要关注target是什么，i是什么（从第几位开始传)，如果前面有true就往后挪一位.</p>
 
         
     </section>
