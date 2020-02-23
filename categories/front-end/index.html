@@ -147,6 +147,90 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/blog/2020/02/23/ES6-modular/">ES6模块化</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/categories/front-end/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-02-23T13:20:35.000Z" itemprop="datePublished">2020-02-23</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>, <a class="article-tag-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="ES6的模块化"><a href="#ES6的模块化" class="headerlink" title="ES6的模块化"></a>ES6的模块化</h3><h4 id="模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"><a href="#模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件" class="headerlink" title="模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"></a>模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件</h4><h4 id="模块化背景"><a href="#模块化背景" class="headerlink" title="模块化背景"></a>模块化背景</h4><p>过去js很难编写大型应用，因为有以下两个问题：</p>
+<ol>
+<li>全局变量污染</li>
+<li>难以管理的依赖关系<br>这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致更多的全局污染更加负载的依赖关系，因为功能精细的划分有利于代码重用</li>
+</ol>
+<h4 id="前端的模块化有两个标准："><a href="#前端的模块化有两个标准：" class="headerlink" title="前端的模块化有两个标准："></a>前端的模块化有两个标准：</h4><ol>
+<li>Commonjs</li>
+<li>ES6 Module<br>注意：上面提到的两个均是模块化标准，具体的实现需要依托于JS的</li>
+</ol>
+<h4 id="ConmomJS"><a href="#ConmomJS" class="headerlink" title="ConmomJS"></a>ConmomJS</h4><p>简介：目前，只有node环境才支持CommonJs模块化标准，所以需要先安装node才能使用CommonJS<br>在CommonJS中，浏览器运行的是html页面，并加载页面通过script元素引入js，node.js直接运行某个js文件，该文件被称之为入口文件。node.js遵循ECMAScript标准，但脱离了浏览器环境：<br>你可以在node.js中使用ECMAScript标准的任何语法或api，例如循环，判断，数组，对象等等<br>但不能在node.js中使用浏览器的web api,例如说dom对象，window对象，document对象</p>
+<h5 id="CommonJS标准和使用"><a href="#CommonJS标准和使用" class="headerlink" title="CommonJS标准和使用"></a>CommonJS标准和使用</h5><p>node中的所有代码均在CommonJS下运行，具体规范如下 ：</p>
+<ol>
+<li><p>一个js文件既为一个模块<br>如果一个模块需要暴露依稀额数据或功能给其他模块使用，需要使用代码<code>module.exports = xxx</code> ,该过程称之为模块的导出</p>
+</li>
+<li><p>如果一个模块需要使用另一个模块导出的内容，需要使用代码require(‘模块路径’)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">路径必须以.&#x2F;或..&#x2F;开头</span><br><span class="line">如果模块文件后缀名为  .js 可以省略后缀名</span><br></pre></td></tr></table></figure>
+<p>require 函数中返回的是模块导出的内容,且模块中所有的全局代码产生的变量、函数均不会对全局造成任何污染，仅在模块内使用</p>
+</li>
+<li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
+</li>
+</ol>
+<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/2020/02/23/ES6-modular/image.png" alt></p>
+<p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ES6-module"><a href="#ES6-module" class="headerlink" title="ES6 module"></a>ES6 module</h3><blockquote>
+<p>由于种种原因，CommonJS难以在浏览器中实现，因为一直在浏览器端没有合适的模块化标准，直到es6出现。<br>ES6规范了浏览器的模块化标准，一经发布，各大浏览器厂商纷纷在自己的浏览器中实现该规范。</p>
+</blockquote>
+<p>模块的引入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在浏览器使用以下方式引入ES6模块文件</span><br><span class="line">&lt;script src &#x3D; &quot;入口文件&quot; type &#x3D; &quot;module&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h4 id="标准和使用"><a href="#标准和使用" class="headerlink" title="标准和使用"></a>标准和使用</h4><p>模块的导出分为两种，基本导出和默认导出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">可以将整个模块的导出想象成一个对象，基本导出导出的是该对象的某个属性，默认导出导出的是该对象的特殊属性default</span><br><span class="line">&#x2F;&#x2F;导出结果：想象成一个对象</span><br><span class="line">&#123;</span><br><span class="line">    a: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    b: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    default: xxx, &#x2F;&#x2F;默认导出</span><br><span class="line">    c: xxx &#x2F;&#x2F;基本导出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="ES6的导出方式："><a href="#ES6的导出方式：" class="headerlink" title="ES6的导出方式："></a>ES6的导出方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export var a &#x3D; 1 &#x2F;&#x2F;基本导出 a &#x3D; 1</span><br><span class="line">export var b &#x3D; function()&#123;&#125; &#x2F;&#x2F;基本导出 b &#x3D; function()&#123;&#125;</span><br><span class="line">export function method()&#123;&#125;  &#x2F;&#x2F;基本导出 method &#x3D; function()&#123;&#125;</span><br><span class="line">var c &#x3D; 3;</span><br><span class="line">export &#123;c&#125; &#x2F;&#x2F;基本导出 c &#x3D; 3</span><br><span class="line">export &#123; c as temp &#125; &#x2F;&#x2F;基本导出 temp &#x3D; 3</span><br><span class="line"></span><br><span class="line">export default 3 &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export default function()&#123;&#125; &#x2F;&#x2F;默认导出 default &#x3D; function()&#123;&#125;</span><br><span class="line">export &#123; c as default &#125; &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export &#123;a, b, c as default&#125; &#x2F;&#x2F;基本导出 a&#x3D;1, b&#x3D;function()&#123;&#125;, 默认导出 default &#x3D; 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">绝大部分时间写代码使用的导出方式是 export default()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ES6模块的导入："><a href="#ES6模块的导入：" class="headerlink" title="ES6模块的导入："></a>ES6模块的导入：</h4><p>使用以下的代码导入模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;a,b&#125; from &quot;模块路径&quot;   &#x2F;&#x2F;导入属性 a、b，放到变量a、b中</span><br><span class="line">import &#123;a as temp1, b as temp2&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性a、b，放到变量temp1、temp2 中</span><br><span class="line">import &#123;default as a&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default，放入变量a中，default是关键字，不能作为变量名，必须定义别名</span><br><span class="line">import &#123;default as a, b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default、b，放入变量a、b中</span><br><span class="line">import c from &quot;模块路径&quot;  &#x2F;&#x2F;相当于 import &#123;default as c&#125; from &quot;模块路径&quot;</span><br><span class="line">import c, &#123;a,b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;相当于 import &#123;default as c, a, b&#125; from &quot;模块路径&quot;</span><br><span class="line">import * as obj from &quot;模块路径&quot; &#x2F;&#x2F;将模块对象放入到变量obj中</span><br><span class="line">import &quot;模块路径&quot; &#x2F;&#x2F;不导入任何内容，仅执行一次模块</span><br></pre></td></tr></table></figure>
+<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>导入模块时，注意以下细节</p>
+<ol>
+<li>ES6 module 采用依赖预加载模式，所有模块导入代码均会提升到代码顶部</li>
+<li>不能将导入代码放置到判断、循环中</li>
+<li>导入的内容放置到常量中，不可更改</li>
+<li>ES6 module 使用了缓存，保证每个模块仅加载一次</li>
+</ol>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/blog/2020/02/15/when-Enter-an-address/">当在浏览器输入一个地址发生了什么</a>
         </h1>
         
@@ -1993,122 +2077,6 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
 <h5 id="Ajax支持的数据类型："><a href="#Ajax支持的数据类型：" class="headerlink" title="Ajax支持的数据类型："></a>Ajax支持的数据类型：</h5><blockquote>
 <p>dataType选项除了单纯的xml,还可以指定html,json,jsonp,script 或者 text</p>
 </blockquote>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/blog/2019/04/27/network-note/">图解HTTP</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/categories/front-end/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-04-27T02:36:18.000Z" itemprop="datePublished">2019-04-27</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/blog/tags/HTTP/" rel="tag">HTTP</a>, <a class="article-tag-link" href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h4 id="简单HTTP协议："><a href="#简单HTTP协议：" class="headerlink" title="简单HTTP协议："></a>简单HTTP协议：</h4><blockquote>
-<p>HTTP协议用于客户端和服务器端之间的通信。</p>
-</blockquote>
-<p>告知服务器意图的各种HTTP方法：</p>
-<ol>
-<li><p>GET：获取资源</p>
-</li>
-<li><p>POST：用来传输实体的主体，post的主要目的并不是获取响应的主体内容</p>
-</li>
-<li><p>PUT：传输文件，跟FTPyiyang ,但PUT方法自身不带验证机制，因此存在安全性问题而不被使用。</p>
-</li>
-<li><p>HEAD：获得报文首部，用于确认URI的有效性及资源更新的日期时间。</p>
-</li>
-<li><p>ELETE: 删除文件，跟put相反的方法，DELETE方法按请求URI删除指定的资源</p>
-</li>
-<li><p>OPTIONS：询问支持的方法</p>
-</li>
-<li><p>TRACE:追踪路径 </p>
-</li>
-<li><p>OPTIONS：询问支持的方法</p>
-</li>
-<li><p>TRACE : 追踪路径，但容易受到跨站追踪的工资，因此很少使用。</p>
-</li>
-<li><p>CONNECT: 要求用隧道协议连接</p>
-</li>
-</ol>
-<ul>
-<li>持久连接：只要任意一方没有明确提出断开连接，则保持TCP连接状态。<blockquote>
-<p>优点：持久连接的好处在于减少了建立和断开所造成的额外开销，减轻了服务器端的负载。因此Web页面现在是速度也就相应提高了。只要任意一端没有明确提出断开连接，则保持TCP连接状态。这样的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减少了服务器端的负载。另外，减少开销的那部分时间，使HTTP请求和相应能更早的结束，这样Web页面显示的速度也相应提高了。HTTP1.1具有持久连接。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>HTTP是不保存状态的协议，因此引出了Cookie。</p>
-</blockquote>
-<ul>
-<li>Cookie的状态连接：<blockquote>
-<p>HTTP是无状态协议，可以减少服务器的CPU以及内存资源的消耗，而缺点在于每次跳转新页面都要再次登录或者再请求报文中附加参数来管理登录状态。Cookie会根据从服务器端发送的相应报文内的一个Set-cookie的首部字段信息，通知客户端保存Cookie。当下午客户端再向该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去。</p>
-</blockquote>
-</li>
-</ul>
-<p>HTTP报文的HTTP信息：</p>
-<ul>
-<li><p>HTTP报文：请求端（客户端）的HTTP报文称为请求报文，响应端（服务器端）的叫做响应报文。</p>
-</li>
-<li><p>报文主体和实体主体的差异：</p>
-</li>
-</ul>
-<ol>
-<li>报文是HTTP通信中的基本单位，由8位组字节流组，通过HTTP通信传输。</li>
-<li>实体：作为请求或响应的有效负载数据（补充项）被传输，其内容由实体首部和实体主体组成。</li>
-</ol>
-<ul>
-<li>返回结果的HTTP状态码：<blockquote>
-<p>1XX：信息性状态码，接受的请求正在处理</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>2XX：状态成功码，请求正常处理完毕<br>200 ok<br>204 No Content 代表服务器接受的请求已成功处理，但在返回的响应报文中不含实体的主体部分。</p>
-</blockquote>
-<blockquote>
-<p>3XX：重定向状态码，需要进行附加操作以完成请求<br>301 Moved Permanently 永久性重定向，说明请求的资源已经被分配了新的URI。<br>302 Found 临时重定向。该状态码表示请求资源已经被分配了新的URI，希望用户（本次）使用新的URI访问。<br>303 See Other 表示由于请求对应的资源存在另外一个URI，应使用GET方法定向获取请求的资源。<br>304 Not Modified 表示客户端发送附带条件的请求，服务器允许请求访问资源，但未满足条件的情况，304状态码返回。<br>307 Temporary Redirect 临时重定向。与302有相同的含义。</p>
-</blockquote>
-<blockquote>
-<p>4XX：客户端错误状态码，服务器无法处理请求<br>400 Bad Request 表示报文中存在语法错误<br>401 Unauthorized 该状态码表示发送的请求需要通过有HTTP认证（BASIC认证，DIGEST认证）的认证信息<br>403 Forbidden  表明请求资源的访问被服务器拒绝了。<br>404 Not Found 表明服务器上无法找到请求的资源。</p>
-</blockquote>
-<blockquote>
-<p>5XX：服务器错误状态码，服务器处理请求出错<br>500 Internal Server Error 表明服务器端在执行请求时发生了错误，也可能是Web应用存在的bug或某些临时的故障。<br>503 Server Unavailable 表明服务器处于超负载或者正在进行停机维护。</p>
-</blockquote>
-<p>与HTTP协作的Web服务器</p>
-<ul>
-<li>在互联网中，域名听过DNS服务映射到IP地址（域名解析）之后访问目标网站，可见，当请求发送到服务器时已经是以IP地址形式的访问了。</li>
-</ul>
-<p>通信数据转发程序：代理，网关，隧道</p>
-<ol>
-<li>代理——扮演者客户端和服务器的中间人角色，接受客户端发送的请求并转发给服务器，同时也接受服务器返回的响应并转发给客户端。</li>
-<li>网关是转发其他服务器通信数据的服务器，接受从客户端发送过来的请求，它就会像自由拥有资源的源服务器一样对请求进行处理。</li>
-</ol>
-<ul>
-<li>缓存服务器：优势在于利用缓存可避免对此从源服务器转发资源。</li>
-</ul>
 
         
     </section>
