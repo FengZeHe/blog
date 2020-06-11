@@ -15,19 +15,19 @@
   <meta name="description" content="实现的效果              目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式 思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点  2. 再到数据响应模块，使用object.defineProperty来实现数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现一个简单的VUE">
-<meta property="og:url" content="http://yoursite.com/2020/02/12/vue-demo-1/index.html">
+<meta property="og:url" content="https://github.com/FengZeHe/2020/02/12/vue-demo-1/index.html">
 <meta property="og:site_name" content="何泽丰的博客">
 <meta property="og:description" content="实现的效果              目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式 思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点  2. 再到数据响应模块，使用object.defineProperty来实现数据">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/1.png">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/vnode.png">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/newTarget.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/12/vue-demo-1/1.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/12/vue-demo-1/vnode.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/12/vue-demo-1/newTarget.png">
 <meta property="article:published_time" content="2020-02-12T00:33:19.000Z">
 <meta property="article:modified_time" content="2020-02-12T01:04:58.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/1.png">
+<meta name="twitter:image" content="https://github.com/blog/2020/02/12/vue-demo-1/1.png">
 
   <meta name="keywords" content=",前端技术,vue">
   <meta name="format-detection" content="telephone=no,email=no">
@@ -35,7 +35,7 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="何泽丰的博客">
-  <meta name="msapplication-starturl" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/">
+  <meta name="msapplication-starturl" content="https://github.com/FengZeHe/blog/2020/02/12/vue-demo-1/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="何泽丰的博客">
@@ -43,7 +43,7 @@
   <link rel="apple-touch-icon" href="/blog/images/favicon.png">
 
   
-    <link rel="canonical" href="http://yoursite.com/blog/2020/02/12/vue-demo-1/">
+    <link rel="canonical" href="https://github.com/FengZeHe/blog/2020/02/12/vue-demo-1/">
   
 
   
@@ -75,7 +75,7 @@
 </header>
 <div class="mdui-dialog" id="search">
   
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="https://github.com/FengZeHe"></form>
     <div class="search-result"></div>
   
 </div>
@@ -168,7 +168,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-11.png" style="max-height: 240px;">
+      <img src="/images/random/material-19.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">实现一个简单的VUE</div>
@@ -184,7 +184,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2020/02/12/vue-demo-1/&chld=M|2">
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=https://github.com/FengZeHe/2020/02/12/vue-demo-1/&chld=M|2">
               
             </li>
           </ul>
@@ -193,25 +193,25 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=实现一个简单的VUE&url=http://yoursite.com/2020/02/12/vue-demo-1/&pic=http://yoursite.com/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=实现一个简单的VUE&url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/&pic=https://github.com/FengZeHe/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=实现一个简单的VUE&url=http://yoursite.com/2020/02/12/vue-demo-1/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=实现一个简单的VUE&url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/FengZeHe/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/02/12/vue-demo-1/&title=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/&title=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=实现一个简单的VUE&pics=http://yoursite.com/blog/images/favicon.png&url=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=实现一个简单的VUE&pics=https://github.com/FengZeHe/blog/images/favicon.png&url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/02/12/vue-demo-1/&text=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=https://github.com/FengZeHe/2020/02/12/vue-demo-1/&text=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
@@ -302,7 +302,7 @@
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><br><a href="http://yoursite.com/2020/02/12/vue-demo-1/">http://yoursite.com/2020/02/12/vue-demo-1/</a>
+        <strong>PermaLink: </strong><br><a href="https://github.com/FengZeHe/2020/02/12/vue-demo-1/">https://github.com/FengZeHe/2020/02/12/vue-demo-1/</a>
       </blockquote>
       
     </div>

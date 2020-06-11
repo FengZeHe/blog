@@ -15,18 +15,18 @@
   <meta name="description" content="背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：  使用ajax请求服务器，当服务器完成响应后拿到响应结果 监听按钮是否被点击，当按钮点击后拿到某个文本框的值 使用setTimeout 等待一段时间，当时间到达后做某些事情  面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6异步的解决方案">
-<meta property="og:url" content="http://yoursite.com/2020/02/27/es6-async/index.html">
+<meta property="og:url" content="https://github.com/FengZeHe/2020/02/27/es6-async/index.html">
 <meta property="og:site_name" content="何泽丰的博客">
 <meta property="og:description" content="背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：  使用ajax请求服务器，当服务器完成响应后拿到响应结果 监听按钮是否被点击，当按钮点击后拿到某个文本框的值 使用setTimeout 等待一段时间，当时间到达后做某些事情  面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/27/es6-async/scene.png">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/27/es6-async/image.png">
-<meta property="og:image" content="http://yoursite.com/blog/2020/02/27/es6-async/catchable.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/27/es6-async/scene.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/27/es6-async/image.png">
+<meta property="og:image" content="https://github.com/blog/2020/02/27/es6-async/catchable.png">
 <meta property="article:published_time" content="2020-02-26T23:50:33.000Z">
 <meta property="article:modified_time" content="2020-02-27T00:13:29.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/blog/2020/02/27/es6-async/scene.png">
+<meta name="twitter:image" content="https://github.com/blog/2020/02/27/es6-async/scene.png">
 
   <meta name="keywords" content=",前端技术">
   <meta name="format-detection" content="telephone=no,email=no">
@@ -34,7 +34,7 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="何泽丰的博客">
-  <meta name="msapplication-starturl" content="http://yoursite.com/blog/2020/02/27/es6-async/">
+  <meta name="msapplication-starturl" content="https://github.com/FengZeHe/blog/2020/02/27/es6-async/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="何泽丰的博客">
@@ -42,7 +42,7 @@
   <link rel="apple-touch-icon" href="/blog/images/favicon.png">
 
   
-    <link rel="canonical" href="http://yoursite.com/blog/2020/02/27/es6-async/">
+    <link rel="canonical" href="https://github.com/FengZeHe/blog/2020/02/27/es6-async/">
   
 
   
@@ -74,7 +74,7 @@
 </header>
 <div class="mdui-dialog" id="search">
   
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="https://github.com/FengZeHe"></form>
     <div class="search-result"></div>
   
 </div>
@@ -167,7 +167,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-3.png" style="max-height: 240px;">
+      <img src="/images/random/material-9.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">ES6异步的解决方案</div>
@@ -183,7 +183,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2020/02/27/es6-async/&chld=M|2">
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=https://github.com/FengZeHe/2020/02/27/es6-async/&chld=M|2">
               
             </li>
           </ul>
@@ -192,25 +192,25 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=ES6异步的解决方案&url=http://yoursite.com/2020/02/27/es6-async/&pic=http://yoursite.com/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=ES6异步的解决方案&url=https://github.com/FengZeHe/2020/02/27/es6-async/&pic=https://github.com/FengZeHe/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=ES6异步的解决方案&url=http://yoursite.com/2020/02/27/es6-async/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=ES6异步的解决方案&url=https://github.com/FengZeHe/2020/02/27/es6-async/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/FengZeHe/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=https://github.com/FengZeHe/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/02/27/es6-async/&title=ES6异步的解决方案" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=ES6异步的解决方案&pics=http://yoursite.com/blog/images/favicon.png&url=http://yoursite.com/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=ES6异步的解决方案&pics=https://github.com/FengZeHe/blog/images/favicon.png&url=https://github.com/FengZeHe/2020/02/27/es6-async/" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/02/27/es6-async/&text=ES6异步的解决方案" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=https://github.com/FengZeHe/2020/02/27/es6-async/&text=ES6异步的解决方案" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
@@ -243,7 +243,7 @@
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><br><a href="http://yoursite.com/2020/02/27/es6-async/">http://yoursite.com/2020/02/27/es6-async/</a>
+        <strong>PermaLink: </strong><br><a href="https://github.com/FengZeHe/2020/02/27/es6-async/">https://github.com/FengZeHe/2020/02/27/es6-async/</a>
       </blockquote>
       
     </div>
