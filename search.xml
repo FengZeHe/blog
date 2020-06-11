@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>package-lock</title>
-    <url>/blog/2020/06/11/package-lock/</url>
-    <content><![CDATA[{"lockfileVersion":1}]]></content>
-  </entry>
-  <entry>
     <title>ES6异步的解决方案</title>
     <url>/blog/2020/02/27/es6-async/</url>
     <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p>
