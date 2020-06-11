@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="当在浏览器输入一个地址发生了什么"><meta name="keywords" content="前端技术"><meta name="author" content="何泽丰"><meta name="copyright" content="何泽丰"><title>当在浏览器输入一个地址发生了什么 | 欢迎来到何泽丰的博客</title><link rel="shortcut icon" href="/blog/melody-favicon.ico"><link rel="stylesheet" href="/blog/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#是这样的："><span class="toc-number">1.</span> <span class="toc-text">是这样的：</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/blog/img/avatar.png"></div><div class="author-info__name text-center">何泽丰</div><div class="author-info__description text-center">怕，你就输一辈子</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/blog/archives"><span class="pull-left">Articles</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/blog/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/blog/categories"><span class="pull-left">Categories</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/blog/">欢迎来到何泽丰的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">当在浏览器输入一个地址发生了什么</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-15</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/blog/categories/front-end/">front-end</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h4 id="是这样的："><a href="#是这样的：" class="headerlink" title="是这样的："></a>是这样的：</h4><ol>
+<li><p>浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）</p>
+</li>
+<li><p>浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其进行编码</p>
+<ol>
+<li>例如说在浏览器中搜索”王思聪”，汉字会被编码成ASCII码</li>
+</ol>
+</li>
+<li><p>浏览器构造一个没有消息体的GET请求，发送至服务器，等待服务器响应（此时浏览器标签应该有一个等等的图标–转圈）</p>
+</li>
+<li><p>服务器收到请求，将一个HTML页面代码组装到消息体中（不一定要html文件）响应给浏览器</p>
+</li>
+<li><p>浏览器拿到服务器的响应后，丢弃当前的页面，开始渲染消息体的HTML代码。浏览器之所以知道这是一个HTML代码，是因为服务器的响应头指定了消息类型为text/html</p>
+</li>
+<li><p>浏览器在渲染页面的过程中发现有嵌入的资源如CSS,JS图片等</p>
+</li>
+<li><p>浏览器使用不阻塞的渲染方式，重定向服务器发送该资源的请求，拿到响应结果后根据Content-Type做响应处理</p>
+</li>
+<li><p>当所有资源已经下载并处理好后，浏览器出发window.onload事件</p>
+</li>
+</ol>
+<p>   这里说的Content-Tpye是在http协议消息头中表示具体请求中的媒体类型信息</p>
+<p>   有一下几种类型：</p>
+<p>   <img src="/blog/2020/02/15/when-Enter-an-address/content-type.png" alt></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">何泽丰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/02/15/when-Enter-an-address/">http://yoursite.com/2020/02/15/when-Enter-an-address/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/blog/2020/02/23/ES6-modular/"><i class="fa fa-chevron-left">  </i><span>ES6模块化</span></a></div><div class="next-post pull-right"><a href="/blog/2020/02/12/vue-demo-1/"><span>实现一个简单的VUE</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By 何泽丰</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/blog/js/utils.js?version=1.7.0"></script><script src="/blog/js/fancybox.js?version=1.7.0"></script><script src="/blog/js/sidebar.js?version=1.7.0"></script><script src="/blog/js/copy.js?version=1.7.0"></script><script src="/blog/js/fireworks.js?version=1.7.0"></script><script src="/blog/js/transition.js?version=1.7.0"></script><script src="/blog/js/scroll.js?version=1.7.0"></script><script src="/blog/js/head.js?version=1.7.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
