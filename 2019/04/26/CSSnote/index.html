@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>CSS2.0学习笔记 | 何泽丰的博客</title>
+
+  <link rel="shortcut icon" href="/blog/images/favicon.png">
+  <link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客">
+  <meta name="description" content="CSS (cascading style sheet 层叠样式表)(1)引入css 行间样式，即1&lt;div style&#x3D;&quot;&quot;&gt;&lt;&#x2F;div&gt; 页面级CSS，在head里面引入一个style标签，在里面写css代码。 引用外部css文件,即1&lt;link rel&#x3D;&gt; link和!import引入的区别 Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS2.0学习笔记">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/CSSnote/index.html">
+<meta property="og:site_name" content="何泽丰的博客">
+<meta property="og:description" content="CSS (cascading style sheet 层叠样式表)(1)引入css 行间样式，即1&lt;div style&#x3D;&quot;&quot;&gt;&lt;&#x2F;div&gt; 页面级CSS，在head里面引入一个style标签，在里面写css代码。 引用外部css文件,即1&lt;link rel&#x3D;&gt; link和!import引入的区别 Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他">
+<meta property="article:published_time" content="2019-04-26T07:13:39.000Z">
+<meta property="article:modified_time" content="2020-01-16T16:40:30.000Z">
+<meta property="article:author" content="何泽丰">
+<meta property="article:tag" content="前端技术">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+  <meta name="keywords" content=",前端技术,CSS">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="何泽丰的博客">
+  <meta name="msapplication-starturl" content="http://yoursite.com/blog/2019/04/26/CSSnote/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="何泽丰的博客">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/blog/images/favicon.png">
+
+  
+    <link rel="canonical" href="http://yoursite.com/blog/2019/04/26/CSSnote/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/blog/css/mdui.css">
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+<link rel="stylesheet" href="/blog/custom.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客" type="application/atom+xml">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/blog/" class="mdui-typo-headline">何泽丰的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/blog/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="search-result"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/blog/images/banner.png" style="height: 160px;">
+    <img src="/blog/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">何泽丰</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/blog/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/02/">February 2020<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/01/">January 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/10/">October 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/05/">May 2019<span class="mdui-ripple sidebar_archives-count">7</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/04/">April 2019<span class="mdui-ripple sidebar_archives-count">4</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/categories/back-end/">back-end<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/demo/">demo<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/front-end/">front-end<span class="mdui-ripple sidebar_archives-count">14</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/tags/Ajax/" rel="tag">Ajax<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS/" rel="tag">CSS<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS3/" rel="tag">CSS3<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTML/" rel="tag">HTML<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTTP/" rel="tag">HTTP<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JQuery/" rel="tag">JQuery<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/jsonp/" rel="tag">jsonp<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/vue/" rel="tag">vue<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术<span class="mdui-ripple sidebar_archives-count">17</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">后端技术<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" rel="tag">实战项目<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" rel="tag">浏览器渲染原理<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/blog/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/blog/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/blog/gallery" class="mdui-list-item mdui-ripple">画廊</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">No Links</a>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-2.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">CSS2.0学习笔记</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-04-26 / <i class="iconfont">&#xe601;</i> 何泽丰</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2019/04/26/CSSnote/&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=CSS2.0学习笔记&url=http://yoursite.com/2019/04/26/CSSnote/&pic=http://yoursite.com/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=CSS2.0学习笔记&url=http://yoursite.com/2019/04/26/CSSnote/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/04/26/CSSnote/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2019/04/26/CSSnote/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/04/26/CSSnote/&title=CSS2.0学习笔记" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=CSS2.0学习笔记&pics=http://yoursite.com/blog/images/favicon.png&url=http://yoursite.com/2019/04/26/CSSnote/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2019/04/26/CSSnote/&text=CSS2.0学习笔记" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="CSS-cascading-style-sheet-层叠样式表"><a href="#CSS-cascading-style-sheet-层叠样式表" class="headerlink" title="CSS (cascading style sheet 层叠样式表)"></a>CSS (cascading style sheet 层叠样式表)</h2><h4 id="1-引入css"><a href="#1-引入css" class="headerlink" title="(1)引入css"></a>(1)引入css</h4><ol>
+<li>行间样式，即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>页面级CSS，在head里面引入一个style标签，在里面写css代码。</li>
+<li>引用外部css文件,即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&gt;</span><br></pre></td></tr></table></figure></li>
+<li>link和!import引入的区别<ol>
+<li>Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务;@import属于CSS范畴，只能加载CSS</li>
+<li>link引用CSS时，在页面载入是同时加载; @import需要页面网页完全载入后再加载</li>
+<li>link是XHTML标签，无兼容问题; @import是CSS2.1提出的 ，低版本浏览器不支持</li>
+<li>link使用Javascript控制DOM改变样式，而@import不支持</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>把html,css放在服务器上，浏览器下载一行代码并执行一行代码。属于异步执行，因为计算机的异步和同步相对于我们的理解来说是相反的。</li>
+</ul>
+<hr>
+<h4 id="2-选择器"><a href="#2-选择器" class="headerlink" title="(2)选择器"></a>(2)选择器</h4><ol>
+<li>id选择器一个元素只能有一个id选择器。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>类选择器,一个类选择器可对应对个元素。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>标签选择器，适用于标签，例如说div a。</li>
+<li>通配符选择器 *{} 选中所有的标签。这个用于初始化标签非常有作用。</li>
+<li>属性选择器 </li>
+</ol>
+<ul>
+<li>选择器的权重（从高-低）<blockquote>
+<p>important（正无穷）-&gt;行间样式（1000）–&gt;id（100）–&gt;class 属性选择器 （10） –&gt;标签选择，伪元素（1） ——&gt;通配符（0）</p>
+</blockquote>
+</li>
+</ul>
+<p>父子选择器： div span{}</p>
+<ul>
+<li><p>特点：不在于一定要使用标签选择器，class id 选择器都可以，只要成立父子关系就可以了。</p>
+</li>
+<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
+</li>
+<li><p>子元素选择器：即符号下的直接向下的选择方式，例如h1&gt;strong{;}</p>
+</li>
+<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
+</li>
+</ul>
+<p>并列选择器：<br>特点：当同时存在相同标签及相同类名时，可通过标签名和类名混合使用达到选中区域的效果。</p>
+<p>权重选择器：<br>特点：只要是同一横行想选择器，权重值为相加，若权重值一样，则后面的代码会覆盖前面的代码。</p>
+<p>分组选择器：<br>特点：例如说div span想设置一样的背景颜色，在减少冗余的角度来看，div span{}这样写css。</p>
+<hr>
+<h4 id="3-CSS基础属性："><a href="#3-CSS基础属性：" class="headerlink" title="(3)CSS基础属性："></a>(3)CSS基础属性：</h4><ol>
+<li>字体大小<br>font-size px; 浏览器默认为16px;<br>font-wight:blod 字体加粗<br>font-style:italic；斜体<br>font-family:arial;互联网上的通用字体<br>color:设置字体颜色. </li>
+<li>纯英文字母</li>
+<li>颜色代码 （00-ff，00-ff,00-ff）分别代表rgb，red green,blue.</li>
+<li>颜色函数，color:rgb(0-255,0-255,0-255)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">border:10px solid(dotted点状，dashed 条状) black;（10px粗细，实线，黑色）</span><br><span class="line">text-align:right;文本向右对齐  text-align: center 文本居中显示</span><br><span class="line">line-height: 20px； 行高。因此让单行文本水平居中的做法就是让行高=容器高度</span><br><span class="line">text-indent:2em(2个font-size)</span><br><span class="line">cursor:(pointer 当光标移动到哪个区域，就会变成另外的符号，<span class="built_in">help</span> ,move, pointer)</span><br><span class="line">伪类选择器 a:hover&#123;&#125; 在元素被光标选中的时候触发各种效果。</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>元素的分类：<br>行级元素 inline</li>
+</ol>
+<ul>
+<li>特征：内容决定元素所占位置，不可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt; &lt;strong&gt; &lt;em&gt; &lt;a&gt; &lt;del&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>块级元素 block</p>
+<ul>
+<li>特征：独占一行，可通过css改变宽高<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt;&lt;ol&gt; &lt;form&gt; &lt;address&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>行级块元素 inline-block</p>
+<ul>
+<li>特征：1.内容决定元素所占位置 2.可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img&gt; &lt;input&gt;</span><br></pre></td></tr></table></figure></li>
+<li>凡是带有inline的都显示文字特性，因此会被分割，导致多张图片并排会有空隙产生。</li>
+<li>注意：在开发的时候先写css样式再写html，因为clas是一对多关系的，所以这些属性都能通过组合加上去——先定义后选样式。</li>
+<li>注意：用标签选择器做初始化，因为标签选择器的权重是0，若是用户想自定义修改那么通过增加权重就可以实现。</li>
+</ul>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><br><a href="http://yoursite.com/2019/04/26/CSSnote/">http://yoursite.com/2019/04/26/CSSnote/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/blog/categories/front-end/">front-end</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/blog/tags/CSS/" rel="tag">CSS</a><a class="mdui-ripple article_tags-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/blog/2019/04/27/network-note/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/blog/2019/04/26/HTMLnote/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2020 何泽丰<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/blog/js/mdui.js"></script>
+<script src="/blog/js/script.js"></script>
+
+  
+<script src="/blog/custom.js"></script>
+
+</body>
+</html>

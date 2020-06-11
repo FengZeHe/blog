@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>douban | 何泽丰的博客</title>
+
+  <link rel="shortcut icon" href="/blog/images/favicon.png">
+  <link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客">
+  <meta name="description" content="使用豆瓣api做联想搜索项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。  首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。  HTML代码    12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
+<meta property="og:type" content="article">
+<meta property="og:title" content="douban">
+<meta property="og:url" content="http://yoursite.com/2019/05/07/douban/index.html">
+<meta property="og:site_name" content="何泽丰的博客">
+<meta property="og:description" content="使用豆瓣api做联想搜索项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。  首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。  HTML代码    12345678910111213141516171819202122232425262728293031323334353637383940414243444546474">
+<meta property="og:image" content="http://yoursite.com/blog/2019/05/07/douban/2019/05/07/douban/1.png">
+<meta property="og:image" content="http://yoursite.com/blog/2019/05/07/douban/2019/05/07/douban/2.png">
+<meta property="article:published_time" content="2019-05-07T01:03:25.000Z">
+<meta property="article:modified_time" content="2019-05-08T02:37:08.000Z">
+<meta property="article:author" content="何泽丰">
+<meta property="article:tag" content="前端技术">
+<meta property="article:tag" content="实战项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/blog/2019/05/07/douban/2019/05/07/douban/1.png">
+
+  <meta name="keywords" content=",前端技术,实战项目">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="何泽丰的博客">
+  <meta name="msapplication-starturl" content="http://yoursite.com/blog/2019/05/07/douban/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="何泽丰的博客">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/blog/images/favicon.png">
+
+  
+    <link rel="canonical" href="http://yoursite.com/blog/2019/05/07/douban/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/blog/css/mdui.css">
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+<link rel="stylesheet" href="/blog/custom.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客" type="application/atom+xml">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/blog/" class="mdui-typo-headline">何泽丰的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/blog/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="search-result"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/blog/images/banner.png" style="height: 160px;">
+    <img src="/blog/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">何泽丰</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/blog/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/02/">February 2020<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/01/">January 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/10/">October 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/05/">May 2019<span class="mdui-ripple sidebar_archives-count">7</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/04/">April 2019<span class="mdui-ripple sidebar_archives-count">4</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/categories/back-end/">back-end<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/demo/">demo<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/front-end/">front-end<span class="mdui-ripple sidebar_archives-count">14</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/tags/Ajax/" rel="tag">Ajax<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS/" rel="tag">CSS<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS3/" rel="tag">CSS3<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTML/" rel="tag">HTML<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTTP/" rel="tag">HTTP<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JQuery/" rel="tag">JQuery<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/jsonp/" rel="tag">jsonp<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/vue/" rel="tag">vue<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术<span class="mdui-ripple sidebar_archives-count">17</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">后端技术<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" rel="tag">实战项目<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" rel="tag">浏览器渲染原理<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/blog/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/blog/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/blog/gallery" class="mdui-list-item mdui-ripple">画廊</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">No Links</a>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-7.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">douban</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-05-07 / <i class="iconfont">&#xe601;</i> 何泽丰</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2019/05/07/douban/&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=douban&url=http://yoursite.com/2019/05/07/douban/&pic=http://yoursite.com/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=douban&url=http://yoursite.com/2019/05/07/douban/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/07/douban/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2019/05/07/douban/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/05/07/douban/&title=douban" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=douban&pics=http://yoursite.com/blog/images/favicon.png&url=http://yoursite.com/2019/05/07/douban/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2019/05/07/douban/&text=douban" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="使用豆瓣api做联想搜索"><a href="#使用豆瓣api做联想搜索" class="headerlink" title="使用豆瓣api做联想搜索"></a>使用豆瓣api做联想搜索</h2><h6 id="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"><a href="#项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。" class="headerlink" title="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"></a>项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。</h6><hr>
+<ol>
+<li>首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。<img src="/blog/2019/05/07/douban/2019/05/07/douban/1.png" class title="写好的样式，在搜索框内填入信息进行联想搜索">
+<blockquote>
+<p>HTML代码</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;ie&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;src&#x2F;css&#x2F;index.css&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;nav&quot;&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;nav-left&quot;&gt;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li&gt;豆瓣&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;读书&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;电影&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;音乐&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;同城&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;小组&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;阅读&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;FM&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;时间&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;豆品&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;更多&lt;&#x2F;li&gt;</span><br><span class="line">                &lt;&#x2F;ul&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">            &lt;div class&#x3D;&quot;nav-right&quot;&gt;</span><br><span class="line">                &lt;ul&gt;</span><br><span class="line">                    &lt;li&gt;下载客户端&lt;&#x2F;li&gt;</span><br><span class="line">                    &lt;li&gt;注册&#x2F;登录&lt;&#x2F;li&gt;</span><br><span class="line">                &lt;&#x2F;ul&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;main-music&quot;&gt;</span><br><span class="line">                &lt;div class&#x3D;&quot;main-wrapper&quot;&gt;</span><br><span class="line">                    &lt;div class&#x3D;&quot;main-logo&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">                    &lt;div class&#x3D;&quot;main-search&quot;&gt;</span><br><span class="line">                        &lt;form action&#x3D;&quot;&quot;&gt;</span><br><span class="line">                            &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;唱片名，表演者&quot;  class&#x3D;&quot;search&quot; &gt;</span><br><span class="line">                            &lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;submit&quot;&gt;</span><br><span class="line">                        &lt;&#x2F;form&gt;</span><br><span class="line">                    &lt;&#x2F;div&gt;</span><br><span class="line">                    &lt;div class&#x3D;&quot;main-list&quot;&gt;</span><br><span class="line">                        &lt;ul&gt;</span><br><span class="line">                            </span><br><span class="line">                        &lt;&#x2F;ul&gt;</span><br><span class="line">                    &lt;&#x2F;div&gt;</span><br><span class="line">                &lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;..&#x2F;jquery.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;src&#x2F;js&#x2F;index.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>CSS样式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    margin: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html body&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 28px;</span><br><span class="line">    min-width: 950px;</span><br><span class="line">    background: #5d5d5d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav li&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    color: #d5d5d5;</span><br><span class="line">    line-height: 28px;</span><br><span class="line">    margin-left: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-left&#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    left: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.nav-right&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    right: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-music&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100px;</span><br><span class="line">    border-bottom: 1px solid black;</span><br><span class="line">    background-color: #f0f3ef;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    left: 100px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper .main-logo&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    top: 15px;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height:80px;</span><br><span class="line">    background-image: url(&quot;..&#x2F;bg.png&quot;);</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-wrapper .main-search&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    color: #5d5d5d;</span><br><span class="line">    font-size: 30px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-search .search&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 250px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-radius: 20px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    left: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-search .submit&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 50px;</span><br><span class="line">    height: 30px;</span><br><span class="line">    border-radius: 20px;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    left: 30px;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-list ul&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 500px;</span><br><span class="line">    left: 225px;</span><br><span class="line">    top: 75px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-list li&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 150px;</span><br><span class="line">    font-size: 18px;</span><br><span class="line">    font-family: &quot;黑体&quot;;</span><br><span class="line">    background: #b1cbe0;</span><br><span class="line">    border: 1px solid #d5d5d5;</span><br><span class="line">    opacity: 0.7;</span><br><span class="line">    text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.main-list img&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol start="2">
+<li>上网查找豆瓣开发者API V2, 以前这里有文档写着后台接口，现在没有需要自己摸索（查资料）才能知道豆瓣的后台接口使啥。摸索完接口之后，我们这里用音乐接口作为例子，使用JQuery和封装Ajax,进行后台数据的接受。</li>
+</ol>
+<blockquote>
+<p>javascript代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    (function()&#123;</span><br><span class="line">    var $search &#x3D; $(&#39;.search&#39;);</span><br><span class="line">    var $ul &#x3D; $(&#39;ul&#39;,&#39;.main-list&#39;);</span><br><span class="line">    $search.on(&#39;input&#39;,function()&#123;</span><br><span class="line">        var value &#x3D; $(this).val();</span><br><span class="line">        console.log(value);</span><br><span class="line">        getData(value ,7);</span><br><span class="line">    &#125;)</span><br><span class="line">    function getData(value, num)&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type:&#39;get&#39;,             &#x2F;&#x2F;获取方式为get</span><br><span class="line">            url :&#39;https:&#x2F;&#x2F;api.douban.com&#x2F;v2&#x2F;music&#x2F;search&#39;,  &#x2F;&#x2F;豆瓣音乐后台地址</span><br><span class="line">            data: &#39;q&#x3D;&#39; + value +&#39;&amp;count&#x3D;&#39; + num,    &#x2F;&#x2F;获取的数据</span><br><span class="line">            dataType :&#39;jsonp&#39;,      &#x2F;&#x2F;获取方式为jsonp</span><br><span class="line">            success : addItem       &#x2F;&#x2F;获取成功之后的函数addItem</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    function addItem(data)&#123;</span><br><span class="line">        var list &#x3D; data.musics;</span><br><span class="line">        var str &#x3D; &#39;&#39;;</span><br><span class="line">        list.forEach(function(ele ,index)&#123;</span><br><span class="line">            str +&#x3D; &#39;&lt;li&gt;&quot;&#39;+ele.title+&#39;&quot;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;music.douban.com&#x2F;subject&#x2F;&#39;+ele.id+&#39;&#x2F;&quot;&gt;&lt;img src&#x3D;&quot;&#39;+ele.image+&#39;&quot; &gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;&#39;</span><br><span class="line">        &#125;)</span><br><span class="line">        $ul.html($(str));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在数据获取成功之后我们通过foEach循环把获取回来的数据通过JQuery的html()方法插入到指定的文本当中,点击图片会跳转到歌曲页面。</p>
+</blockquote>
+<img src="/blog/2019/05/07/douban/2019/05/07/douban/2.png" class title="根据歌曲id，跳转到歌手页面">
+
+<h2 id="豆瓣后台的项目大致就是这样啦。"><a href="#豆瓣后台的项目大致就是这样啦。" class="headerlink" title="豆瓣后台的项目大致就是这样啦。"></a>豆瓣后台的项目大致就是这样啦。</h2>
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><br><a href="http://yoursite.com/2019/05/07/douban/">http://yoursite.com/2019/05/07/douban/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a><a class="mdui-ripple article_tags-link" href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" rel="tag">实战项目</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/blog/2019/05/07/Ajax-note/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/blog/2019/04/27/network-note/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2020 何泽丰<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/blog/js/mdui.js"></script>
+<script src="/blog/js/script.js"></script>
+
+  
+<script src="/blog/custom.js"></script>
+
+</body>
+</html>

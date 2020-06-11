@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>实现一个简单的VUE | 何泽丰的博客</title>
+
+  <link rel="shortcut icon" href="/blog/images/favicon.png">
+  <link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客">
+  <meta name="description" content="实现的效果              目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式 思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点  2. 再到数据响应模块，使用object.defineProperty来实现数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个简单的VUE">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/vue-demo-1/index.html">
+<meta property="og:site_name" content="何泽丰的博客">
+<meta property="og:description" content="实现的效果              目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式 思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点  2. 再到数据响应模块，使用object.defineProperty来实现数据">
+<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/1.png">
+<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/vnode.png">
+<meta property="og:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/newTarget.png">
+<meta property="article:published_time" content="2020-02-12T00:33:19.000Z">
+<meta property="article:modified_time" content="2020-02-12T01:04:58.000Z">
+<meta property="article:author" content="何泽丰">
+<meta property="article:tag" content="前端技术">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/1.png">
+
+  <meta name="keywords" content=",前端技术,vue">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="何泽丰的博客">
+  <meta name="msapplication-starturl" content="http://yoursite.com/blog/2020/02/12/vue-demo-1/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="何泽丰的博客">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/blog/images/favicon.png">
+
+  
+    <link rel="canonical" href="http://yoursite.com/blog/2020/02/12/vue-demo-1/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/blog/css/mdui.css">
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+<link rel="stylesheet" href="/blog/custom.css">
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客" type="application/atom+xml">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/blog/" class="mdui-typo-headline">何泽丰的博客</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/blog/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="search-result"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/blog/images/banner.png" style="height: 160px;">
+    <img src="/blog/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">何泽丰</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/blog/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/02/">February 2020<span class="mdui-ripple sidebar_archives-count">5</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2020/01/">January 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/12/">December 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/10/">October 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/05/">May 2019<span class="mdui-ripple sidebar_archives-count">7</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/archives/2019/04/">April 2019<span class="mdui-ripple sidebar_archives-count">4</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/categories/back-end/">back-end<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/demo/">demo<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/categories/front-end/">front-end<span class="mdui-ripple sidebar_archives-count">14</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/blog/tags/Ajax/" rel="tag">Ajax<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS/" rel="tag">CSS<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/CSS3/" rel="tag">CSS3<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTML/" rel="tag">HTML<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/HTTP/" rel="tag">HTTP<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JQuery/" rel="tag">JQuery<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/JavaScript/" rel="tag">JavaScript<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/jsonp/" rel="tag">jsonp<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/vue/" rel="tag">vue<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术<span class="mdui-ripple sidebar_archives-count">17</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">后端技术<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" rel="tag">实战项目<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">微信小程序<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" rel="tag">浏览器渲染原理<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/blog/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/blog/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/blog/gallery" class="mdui-list-item mdui-ripple">画廊</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">No Links</a>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-11.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">实现一个简单的VUE</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-02-12 / <i class="iconfont">&#xe601;</i> 何泽丰</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2020/02/12/vue-demo-1/&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=实现一个简单的VUE&url=http://yoursite.com/2020/02/12/vue-demo-1/&pic=http://yoursite.com/blog/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=实现一个简单的VUE&url=http://yoursite.com/2020/02/12/vue-demo-1/&via=何泽丰" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/02/12/vue-demo-1/&title=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=何泽丰的博客&title=实现一个简单的VUE&pics=http://yoursite.com/blog/images/favicon.png&url=http://yoursite.com/2020/02/12/vue-demo-1/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/02/12/vue-demo-1/&text=实现一个简单的VUE" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <blockquote>
+<p>实现的效果</p>
+</blockquote>
+
+
+<div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
+</div>
+
+
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
+ 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
+ 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
+<li>编译模块</li>
+<li>虚拟节点模块</li>
+<li>渲染模块</li>
+<li>数据响应模块</li>
+<li>VUE构造函数模块</li>
+</ol>
+<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><blockquote>
+<p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果<br>思想：</p>
+</blockquote>
+<ol>
+<li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
+<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
+<li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
+</ol>
+<p><img src="/blog/2020/02/12/vue-demo-1/1.png" alt></p>
+<blockquote>
+<p>compile.js 代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFragments</span>(<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> matches = template.match(<span class="regexp">/&#123;&#123;[^&#125;]+&#125;&#125;/g</span>); <span class="comment">//万一有人的用户名叫12&#125;  所以这里要处理一下</span></span><br><span class="line">    <span class="keyword">return</span> matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">fragment, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = fragment.replace(<span class="string">"&#123;&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> props = exp.split(<span class="string">"."</span>);<span class="comment">//将表达式分割为属性数组</span></span><br><span class="line">    <span class="keyword">var</span> obj = envObj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">template, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 提取模板中的&#123;&#123;&#125;&#125;</span></span><br><span class="line">    <span class="keyword">var</span> flags = getFragments(template);</span><br><span class="line">    <span class="keyword">var</span> result = template;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; flags.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
+<p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树<br>思想：</p>
+</blockquote>
+<ol>
+<li>需要创建虚拟DOM 以便以后操作数据</li>
+<li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VNode</span>(<span class="params">realDom, template</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// node 构造函数</span></span><br><span class="line">    <span class="keyword">this</span>.realDom = realDom;</span><br><span class="line">    <span class="keyword">this</span>.template = template;</span><br><span class="line">    <span class="keyword">this</span>.children = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">realDom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> root = <span class="keyword">new</span> VNode(realDom, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template = realDom.nodeValue;</span><br><span class="line">        <span class="comment">// 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span></span><br><span class="line">        <span class="comment">// 文本节点代表的数字是3</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = realDom.childNodes[i];</span><br><span class="line">            <span class="keyword">var</span> vNode = createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
+<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/2020/02/12/vue-demo-1/vnode.png" alt></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
+<p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)</p>
+</blockquote>
+<ol>
+<li><p>使用Object.defineProperty来实现数据的响应式</p>
+</li>
+<li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
+</li>
+</ol>
+<p><img src="/blog/2020/02/12/vue-demo-1/newTarget.png" alt></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><blockquote>
+<p>在前端页面写一个简单的VUE结构，测试一下是否正确</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"./vue/index.js"</span></span><br><span class="line">        <span class="built_in">window</span>.vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:<span class="string">"FengZe"</span>,</span><br><span class="line">                age:<span class="number">16</span>,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:<span class="string">"广东"</span>,</span><br><span class="line">                    city:<span class="string">"佛山"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="大概就是这样实现的了"><a href="#大概就是这样实现的了" class="headerlink" title="大概就是这样实现的了."></a>大概就是这样实现的了.</h4><blockquote>
+<p>源码地址：<a href="https://github.com/FengZeHe/vue_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue_demo</a></p>
+</blockquote>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><br><a href="http://yoursite.com/2020/02/12/vue-demo-1/">http://yoursite.com/2020/02/12/vue-demo-1/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/blog/categories/demo/">demo</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/blog/tags/vue/" rel="tag">vue</a><a class="mdui-ripple article_tags-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/blog/2020/02/15/when-Enter-an-address/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/blog/2020/02/12/vue-demo/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2020 何泽丰<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/blog/js/mdui.js"></script>
+<script src="/blog/js/script.js"></script>
+
+  
+<script src="/blog/custom.js"></script>
+
+</body>
+</html>
