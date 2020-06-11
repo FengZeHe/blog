@@ -1,139 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        欢迎来到何泽丰的博客
+    </title>
+    
+<link rel="stylesheet" href="/blog/libs/highlight/styles/monokai-sublime.css">
 
     
+<link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
 
-    
-
-    <title>CSS3学习笔记 | 欢迎来到何泽丰的博客</title>
-    <meta name="author" content="何泽丰" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="CSS3学习笔记CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。CSS3的特性border-radius –圆角，实现一个叶子的形状，画一个半圆 1100px 100px 0 0；box-sh..." />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-
-    
-    <link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/blog/images/favicon.ico">
-    
-
-    <style type="text/css">
-    @font-face {
-        font-family: 'icomoon';
-        src: url("/blog/fonts/icomoon.eot?q628ml");
-        src: url("/blog/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
-             url("/blog/fonts/icomoon.ttf?q628ml") format('truetype'),
-             url("/blog/fonts/icomoon.woff?q628ml") format('woff'),
-             url("/blog/fonts/icomoon.svg?q628ml#icomoon") format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-    </style>
     
 <link rel="stylesheet" href="/blog/css/style.css">
 
-
-    <!--[if lt IE 9]>
-    <style type="text/css">
-    .nav-inner {top:0;}
-    .author-meta {position:static;top:0;}
-    .search-form {height:36px;}
-    </style>
-    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-    <![endif]-->
 <meta name="generator" content="Hexo 4.2.0"></head>
-<body>
 
-    <main class="app">
-        <header id="header" class="header clearfix">
-    <div id="nav" class="nav">
-    <div class="nav-mobile">
-        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">欢迎来到何泽丰的博客</h1>
-        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
-    </div>
-
-    <nav id="nav-inner" class="nav-inner">
-        
-            <a class="nav-item" href="/blog/">
-                <span class="nav-text">首页</span>
-            </a>
-        
-            <a class="nav-item" href="/blog/categories/front-end">
-                <span class="nav-text">前端</span>
-            </a>
-        
-            <a class="nav-item" href="/blog/categories/back-end">
-                <span class="nav-text">后端</span>
-            </a>
-        
-            <a class="nav-item" href="/blog/categories/demo">
-                <span class="nav-text">实战</span>
-            </a>
-        
-            <a class="nav-item" href="/blog/archives">
-                <span class="nav-text">归档</span>
-            </a>
-        
-            <a class="nav-item" href="/blog/about">
-                <span class="nav-text">关于</span>
-            </a>
-        
-    </nav>
-</div>
-
-    <aside id="aside" class="aside">
-    <div id="aside-mask" class="aside-mask"></div>
-    <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-
-        
-        
-        
-        
-
-        
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3学习笔记"><span class="toc-number">1.</span> <span class="toc-text">CSS3学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS3的特性"><span class="toc-number">1.1.</span> <span class="toc-text">CSS3的特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS3-选择器："><span class="toc-number">1.2.</span> <span class="toc-text">CSS3 选择器：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#属性选择器"><span class="toc-number">1.2.1.</span> <span class="toc-text">属性选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#伪类选择器"><span class="toc-number">1.2.2.</span> <span class="toc-text">伪类选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#root选择器"><span class="toc-number">1.2.3.</span> <span class="toc-text">root选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#not-选择器"><span class="toc-number">1.2.4.</span> <span class="toc-text">not 选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#empty-空标签选择器"><span class="toc-number">1.2.5.</span> <span class="toc-text">empty 空标签选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#target-目标元素选择器"><span class="toc-number">1.2.6.</span> <span class="toc-text">target 目标元素选择器</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪类选择器："><span class="toc-number">1.3.</span> <span class="toc-text">伪类选择器：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#伪元素选择器"><span class="toc-number">1.3.1.</span> <span class="toc-text">伪元素选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#条件选择器"><span class="toc-number">1.3.2.</span> <span class="toc-text">条件选择器</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS3-动画"><span class="toc-number">1.4.</span> <span class="toc-text">CSS3 动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#形状变换"><span class="toc-number">1.4.1.</span> <span class="toc-text">形状变换</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-多列布局"><span class="toc-number">1.5.</span> <span class="toc-text">CSS 多列布局</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS3-盒模型："><span class="toc-number">1.6.</span> <span class="toc-text">CSS3 盒模型：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS3-弹性盒子-display-flex"><span class="toc-number">1.7.</span> <span class="toc-text">CSS3 弹性盒子 display :flex</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#6个属性"><span class="toc-number">1.7.1.</span> <span class="toc-text">6个属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CSS3响应式布局"><span class="toc-number">1.7.2.</span> <span class="toc-text">CSS3响应式布局</span></a></li></ol></li></ol></li></ol>
-        
-    </div>
-</aside>
-
-</header>
-
-        <div id="content" class="content">
-            <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
             CSS3学习笔记
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2019/05/12/CSS3-note/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2019-05-12T06:47:13.000Z" itemprop="datePublished">2019-05-12</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/blog/tags/CSS3/" rel="tag">CSS3</a>, <a class="article-tag-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
         <h4 id="CSS3学习笔记"><a href="#CSS3学习笔记" class="headerlink" title="CSS3学习笔记"></a>CSS3学习笔记</h4><p>CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。</p>
 <ul>
 <li>CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等<br>但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。</li>
@@ -277,128 +172,63 @@
 <p>demo–&gt;从四列变三列再变成两列一列的CSS3响应式布局</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: 100%;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div&#123;</span><br><span class="line">    width: 20%;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    flex-grow: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper div img&#123;</span><br><span class="line">    width:100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:1000px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 25%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:800px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 33.33%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">@media screen and (max-width:400px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 50%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media screen and (max-width:200px)&#123;</span><br><span class="line">    .wrapper div&#123;</span><br><span class="line">        width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CSS3动画</span><br><span class="line">transform-style ：flat | preserve-3d； </span><br><span class="line">注意：属性需要设置在父元素中，高于任何嵌套的变形元素。</span><br><span class="line">设置了tranform-style :preserve-3d的原型，就不能设置overflow:hidden 否则preserve-3d失效</span><br><span class="line">元素旋转，其他轴也在旋转</span><br><span class="line">translate3d 这样写好了之后浏览器就会使用GPU加速。</span><br><span class="line"></span><br><span class="line">下图代码块为爱的魔力转圈圈</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .wrapper&#123;     </span><br><span class="line">            position: relative;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            transform-style: preserve-3d;</span><br><span class="line">            &#x2F;* transform: rotateX(-20deg); *&#x2F;</span><br><span class="line">            margin-top: 200px;</span><br><span class="line">            animation: turn 5s linear infinite;</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper div&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            opacity: 0.5;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 200px;</span><br><span class="line">            color :#fff;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrapper .item:nth-of-type(1)&#123;</span><br><span class="line">            background-color: red;</span><br><span class="line">            transform: rotateY(0deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(2)&#123;</span><br><span class="line">            background-color: yellow;</span><br><span class="line">            transform: rotateY(60deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(3)&#123;</span><br><span class="line">            background-color: green;</span><br><span class="line">            transform: rotateY(120deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(4)&#123;</span><br><span class="line">            background-color: blueviolet;</span><br><span class="line">            transform: rotateY(180deg) translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(5)&#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            transform: rotateY(240deg)translateZ(200px);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        .wrapper .item:nth-of-type(6)&#123;</span><br><span class="line">            background-color: yellowgreen;</span><br><span class="line">            transform: rotateY(300deg) translateZ(200px);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @keyframes turn&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(0deg);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform:rotateX(-20deg) rotateY(-360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;1&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;2&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;3&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;4&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;5&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;item&quot;&gt;6&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
 
-        
-    </section>
-</article>
+    </div>
 
-
-
-<a id="pagenext" href="/blog/2019/05/12/JQuery-note/" class="article-next" title="JQuery笔记"><i class="icon-arrow-right"></i></a>
-
-
-<a id="pageprev" href="/blog/2019/08/12/ES6/" class="article-prev" title="ES6"><i class="icon-arrow-left"></i></a>
-
-
-
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "fengze.github.io",
-        owner: "fengze",
-        admin: ["fengze"],
-        id: "2019/05/12/CSS3-note",
-        distractionFreeMode: true,
-        title: "CSS3学习笔记",
-        body: "http://yoursite.com/2019/05/12/CSS3-note/",
-        labels: ["前端技术","CSS3"]
-    }).render('comments');
-    </script>
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
 </div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>-<a class="flink" href="https://github.com/sanjinhub/hexo-theme-geek" target="_blank" rel="noopener">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="CmCti21ooOOIzFOhEyFkFvR0-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="FqiyUqbg7McKN2eG0MCewupf">
+
+<script src="/blog/libs/jquery.min.js"></script>
 
 
-            </div>
-        </div>
-        <footer class="footer">
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+<script src="/blog/libs/highlight/highlight.pack.js"></script>
 
-    
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    
-</footer>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
 
-    </main>
+<script src="/blog/js/js.js"></script>
 
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        var nodes = {
-            nav: $('#nav'),
-            aside: $('#aside'),
-            asideInner: $('#aside-inner'),
-            navInner: $('#nav-inner')
-        };
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
 
-        var doing = false;
-        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
-            if (nodes.aside.hasClass('mobile-open')) {
-                nodes.aside.removeClass('mobile-open');
-            } else {
-                nodes.aside.removeClass('mobile-close panel-show');
-            }
-            doing = false;
-        });
-        $('#open-panel, #aside-mask').on('click', function() {
-            if (doing) {
-                return;
-            }
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
 
-            if (nodes.aside.hasClass('panel-show')) {
-                nodes.aside.addClass('mobile-close');
-            } else {
-                nodes.aside.addClass('mobile-open panel-show');
-            }
-        });
-        $('#open-menus').on('click', function() {
-            nodes.navInner.slideToggle();
-        });
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
 
-        if (window.innerWidth <= 960) {
-            setTimeout(function() {
-                nodes.navInner.slideUp();
-            }, 3000);
-        }
-    });
-    </script>
-    
-        
-<script src="/blog/js/scrollspy.min.js"></script>
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
 
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
+.v a {
+    color: #8696b1;
+}
 
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
-
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
-
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
-    
-
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
 </body>
+
 </html>
