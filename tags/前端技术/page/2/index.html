@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: 前端技术 | 欢迎来到何泽丰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="description" content="怕，你就输一辈子">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欢迎来到何泽丰的博客">
+<meta property="og:url" content="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/page/2/index.html">
+<meta property="og:site_name" content="欢迎来到何泽丰的博客">
+<meta property="og:description" content="怕，你就输一辈子">
+<meta property="article:author" content="何泽丰">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+<link rel="stylesheet" href="/blog/css/index.css">
+
+
+
+  <!-- 百度站長統計-->
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4e4f3d9d2532faa71e451f2ab41cbb6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
+</head>
+
+<div class="main height-100 flex flex-v">
+  <div class="phone-header">
+    <a to="/home" class="mobile-logo" > <img src="/images/logo.svg" /> </a>
+    <a class="menu iconfont icon-menu" onclick="toggleMenu()"></a>
+  </div>
+  <div class="main-top flex flex1">
+    <nuxt-link  to="/home" class="mobile-nav-btn iconfont icon-fenlei"></nuxt-link>
+    <!--主页上左部分-->
+    <div class="height-100 main-left  flex flex-v">
+      <div class="main-left-top flex1">
+        <a class="logo">
+          <img src="/images/logo.svg" />
+          <div class="sub-title">自强不息 厚德载物</div>
+        </a>
+        <nav class="nav">
+
+  
+    
+      <a title="首页"  alt="首页"  v-for="(menu,index) in menus" href="/">
+        <div class="icon"><i class="iconfont icon-home"></i></div>
+        <div class="name">
+          <div class="cnname">首页</div>
+          <div class="enname">Home Page</div>
+        </div>
+      </a>
+
+    
+      <a title="归档"  alt="归档"  v-for="(menu,index) in menus" href="/archives">
+        <div class="icon"><i class="iconfont icon-archives"></i></div>
+        <div class="name">
+          <div class="cnname">归档</div>
+          <div class="enname">Archive Page</div>
+        </div>
+      </a>
+
+    
+      <a title="关于我"  alt="关于我"  v-for="(menu,index) in menus" href="/about">
+        <div class="icon"><i class="iconfont icon-about"></i></div>
+        <div class="name">
+          <div class="cnname">关于我</div>
+          <div class="enname">About Me</div>
+        </div>
+      </a>
+
+    
+  
+
+  <!--<a href="/link/">
+    <div class="icon"><i class="iconfont icon-link"></i></div>
+    <div class="name">
+      <div class="cnname">友情链接</div>
+      <div class="enname">Friends Web Link</div>
+    </div>
+  </a>-->
+</nav>
+
+      </div>
+
+      <view class="website-msg">
+        <div class="beian"><a target="_blank" href="http://www.miitbeian.gov.cn/"></a></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="beian"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div>
+        <div class="theme-drsc">PowerBy:<a href="https://hexo.io" target="_blank">Hexo</a> ThemeBy:<a href="" target="_blank">Soul</a></div>
+        <div class="copyright">Copyright &#169 <a href="mailto:316692151@qq.com">2020 He FengZe</a> </div>
+      </view>
+
+      <div class="social flex flex-align-center ">
+        
+          
+            
+              <a class="flex1 text-center" href="https://weibo.com/3759599790/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank" title="weibo" alt="weibo">
+                <div class="icon relative">
+                  <i class="iconfont icon-weibo"></i>
+                </div>
+              </a>
+            
+          
+            
+              <a class="flex1 text-center" href="https://github.com/FengZeHe" target="_blank" title="GitHub" alt="GitHub">
+                <div class="icon relative">
+                  <i class="iconfont icon-github"></i>
+                </div>
+              </a>
+            
+          
+            
+              <a class="flex1 text-center" href="/blog/316692151" target="_blank" title="wechat" alt="wechat">
+                <div class="icon relative">
+                  <i class="iconfont icon-wechat"></i>
+                </div>
+              </a>
+            
+          
+        
+      </div>
+    </div>
+    <!--主页上右部分-->
+    
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/05/12/CSS3-note/" class="title">CSS3学习笔记</a>
+    <section class="desc">
+  CSS3学习笔记CSS33只是版本号，目前主流浏览器都支持了，IE10以后也开始全面支持CSS3。
+
+CSS3提供了更加强大的且精准的选择器，提供多种背景填充方案，可以实现渐变颜色，可以改变元素的形状，角度等。可以加阴影效果，报纸布局，弹性盒子，ie6混杂模式的盒模型，新的计量单位，动画效果等但CSS3并不是所有属性都通过了W3C标准，要查兼容性手册。
+
+CSS3的特性
+border-radius –圆角，实现一个叶子的形状，画一个半圆 
+1100px 100px 0 0；
+
+box-shadow  盒子的阴影  box-shadow   x代表偏移量，y代表偏移量， ，阴影模糊半径，阴影扩展半径，阴影颜色，投影方式text-shadow==不过shodow都是性能杀手==
+
+
+
+线性渐变 语法：linear-gradient[方向，颜色，颜色，颜色…]
+
+径向渐变 语法：
+1radial-gradient(shape at position ,color[percent ] ,color)
+
+shape ：放射的形状，可以为原型circle 或拖延ellipse,position 为圆心位置
+
+border-image
+
+border-origin:content-box / border-box / padding-box
+
+background-clip : 
+1border-box &#x2F; padding-box &#x2F;conteent-box  &#x2F;no-clip
+参数分别从边框，或内填充，或内容区域向外剪裁背景
+
+text :background-clip :text;
+
+background-size :auto |&lt;长度值&gt;|&lt;百分比&gt;
+
+background-position: center
+
+
+CSS3 选择器：属性选择器
+E[att ^= “val” ]{….}  选择匹配元素E，且E元素定义了属性att ，其属性值以val 开头的任何字符串
+E[att $= “val”]{….} 选择匹配元素E ，且E元素定义了属性att ,其属性以val为结尾的任何字符串
+E[att *= “val”]{….}  选择匹配元素E， 且E元素定义了属性att ，其属性值任意位置出现了’val’ ,即属性值包含了“val”，位置不限。
+~=的意思是只要有item 的元素都被选中了。
+
+伪类选择器伪元素选择：伪元素的效果是需要通过添加一个实际的元素才能达到的.
+CSS3 对伪元素进行一定的调整，在以前的基础上增加了一个：也就是
+1::first-letter, ::first-line ,::before ::after
+
+另外还增加了一个 ::selection 
+root选择器等同于html ,但权重比html更高
+not 选择器除了那一个，其他都选中
+empty 空标签选择器target 目标元素选择器被锚点的元素，被选中的元素被进行操作。
+伪类选择器：
+first-child 第一个子元素
+last-child 最后一个子元素
+:nth-child（）{}  第XXX个子元素，n代表变量自然数
+first-of-type 第一个子元素
+:last-of-child 最后一个子元素
+:only-of-type  唯一一个子元素
+
+表示状态的伪类选择器
+12:enabled 可用的元素:disabled  禁用的元素
+
+有些表单元素才会有这样的元素，例如输入框，密码框，复选框
+:check  已经被选中的状态   check-boxread-only  选中只读的元素
+伪元素选择器::first-letter  首个字母:first-line 首行::selection  被选中时候的文本
+条件选择器E &gt; F 直接子元素选择器 E + F  后面紧挨着的兄弟节点 E ~ F 后面的兄弟节点
+例如单选框旁的div ，被选中的时候隔壁也被选中。 input:checked + div
+CSS3 动画形状变换
+transform 可以实现元素的形状，角度，位置等变化（包括旋转）。transform: rotateX /Y/ Z(  deg);不写默认是Z。
+rotate3d(x , y, z, Angel)
+scale () 以x/y 轴进行缩放    
+scale(x,y)接受两个值，如果第二个参数未提供，则第二个参数使用第一个参数的值。
+skew() 对元素进行倾斜扭曲shew（） 接受两个值，分别对应X轴 和Y轴， 如果第二个参数未提供，则默认为0；
+translate(x ,[y])  移动
+使用CSS3属性实现水平垂直居中当使用：
+
+12top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置。    translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置。
+
+
+transition 过渡动画
+
+1transition 第一项选择属性(什么width height fontsize opacity ，就是一项属性，用于监听)，第二项选择时间，第三项选择速度，第四项指定过渡函数，第五项为动画的延迟时间
+
+
+
+animation  动画
+animation-iteration-count   属性主要用来定义动画的播放次数
+animation-direction 。normal 正常播放， reverse 反向播放
+animation-play-state 用来控制动画的播放状态 running播放，paused 暂停。
+
+
+
+CSS 多列布局为了能在Web页面中方便实现类似报纸，杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局。语法： 
+12columns:[column-width][column-count]  columns:2;  变成两列column-gap ：
+ 设置列与列之间的宽度，直接用数值即可（eg:10px）column-span  设置多列布局的子元素可以跨列，类似标题效果。 
+CSS3 盒模型：IE6混杂模式，首先要触发一个怪异模式。 在IE6混杂模式盒模型下(IE6及以下浏览器)，内容宽度（盒子） = width - padding -border.width包含padding 和 borderW3C标准下的空间高度（盒子）= width +padding +border;  width 为内容宽度，不包括padding 和 border
+CSS3 弹性盒子 display :flex==flex为复合属性，必须配合父元素display :flex使用==如图
+
+
+6个属性
+flex-grow    把盒子分成多少份，要是1 的话就分成1分自己独占。默认是0；
+
+flex-shrink 多出盒子的部分，按照比例的大小砍掉相应的大小，即比例越大，被砍的越大。
+
+flex-basis    伸缩基准值，占据主轴空间。
+
+flex    order    可以进行排序，从小到大进行排列
+
+1234align-self &#123;auto &#x2F; flex-start &#x2F;flex-end  &#x2F; center &#x2F;baseline（基准线对齐） &#x2F;stretch &#125;主轴 &#x2F;侧轴&#x2F;交叉轴
+
+flex-direction 决定主轴的方向row 从左向右， row-reverse , column ,column-reverse
+
+flex-wrap 是否换行    
+
+flex-flow 是dirction 和 wrap的简写方式
+
+justify-content 1.flex-start    左对齐
+
+flex-end    右对齐
+conter     居中
+space-between    两端对齐，项目之间的间隔都相等
+space-around 每个项目两侧的间隔相等。
+align-items  属性如何在侧轴上对齐
+flex-start 交叉轴的起点对齐。
+flex-end 交叉轴终点对齐
+center 交叉轴中点对齐
+baseline 项目的第一行文字基准线对齐
+stretch 如果未设置高度或设为auton ,将占满整个容器的高度
+
+
+
+transparent 透明色颜色值。
+CSS3响应式布局通过设备不同的宽度，相应出不同的布局。这就叫做响应式布局。
+123&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt; width&#x3D;device-width 意思是宽度等于设备的宽度，user-scalable &#x3D; no 意思是不允许用户缩放
+
+媒体查询：媒体查询是向不同设备提供不同样式的一种方式，为每种类型的用户提供了更佳的体验。CSS2 :mdeia type 是CSS2中一个非常有用的属性，通过media type 我们可以对不同设备执行不同的样式CSS3 mdeia query 是CSS3对meida type的增强。
+添加方式：
+12第一种插入样式，需要多个CSS文件&lt;link rel&#x3D;&quot;stylesheet&quot; media&#x3D;&quot;screen and (max-width:800px)&quot; href&#x3D;&quot;.&#x2F;text.css&quot;&gt;
+
+第二种插入方式
+123456789101112131415@media screen and (max-width:300px)&#123;    div&#123;        width: 200px;        height: 200px;        background-color: blue;    &#125;&#125;@media screen and (min-width:301px)&#123;    div&#123;        width: 499px;        height: 293px;        background-color: aqua;    &#125;&#125;
+
+and not only 这三个值。only是仅有的意思。 and是再添加这个属性的意思
+demo–&gt;从四列变三列再变成两列一列的CSS3响应式布局
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124.wrapper&#123;    display: flex;    width: 100%;    flex-wrap: wrap;&#125;.wrapper div&#123;    width: 20%;    display: inline-block;    flex-grow: 1;&#125;.wrapper div img&#123;    width:100%;&#125;@media screen and (max-width:1000px)&#123;    .wrapper div&#123;        width: 25%;    &#125;&#125;@media screen and (max-width:800px)&#123;    .wrapper div&#123;        width: 33.33%;    &#125;&#125;@media screen and (max-width:400px)&#123;    .wrapper div&#123;        width: 50%;    &#125;&#125;@media screen and (max-width:200px)&#123;    .wrapper div&#123;        width: 100%;    &#125;&#125;CSS3动画transform-style ：flat | preserve-3d； 注意：属性需要设置在父元素中，高于任何嵌套的变形元素。设置了tranform-style :preserve-3d的原型，就不能设置overflow:hidden 否则preserve-3d失效元素旋转，其他轴也在旋转translate3d 这样写好了之后浏览器就会使用GPU加速。下图代码块为爱的魔力转圈圈    &lt;style&gt;        .wrapper&#123;                 position: relative;            width: 200px;            height: 200px;            margin: 0 auto;            transform-style: preserve-3d;            &#x2F;* transform: rotateX(-20deg); *&#x2F;            margin-top: 200px;            animation: turn 5s linear infinite;        &#125;        .wrapper div&#123;            position: absolute;            top: 0;            width: 200px;            height: 200px;            opacity: 0.5;            text-align: center;            line-height: 200px;            color :#fff;            font-size: 30px;        &#125;        .wrapper .item:nth-of-type(1)&#123;            background-color: red;            transform: rotateY(0deg) translateZ(200px);        &#125;        .wrapper .item:nth-of-type(2)&#123;            background-color: yellow;            transform: rotateY(60deg) translateZ(200px);        &#125;        .wrapper .item:nth-of-type(3)&#123;            background-color: green;            transform: rotateY(120deg) translateZ(200px);        &#125;        .wrapper .item:nth-of-type(4)&#123;            background-color: blueviolet;            transform: rotateY(180deg) translateZ(200px);        &#125;        .wrapper .item:nth-of-type(5)&#123;            background-color: pink;            transform: rotateY(240deg)translateZ(200px);        &#125;        .wrapper .item:nth-of-type(6)&#123;            background-color: yellowgreen;            transform: rotateY(300deg) translateZ(200px);        &#125;        @keyframes turn&#123;            0%&#123;                transform:rotateX(-20deg) rotateY(0deg);            &#125;            100%&#123;                transform:rotateX(-20deg) rotateY(-360deg);            &#125;        &#125;    &lt;&#x2F;style&gt;&lt;&#x2F;head&gt;&lt;body&gt;    &lt;div class&#x3D;&quot;wrapper&quot;&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;1&lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;2&lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;3&lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;4&lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;5&lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;item&quot;&gt;6&lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;
+
+
+</section>
+    <p class="sub">May 12, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/05/12/JQuery-note/" class="title">JQuery笔记</a>
+    <section class="desc">
+  JQuery学习笔记jQuery是啥呢？它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
+jQuery的用法：选择元素：
+$(); 里面和CSS一样，不过对选择出的一组元素，一起处理，省略循环，这里是js不允许的。
+里面可以写CSS选择器原生dmo,jQuery对象、 null  /undefind / function(){}    selector/content等
+jQuery特有的选择规则，选出来是jquery对象
+filter可以用来筛选，例如说筛选类名。not的话可以用来反向选择，没有这一项的就被选中，is则相反。has说明里面有这一项的选项被选中。find跟has的区别是，找到这里有这一项的然后选中。
+jQuery可以进行链式操作。 
+sizzle是用来选择特殊写法的，是查到dom最快的方式。
+
+函数写法：
+都是函数式的写法。
+CSS取值相当于getComputed，赋值相当于1dom.style.***
+，就写width，然后啥也不写
+css赋值一组，取值取一个（）
+xxx.setAttribute(‘son’,’’Feng)  这样就可以给对象添加属性了。  
+attr() 用于设置或返回被选中元素的属性值
+prop() 如果是检索html元素则使用attr()替代。
+next()下一个兄弟节点。
+prev()上一个兄弟节点
+index 当前兄弟节点
+addClass removeClass
+toggleClass 删除或者添加类名  没有的话帮你添加，有话帮你删除
+insertBefore  插入到谁谁的前面。
+appendTo()   –这个比较常用12A添加到B的里面（添加到最后一个子元素后） $(&#39;p&#39;).appendTo($(&#39;ul&#39;)D.append（C）  D里加上C
+remove detach 可以删除元素并且可以return 删除的元素。remove的话点击删除之后也删除了方法，因此第二次点击不能再删除了，而detach则可以。不断的进行删除和添加
+on方法绑定时间 
+
+1.on(&#39;click&#39; ,&#39;a&#39;, function()&#123;&#125;)  &#x2F;&#x2F;off可以解除绑定 $(&#39;.item&#39;).off(&#39;click&#39;), 如果想指定解绑的元素，那就要传值以更精准
+
+one() 只绑定之间一次scrollTop()  滚出去的高度 
+动态生成标签 1$(&#39;&lt;div&gt;&lt;&#x2F;div&gt;&#39;)
+经常用于动态添加图片或者选项框
+
+关于事件：
+时间对象 e-&gt;e.pageX 相对文档而言，e.clinetX 相对于浏览窗口而言。 e.which 哪个键或按钮  e.button哪个鼠标按键被按
+
+e.preventDefalut()  s.stopPrpagation()  return false;  这些都是用来解绑事件的
+
+offset().left/top position().left/top。
+
+offset()方法返回或设置匹配元素相对于文档的偏移（位置）。
+
+
+parent() 返回父节点 
+
+offsetParent() 返回离它最近有定位的父级        
+
+paerents()  返回多个父级
+
+closet()  查找最近的祖先节点        
+
+val是jQuery里面代表.value的参数
+
+each 遍历 
+1$(&#39;li&#39;)each(function (index  , ele )&#123;&#125; )
+
+end() 回退操作,可以使jQuery 可以连续实现点操作。就说可以用一行代码搞定。
+
+slblings()  当前元素节点的所有兄弟节点
+
+1$(&#39;li.third-item&#39;).siblings().css(&#39;background-color&#39;, &#39;red&#39;);
+
+
+
+prevAll()  当前元素上面的所有兄弟节点
+
+nextAll() 当前元素下面的所有兄弟节点 
+
+prevUntil()  nextUntil() 掐头去尾选中元素，传jQuery 对象dom
+
+clone 克隆节点，参数为true的时候，事件也能克隆
+
+wrap 包裹的意思  wrapall    包裹选中所有的元素 会破坏结构  unwrap 接触包装，接过话标签不能删除。
+
+A.add(B)  选中元素A和B集中操作。
+
+slice(0，2)  截取，算头不算尾
+
+serialize 串联表单数据 serializeArray 串联数据成数组
+
+animate()
+
+参数target  
+参数durition    
+参数代表速度变化方式  
+回调函数
+
+
+stop(true, true) 停止当前所有的运动，停在当前目标带点  ,后面的参数决定是否立即到达目标点上  
+
+是否停止后续所有运动     false：不停止，继续运动  true :停止后续所有运动
+是否立即到达当前目标点     flase :不到达    true：到达
+
+
+
+22.stop（flase ,true） 跳过当前运动并到达目标点，执行后续运动
+
+finish()  停止当前运动  
+
+delay （）延迟，参数，延迟运动   
+1jquery.easing.js 是专门用来做jQuery 运动的.
+
+slideToggle(speed ,callback)  通过滑动效果来切换元素的可见状态
+
+sildeUp   sildedown   隐藏起来元素/显示元素——根据之前的不同状态进行切换- none–block  or  block–none
+
+toggleClass(active)  对设置或移除备选元素的一个或多个类进行切换
+
+fade in/out   淡入淡出
+
+tigger 方法触发被选元素的指定事件类型。==tigger出发事件是会冒泡，触发里面会影响外面  tigger可以触发自定义事件==  
+
+
+工具方法：1以$.xxx  jQuery.xxx这种方式调用 ，此类方法定位在jQuery 函数上面
+
+$.type()  判断 参数的数据类型 原生js判断类型的三种方法：
+1231. arr.instanceof Aarray  2. arr.constructor &#x3D;&#x3D;Array  3. Object.prototype.toString.call(arr)
+
+1,2两种有局限性，3 比较通用
+trim()方法
+1$.trim 消除空格
+
+
+$proxy() 改变this指针方向 参数1：function , 参数2：函数执行期上下文。
+$noConflict() 防止冲突 在很多javascript库使用$作为一个函数或变量名，正如我们同时需要使用jQuery和其他库一样，我们可以使用$.noConfilct把$控制权交给其他库。
+$.parseJSON()  字符转换成json ,要求非常严格，外部是单引号，内部属性是双引号，不需要回车符
+$.makeArray 把类数组转换成数组。
+jQuery高级方法：$.extend()  插件扩展1 提供最新的jQuery 工具方法
+$.fn.extend()  插件扩展2 提供最新的jQuery 实例方法，是实例不是工具方法 
+1编写方法1， $.extend(&#123;keftTrim :function ()&#123;&#125;&#125;)
+
+12.fn.extend(&#123;drag : function()&#125;)
+
+
+13. var cd &#x3D; $.Callback()   回调函数--》返回回调对象
+
+
+14. once 只执行一次fire()  方法 放在回调函数的参数里面。
+
+123var cd &#x3D; $.Callbacks(&#39;once&#39;);cd.add(fn1 ,fn2 ,fn3);cd.fire();
+
+
+memory记忆  前面触发函数，后面添加也会被添加并触发  unique也是只执行一遍
+$.Deferred() 延迟对象相当于有状态的Callbacks();
+添加函数；
+12done		fail		progress		触发成功，   失败 ，    进行中
+
+触发函数：resolve          reject    notify
+$.deferred.promise() —-&gt;不能触发函数（无状态）
+$(when) —-&gt;返回的是延迟对象，参数也是延迟对象。当参数延迟对象全部触发done的时候最后会触发when返回延迟对象的done函数。
+
+延迟对象作用控制的关键点，做链式运动的效果
+$.ajax这种有状态的异步操作核心是deferred 
+when当发生多个ajax请求的时候，因为都是异步的，所以可以用多个deferred ，每当ajax 成功后我们触发一个，最后全部成功在when后一并处理。
+
+$() 里面可以填什么
+1234$(false &#x2F;null &#x2F;undefined)  $(&#39;&lt;li&gt;,&lt;&#x2F;li&gt;&#39;)   $(&lt;li&#x2F;&gt;s1234)  $(&#39;&lt;li&gt;&#39;, &#123;html : 123 ,dg :&#39; ds&#39;&#125;)$(&#39;#id&#39; &#x2F;  &#39;.class&#39;   &#x2F;  div &#x2F; ul &#x2F;li &#x2F;    li:eq(0)) $(dom)
+//在JQuery中，init()函数里面会判断返回的类型，如果是DOM则是因为后面有.nodeType$(function () {})$($())
+jQuery .extend()  拓展工具方法$().extend()   拓展实例方法
+extend：拓展合并（传两个参数 ，合并到第一个对象里面去）
+原始值的话并不会变化，而改个引用值就ok。
+extends的四种写法：
+1234$.extend(obj1)$.extend(obj1, obj2)$.extend(true ,obj1)$.extend(true ,obj1,obj2)
+
+
+其实就是要关注target是什么，i是什么（从第几位开始传)，如果前面有true就往后挪一位.
+
+
+</section>
+    <p class="sub">May 12, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/05/11/javascript-note/" class="title">javascript学习笔记</a>
+    <section class="desc">
+  JavaScript笔记
+Web 发展史：
+Mosaic：是全世界第一款可以显示图片的浏览器
+Netscape Navigator -&gt;2003 firefox 浏览器
+IE6 -&gt;IE6浏览器
+2008 -&gt; Chrome 浏览器 
+
+
+关于浏览器的内核部分：
+
+
+渲染引擎（语法规则和渲染）
+js引擎
+其他模块
+
+
+JavaScript的语言特点：
+
+解释性语言 –（不需要编译成文件）跨平台
+单线程
+ECMA标注 ECMAscript
+
+
+JavaScript执行队列：  执行片段A1-&gt;执行片段A2-&gt;执行片段A3 （争抢时间片）
+
+
+
+主流浏览器及其内核：
+
+
+主流浏览器
+内核
+
+
+
+IE
+trident
+
+
+Chrome
+wekit/blink
+
+
+firefox
+grcko
+
+
+Opera
+presto
+
+
+Safari
+webkit
+
+
+
+
+
+引入javascript的两种方式  121.&lt;script&gt;&lt;&#x2F;script&gt;2.&lt;script src&#x3D;&#39;.js&#39;&gt;&lt;&#x2F;script&gt;
+
+
+
+
+js变量名的命名规则
+
+
+变量名必须以英语字母 ,_ ,$开头。
+变量名里面可以包括英文字母，_还有$.
+不可以用系统的关键字还有保留字作为变量名。
+
+JavaScript基本语法：数据类型分为原始值还有引用值
+
+==原始值有：number , boolean , String ,undefinded ,null==
+==引用值有：array ,object ,funciton ,date ,regexp==
+
+
+几个注意点：
+
+
+==javascript对象才能拥有方法，然而number，String，boolean也可以拥有自己的方法，null和underfind是无法拥有方法的值。==
+对象和数组属于可变类型，javascript程序可以更改对象属性值和数组元素的值。
+数字，布尔值、null，和undefined属于不可变类型。
+==原始值和引用值的区别在于，原始值存在于stack(栈)当中，规则是先进去的最后出来。而引用值是存在heap（堆）里面的 ，引用值拷贝的是地址。==
+
+String的方法：在javascript权威指南中，笔者列举出了许多字符串可调用的方法。
+运算符：12+ - * &#x2F; 不过特别要注意的是，任何“+”碰到字符串，都会变成字符串连接符。
+
+
+比较运算符：字符串的比较是ASCII码数值的比较。
+1Infinity &#x3D;&#x3D; Infinity	undefind &#x3D;&#x3D; undenfind
+
+
+特别注意的是 NaN!= NaN无穷大除以无穷大，给人以负数作开方运算或者算术云算法不是数字或无法转换为数字的操作数一起使用时都将返回NaN
+
+
+逻辑运算符：
+1&amp;&amp; 	|| 	!
+
+
+与运算符-&gt;&amp;&amp;，在运算中，undefind ,null ,Nan ,” “ ,0 ,flase ,会转换成false
+
+1例： var a &#x3D;1 &amp;&amp; 2;   先看表达式前面1，直接转换成true，然后知己输出第二个表达式，若第一个表达式为false，则直接输出为0；
+或运算符1-&gt;||
+在运算中，寻找一个真值，第一个为真则直接返回第一个值。若第一个为假，而又只有两个值，则返回第二个值，无论真假。12345左移（&lt;&lt;）将一个值左移相当于它乘以2，7&lt;&lt;2 &#x3D; 28右移（&gt;&gt;）将一个值右移相当于它除以2， 7&gt;&gt;1&#x3D;3 ，-7&gt;&gt;1&#x3D;-4
+
+
+条件语句：123if(条件)&#123;        &#125;
+
+12345672. switch(1)&#123;            case(1):      console.log(&#39;a&#39;);break;       &#x2F;&#x2F;switch这种选择语句，遇到合适条件的case才会执行，而却会把全部的case看一遍，如果在只有一种  &#x2F;&#x2F;条件下的case，则可以用break；停止运行。减少资源浪费。&#125;
+
+对象1234对象：var obj &#x3D;&#123;属性名 ：&quot;属性值&quot;&#125;
+
+
+
+typeof可以判别的值有：number，String，boolean ，object，undefined，function；这6种。而typeof 在辨别null 和 Array的时候一律返回object 。
+
+类型转换：显示类型转换：
+var num = Number(‘123’)；注意：undefined -&gt;Number (Nan)
+
+parseInt(‘10’ ,16)可以把任何东西转换成整形，而且可以进行10进制，16进制的转换。
+
+parsefloat把数据转换成浮点类型。“123abc”可以识别数字并返回。
+
+boolean：会把underfined ,null ,0 ,-0 ,NaN ,”” 转换成false。
+
+toString:    将返回一个表示调用这个方法的对象值的字符串。
+
+
+隐式类型转换：12341.isNan()2.+ -&gt;String类型3. - *  &#x2F; % -&gt;number类型4. ！&#x3D;
+
+隐式类型转换：
+减号,乘号,除号,取模等操作会尝试将他们所操作转换为数字Number，如果没办法转换成数字，结果就是Nan
+大于，小于，大于等于，小于等于，跟上面一样。
+
+1&#x3D;&#x3D; ！&#x3D;
+
+字符串 op 字符串，不会进行类型转换，直接比较；
+对象op对象，引用都指向同一个对象才为true  
+
+12Boolean(Nan) &#x3D;&#x3D; false;null &#x3D;&#x3D; undefinded  &#x2F;&#x2F;  true
+
+不发生类型转换：1234567&#x3D;&#x3D;&#x3D;			&#x2F;&#x2F;绝对相等如果两个值为数字且数值相等，则它们相等。如果一个数值为0，另一个数值为-0，则它们同样相等。！&#x3D;&#x3D;		&#x2F;&#x2F;绝对不相等！&#x3D;&#x3D;也可以用来判断一个属性书否是underfindvar o &#x3D; &#123;x : 1&#125;o.x !&#x3D;&#x3D; underfind &#x2F;&#x2F;true o中有属性xo.y !&#x3D;&#x3D; underfind &#x2F;&#x2F;false o中没有属性y
+==typeof(typeof(number)) —&gt;最后其实类型是String ,因为第一个typeof是返回的是String类型。==
+函数：
+函数表达分为命名表达式还有匿名函数表达式。
+命名表达式：function text(){ } text(); -&gt;调用
+匿名表达式： var text :function() {} 
+
+形参与实参：
+形参text(a,b)  ==text.length== 可以知道形参的数量。
+实参text(1,2)。==arguments.length== 可以知道实参的长度。
+
+
+形参出生是多少个就是多少个，以后不会再往后加了。
+
+return:使程序停止执行；返回值
+递归：
+
+符合人的逻辑思维过程
+递归一定要有递归出口
+
+javascript预编译：要点：
+函数声明整体提升
+变量声明提升
+
+操作：
+imply global 暗示全局变量：即任何变量，如果变量未经声明就直接赋值，该变量为全局对象变量。
+一切声明的全局变量，都是window的属性。即可以通过window调用。
+
+预编译的四部曲（局部）：(重要)
+创建AO（执行期上下文）
+
+找形参和变量声明。将变量和形参作为AO属性名，值为underfined。
+
+将实参值和形参值统一。
+
+在函数体里面找函数声明，值赋予函数体，-&gt;
+1function()&#123;&#125;
+这种–优先级最高，function会覆盖之前变量的值。
+
+
+==注意：fcuntion a() {}这种叫函数表达式才算funciton, 在预编译里==
+1var b &#x3D;function ()&#123;&#125;
+ ==这种，因为还没有执行，所以不算function(){}==
+全局的预编译
+创建GO
+
+——————-（其余步骤相等）
+==在预编译的规则中，先生成GO ，再生成AO。==
+作用域[[scope]]:每个javascript函数都是一个对象，对象中有些属性我们可以访问，但有些不行，这些对象仅供js引擎存取，[[scope]]就是其中一个。==其存储了运行上下文的集合==。
+作用域链：[[scope]]中所存储的执行器上下文对象的集合，集合呈链式连接。
+==查找变量：从作用域的顶端依次向下查找，而AO在GO的顶端。==
+闭包：但凡是内部函数被保存到了外部，就一定会生成闭包。
+缺点：当内部函数被保存到外部时，将会生成闭包。闭包会导致原有的作用域链不释放，造成内存泄露（像内存泄露，只是说内存被占用）
+闭包的作用：
+
+实现公有变量。例如说做一个函数累加器。
+可以做缓存（存储结构）
+可以实现封装，属性私有化
+模块化开发，放置污染全局变量
+
+立即执行函数：（也有执行器上下文，也需要预编译）
+1(function() &#123;&#125; ()) 执行之后就立即被销毁。
+
+123传递参数：(function(a,b,c))&#123;console.log(a+b+c);&#125;(1,2,3)
+
+
+注意：只有表达式才能被执行符号执行（执行符号就是（）），利用立即执行函数把内部数据传到外部，也用于数据的初始化；‘  ， ’逗号可以把后面的值返回;
+
+对象：所有的对象继承了两个转换方法，第一个是toString()，它的作用是返回一个反应这个对象的字符串。
+
+toSting
+数组类继承的toString()可以将每一个数组元素转换成一个字符串，并在元素之间添加都好并合并成结果字符串
+函数类的toString()可以返回这个函数的实现定义的标识方式。
+日期类的toString可以返回一个可读的日期和时间字符串。
+RegExp类定义的toString()方法将RegExp对象转换成表达正则表达式直接量的字符串
+
+
+
+另外一个方法是ValueOf()。如果存在任意原始值，它就默认将对象转换为表示它的原始值。
+thisthis ：代表在某一对象里面的第一人称，例如this.health在对象内部的增删改查。
+1this.wife&#x3D;&#39;FengZe&#39; ，即在这里直接进行添加和修改。
+
+
+1删除：delete xx.name;
+
+
+
+对象创建方法;
+var obj = {}  对象字面量/对象直接量。
+
+通过构造函数创建：
+
+系统自带构造函数  var obj = new object();构造函数要用大驼峰式方法来写：TheFirstName构造函数的内部原理：（一定要有new，不然就不是构造函数了）
+在函数体最前面隐式加上this ={}
+执行this.xxx=xxx;
+隐式返回this
+
+
+
+包装类：new String()；
+new Boolean();
+new Number()；
+对象创建方法：
+对象字面量
+12345678var obj &#x3D;&#123;			&#x2F;&#x2F;对象字面量、对象直接量name : &quot;FengZe&quot;,sex  : &quot;male&quot;,wfie : &quot;xingyu&quot;,smoke : function () &#123;console.log(&#39;i am smoking ！&quot;);&#125;&#125;
+
+构造函数：
+
+系统自带的构造函数 object   –&gt;  var obj = new object();
+
+
+
+
+==注意：构造函数要用大驼峰式的方法来写： TheFirstName这种==
+
+
+自定义 
+
+123function xx()&#123;&#125;
+
+构造函数的内部原理（一定要用new ,不然就不是构造函数了）
+
+在函数体最前面隐式加入this = {}
+执行this.xxx=xxx;
+隐式地返回this;
+
+包装类：new String（）；new Boolean ();new Number ();
+原型：
+定义：原型是function对象的一个属性，它定义了构造函数制造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的睡醒和方法。原型也是对象。
+
+利用原理，可以提取共有属性。
+
+独享通过隐式属性查看原型–&gt;   
+1__proto__
+
+通过constructor 查看对象的构造函数。
+
+
+例子：如果生产一种汽车，而这种汽车大部分是相同的，而小部分作为选配部分，可以这样写：     
+1234567891011121314151617function Car (owner,power)&#123;				this.owner &#x3D; owner,				this.power &#x3D; power			&#125;			Car.prototype &#x3D; &#123;				name :&#39;BMW&#39;,				tite :18,				run : function ()&#123;					console.log(&quot;i am running &quot;);				&#125;			&#125;			var car1 &#x3D; new Car(&#39;feng&#39;,&#39;900&#39;);delete.Car.name ,这样就可以删除了Car.prototype里面的属性了。
+
+
+
+
+原型链：12Crand.protype.__prtot__ &#x3D; object.prototype --&gt;是所有对象的最终原型。var obj &#x3D; object.create(&quot;原型&quot;)
+
+
+
+12例： var person &#x3D; Object.create(Person.prototype) 是绝大多数对象最终都会集成object.prototpype, 大也有例外的，例如说object.create(null)
+
+
+call/applycall /apply 作用是转移this指向
+12Person.call(obj)；&#x2F;&#x2F;call需要把实参按照形参个数传进去，而apply需要传输一个arguments  区别在于传参列表不同。
+
+
+继承继承的发展史：
+传统形式 -&gt;原型链   缺点：过多继承了没用的属性
+
+借用构造函数 
+ 缺点：
+
+不能继承借用构造函数的原型。
+每次构造函数都要执行多个方法。
+
+
+共享原型 缺点：
+
+不能随便改动自己的原型，因为他们拥有同一个原型。
+
+
+圣杯模式
+
+
+1234function  F()&#123;F.prototype &#x3D; Father.prototype;son.prototype &#x3D; new F();&#125;
+
+命名空间:管理变量，能防止污染全局，适用于模块化开发
+属性拼接问题：123function (num)&#123;return this[&#39;name&#39; + num];&#125;	&#x2F;&#x2F;输入num 得出num1的效果
+
+
+对象的枚举：（遍历和枚举）
+12341. for()2. for(var temp in obj)&#123;&#125;
+
+当遍历不知道对象的数量多少的时候，可以用for in循环解决问题
+
+[hasOwnProperty]obj.hasOwnProperty(),    用来判断属性是不是自己的，是不是从原型链上拿过来的。
+
+in   属性只能用来能不能访问到这个属性in运算符希望它的左操作数是一个字符串或可以转换成字符串，希望它的右操作数是一个对象。如果右侧的对象拥有一个名为左操作数的属性名则返回true.
+
+
+1var point &#x3D; &#123;x:1 ,y:1&#125;  	&#39;x&#39; in point --&gt;true
+
+
+
+A instanceof B可以查到 A对象是不是从B的构造函数，构造出来的。Object 可以看A对象的原型链上有没有B 的原型。instanceof 运算符希望左操作数是一个对象，右操作数标识对象的类。如果左侧对象是右侧对象的实例则返回true
+
+123var d  &#x3D; new Data();d instanceof Data; &#x2F;&#x2F;true,d是由Data() 创建的 d instanceof Number; &#x2F;&#x2F; false ,d不是由Number创建的。
+
+
+
+12[] instanceof Array -&gt;true    Object -&gt;true
+
+toString方法：    toString() 方法可把一个逻辑值转换为字符串，并返回结果。
+12object.prototype.toString.call([]);object.prototype.toString &#x3D; function ()&#123;&#125;
+
+
+
+
+克隆：浅层克隆，深层克隆。{% asset_img 深克隆.png 深克隆 %}
+
+function clone ()
+
+对象序列化指的是对象的状态转换为字符串，也可以将字符串还原为对象。ECMAScript5提供了JSON.stringify()和 json.parse()用来序列化和还原js对象。但注意函数，RegExp,Error和underfind不能序列化和还原。
+
+123o &#x3D; &#123;x : 1 , y:&#123;z : [false , null ,&#39;&#39;]&#125;  &#125;;s &#x3D; JSON.stringify() &#x2F;&#x2F; s &#x3D; &#123;x : 1 , y:&#123;z : [false , null ,&#39;&#39;]&#125;  &#125;p &#x3D; JSON.parse() &#x2F;&#x2F;p是o的深拷贝
+
+
+三目运算符：1？：
+例：1&gt;0? 2:1  如果1大于0 则选择2，否则选择1。数组：
+数组的第一个元素索引为0，最大可能索引为2 32(2的32次方) -2。 
+JavaScript数组是动态的，根据需要变长变短。数组都有一个length属性。 
+
+12var arr &#x3D; []; 	数组字面量；var arr &#x3D; new Array();
+可以传参数，但如果只写一个数会认为这是数组的长度。
+
+数组继承了默认的Value0f()方法，这个返回一个对象而不是一个原始值，因此，数组到数字的转换则调用toString方法。空数组转换成为空字符串，空字符串转换成数字0。
+
+常用的方法：
+改变原数组： push ,pop， shift ，unshift， sort， reverse 
+
+不改变原数组：concat ,join, split toString ,slice
+
+
+
+push()–在数组的==最后一位添加数据==
+pop ()–把数组的最后一位剪切出来
+unshift()–在数组前面添加数据，并可以通过传参添加多个数据，
+shift()    在数组前面减
+reverse() 数组颠倒
+splice()  arr.splice (从第几位开始 ， 截取多少的长度  ，在切口处添加的新数据)
+sort()给数组排序，但这个是用ASII码排序的，因为有时候会不尽人意。也可以自行添加函数。
+
+如何优化sort()方法进行排序
+123456arr.sort(function ( a , b )&#123;				&#x2F;&#x2F;必须传2个形参return a-b;	&#x2F;&#x2F;升序		&#x2F;&#x2F;看返回数，当返回值为负数时，那么前面的数在前面return b-a;	&#x2F;&#x2F;降序&#125;)
+如何给数组乱序:
+123arr.sort(function ()&#123;Math.random() -0.5;	&#125;)
+
+
+不改变原数组：
+
+
+concat :拼接数组，并且不应县前面的数组，也不会排序
+toString :把数组变成字符串
+slice() 从该位开始截取，截取到该位
+join()  要字符串，然后用字符串连接
+split ()  用“”来拆分字符串变成数组。
+
+类数组：类数组不是数组，当然没有数组的方法。构成要素：属性为索引，必须要有length 属性，最好有push方法
+优点：类数组的关键点在于length 还有push方法obj [obj.lenght] = targetobj.length++;
+如此来实现push方法。
+try…catch不影响try catch 下一块代执行，但不会执行try块里面的那行代码
+几种常见错误类型：
+1234567Error：6EvalErrorRangeError ；数值越界ReferenceError ：非法或不识别的引用SyntaxError :语法错误TypeError :操作的类型错误urIError:uri不当
+
+
+es5严格模式（即es3.0与es5.0冲突的部分使用es5.0的解决办法）
+浏览器基于es3.0+es5.0的新增方法“use strict”;
+
+在es5严格模式中，不允许使用argument.callee ，with{}  caller 并且变量赋值前必须声明，局部里面的this一定要被赋值，拒绝重复的属性。
+
+在严格模式下有以下几种要求：
+禁止使用with 语句
+创设eval 作用域
+禁止this关键字指向全局对象
+禁止在函数内部遍历调用栈
+禁止删除变量，只有configurable 
+设置为true的对象属性才能被删除。
+
+重名报错
+arguments对象的限制不允许对arguments赋值
+arguments不再追踪参数的变化禁止使用arguments.callee
+
+DOM （Document Obect Model）
+DOM定义了表示和修改文档的方法，DOM对象即为宿主对象。由浏览器厂商定义，用来操作html 和xml 。
+DOM树中总共分成以下4种节点：Element(元素),Text类型(文本节点),Comment类型(注释节点),Document类型（document节点）1var div &#x3D; document.getElementsByTagName(&#39;div&#39;)[0];  &#x2F;&#x2F;后面这个0一定要选中。
+
+
+
+数组去重方法：1234567891011Array.prototype.unique &#x3D; function() &#123;			var temp &#x3D; &#123;&#125;;			var arr &#x3D; [];			var len &#x3D; this.length;			for (var i &#x3D; 0; i &lt; this.length ; i++)&#123;				if(!temp[this[i]])&#123;					temp[this[i]] &#x3D; &#39;abc&#39;;					arr.push(this[i]);				&#125;			&#125;		&#125;
+
+
+DOM的基本操作：
+对节点的增删改查：
+查：
+查看元素节点 ：
+
+
+
+DOM选择器：
+1doucument.getElementById() &#x2F;&#x2F;元素ID在IE8 一下浏览器是不区分大小写的，而且也返回匹配name 属性的元素；就是说写name可以当成id选择器（ie 8浏览器以下可以）
+
+getElementsByTagName()      //标签名
+
+getElemehtsByName()  //只有部分标签name可生效（表单，表 ，img ,iframe）
+
+getElementsByClassName() 在IE8 及以下的版本中不使用方法。
+
+.querySelect()    //css选择器，在ie7级一下的版本中没有
+
+.querySelectorAll()  //css选择器，在ie7 及以下的版本中没有 选一组
+
+
+==document 代表整个文档，html只是文档里面的跟标签。==
+遍历节点树：
+parentNode -&gt;父节点 （最顶端的parentNode 是#document;）
+childNodes -&gt;子节点
+firstChild –&gt;第一个子节点
+lstChild  –&gt;s最后一个子节点
+nextSibling -&gt;后一个兄弟节点previousSiling  -&gt;前一个兄弟节点
+
+遍历元素节点数：
+parentElement -&gt;返回当前元素的父元素节点（IE不兼容）
+children -&gt;只返回当前元素的元素子节点
+
+1node.childElementCount &#x3D;&#x3D;&#x3D; node.children.length
+ 当前元素节点的子元素节点数目4. firstElementChild  5. 第一个元素子节点（IE不兼容）5. lastElementChild 返回最后一个元素子节点（IE 不兼容）6. nextElementSibling /previousElementSibling -&gt;返回后一个/前一个兄弟节点
+节点类型：元素节点
+属性节点
+文本节点
+注释节点
+doucument
+DocumentFragment节点的四个属性：
+
+nodeName   //只能读取，不能写入。
+nodeValue     //text节点或comment节点的文本内容，可读写。
+nodeType     //该节点的类型 只读   判断元素是啥。
+attributes        // element 节点的属性集合
+
+节点的一个方法:node.hasChildNodes();
+DOM结构树：Document是系统的函数，只能系统自己调用。
+==getElementByTagName () 方法定义在Document.prototype 和Element.prototypes上==
+增：
+1234var div &#x3D; document.getElementsTagNmae(‘div’) ； document.createTextNode();document.createComment();document.createDocumentFragment();
+
+
+插：
+12PARENTNODE.appendChild();PARENTNODE.insertBefore(a,b)  &#x2F;&#x2F;  插入A在插入B之前
+
+
+删：
+12parent.removeChild();child.remove();
+
+
+替换：
+1parent.replaceChild(new,origin)
+
+
+
+Element节点的一些属性：12345innerHTML innerText   (火狐不兼容) &#x2F;textContent （老版本IE不好使）Element节点ele.setAttribute(&#39;id&#39; ,&#39;only&#39;)  ele.getAttribute(&#39;id&#39;)
+
+
+Date 对象方法：
+getTimer:
+
+Interval：定时器：但定时器是非常不准的。
+
+setInterval: 定时器
+
+clearInterval:清理计时器
+
+
+
+123456789setTimeout(function()&#123;&#x2F;&#x2F;用于推迟一段时间之后再执行&#125;，1000)var timer &#x3D; setTimeout(function ()&#123;&#125;)clearTimeout(timer);
+
+
+DOM基本操作：查看滚动条的滚动距离：
+1window.pageXOffsize YOffsize
+
+==IE8及IE8以下不兼容==
+查看视口的尺寸:
+1window.innerWidth &#x2F;inner.Height
+
+
+
+标准模式 /怪异模式也叫混杂模式（向后兼容），可在浏览器查document.compatMode,如果是CSS1Compat则是标准模式，如果是BackCompat则是向后兼容。clintHeight / clientHeight 
+
+查看元素的几何尺寸：1domEle.getBoundingClientRect();
+
+兼容性很好该方法返回不是实时的；
+查看元素尺寸：
+1dom.offsetWidth  dom.offsetHeight
+ //求的是视觉上的尺寸，当然不包含margin
+查看元素的位置：
+1dom.offsetLeft  dom.offsetTop
+
+
+
+1dom.offsetParent
+ //查看父级的。能求有定位的父级。
+让滚动条滚动：window上的三个方法：
+123scroll()  scrollTo() 其实是一样的 scroolBy()  累加滚动距离
+
+阅读器小demo ，就是reader.js
+脚本化CSS  （就是控制CSS）
+可读写行间样式，没有兼容性问题，遇到float这样的保留字属性，前面应加css
+复合属性必须拆解（borderWidth,borderHeight,borderradius），组合单词变成小驼峰式写法；写入的值必须是字符串格式
+
+查询计算样式：1window.getComputedStyle(ele，null);
+ //看到权重最高的，所以这个最准确。这个也不能改样式。计算样式只读
+返回的计算样式的值都是绝对值，没有相对单位ie8 及以下不兼容。
+查询样式：div.currentStyle–&gt; CSSStyleeclaration
+事件：事件的绑定：12ele.onXXX&#x3D; function(event )&#123;&#125;  		&#x2F;&#x2F;程序this指向是dom元素本身特点：兼容性很好，但是一个元素的同一事件上只能绑定一个处理程序，基本等同于写在HTML行间上
+
+
+
+12345obj.addEventListeber(type, fn,flase);	&#x2F;&#x2F;程序this指向是dom元素本身ie9 以下不兼容，可以为一个时间绑定多个处理程序obj.attachEvent(&#39;on&#39;+type ,fn)			&#x2F;&#x2F;程序this指向windowIE独有，一个时间同样可以绑定多个处理程序
+
+绑定事件，当事件在循环里面，就一定要考虑要不要使用闭包。
+事件处理程序解除事件：
+1234ele.onclick &#x3D; false &#x2F;nullele.removeEventListener(type,fn ,false)ele.detachEvent(&#39;on&#39; +type ,fn);若绑定匿名函数，则无法解除
+
+
+事件处理模型——事件冒泡，捕获结构上嵌套关系的元素，会存在事件冒泡的功能。
+事件捕获： 只有chrome上可以用
+把flase 变成ture,从结构的最外面向里面进行捕获.
+
+一个对象的一个事件，绑定两个函数，分别是冒泡还有捕获。执行的顺序是先触发顺序，先捕获，后冒泡。
+
+==focus, blur , change  submit  reset  ,select 等事件不冒泡==
+取消冒泡：W3C标准event.stopPropagation
+阻止默认事件：
+默认事件——表单提交，a标签跳转，右键菜单等return false;     以对象属性的方式注册的时间才有效
+
+1event.preventDefault（） IE9以下不兼容
+
+
+
+事件对象：event ||window.event 用于IE
+事件源对象：
+event.target 火狐只有这个
+event.srcElement ie只有这个
+chorm 全都有
+div.box就是事件源对象
+
+事件分类：键盘类事件：
+
+Json就是为了传输数据：
+以xml这种语言传输数据，xml相对于html比较随性，可以自定义标签。
+规定json 属性名要加双引号，json传输的时候其实传输的是字符串。
+
+
+
+12JSON.stringify() ---&gt;把数据传输给后台   json -&gt;stringJSON.parse（) ----&gt;后台把数据传输给前台，string -json
+
+
+1domtree + csstree &#x3D; randerTree
+
+==尽量减少dom节点的增加或者删除，以优化性能reflow 是效率最低的。dom节点的宽高变化==，
+12例如说display none---&gt;block offsetWidth offsetLeft
+
+
+repanint 重绘效率相对没有这么低，是可以接受的
+异步加载js：加载工具方法没必要阻塞文档。
+三种方法异步加载js：
+
+defer = “defer”  这个就是异步加载的js了。只有IE能够用。要等到dom文档全部解析完之后才会被执行
+async  异步加载。 async = “async” 也可以实现异步加载。W3C方法。加载完就执行。asynv只能加载外部脚本
+创建script，插入DOM，可以按顺序执行。
+
+
+使用onload方法，可以让所有资源加载完之后立即执行,除了IE都兼容。
+
+123456IE 使用onreadystatechange（） 方法$(document).ready(function () &#123;&#125;)					&#x2F;&#x2F;这种是当DOM解析完就执行的部分与window.onload 方法之间的区别。 onload是最低的写法
+
+
+JS时间线BOM定义borwser Object Model
+定义了操作浏览器的接口
+BOM对象：Window ,History ,Navigator Screen,Location
+由于浏览器不同，Bom对象的兼容性很低，一般情况只用部分功能。
+123转义字符：“\”多行字符串字符串换行符 \n
+
+正则表达式：匹配特殊字符或特殊搭配原则的字符的最佳选择———例如验证邮箱地址
+两种创建方式：
+11. 直接量  var reg &#x3D; new RegExp();
+
+
+两种方法：
+
+text() 只能判断有没有符号要求的片段，只能返回true和 false
+match()可以判断符合的片段，并返回给你
+
+修饰符：123456i  执行对大小写不敏感的匹配g 执行全局匹配m 执行多行匹配一个表达式就代表一位 ，里面填的就是区间
+
+
+
+
+元字符：123\w &#x3D;&#x3D;&#x3D;[0-9A-z_]\W &#x3D;&#x3D;&#x3D;[^w]
+量词：1234567891011121314n只是代表这个数，并不是特定的nn+ 这个变量可以出现一次到无数次n* 区间是零到正无穷n? 匹配任何包含零个或一个n的字符串n&#123;x&#125;n &#123;x,y&#125; &#123;3,5&#125;  先匹配5个，再不行匹配三个n$ 结尾  ，是要以这一整个片段结尾^n  开头
+
+RegExp对象属性：1234globalignoreCase   &#x2F;&#x2F;忽略大小写multiline 		&#x2F;&#x2F;多行lastIndex
+
+方法；exec()：index 索引
+123456789101112131415&#x2F;()&#x2F;		&#x2F;&#x2F;（）代表字表达式  \1代表反向引用第一个表达式的内容var reg &#x3D; &#x2F;(\w)\1\1\1&#x2F;   可以匹配aaaaaabbbbb这种var reg &#x3D; &#x2F;(\w)\1(\w)\2&#x2F;g 可以匹配aabb这种表达式search()match() 匹配不到显示-1split 可以填字符串，还有正则表达式replace(‘a&#39;, &#39;b&#39;); 	&#x2F;&#x2F;替换字符，非正则表达式：把前面的替换成后面的 ，因为没有权限所以只能替换一个。正则表达式：具有访问全局的能力，把两个都能替换。rag &#x3D;&#x2F;a&#x2F;g
+
+
+
+123var reg &#x3D; &#x2F;(\w)\1(\w)\2&#x2F;g;			var str &#x3D; &quot;aabb&quot;;		console.log(str.replace(reg,&#39;$2$2$1$1&#39;)); 	&#x2F;&#x2F;这种可以把字符把aabb转换成bbaa
+
+
+
+1toUpperCase() 可以使字母大写
+
+
+
+
+正向预查，正向断言
+
+1&#x2F;a(? &#x3D;b)&#x2F;g 后面就是一个b
+
+
+
+12abs() 可以去得正数和负数的绝对值floor（） 可以进行四舍五入
+
+
+
+
+</section>
+    <p class="sub">May 11, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/05/07/Ajax-note/" class="title">Ajax笔记</a>
+    <section class="desc">
+  背景：
+form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。
+
+封装Ajax的具体参数
+Mothod : GET POST等。
+action : address;
+enctype : 固定在发送表单数据之前如何对其进行编码，application /x -www-form -urlencoded在发送前编码所有的字符（默认）。
+1multipart &#x2F; form-data (&lt;input type &#x3D;&#39; file &#39;&gt;)
+不对字符编码，在使用包含文件上擦黄空间的表单时，必须使用该值。
+
+
+因为IE中并没有xmlHttpRequest() 这种方法， 所以要使用  new ActiveXObject(‘Microsoft.XMLHttp’)
+
+如何封装一个自己的Ajax123456var xhr &#x3D; null;    if(window.XMLHttpRequest) &#123;        xhr &#x3D;  new XMLHttpRequest();    &#x2F;&#x2F;判断是否为主流浏览器    &#125;else &#123;        xhr &#x3D; new ActiveXObject(&#39;Microsoft.XMLHttp&#39;)    &#x2F;&#x2F;IE浏览器    &#125;
+
+Ajax的几种状态
+ajax.open (method , url ,true);
+ajax.send();
+onreadystatechage 4     // ajax状态每次变化都会触发 
+
+
+0 = 未初始化，未调用send（） 方法
+1= 读取中，已调用send () 发送请求
+2 = 已读取  ,send 方法执行完成，接收到全部相应内容
+3 = 交互中， 正在解析响应内容
+4 = 完成 ，响应内容解析完成   //只关系这个过程
+status == 200 403 503   
+200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。
+
+Ajax支持的数据类型：
+dataType选项除了单纯的xml,还可以指定html,json,jsonp,script 或者 text
+
+
+
+</section>
+    <p class="sub">May 7, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/05/07/douban/" class="title">douban</a>
+    <section class="desc">
+  使用豆瓣api做联想搜索项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。
+
+首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。
+
+HTML代码
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;ie&#x3D;edge&quot;&gt;    &lt;title&gt;Document&lt;&#x2F;title&gt;    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;src&#x2F;css&#x2F;index.css&quot;&gt;&lt;&#x2F;head&gt;&lt;body&gt;    &lt;div class&#x3D;&quot;wrapper&quot;&gt;        &lt;div class&#x3D;&quot;nav&quot;&gt;            &lt;div class&#x3D;&quot;nav-left&quot;&gt;                &lt;ul&gt;                    &lt;li&gt;豆瓣&lt;&#x2F;li&gt;                    &lt;li&gt;读书&lt;&#x2F;li&gt;                    &lt;li&gt;电影&lt;&#x2F;li&gt;                    &lt;li&gt;音乐&lt;&#x2F;li&gt;                    &lt;li&gt;同城&lt;&#x2F;li&gt;                    &lt;li&gt;小组&lt;&#x2F;li&gt;                    &lt;li&gt;阅读&lt;&#x2F;li&gt;                    &lt;li&gt;FM&lt;&#x2F;li&gt;                    &lt;li&gt;时间&lt;&#x2F;li&gt;                    &lt;li&gt;豆品&lt;&#x2F;li&gt;                    &lt;li&gt;更多&lt;&#x2F;li&gt;                &lt;&#x2F;ul&gt;            &lt;&#x2F;div&gt;            &lt;div class&#x3D;&quot;nav-right&quot;&gt;                &lt;ul&gt;                    &lt;li&gt;下载客户端&lt;&#x2F;li&gt;                    &lt;li&gt;注册&#x2F;登录&lt;&#x2F;li&gt;                &lt;&#x2F;ul&gt;            &lt;&#x2F;div&gt;        &lt;&#x2F;div&gt;        &lt;div class&#x3D;&quot;main-music&quot;&gt;                &lt;div class&#x3D;&quot;main-wrapper&quot;&gt;                    &lt;div class&#x3D;&quot;main-logo&quot;&gt;&lt;&#x2F;div&gt;                    &lt;div class&#x3D;&quot;main-search&quot;&gt;                        &lt;form action&#x3D;&quot;&quot;&gt;                            &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;唱片名，表演者&quot;  class&#x3D;&quot;search&quot; &gt;                            &lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;submit&quot;&gt;                        &lt;&#x2F;form&gt;                    &lt;&#x2F;div&gt;                    &lt;div class&#x3D;&quot;main-list&quot;&gt;                        &lt;ul&gt;                                                    &lt;&#x2F;ul&gt;                    &lt;&#x2F;div&gt;                &lt;&#x2F;div&gt;        &lt;&#x2F;div&gt;    &lt;&#x2F;div&gt;    &lt;script src&#x3D;&quot;..&#x2F;jquery.js&quot;&gt;&lt;&#x2F;script&gt;    &lt;script src&#x3D;&quot;src&#x2F;js&#x2F;index.js&quot;&gt;&lt;&#x2F;script&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;
+
+CSS样式
+
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127*&#123;    padding: 0;    margin: 0;    list-style: none;    text-decoration: none;&#125;html body&#123;    width: 100%;    height: 100%;&#125;.wrapper&#123;    width: 100%;    height: 100%;    position: relative;&#125;.nav&#123;    position: relative;    width: 100%;    height: 28px;    min-width: 950px;    background: #5d5d5d;&#125;.nav li&#123;    display: inline-block;    color: #d5d5d5;    line-height: 28px;    margin-left: 5px;&#125;.nav-left&#123;    position:absolute;    left: 5px;&#125;.nav-right&#123;    position: absolute;    right: 5px;&#125;.main-music&#123;    position: relative;    width: 100%;    height: 100px;    border-bottom: 1px solid black;    background-color: #f0f3ef;&#125;.main-wrapper&#123;    position: relative;    width: 100%;    height: 100%;    left: 100px;&#125;.main-wrapper .main-logo&#123;    position: relative;    display: inline-block;    top: 15px;    float: left;    width: 200px;    height:80px;    background-image: url(&quot;..&#x2F;bg.png&quot;);    background-size: 100% 100%;&#125;.main-wrapper .main-search&#123;    float: left;    display: inline-block;    width: 500px;    height: 100px;    line-height: 100px;    color: #5d5d5d;    font-size: 30px;&#125;.main-search .search&#123;    position: relative;    width: 250px;    height: 30px;    border-radius: 20px;    overflow: hidden;    left: 20px;&#125;.main-search .submit&#123;    position: relative;    width: 50px;    height: 30px;    border-radius: 20px;    overflow: hidden;    left: 30px;    &#125;.main-list ul&#123;    display: inline-block;    position: absolute;    width: 500px;    height: 500px;    left: 225px;    top: 75px;&#125;.main-list li&#123;    display: block;    position: relative;    width: 200px;    height: 150px;    font-size: 18px;    font-family: &quot;黑体&quot;;    background: #b1cbe0;    border: 1px solid #d5d5d5;    opacity: 0.7;    text-align: center;&#125;.main-list img&#123;    display: block;    width: 100px;    height: 100x;&#125;
+
+
+
+上网查找豆瓣开发者API V2, 以前这里有文档写着后台接口，现在没有需要自己摸索（查资料）才能知道豆瓣的后台接口使啥。摸索完接口之后，我们这里用音乐接口作为例子，使用JQuery和封装Ajax,进行后台数据的接受。
+
+
+javascript代码
+
+1234567891011121314151617181920212223242526    (function()&#123;    var $search &#x3D; $(&#39;.search&#39;);    var $ul &#x3D; $(&#39;ul&#39;,&#39;.main-list&#39;);    $search.on(&#39;input&#39;,function()&#123;        var value &#x3D; $(this).val();        console.log(value);        getData(value ,7);    &#125;)    function getData(value, num)&#123;        $.ajax(&#123;            type:&#39;get&#39;,             &#x2F;&#x2F;获取方式为get            url :&#39;https:&#x2F;&#x2F;api.douban.com&#x2F;v2&#x2F;music&#x2F;search&#39;,  &#x2F;&#x2F;豆瓣音乐后台地址            data: &#39;q&#x3D;&#39; + value +&#39;&amp;count&#x3D;&#39; + num,    &#x2F;&#x2F;获取的数据            dataType :&#39;jsonp&#39;,      &#x2F;&#x2F;获取方式为jsonp            success : addItem       &#x2F;&#x2F;获取成功之后的函数addItem        &#125;)    &#125;    function addItem(data)&#123;        var list &#x3D; data.musics;        var str &#x3D; &#39;&#39;;        list.forEach(function(ele ,index)&#123;            str +&#x3D; &#39;&lt;li&gt;&quot;&#39;+ele.title+&#39;&quot;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;music.douban.com&#x2F;subject&#x2F;&#39;+ele.id+&#39;&#x2F;&quot;&gt;&lt;img src&#x3D;&quot;&#39;+ele.image+&#39;&quot; &gt;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;&#39;        &#125;)        $ul.html($(str));    &#125;&#125;)()
+
+在数据获取成功之后我们通过foEach循环把获取回来的数据通过JQuery的html()方法插入到指定的文本当中,点击图片会跳转到歌曲页面。
+
+
+
+豆瓣后台的项目大致就是这样啦。
+
+</section>
+    <p class="sub">May 7, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/04/26/CSSnote/" class="title">CSS2.0学习笔记</a>
+    <section class="desc">
+  CSS (cascading style sheet 层叠样式表)(1)引入css
+行间样式，即1&lt;div style=""&gt;&lt;/div&gt;
+页面级CSS，在head里面引入一个style标签，在里面写css代码。
+引用外部css文件,即1&lt;link rel=&gt;
+link和!import引入的区别
+Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务;@import属于CSS范畴，只能加载CSS
+link引用CSS时，在页面载入是同时加载; @import需要页面网页完全载入后再加载
+link是XHTML标签，无兼容问题; @import是CSS2.1提出的 ，低版本浏览器不支持
+link使用Javascript控制DOM改变样式，而@import不支持
+
+
+
+
+把html,css放在服务器上，浏览器下载一行代码并执行一行代码。属于异步执行，因为计算机的异步和同步相对于我们的理解来说是相反的。
+
+
+(2)选择器
+id选择器一个元素只能有一个id选择器。1&lt;div id=""&gt;&lt;/div&gt;
+类选择器,一个类选择器可对应对个元素。1&lt;div class=""&gt;&lt;/div&gt;
+标签选择器，适用于标签，例如说div a。
+通配符选择器 *{} 选中所有的标签。这个用于初始化标签非常有作用。
+属性选择器 
+
+
+选择器的权重（从高-低）
+important（正无穷）-&gt;行间样式（1000）–&gt;id（100）–&gt;class 属性选择器 （10） –&gt;标签选择，伪元素（1） ——&gt;通配符（0）
+
+
+
+父子选择器： div span{}
+
+特点：不在于一定要使用标签选择器，class id 选择器都可以，只要成立父子关系就可以了。
+
+注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。
+
+子元素选择器：即符号下的直接向下的选择方式，例如h1&gt;strong{;}
+
+注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。
+
+
+并列选择器：特点：当同时存在相同标签及相同类名时，可通过标签名和类名混合使用达到选中区域的效果。
+权重选择器：特点：只要是同一横行想选择器，权重值为相加，若权重值一样，则后面的代码会覆盖前面的代码。
+分组选择器：特点：例如说div span想设置一样的背景颜色，在减少冗余的角度来看，div span{}这样写css。
+
+(3)CSS基础属性：
+字体大小font-size px; 浏览器默认为16px;font-wight:blod 字体加粗font-style:italic；斜体font-family:arial;互联网上的通用字体color:设置字体颜色. 
+纯英文字母
+颜色代码 （00-ff，00-ff,00-ff）分别代表rgb，red green,blue.
+颜色函数，color:rgb(0-255,0-255,0-255)
+
+123456border:10px solid(dotted点状，dashed 条状) black;（10px粗细，实线，黑色）text-align:right;文本向右对齐  text-align: center 文本居中显示line-height: 20px； 行高。因此让单行文本水平居中的做法就是让行高=容器高度text-indent:2em(2个font-size)cursor:(pointer 当光标移动到哪个区域，就会变成另外的符号，help ,move, pointer)伪类选择器 a:hover&#123;&#125; 在元素被光标选中的时候触发各种效果。
+
+
+
+
+元素的分类：行级元素 inline
+
+
+特征：内容决定元素所占位置，不可以通过css改变宽高。1&lt;span&gt; &lt;strong&gt; &lt;em&gt; &lt;a&gt; &lt;del&gt;
+
+
+
+
+块级元素 block
+
+特征：独占一行，可通过css改变宽高1&lt;div&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt;&lt;ol&gt; &lt;form&gt; &lt;address&gt;
+
+
+
+行级块元素 inline-block
+
+特征：1.内容决定元素所占位置 2.可以通过css改变宽高。1&lt;img&gt; &lt;input&gt;
+凡是带有inline的都显示文字特性，因此会被分割，导致多张图片并排会有空隙产生。
+注意：在开发的时候先写css样式再写html，因为clas是一对多关系的，所以这些属性都能通过组合加上去——先定义后选样式。
+注意：用标签选择器做初始化，因为标签选择器的权重是0，若是用户想自定义修改那么通过增加权重就可以实现。
+
+
+
+</section>
+    <p class="sub">Apr 26, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/04/26/HTMLnote/" class="title">HTML 学习笔记</a>
+    <section class="desc">
+  
+
+
+HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。
+
+HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。
+
+
+1234&lt;html&gt; 表示根标签&lt;head&gt;&lt;body&gt;是结构化标签，&lt;head&gt;是给浏览器看的，&lt;body&gt;是给用户看的。&lt;titile&gt;表示页面标题 &lt;h&gt;表示标题 &lt;strong&gt;加粗 &lt;em&gt;表示斜体	 &lt;del&gt;表示中划线 &lt;address&gt;表示地址 容器：&lt;div&gt; &lt;span&gt;
+
+
+高级标签：在编辑器里的空格只代表文本分隔符。12.&amp;nbsp;代表一个空格&lt;ol&gt;&lt;ul&gt;常用作网页导航栏
+
+
+ol表示有序列表，在标签内写type=“A”就是以字母表排序，“1”就是以数字排序，start=”2”就是以数字2开始排序
+ul表示无序列表
+通常通过list-style:none 取消掉圆点样式.
+
+相对路径：当html文和jpg文件在同一文件夹时，此时为相对路径。
+图片占位置和提示符的区别
+
+alt=”当图片展示不出来的时候，会用文字展示出来，这就是图片占位符”
+title=”图片提示符，当光标移动过去的时候会提示效果”
+
+1&lt;a href=""&gt; hyper Text reference--超文本引用
+
+href 与src 之间的区别：
+
+
+href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。
+src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。
+
+
+标签的几个作用：①超链接  ，②锚点， ③打电话 ④协议限定符（可运行js代码）target=“blank”就是在新的空白页中打开。 
+
+12&lt;form&gt;标签 能够把前端的数据完全发送给后端&lt;input type="text"&gt; &lt;input type="password"&gt;
+
+mothod 表示发送的方法
+action  用来填发送给谁的地址
+
+单选框＆复选框
+
+当要做一个单选框的时候，input 里面的type=”radio”，请name相同，则只能单选一个
+当需要进行多选的时候，input 里面的type=“checkbox”，则能多选。
+在某些表单中，可以默认选中某些选项来提高用户体验，则可以使用check=”checked” 表示默认已经选中
+
+创建下拉框
+1234&lt;select name="phone"&gt;&lt;option value="数据值"&gt;iphone&lt;/option&gt;&lt;option value="数据值"&gt;vivo&lt;/option&gt;&lt;/select&gt;
+
+
+
+
+
+
+</section>
+    <p class="sub">Apr 26, 2019</p>
+  </div>
+</div>
+  
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">&lt;span class&#x3D;&quot;iconfont icon-arrow-left&quot;&gt;&lt;&#x2F;span&gt;</a><a class="page-number" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
+
+  </div>
+  <div class="main-bottom">
+    <div class="music flex flex-pack-justify flex-align-center">
+      <div class="control">
+        <a onclick="preSong()"><span class="iconfont icon-shangyishou"></span></a>
+        <a onclick="playControl()"><span class="iconfont play-icon icon-kaishi1"></span></a>
+        <a onclick="nextSong()"><span class="iconfont icon-xiayishou-copy"></span></a>
+      </div>
+      <div class="msg">
+        <span class="time"></span>
+        <div class="line" ref="progress-line-warp">
+          <div class="song-msg">周杰伦 - 说好不哭</div>
+          <!--<div class="current-line" ref="progress-line">
+            <a tag="a" class="target" v-on:mousedown.prevent="mousedown"></a>
+          </div>-->
+        </div>
+        <span class="all-time"></span>
+      </div>
+      <div class="right-control">
+        <a class="order-btn flex flex-align-center" onclick="toogleShowMusicList()">
+          <span class="iconfont icon-ttpodicon"></span>
+          <span class="number flex1">3</span>
+        </a>
+      </div>
+      <audio id="audio" class="mian-audio" src="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E8%AF%B4%E5%A5%BD%E4%B8%8D%E5%93%AD.mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+  <div class="music-list">
+    <div id="musiclist">
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 说好不哭" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E8%AF%B4%E5%A5%BD%E4%B8%8D%E5%93%AD.mp3" onclick="changePlayIndex(0)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">说好不哭 - 周杰伦</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 爱在西元前" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E7%88%B1%E5%9C%A8%E8%A5%BF%E5%85%83%E5%89%8D%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(1)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">爱在西元前 - 周杰伦</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 龙拳" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E9%BE%99%E6%8B%B3%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(2)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">龙拳 - 周杰伦</span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  var playIndex = localStorage.getItem('playIndex') ? parseInt(localStorage.getItem('playIndex')) : 0
+  let musics = $('.music-item')
+  musics.eq(playIndex).addClass('active')
+  var audio = document.getElementById("audio");
+
+  $('.song-msg').html(musics[playIndex].dataset.name)
+  audio.src = musics[playIndex].dataset.url
+
+
+  var playbtn = document.getElementsByClassName("play-icon")[0];
+  var playing = false;
+  audio.loop = false;
+  audio.addEventListener('ended', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  audio.addEventListener('play', function () {
+    playbtn.classList.remove("icon-kaishi1")
+    playbtn.classList.add("icon-kaishi")
+    playing= true
+  }, false);
+  audio.addEventListener('pause', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  function toogleShowMusicList() {
+    var musiclist = document.getElementsByClassName("music-list")[0];
+    if(musiclist.className.indexOf("active") === -1){
+      musiclist.classList.add("active")
+    }else{
+      musiclist.classList.remove("active");
+    }
+  }
+
+  function playControl() {
+    if(playing){
+      audio.pause()
+    }else{
+      audio.play()
+    }
+  }
+
+  function changePlayIndex(index) {
+    if(playIndex !== index){
+      localStorage.setItem('playIndex',index)
+      playIndex = index
+      musics.removeClass('active')
+      musics.eq(playIndex).addClass('active')
+      $('.song-msg').html(musics[playIndex].dataset.name)
+      audio.src = musics[playIndex].dataset.url
+      audio.play()
+    }else{
+      playControl()
+    }
+  }
+
+  function preSong() {
+    var index
+    if(playIndex === 0){
+      index = musics.length - 1
+    }else{
+      index = playIndex - 1
+    }
+    changePlayIndex(index)
+  }
+
+  function nextSong() {
+    var index
+    if(playIndex === musics.length - 1){
+      index = 0
+    }else{
+      index = playIndex + 1
+    }
+    changePlayIndex(index)
+  }
+
+  function toggleMenu() {
+    var mainLeft = $('.main-left')
+    if(mainLeft.hasClass('active')){
+      mainLeft.removeClass('active')
+      $('.menu').removeClass('icon-close')
+      $('.menu').addClass('icon-menu')
+    }else{
+      mainLeft.addClass('active')
+      $('.menu').removeClass('icon-menu')
+      $('.menu').addClass('icon-close')
+    }
+  }
+</script>
