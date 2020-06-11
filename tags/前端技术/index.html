@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: 前端技术 | 欢迎来到何泽丰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="description" content="怕，你就输一辈子">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欢迎来到何泽丰的博客">
+<meta property="og:url" content="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="欢迎来到何泽丰的博客">
+<meta property="og:description" content="怕，你就输一辈子">
+<meta property="article:author" content="何泽丰">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+<link rel="stylesheet" href="/blog/css/index.css">
+
+
+
+  <!-- 百度站長統計-->
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4e4f3d9d2532faa71e451f2ab41cbb6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="欢迎来到何泽丰的博客" type="application/atom+xml">
+</head>
+
+<div class="main height-100 flex flex-v">
+  <div class="phone-header">
+    <a to="/home" class="mobile-logo" > <img src="/images/logo.svg" /> </a>
+    <a class="menu iconfont icon-menu" onclick="toggleMenu()"></a>
+  </div>
+  <div class="main-top flex flex1">
+    <nuxt-link  to="/home" class="mobile-nav-btn iconfont icon-fenlei"></nuxt-link>
+    <!--主页上左部分-->
+    <div class="height-100 main-left  flex flex-v">
+      <div class="main-left-top flex1">
+        <a class="logo">
+          <img src="/images/logo.svg" />
+          <div class="sub-title">自强不息 厚德载物</div>
+        </a>
+        <nav class="nav">
+
+  
+    
+      <a title="首页"  alt="首页"  v-for="(menu,index) in menus" href="/blog">
+        <div class="icon"><i class="iconfont icon-home"></i></div>
+        <div class="name">
+          <div class="cnname">首页</div>
+          <div class="enname">Home Page</div>
+        </div>
+      </a>
+
+    
+      <a title="归档"  alt="归档"  v-for="(menu,index) in menus" href="/blog/archives">
+        <div class="icon"><i class="iconfont icon-archives"></i></div>
+        <div class="name">
+          <div class="cnname">归档</div>
+          <div class="enname">Archive Page</div>
+        </div>
+      </a>
+
+    
+      <a title="关于我"  alt="关于我"  v-for="(menu,index) in menus" href="/blog/about">
+        <div class="icon"><i class="iconfont icon-about"></i></div>
+        <div class="name">
+          <div class="cnname">关于我</div>
+          <div class="enname">About Me</div>
+        </div>
+      </a>
+
+    
+  
+
+  <!--<a href="/link/">
+    <div class="icon"><i class="iconfont icon-link"></i></div>
+    <div class="name">
+      <div class="cnname">友情链接</div>
+      <div class="enname">Friends Web Link</div>
+    </div>
+  </a>-->
+</nav>
+
+      </div>
+
+      <view class="website-msg">
+        <div class="beian"><a target="_blank" href="http://www.miitbeian.gov.cn/"></a></div>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <div class="beian"><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div>
+        <div class="theme-drsc">PowerBy:<a href="https://hexo.io" target="_blank">Hexo</a> ThemeBy:<a href="" target="_blank">Soul</a></div>
+        <div class="copyright">Copyright &#169 <a href="mailto:316692151@qq.com">2020 He ZeFeng</a> </div>
+      </view>
+
+      <div class="social flex flex-align-center ">
+        
+          
+            
+              <a class="flex1 text-center" href="https://weibo.com/3759599790/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1" target="_blank" title="weibo" alt="weibo">
+                <div class="icon relative">
+                  <i class="iconfont icon-weibo"></i>
+                </div>
+              </a>
+            
+          
+            
+              <a class="flex1 text-center" href="https://github.com/FengZeHe" target="_blank" title="GitHub" alt="GitHub">
+                <div class="icon relative">
+                  <i class="iconfont icon-github"></i>
+                </div>
+              </a>
+            
+          
+            
+              <a class="flex1 text-center" href="/blog/316692151" target="_blank" title="wechat" alt="wechat">
+                <div class="icon relative">
+                  <i class="iconfont icon-wechat"></i>
+                </div>
+              </a>
+            
+          
+        
+      </div>
+    </div>
+    <!--主页上右部分-->
+    
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2020/02/27/es6-async/" class="title">ES6异步的解决方案</a>
+    <section class="desc">
+  背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+
+面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。
+ES6异步处理模型ES6将异步场景分为两个阶段和三种状态
+两个场景： unsettled (未决)  settled (已决)
+三种状态： pending (挂起) resolved(完成) rejected (失败)
+
+当任务处于未决时状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复当任务处于已决时它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject如下图所示
+任务已决后(有了结果)进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable
+注意事项
+任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效
+以下代码可以让任务达到rejected 状态
+调用reject
+代码执行报错
+抛出错误
+
+
+后续处理函数一定是异步函数，并且放在微队列中
+
+
+
+</section>
+    <p class="sub">Feb 27, 2020</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2020/02/23/ES6-modular/" class="title">ES6模块化</a>
+    <section class="desc">
+  ES6的模块化模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件模块化背景过去js很难编写大型应用，因为有以下两个问题：
+
+全局变量污染
+难以管理的依赖关系这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致更多的全局污染更加负载的依赖关系，因为功能精细的划分有利于代码重用
+
+前端的模块化有两个标准：
+Commonjs
+ES6 Module注意：上面提到的两个均是模块化标准，具体的实现需要依托于JS的
+
+ConmomJS简介：目前，只有node环境才支持CommonJs模块化标准，所以需要先安装node才能使用CommonJS在CommonJS中，浏览器运行的是html页面，并加载页面通过script元素引入js，node.js直接运行某个js文件，该文件被称之为入口文件。node.js遵循ECMAScript标准，但脱离了浏览器环境：你可以在node.js中使用ECMAScript标准的任何语法或api，例如循环，判断，数组，对象等等但不能在node.js中使用浏览器的web api,例如说dom对象，window对象，document对象
+CommonJS标准和使用node中的所有代码均在CommonJS下运行，具体规范如下 ：
+
+一个js文件既为一个模块如果一个模块需要暴露依稀额数据或功能给其他模块使用，需要使用代码module.exports = xxx ,该过程称之为模块的导出
+
+如果一个模块需要使用另一个模块导出的内容，需要使用代码require(‘模块路径’)
+12路径必须以.&#x2F;或..&#x2F;开头如果模块文件后缀名为  .js 可以省略后缀名
+require 函数中返回的是模块导出的内容,且模块中所有的全局代码产生的变量、函数均不会对全局造成任何污染，仅在模块内使用
+
+模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果
+
+
+有了CommomJS模块化，代码就会形成以下结构：
+原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：
+12345function(module)&#123;    module.exports &#x3D; &#123;&#125;;    var exports &#x3D; module.exports;    return module.exports;&#125;
+
+
+
+ES6 module
+由于种种原因，CommonJS难以在浏览器中实现，因为一直在浏览器端没有合适的模块化标准，直到es6出现。ES6规范了浏览器的模块化标准，一经发布，各大浏览器厂商纷纷在自己的浏览器中实现该规范。
+
+模块的引入：
+12&#x2F;&#x2F;在浏览器使用以下方式引入ES6模块文件&lt;script src &#x3D; &quot;入口文件&quot; type &#x3D; &quot;module&quot;&gt;
+
+
+
+
+标准和使用模块的导出分为两种，基本导出和默认导出
+12345678可以将整个模块的导出想象成一个对象，基本导出导出的是该对象的某个属性，默认导出导出的是该对象的特殊属性default&#x2F;&#x2F;导出结果：想象成一个对象&#123;    a: xxx, &#x2F;&#x2F;基本导出    b: xxx, &#x2F;&#x2F;基本导出    default: xxx, &#x2F;&#x2F;默认导出    c: xxx &#x2F;&#x2F;基本导出&#125;
+
+
+ES6的导出方式：1234567891011121314export var a &#x3D; 1 &#x2F;&#x2F;基本导出 a &#x3D; 1export var b &#x3D; function()&#123;&#125; &#x2F;&#x2F;基本导出 b &#x3D; function()&#123;&#125;export function method()&#123;&#125;  &#x2F;&#x2F;基本导出 method &#x3D; function()&#123;&#125;var c &#x3D; 3;export &#123;c&#125; &#x2F;&#x2F;基本导出 c &#x3D; 3export &#123; c as temp &#125; &#x2F;&#x2F;基本导出 temp &#x3D; 3export default 3 &#x2F;&#x2F;默认导出 default &#x3D; 3export default function()&#123;&#125; &#x2F;&#x2F;默认导出 default &#x3D; function()&#123;&#125;export &#123; c as default &#125; &#x2F;&#x2F;默认导出 default &#x3D; 3export &#123;a, b, c as default&#125; &#x2F;&#x2F;基本导出 a&#x3D;1, b&#x3D;function()&#123;&#125;, 默认导出 default &#x3D; 3绝大部分时间写代码使用的导出方式是 export default()&#123;&#125;
+ES6模块的导入：使用以下的代码导入模块
+12345678import &#123;a,b&#125; from &quot;模块路径&quot;   &#x2F;&#x2F;导入属性 a、b，放到变量a、b中import &#123;a as temp1, b as temp2&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性a、b，放到变量temp1、temp2 中import &#123;default as a&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default，放入变量a中，default是关键字，不能作为变量名，必须定义别名import &#123;default as a, b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default、b，放入变量a、b中import c from &quot;模块路径&quot;  &#x2F;&#x2F;相当于 import &#123;default as c&#125; from &quot;模块路径&quot;import c, &#123;a,b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;相当于 import &#123;default as c, a, b&#125; from &quot;模块路径&quot;import * as obj from &quot;模块路径&quot; &#x2F;&#x2F;将模块对象放入到变量obj中import &quot;模块路径&quot; &#x2F;&#x2F;不导入任何内容，仅执行一次模块
+细节导入模块时，注意以下细节
+
+ES6 module 采用依赖预加载模式，所有模块导入代码均会提升到代码顶部
+不能将导入代码放置到判断、循环中
+导入的内容放置到常量中，不可更改
+ES6 module 使用了缓存，保证每个模块仅加载一次
+
+
+
+</section>
+    <p class="sub">Feb 23, 2020</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2020/02/15/when-Enter-an-address/" class="title">当在浏览器输入一个地址发生了什么</a>
+    <section class="desc">
+  是这样的：
+浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）
+
+浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其进行编码
+
+例如说在浏览器中搜索”王思聪”，汉字会被编码成ASCII码
+
+
+浏览器构造一个没有消息体的GET请求，发送至服务器，等待服务器响应（此时浏览器标签应该有一个等等的图标–转圈）
+
+服务器收到请求，将一个HTML页面代码组装到消息体中（不一定要html文件）响应给浏览器
+
+浏览器拿到服务器的响应后，丢弃当前的页面，开始渲染消息体的HTML代码。浏览器之所以知道这是一个HTML代码，是因为服务器的响应头指定了消息类型为text/html
+
+浏览器在渲染页面的过程中发现有嵌入的资源如CSS,JS图片等
+
+浏览器使用不阻塞的渲染方式，重定向服务器发送该资源的请求，拿到响应结果后根据Content-Type做响应处理
+
+当所有资源已经下载并处理好后，浏览器出发window.onload事件
+
+
+   这里说的Content-Tpye是在http协议消息头中表示具体请求中的媒体类型信息
+   有一下几种类型：
+   
+
+
+</section>
+    <p class="sub">Feb 15, 2020</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2020/02/12/vue-demo-1/" class="title">实现一个简单的VUE</a>
+    <section class="desc">
+  
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式
+思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
+ 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
+ 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点模块划分
+编译模块
+虚拟节点模块
+渲染模块
+数据响应模块
+VUE构造函数模块
+
+编译模块
+提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果思想：
+
+
+使用正则表达式匹配到html代码中包含 括号 的字符串
+拿到字符串之后把两边括号替换掉，把表达式分割成数组
+这需要与envObj环境变量进行配合使用，绑定后变成一个数组
+
+
+
+compile.js 代码
+
+1234567891011121314151617181920212223242526//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工function getFragments(template) &#123;    var matches = template.match(/&#123;&#123;[^&#125;]+&#125;&#125;/g); //万一有人的用户名叫12&#125;  所以这里要处理一下    return matches || [];&#125;function getValue(fragment, envObj) &#123;    var exp = fragment.replace("&#123;&#123;", "").replace("&#125;&#125;", "");    var props = exp.split(".");//将表达式分割为属性数组    var obj = envObj;    for (var i = 0; i &lt; props.length; i++) &#123;        obj = obj[props[i]];    &#125;    return obj;&#125;export default function compile(template, envObj) &#123;    // 提取模板中的&#123;&#123;&#125;&#125;    var flags = getFragments(template);    var result = template;    for (var i = 0; i &lt; flags.length; i++) &#123;        var flag = flags[i];        result = result.replace(flag, getValue(flag, envObj))    &#125;    return result;&#125;
+
+
+
+虚拟DOM:
+提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树思想：
+
+
+需要创建虚拟DOM 以便以后操作数据
+需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点
+
+12345678910111213141516171819202122232425function VNode(realDom, template) &#123;    // node 构造函数    this.realDom = realDom;    this.template = template;    this.children = [];&#125;export default function createVNode(realDom) &#123;    var root = new VNode(realDom, "");    if (realDom.nodeType === Node.TEXT_NODE) &#123;        root.template = realDom.nodeValue;        // 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点        // 文本节点代表的数字是3    &#125;    else &#123;        for(var i  = 0; i&lt; realDom.childNodes.length;i++)&#123;            var childNode = realDom.childNodes[i];            var vNode = createVNode(childNode)            root.children.push(vNode);        &#125;    &#125;    return root;&#125;
+
+
+
+
+渲染模块
+用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作
+
+123456789101112131415import compile from "./compile.js";// 渲染一个虚拟节点（将文本的虚拟节点进行编译）export default function render(vnode, envObj) &#123;    if (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;        vnode.realDom.nodeValue = compile(vnode.template, envObj);    &#125;    else &#123;        for (var i = 0; i &lt; vnode.children.length; i++) &#123;            var childNode = vnode.children[i];            render(childNode, envObj);        &#125;    &#125;&#125;
+
+
+
+数据响应模块
+主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)
+
+
+使用Object.defineProperty来实现数据的响应式
+
+这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）
+
+
+
+123456789101112131415161718192021222324252627282930313233343536373839404142// 将原始对象的prop属性添加到代理对象中function proxyProp(originalObj, targetObj, prop, callback) &#123;    if (typeof originalObj[prop] === "object") &#123;        // 要代理的属性是一个对象,对象要单独处理        var newTarget = &#123;&#125;;//新的 要代理的对象        createResponsive(originalObj[prop], newTarget, callback);        Object.defineProperty(targetObj,prop,&#123;            get:function()&#123;                return newTarget;            &#125;,            set:function(value)&#123;                originalObj[prop] = value;                newTarget = value;                callback &amp;&amp; callback(prop);            &#125;        &#125;)    &#125;    else &#123;        Object.defineProperty(targetObj, prop, &#123;            get: function () &#123;                return originalObj[prop];            &#125;,            set: function (value) &#123;                originalObj[prop] = value;                callback &amp;&amp; callback(prop);            &#125;        &#125;)    &#125;&#125;// 将原始对象的属性，提取到代理对象中// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数export default function createResponsive(originalObj, targetObj, callback) &#123;    for (var prop in originalObj) &#123;        proxyProp(originalObj, targetObj, prop, callback);    &#125;&#125;
+
+为vue写一个构造函数12345678910111213141516171819import createVNode from './vnode.js'import createResponsive from './dataResponsive.js'import render from './render.js'export default function vue(option) &#123;    this.$el = option &amp;&amp; option.el;    this.$data = option &amp;&amp; option.data;    this.$vnode = createVNode(document.querySelector(this.$el))    var that = this;    createResponsive(this.$data, this, function () &#123;        // 重新渲染        that.render();    &#125;)    this.render()//初次渲染&#125;vue.prototype.render = function () &#123;    render(this.$vnode, this);&#125;
+
+
+
+
+
+在前端页面写一个简单的VUE结构
+在前端页面写一个简单的VUE结构，测试一下是否正确
+
+1234567891011121314&lt;script&gt;    import Vue from "./vue/index.js"        window.vm = new Vue(&#123;            el: "#app",            data: &#123;                name:"FengZe",                age:16,                addr:&#123;                    province:"广东",                    city:"佛山"                &#125;            &#125;        &#125;)&lt;/script&gt;
+
+大概就是这样实现的了.
+源码地址：https://github.com/FengZeHe/vue_demo
+
+
+
+</section>
+    <p class="sub">Feb 12, 2020</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2020/01/10/ofo_demo/" class="title">如何实现一个简单的ofo微信小程序</a>
+    <section class="desc">
+  
+实现的效果
+
+
+
+
+     
+
+
+
+
+
+
+实现功能简介：
+
+扫码骑车记时功能
+用户登录及充值功能
+用户报障功能
+
+思路：
+
+要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮
+回到当前定位功能直接调用this.movetoCenter()函数
+立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。
+不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。
+因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。
+
+
+单车报障功能
+这里要说一嘴的是故障类型跟上传照片是必填，要验证内容是否为空。这里我只是判断了input框中的长度是否大于0；
+上传照片这里调用了微信的chooseImage()接口；我使用了一个数组存储上传的照片，所以在删除的时候直接在数组干掉就好了。
+
+
+用户登录及充值功能
+用户登录这里要注意下微信新版本是要授权，在按钮处设置open-type 为 getUserInfo才能使用。
+另外我把用户数据存进了storage,这样处理下一次就可以自动登录了。同时在登出的时候也会删除storage.
+
+
+
+
+关于后台：    因为时间（技术）问题暂时没有做出来，后续版本就有了嘿。因此这次我在modeHttp在线mock了后台数据。
+
+
+源码地址：https://github.com/FengZeHe/ofo_demo
+
+
+
+</section>
+    <p class="sub">Jan 10, 2020</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/12/12/frontEnd_Loading/" class="title">用CSS3做LoadIng动画</a>
+    <section class="desc">
+  使用CSS3做Loading动画
+
+</section>
+    <p class="sub">Dec 12, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/10/02/vue/" class="title">vue学习笔记</a>
+    <section class="desc">
+  vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。vue的特点：
+渐进式：vue的侵入性很少，可以与很多其他前端技术联用
+组件化
+响应式：数据响应式，vue会监控数据变化。当数据变化时
+
+vue的核心功能：关于创建vue工程
+直接在页面上引用vue.js
+使用构建工具vue-cli脚手架
+
+vue实例vue实例：通过new vue（配置对象）得到的对象
+当创建vue实例的时候，vue将会把data（为了实现响应式）methods配置（为了在模板中方便使用）等配置成员提升到vue实例中.
+由于有提升的存在，为了防止命名冲突，vue会将自身的成员名称前加上$ 或 _ , 为了防止命名冲突，vue会将自身的成员加上$(可以使用),_符号就不用用了
+
+模板插值：在模板的元素内部使用指令：通常作为元素的属性存在，名称上以v- 开头v-for:用于循环生成元素v-on :用于注册事件。 语法糖@v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用v-show:元素已经显示,display:nonev-bind:用于绑定属性, 语法糖:v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件
+模板中的配置
+页面中直接书写
+在template配置中书写（常见）
+在render中手动配置用函数创建，render函数的参数是一个创建虚拟DOM对象，为什么要创建虚拟DOM,因为真实DOM操作特别慢
+
+配置对象
+template:字符串，配置模板
+el:配置控制的元素，css选择器
+data: 管理的数据，该数据是响应式的
+mothods:配置方法，方法中的this指向vue实例，不能会用箭头函数,会干扰vue绑定this挂在的配置
+通过el进行配置
+使用vue实例中的$mount函数进行配置
+
+关于computed –计算属性
+计算属性，其中的配置会提升到vue实例中，因为在模板中可以直接当做属性使用，使用时，实际上调用的是对应的方法。通常，计算属性用户通过data或其他计算属性得到的数据。
+与方法的区别：vue会检查计算属性的依赖，当依赖没有发生变化时，vue会直接使用之前缓存的结果，而不会重新计算
+能用计算属性尽量使用，因为效率很高。依赖不变时不会重新加载。（计算属性的读取函数不可以有参数，有参数没意义）
+计算属性可以配置get和set. 分别用于读取时和设置时。 get读取属性的时候可以监听到，然后检查那张表函数有没有变化。
+
+关于v-html指令：
+vue为了安全，会将元素内部的插值进行实体编码
+
+12345678910&lt;div v-html &#x3D; &quot;html&quot;&gt;    &lt;&#x2F;div&gt;config &#x3D; &#123;    data:&#123;        html:&lt;p&gt;带标签的元素&lt;&#x2F;p&gt;    &#125;&#125;&#x2F;&#x2F;这样就可以把html标签渲染出来了
+
+组件组件是页面中可复用的功能单元
+VUE中的组建
+组件的创建：组件对于开发者，是一个普通的配置对象
+组件的注册：1234567891011121314&#x2F;&#x2F;全局注册组件Vue.component(&quot;组件形成&quot;,pager)&#x2F;&#x2F;局部注册组件 在使用的组件和vue实例配置中进行注册const config &#x3D; &#123;    template:&#96;&lt;div&gt;        &lt;MyPager&gt;&lt;&#x2F;MyPager&gt;    &lt;&#x2F;div&gt;&#96;,    el:&quot;#app&quot;,    components:&#123;        MyPager :pager    &#125;&#125;
+
+
+
+组件名称的规范，以下命名的方式任选其一：
+使用短横线命名
+使用大驼峰命名组件的使用：把组件当成标签使用即可，标签名任选其一
+短横线命名
+大驼峰命名
+
+组件可以嵌套，因为会形成一个组件树，组件树的根叫做根组件
+组件中的数据通信：
+prevent修饰符用于v-on指令，表示阻止默认行为
+stop修饰符用于v-on指令，表示阻止事件冒泡
+
+组件的状态和属性：
+通常讲组件中需要自身管理的数据（组件配置中的data）叫做组件状态（component state），组件状态只能在组件内部使用，外部原则上不可以使用.
+data(state 状态)在组件中的配置和在vue实例中配置的区别：在组件中data必须是一个函数，而VUE实例中心必须是一个对象。因为组件是可以被复用的，每一个组件都是独立的，所以data必须是一个函数.
+
+123456789&#x2F;&#x2F;在组件中export default&#123;    template,    data()&#123;        return &#123;            &#x2F;&#x2F;返回的结果是组件的状态        &#125;    &#125;&#125;
+
+组件中可以有属性（component props），而vue实例中没有
+声明组件属性时，使用短横线或小驼峰命名法
+传递组件属性时，使用短横线或小驼峰命名法
+属性会被提升到vue组件实例中
+
+==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==  
+自定义事件：
+在组件中触发事件： this.$emit(“事件名”,事件参数…)
+当一个组件状态发生变化时，该组件会重新渲染，在渲染的过程中，可能会导致其子组件的属性发生变化，而属性的变化会导致组件重新渲染。但根本原因，是状态的变化.
+v-model 的本质是一个语法糖，实际上是绑定value属性，同时监听input事件
+
+组件的生命周期
+beforeCreate(){}  –&gt;这个是自动执行的
+created()  –&gt;组件实例中已经提升到实例总，但是没有渲染页面
+beforeMount   –&gt; 组件即将进行渲染，但还没有渲染，此时已经编译好模板
+mounted【常用】  –&gt;组件已经完成渲染（页面可见）
+beforeUpdate –&gt;组件即将更新，还没有更新，此时得到的数据是新的，但页面依旧是旧的
+updated –&gt; 数据，界面都是新的
+beforeDestory –&gt; 当组件即将被销毁  调用vm.$destroy()函数
+destoryed  –&gt; 解除绑定，销毁子组件以及事件监听器
+
+vue路由vue路由，可以简单理解为，当访问某个地址时，渲染某个组件
+使用路由
+
+根据一个配置对象创建路由，得到路由对象
+在创建vue实例时，将路由对象配置到实例配置的router中
+在合适的位置写上router-view组件，表示路由匹配到组件渲染的位置，它实际上是vue-router做好的一个组件，并且做好了全局注册
+
+路由配置对象
+
+routes:路由规则配置
+mode:配置模式
+hash模式，兼容性最好，地址出现#号后，切换地址不会导致页面刷新
+history模式，使用的是HTML5 history API，地址直接变化，并且页面不刷新
+
+
+
+
+
+</section>
+    <p class="sub">Oct 2, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/09/03/2019.09.03/" class="title">2019-09-03 实习笔记</a>
+    <section class="desc">
+  背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
+
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符
+
+12345678910111213141516171819202122232425262728293031323334353637const str &#x3D; &#39;asddfgdfwwqeweqwezczxcsdfgdgd&#39;;   var obj &#x3D; &#123;&#125;;   var max &#x3D; 0;   var maxStr &#x3D; &quot;&quot;;   for(let i &#x3D; 0; i &lt; str.length ; i++)&#123;     var word &#x3D; str.charAt(i);     if(obj[word] !&#x3D; null)&#123;       obj[word]++;     &#125;else&#123;       obj[word] &#x3D; 1     &#125;          for(let i in obj)&#123;       if(obj[i]&gt;max)&#123;         max &#x3D; obj[i];         maxStr &#x3D; i       &#125;     &#125;        &#125;   console.log(&#39;出现最多次:&#39; + max +&#39;的字符是：&#39;+ maxStr)   console.log(obj);   &#x2F;&#x2F; &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;   &#x2F;&#x2F; a: 1   &#x2F;&#x2F; c: 2   &#x2F;&#x2F; d: 6   &#x2F;&#x2F; e: 3   &#x2F;&#x2F; f: 3   &#x2F;&#x2F; g: 3   &#x2F;&#x2F; q: 2   &#x2F;&#x2F; s: 2   &#x2F;&#x2F; w: 4   &#x2F;&#x2F; x: 1   &#x2F;&#x2F; z: 2   &#x2F;&#x2F; __proto__: Object
+
+</section>
+    <p class="sub">Sep 3, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/09/02/HTML5-note/" class="title">HTML5学习笔记</a>
+    <section class="desc">
+  HTML5学习笔记Canvas 画布Canvas应用场景：
+游戏
+图表
+动画
+condepen.io（HTML5动效）
+
+Canvas 发展史
+最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas
+
+如何使用canvas添加canvas标签1234567&lt;canvas width &#x3D; 500 height &#x3D; 500&gt;&lt;&#x2F;canvas&gt;获取cancas元素var canvas &#x3D; document.getElementById(&#39;myCanvas&#39;)获取canvas上下文对象var ctx &#x3D; camvas.getContext(&#39;2d&#39;);
+
+如何画线段123456ctx.moveTo(x,y) 移动到x,y坐标点ctx.lineTo(x,y) 从当前点描绘直线到x,y点ctx.stroke();描边ctx.lineWidth &#x3D; 20  设置线条宽度ctx.closePath();  闭合当前路径ctx.fill() 填充
+
+fill和stroke方法都是作用在当前的所有子路径
+完成一条路径后重新开始另一条路径时必须使用beginPath()开始子路径的一个新集合
+
+如何使用Canvas画矩阵123ctx.rect(x, y,dx,dy)ctx.fillRect(x,y ,dx,dy)ctx.strockeRect(x, y ,w, h)
+
+
+如何擦除当前区域： ctx.clearRect
+
+如何画圆角：12345678ctx.arcTo(x1,y1,x2,y2,r)&#x2F;&#x2F;绘制的弧线与当前点和x1,y1连线，x1,y1和x2,y2连线都相切贝塞尔曲线：quadraticCureveTo(x1 ,x2,ex,ey)  二次贝塞尔曲线 x1,y1控制点，ex,ey结束点bezierCureveTo(x1,y1,x2,y2,ex,ey)  三次贝塞尔曲线x1 y1  x2 y2 控制点ex ey结束点
+
+坐标轴的抓换12345678tanslate(dx,dy) 重新映射到画板上的（0,0）位置scale(sx,sy) 缩放当前绘图rotate(Math.PI)  旋转当前的绘图save()  restore()保存当前图像状态的一份拷贝从栈中弹出存储的图形状态并恢复setTransform(a,b,c,d,e,f)transform(a,b,c,d,e,f)  &#x2F;&#x2F;在之前的基础上变换
+
+渐变 createLinearGradubt(x1,y1,x2,y2);线性渐变，必须在填充渐变区域里定义渐变，否则没有效果
+
+createRadialGradient(x1, y1, r1, x2, y2, r2); 径向渐变bg.addColorStop(p.color)
+
+阴影：1234ctx.shadowColorctx.shadowOffsetXctx.shadowOffsetYctx.shadowBlur
+文本：
+fillText();
+strokeText();
+measureText(‘helloworld’）
+
+线段样式
+lineCap
+lineJoion
+
+绘制图片：12ctx.drawImage();&#x2F;&#x2F;第一个参数是img(Image,canvas,video)
+
+将canvas内容导出
+canvas.toDataURL();  是canvas自身方法不是上下文对象
+将canvas的内容抽取成一张照片，base64编码格式（注意同源策略）
+将canvas内容放进img元素里
+
+获取canvas像素信息123ctx.getImageData(x,y,dx,dy)crx.createImageData(w,h) 创建新的空白ImageData对象ctx.putImageData(imgData,x,y) 将图像数据放回画布上
+
+SVG（Scalable Vector Graphics）可缩放适量图形
+SVG应用场景:
+图表
+图标icon
+动效
+矢量图
+
+使用svg画各种各样的图形：123456789101112131415161. 直线&lt;line x1&#x3D;&quot;100&quot; y1&#x3D;&quot;100&quot; x2&#x3D;&quot;200&quot; y2&#x3D;”100”&gt;&lt;&#x2F;line&gt;2. 矩形&lt;rect x&#x3D;&quot;50&quot; y&#x3D;&quot;50&quot; width&#x3D;&quot;100&quot; height&#x3D;&quot;100&quot; rx&#x3D;&quot;10&quot;ry&#x3D;&quot;20&quot;&gt;&lt;&#x2F;rect&gt;3. 圆形&lt;circle r&#x3D;&quot;50&quot; cx&#x3D;&quot;220&quot; cy&#x3D;&quot;100&quot;&gt;&lt;&#x2F;circle&gt;4. 椭圆&lt;ellipse rx&#x3D;&quot;100&quot; ry&#x3D;&quot;50&quot; cx&#x3D;&quot;100&quot; cy&#x3D;&quot;200&quot;&gt;&lt;&#x2F;ellipse&gt;5. 折线&lt;polyline points&#x3D;&quot;60 50, 75 35, 100 50, 125 35, 150 50,175 35, 190 50&quot;&gt;&lt;&#x2F;polyline&gt;6. 多边形&lt;polygon points&#x3D;&quot;125 125,130 140,120 140&quot;&gt;&lt;&#x2F;polygon&gt;7. ⽂本&lt;text x&#x3D;&quot;125&quot; y&#x3D;&quot;220&quot;&gt;hello,world&lt;&#x2F;text&gt;
+
+path指令：（大写代表绝对定位，小写表示相对定位）12345678910M &#x3D; movetoL &#x3D; linetoH &#x3D; horizontal lineto 水平线V &#x3D; vertical lineto	垂直线C &#x3D; curveto 曲线S &#x3D; smooth curveto 平滑的曲线Q &#x3D; quadratic Belzier curve 二次贝塞尔曲线T &#x3D; smooth quadratic Belzier curveto 光滑贝塞尔曲线A &#x3D; elliptical Arc  椭圆弧Z &#x3D; closepath
+SVG渐变
+线性渐变
+径向渐变
+
+HTML5动画api requestAnimationFrame
+页面刷新钱执行一次
+1000ms 60fps -&gt; 16ms
+cancelAnimationFrame
+用法和setTimeout类似
+兼容性(只在IE10以上的浏览器)用老浏览器就用setTimeout
+
+123456789101112131415161718window.requestAnimFrame &#x3D; (function()&#123;  return window.requestAnimationFrame ||  window.webkitRequestAnimationFrame ||  window.mozRequestAnimationFrame ||  function( callback )&#123;  window.setTimeout(callback, 1000 &#x2F; 60);  &#125;;&#125;)();&#x2F;&#x2F;cancelAnimFrame()window.cancelAnimFrame &#x3D; (function()&#123;  return window.cancelAnimationFrame ||  window.webkitCancelAnimationFrame ||  window.mozCancelAnimationFrame ||  function( id)&#123;  window.clearTimeout(id);  &#125;;&#125;)();
+
+
+客户端存储
+Storage
+localstorage (永久的)
+sessionstorage(关闭浏览器就没有了)
+
+
+cookie（存储容量很小，4K左右）
+
+如何使用storage存储和读取数据12345localStorage.name &#x3D; &#39;admin&#39; &#x2F;&#x2F;存字符串localStorage.info &#x3D; JSON.stringify(&#123;name:&#39;admin&#39;，company:&#39;jizhu&#39;&#125;) &#x2F;&#x2F;存对象    var info &#x3D; JSON.parse(localStorage.obj);&#x2F;&#x2F;取出数据       console.log(info);
+
+storage作用域
+localSotrage -&gt; 文档源限制
+sessionStorage -&gt; 文档源显示 + 窗口
+
+storage 的API
+setItem(name,val) 设置属性值
+getItem(name) 获得属性值
+removeItem(name) 移除属性
+clear() 清除属性
+
+cookie
+存储信息到用户的设备上，数据量比较小
+navigator.cookieEnable  监测是否开启了cookie
+
+设置cookie值12345678910111213141516document.cookie &#x3D; “name&#x3D;aimee”&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）document.cookie &#x3D; “name&#x3D;aimee”&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）function getCookie(name) &#123;  var name &#x3D; name + &quot;&#x3D;&quot;;  var ca &#x3D; document.cookie.split(&#39;;&#39;);  for(var i&#x3D;0; i&lt;ca.length; i++) &#123;  var c &#x3D; ca[i];  while (c.charAt(0)&#x3D;&#x3D;&#39; &#39;) c &#x3D; c.substring(1);  if (c.indexOf(name) !&#x3D; -1) return c.substring(name.length, c.length);  &#125;  return &quot;&quot;;&#125;
+cookie 与 storage的对比
+history
+history.back();
+history.forward();
+history.go(n)
+
+通过修改hash和hashchange事件来实现历史纪录管理12345&#x2F;&#x2F;1、pushStatehistory.pushState(state, title, url); &#x2F;&#x2F;添加一条历史记录&#x2F;&#x2F;2、replaceStatehistory.replaceState(state, title, url);&#x2F;&#x2F; 替换当前的历史记录
+
+worker(异步操作的api)12var worker &#x3D; new Worker(&#39;workder.js&#39;)&#x2F;&#x2F;https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;html5&#x2F;html_5_webworkers.asp
+
+geolocation
+getCurrentPosition()     //获取当前的位置信息
+getCurrentPosition(s,e,p)
+success 回调 必须的
+error  回调
+option 参数
+
+
+watchPosition()    //监视位置变化, 和1参数一样
+clearWatch()  //清除位置监视
+
+1window.navigator.geolocation.getCurrentPosition(suc)
+
+PositionError对象
+用户拒绝code = 1;
+获取不到 code = 2;
+连接超时 code  = 3;
+
+配置参数enableHighAccuracy 是否需要高精度位置默认falsetimeout 单位ms 请求超时时间 默认infinitymaximumAge 单位ms，位置信息过期时间 设置为0就无条件获取新的地理位置信息 默认0https://dev.w3.org/geo/api/spec-source.html#position_options_interface
+watchPosition12var id &#x3D; geolocation.watchPostion()  &#x2F;&#x2F;用于注册监听器，在设备的地理位置发生个改变的时候自动被调用clearWatch(id)  &#x2F;&#x2F;使用clearWatch 清除监听
+
+
+devicemotion事件所包含的属性
+accelerationIncludingGravity （包括重心引力）重力加速度
+acceleration 重力加速度（需要陀螺仪支持）
+rotationRate(alpha, beta, gamma)旋转速率
+interval // 获取的时间间隔均为只读属性
+
+多媒体：
+audio 音频
+video 视频12345678&lt;audio src&#x3D; &quot;.&#x2F;demo.mp3&quot; controls &#x3D; &gt;&lt;&#x2F;audio&gt;autoplay &#x2F;&#x2F;自动播放控件controls &#x2F;&#x2F;设置控件preload(none&#x2F;metadata&#x2F;auto)预加载metadata :元数据 诸如时长、比特率、帧大小这样的原数据而不是媒体内容需要加载的loop： 是否循环播放音频or视频poster:(video独有)，当视频不可用的时候，使用一张图片替代
+
+
+
+多类型选择器：1234&lt;audio id&#x3D;&quot;music&quot;&gt;        &lt;source src&#x3D;&quot;成都.mp3&quot; type&#x3D;&quot;audio&#x2F;mpeg&quot;&gt; &#x2F;&#x2F;如果没有第一个，就播放第二个        &lt;source src&#x3D;&quot;成都.ogg&quot; type&#x3D;&#39;audio&#x2F;ogg&quot;&#39;&gt;        &lt;&#x2F;audio&gt;
+脚本化：12345var audio &#x3D; document.getElementById(&#39;audio&#39;);var audio &#x3D; new Audio(&#39;.&#x2F;laojie.mp3&#39;);var audio &#x3D; document.createElement(&#39;video&#39;);
+
+播放的方法
+play() 方法
+pause() 方法    //用于暂停
+load()方法 用于重新加载视频/音频元素
+
+
+表示播放音量，介于0(静音)~1(最大音量)之间，默认1。将muted属性设置为true则会进入静音模式，设置为false则会恢复之前指定的音量继续播放。超过范围会报错[0, 1]
+
+
+播放速率playbackRate：用于指定媒体播放的速度。该属性值为1.0表示正常播放，大于1则表示快进，0-1之间表示慢放，负值表示回放。
+
+currentTime/duration 属性
+currentTime设置或返回音频视频的当前位置
+duration 返回当前音频/视频的时常12345678910audio.currentTime &#x3D; 50;button.addEventLidtener(&#39;clkick&#39;,function()&#123;    consoloe.log(audio.currentTime)    &#125;)window.onload &#x3D;  function(&#123;    console.log(audio.duration);&#125;)
+
+
+
+
+played/buffered/seekable
+played属性返回已经播放(看过)的时间段，buffered属性返回当前已经缓冲的时间段，seekable属性则返回用户可以跳转的时间段。这三个属性都是TimeRanges对象，每个对象都有一个length属性以及start()和end()方法，length属性表示当前的一个时间段，start()与end()分别返回当前时间段的起始时间点和结束时间点(单位是秒，起始参数是0)
+
+
+paused/seeking/ended这三个属性用来查询媒体播放状态，paused为true表示播放器暂停。seeking为true表示播放器正在调到一个新的播放点，如果播放器播放完媒体并且停下来，则ended属性为true。
+
+canPlayType()方法12345var a &#x3D; new Audio();if(a.canPlayType(&quot;audio&#x2F;mp3&quot;))&#123;    a.src &#x3D; &quot;.&#x2F;chengdu.mp3&quot;;    a.play();&#125;
+
+
+事件
+play 开始播放触发
+pause 暂停触发
+loadedmetadata 浏览器获取完媒体的元数据触发
+loadedata 浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8
+ended 当前播放结束后触发
+readyState属性音频的当前就绪状态
+
+
+
+drap  ＆ drop(常用语各种拖动操作中)创建可拖动元素1&lt;div id&#x3D;&quot;abc&quot; draggable&#x3D;&quot;true&quot;&gt;&lt;&#x2F;div&gt;&#x2F;&#x2F;使用draggable之后就能够拖拽元素了关于拖拽的相关事件：
+dragstart 被拖拽元素 开始被拖拽时触发  e.dataTransfer.setData(“data”,e.target.id)
+dragend 被拖拽元素 拖拽完成时
+dragenter 目标元素 拖曳元素进入目标元素
+dragover 目标元素 拖拽元素在目标元素上移动
+drop 目标元素 被拖拽的元素在目标元素上同时鼠标放开触发的事件
+e.dataTransfer.getData(“data”)需要阻止dragover的默认行为才会触发drop事件123456789101112131415161718192021    &lt;script&gt;        var item &#x3D; document.getElementById(&quot;abc&quot;);        item.addEventListener(&#39;dragstart&#39;,function()&#123;            console.log(&quot;akshd&quot;)        &#125;)    var itemO &#x3D; document.getElementById(&quot;wrapper&quot;);        itemO.addEventListener(&#39;dragenter&#39;,function()&#123;            console.log(&#39;dragenter&#39;)        &#125;)&#x2F;&#x2F;这个是写在被进入的元素里面    &lt;&#x2F;script&gt;DragEvent 事件对象&#x2F;&#x2F;传值e.dataTranSfer.setData(&quot;data&quot;,e.target.id)&#x2F;&#x2F;取值 e.dataTransfer.getData(&quot;data&quot;)
+
+
+
+FileReader 读取文件
+abrot() 终止读取
+readAsBinaryString(file) 将文件读取为二进制编码
+readAsDataURL(file)     将文件读取为DataURL编码
+readAsText(file,[encoding]) 将文件读取为文本
+readAsArrayBuffer(file)  将文本读取为arraybuffer 通过不同的方式读取文件
+
+FileReader 事件
+onloadstart 读取开始时触发
+onprogress 读取中
+onloadend 读取完成，无论成功或失败
+onload  文件读取成功完成时触发
+onabort 中断时触发
+onerror 出错时触发1234获取读取的结果fr.onload  &#x3D; function()&#123;    tihs.result;&#125;
+
+
+
+
+
+
+
+
+
+
+
+Web Socket（是一个新的协议）
+WebSocket 对象提供了一组 API，用于创建和管理 WebSocket 连接,​​​​​​​以及通过连接发送和接收数据.Websocket 其实是一个新协议，跟HTTP协议基本没有关系，只是为了兼容现有浏览器的握手规范而已.借用了HTTP的协议来完成握手
+
+产生背景：
+在 HTTP/1.0 中,大多实现为每个请求/响应交换使用新的连接
+在 HTTP/1.1 中,一个连接可用于一次或多次请求/响应交换
+HTTP协议中，服务端不能主动联系客户端，只能有客户端发起。
+webSoket服务器和客户端均可主动发送数据
+
+建立连接的握手：
+当Web应用程序调用new WebSocket(url)接口时，Browser就开始了与地址为url的WebServer建立握手连接的过程。
+Browser与WebSocket服务器通过TCP握手建立连接，如果这个建立连接失败，那么后面的过程就不会执行，Web应用程序将收到错误消息通知。
+在TCP建立连接成功后，Browser通过http协议传送WebSocket支持的版本号，协议的字版本号，原始地址，主机地址等等一些列字段给服务器端。
+WebSocket服务器收到Browser发送来的请求后，如果数据包数据和格式正确，客户端和服务器端的协议版本号匹配等等，就接受本次握手连接，并给出相应的数据回复，同样回复的数据包也是采用http协议传输。
+Browser收到服务器回复的数据包后，如果数据包内容、格式都没有问题的话，就表示本次连接成功，触发onopen消息，此时Web开发者就可以在此时通过send接口向服务器发送数据。否则，握手连接失败，Web应用程序会收到onerror消息，并且能知道连接失败的原因。
+
+12创建webSocketvar Socket &#x3D; new WebSocket(url)
+
+
+webSocket方法12Socket.send() 方法使用连接传输数据socket.close()  方法用于终止任何现有连接
+
+webSocket的优点
+客户端与服务器都可以主动传递数据给对方
+不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源
+
+
+
+</section>
+    <p class="sub">Sep 2, 2019</p>
+  </div>
+</div>
+  
+    
+    <div class="project-card project-card-continuous">
+  
+  <div class="ctnWrap">
+    <a href="/blog/2019/08/12/ES6/" class="title">ES6</a>
+    <section class="desc">
+  ES6学习笔记ES6语法的一个特性块级作用域：{
+}
+LET命令
+LET声明的变量具有块级作用域的概念12345678&#123;    console.log(typeof a)&#x2F;&#x2F;Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization    let a &#x3D; 42;    var b &#x3D; 1212;    console.log(typeof a)  &#x2F;&#x2F;number&#125;        console.log(typeof a)  &#x2F;&#x2F;underfind
+
+
+
+
+不存在变量提升。在Let声明之前使用就会报错
+暂时性死区：只要块级作用域内存在let命令，它所在的变量就“绑定”这个区域，不再受外部的影响
+不允许重复声明
+注意：因为let的不存在变量提升和暂时性死区，因此在let之前使用该变量会报错，在此变量作用域外使用会无效。
+
+
+
+const命令1. const声明一个只读常量，一旦声明，常量的值就不能更改
+2. const变量只声明不赋值就会报错
+3. 只在作用域内生效以及不允许重复声明
+4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动.12345678910111213141516171819202122 const foo &#x3D; &#123;&#125;;     foo.prop &#x3D; 123;&#x2F;&#x2F;添加一个属性，没有问题     console.log(foo.prop)     foo&#x3D; 123;&#x2F;&#x2F;就会报错&#x2F;&#x2F; 浏览器的 ES6 环境function f() &#123; console.log(&#39;I am outside!&#39;); &#125;(function () &#123;  if (false) &#123;    &#x2F;&#x2F; 重复声明一次函数f    function f() &#123; console.log(&#39;I am inside!&#39;); &#125;  &#125;  f();&#125;());&#x2F;&#x2F;上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定&#x2F;&#x2F;1.允许在块级作用于内声明函数&#x2F;&#x2F;2.函数声明类似于var ,即会提升到全局作用于函数作用于的头部&#x2F;&#x2F;3.同时，函数声明还会提升到所在的块级作用于的头部注意：以上三条规则只对ES6浏览器内有效，其他环境还是将块级作用于的函数声明当做let处理
+
+注意：在ES6中一共有6种赋值的方式，有var 和 function 命令，还有let 和const命令，以及import和class命令。var 和 function 命令声明的全局变量是顶层对象的属性；let、const和class命令声明全局变量，不属于顶层对象的属性。 
+
+变量的解构赋值
+数组的解构赋值
+概念：ES6允许按照一定的模式，从数组和对象中提取，对变量进行赋值注意：要是被赋值一边有一项没有被赋值或者赋值underfind，则被称为解构失败；要是赋值一边有三个值，被赋值一边只有两个变量，则被称为不完全解构
+匹配模式其实是懒散匹配，如第6行代码，如果赋值一方对应位置有值，x就不会管默认值是10,而当赋值一边【】啥都没有的时候，才取默认值123456789101112131415161718192021222324252627&#x2F;&#x2F;模式匹配let [a , b, c] &#x3D; [1, 2, 3]let [a ,[b,[c]]] &#x3D; [1,[2,[3]]]let [x &#x3D; 10] &#x3D;[20] &#x2F;&#x2F;x &#x3D; 20 对象的解构赋值无序性：只要变量与属性同名，就能取到正确的值。当右边没有同名的属性，那么不叫取不到值而取得underfindlet &#123;bar ,foo &#125; &#x3D; &#123;foo :234, bar:123&#125;&#x2F;&#x2F;无论赋值的一方的顺序是怎么样的，赋值都不影响let &#123;foo:bar&#125; &#x3D; &#123;foo:123&#125;        console.log(bar);&#x2F;&#x2F;123        console.log(foo);&#x2F;&#x2F; foo is not defined                let&#123;length&#125; &#x3D; &quot;123&quot; &#x2F;&#x2F;length &#x3D; 3                &#x2F;&#x2F;可用于嵌套let obj &#x3D; &#123;  p: [    &#39;abcabc&#39;,    &#123; y: &#39;123123&#39; &#125;  ]&#125;;let &#123; p, p: [x, &#123; y &#125;] &#125; &#x3D; obj;&#x2F;&#x2F;&#39;abcabc&#39; &#39;123123&#39;
+字符串的解构赋值123456789const [a,b,c,d,e] &#x3D; &#39;hello&#39;;                console.log(a);        console.log(b);        console.log(d);        let&#123; length :len&#125; &#x3D; &#39;hello&#39;        console.log(len)&#x2F;&#x2F; a b l 5
+
+
+
+数值和布尔值的解构赋值1234567解构赋值时，如果等号右边是数值和布尔值，则会先转换成对象函数参数的解构赋值        function add([x,y])&#123;            return x + y;        &#125;        add([1,2])
+
+
+
+不能使用圆括号的情况：使用场景：
+
+
+交换变量的值
+从函数返回多个值
+
+123456function example()&#123;    return [1,2,3];&#125;let [a,b,c] &#x3D; example();console.log(a,b,c) &#x2F;&#x2F;1 2 3
+
+
+提取JSON数据–解构赋值对提取JSON对象中的数据，尤其有用
+
+便利Map结构：部署了Iterator接口的对象，都可以用for…of循环遍历。配合变量的解构赋值，获取键名和键值就肥肠方便
+字符串的扩展
+字符串的遍历器接口
+123456a &#x3D; &#96;hzfnb&#96;;for(let  condePoint of a )&#123;    console.log(condePoint)&#125;        &#x2F;&#x2F; h z f n b
+
+模板字符串
+
+增强字符串:可以保留字符串在编辑器的模式 ，如果代码中的模板字符串都要用反引号表示，则前面需要用反斜杠转义
+
+在字符串中添加变量（表达式）
+赋值
+${}对变量进行抓取
+
+${} 对变量进行运算
+12345678910111213141516171819202122232425262728var str &#x3D; &#39;hello&#39;;var newStr &#x3D; &#96;hello world&#96;; var xm &#x3D; &#123;            age :19,            height:180,            name :&#39;xiaoming&#39;        &#125;                var &#123;age ,name, height&#125; &#x3D; xm;        var newstr &#x3D;&#96;name: $&#123;name&#125; age: $&#123;age&#125; &#96;        console.log(newstr);&#x2F;&#x2F;通过对象的解构拿到对象的值， 再通过$&#123;&#125;直接取得这个值        &#x2F;&#x2F;$&#123;&#125;也是可以进行运算的，还可以添加方法                var x &#x3D; 3, y &#x3D; 5;        function getName()&#123;            return &#39;xiaoming&#39;;        &#125;        var str &#x3D; &#96;my name is $&#123;getName()&#125;&#96;;        console.log(str);                                var arr &#x3D; [1,2,3,4,5];        var resStr &#x3D;&#96;$&#123;arr.map(function(item,index)&#123;            return &#96;$&#123;item&#125;: $&#123;index&#125;&#96;        &#125;)&#125;&#96;&#x2F;&#x2F;通过增强字符串与函数把值赋给另外一个变量（对象）
+
+
+
+标签模板
+它可以紧跟在一个函数名后面，该函数将被调用来处理这个模板字符串标签模板的实质，函数调用的特殊形式重要应用，过滤HTML字符串–防止用户恶意注意内容12345678910safeHtml &#96;&lt;p&gt;$&#123;name&#125; Welcome&lt;&#x2F;p&gt;&#96;function safeHtml(data)&#123;    var str &#x3D;  data[0]    for(let i &#x3D; 1; i&lt;arguments.length;i++)&#123;        var arg &#x3D; String(arguments[i])        str +&#x3D; arg.replace(&#x2F;&amp;&#x2F;g,&#39;&amp;&#39;).replace(&#39;&#x2F;&lt;&#x2F;&#39;)    &#125;&#125;
+
+
+
+
+
+字符串的新增方法123456789101112131415String.fromCodePoint() --用于从Unicode编码返回对应的字符串String.raw()		--用于转义字符串，往往用于模板字符串的处理方法        a &#x3D; String.raw&#96;hi\n\n$&#123;5&#125;!&#96;        console.log(a); &#x2F;&#x2F;hi\n\n5!                &#x2F;&#x2F;String.raw 作为正常的函数使用        a &#x3D; String.raw(&#123;raw:&#39;hzfnb&#39;&#125;,0,1,2)        console.log(a); &#x2F;&#x2F;h0z1f2nb&#96;&#96;&#96;       1. 实例方法：codePointAt() --测试一个字符由两字节还是四个字节组成的最简单方法2. 实例方法：normailza()3. includes(): 返回布尔值，表示是否找到了参数字符串4. startsWith() ： 返回布尔值，表示参数字符串是否在原字符串的头部5. endWith(): 返回布尔值，表示参数字符串是否在原字符串尾部
+var a = &quot;hzfnb zf&quot;
+var r1 = a.includes(&apos;hzfnb&apos;)
+var r2 = a.startsWith(&apos;h&apos;)
+var r3 = a.endsWith(&apos;f&apos;)
+
+console.log(r1,r2,r3)//true true true126. 实例方法： repeat()返回一个新的字符串，并将原字符串重复N次7. 实例方法：padStart() padEnd()：接受两个参数，第一个参数是字符串补全的位数，第二个填的是要补全的字符串
+padStart() 用于补全头部padEnd()  用于补全尾部        console.log(‘hzf’.padStart(5,’nb’)) //hzfnb
+123456789101112131415161718198. 实例方法：trimStart() , trimEnd();分别用于消除字符串最前面的空格以及最后面的空格9. 实例方法：matchAll()方法返回一个正则表达式在当前字符串的所有匹配### 正则表达式的扩展#### 字符串的正则方法1. match()2. replace()3. search()4. split()5. u修饰符:含义为unicode模式，用来处理四个字节的UTF-16编码6. 点字符7. i修饰符8. y修饰符### 函数的扩展函数的默认值
+function Persion(name ,age = 100){            console.log(name,age)        }Persion(‘hs’); // hs 100Persion(‘hs’,12); // hs 12
+默认值与解构赋值的使用  function f1( {x = 0, y = 0} ={}){           console.log(x,y)        }
+function f2({x,y} = {x:0,y:0}){
+    console.log(x,y)
+}
+
+f1()
+f2()
+f1({x:1,y:2})
+f2({x:1,y:2})
+f1({x:1})
+f2({x:1})
+
+//0 0
+//0 0 //1 2//1 2//1 0//1 undefined   最后一个解构赋值之后表示为 {x:1} 所以y = underfined
+参数作用域已经注意事项在函数体内用let定义的变量，不能提前当做参数（放在括号内）es6在参数默认值方面是使用let来定义的RESTvar arr = [1,2,3,4,5];        fn.call(null,…arr) //…相当于把括号去掉        fn.apply(null,arr) //apply 要用数组的形式引入
+// (5) [1, 2, 3, 4, 5]
+// (5) [1, 2, 3, 4, 5]
+
+function fn(...args){
+    console.log(args)
+}12### 箭头函数&gt; 注意事项：箭头函数里面没有this这个对象，它只会依次找到父级，也没有arguments
+var f =            ()   =&gt;   numvar f = function  参数      return 参数
+//箭头函数的嵌套 function fn(str){         return function(){                return str.splite(``)         }     }
+var fn = str =&gt; () =&gt;str.splite(``)123### 数组的扩展### 数组的合并
+var arr = [‘dy1’]        var arr1 = [‘1,2,3,4,5’]        var arr2 = [‘false’,NaN]        var newArr = […arr,…arr1,…arr2]        console.log(newArr)//[“dy1”, “1,2,3,4,5”, “false”, NaN]
+var arr3 = [...&apos;hzf&apos;]
+console.log(arr3);//[&quot;h&quot;, &quot;z&quot;, &quot;f&quot;]Array.from()把类数组和可遍历的对象转换成数组Array.of() 数组实例的方法copyWithin()   var arr = [1,2,3,4,5]    // Array.prototype.copyWithin(target ,start = 0,end = this.length))       console.log (arr.copyWithin(0,3))       // 0 3 还有一位end没写出来，0代表从第0位开始，3代表start=3, 第三位是4 end 没写表示到一直最后，       //表示从4,5替换掉从0开始的两位 因此结果 = 4,5,3,4,5
+123456### 数组实例方法#### fill() , entries()，keys()   values()1. entries() 是对键值对的遍历2. values() 是对键值的遍历3. key() 是对键名的遍历
+ var arr = [1,2,3,4,5]        var a = arr.keys()        console.log(a) //Array Iterator {}
+var arr1 = new Array(5);
+arr1.fill(7,3,4)
+console.log(arr1)  //(5) [empty x 3 ,7 empty x 3] 
+//fill的用法是添加某个数，用法跟copywithin()差不多，
+//添加7这个数字，在第3跟第4个数之间插入数字7
+
+var arr2 = [&apos;2&apos;,2,3,4,5]
+var a = arr2.keys()
+
+for([item, index] of arr.entries())
+{   
+    console.log(item ,index)
+}
+//entries 可以用于遍历数组，列出是第几位的并且把值打印出来
+//  0 &quot;2&quot;
+//  1  2
+//  2  3123456### 数组的实例方法 #### includes() find() findIndex()1. includes() ——返回一个布尔值，表示某个数组是否包含给定的值。如果包含则返回true，否则返回false2. find() ——找到第一个符合条件的数组成员3. findIndex() 返回第一个负荷而条件的数组成员的位置
+var arr = [20 , 4, -5, 10]        var str = [arr.find((n) =&gt; n &lt;19)]        console.log(str)    //[4]
+12### 对象的扩展
+属性的简洁表示法 var foo = ‘123’ var bar = {foo}
+123##### 属性的可枚举性以及属性的遍历1. 对象的每个属性都有一个遍历对象（Descriptor）用来控制该属性的行为
+var obj = {age :123,name:’dv’}
+console.log(Object.getOwnPropertyDescriptor(Object.prototype,’toString’))//enumerable: false 说明不可枚举
+1234567891011&gt; 但是有4种操作会忽略enumerable 为flase的属性&gt; 1. for... in 循环：遍历对象自身的和继承的可枚举属性&gt; 2. object.keys()  返回对象自身的所有可枚举的属性的键名&gt; 3. JSON.stringify() 只串行话独享自身的可枚举属性&gt; 4. object.assign() （ES6新增）### 对象的新增方法1. Object.is()ES5判断两个值知否相等只有 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;。它们的缺点在于， &#x3D;&#x3D; 回自动转换数据类型， &#x3D;&#x3D;&#x3D; 会使得Nan不等于自身，-0 不等于 +0
+object.is()       console.log (Object.is(-0,+0))      //false       console.log (Object.is(NaN,NaN))    //true
+1234### Class类&gt; class 一定要先定义再使用
+class Person{
+    constructor( name=&apos;zf&apos;,age = 18){
+        this.name = name
+        this.age = age
+    } //这里不能写  &apos;,&apos; 写了就报错 
+    show(){
+        console.log(this.age,this.name)
+    }
+}
+
+var per = new Person()
+// per.name 表示实例属性立即执行classvar p = new class{ //这个类只能使用一次        }
+12345678910### this指向 &#x3D;&gt; 指向父级作用域，跟ES5里面的this指向有些不同### 静态方法### 静态属性	### 继承&gt; 与es5的不同之处&gt;1. 子类 __proto__表示构造函数的继承&gt;2. 子类 __proto__.prototype 表示方法的继承&gt;3. 注意：__proto__并不属实语言本身的特征，目前很多浏览器的JS引擎都提供了这个私有属性，但依旧不建议在生产中使用该属性，避免对环境产生依赖。生产环境中，推荐使用Object.getPrototypeof()来获取实例对象的原型，再为原型添加属性
+class A{            constructor(){                this.name = ‘zf’            }            print(){                console.log(this.name)//console.log(‘father A’)            }        }        class B extends A{            constructor(){                super() //为啥要调用super？                //子类要调用super方法，才能使用this，给父级绑定才有this                this.name = ‘aasda’            }            print(){                super.print() //b.print() -&gt; father A            }        }
+var b = new B()
+// b.name = &apos;aasda&apos;
+// b.print() aasda 1234567### Promise对象#### Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）1. 基本用法2. 三种状态    1. pending 就绪状态    2. resolved 成功状态    3. rejected 失败状态
+实例方法Promise.all Promise.race
+```
+
+
+</section>
+    <p class="sub">Aug 12, 2019</p>
+  </div>
+</div>
+  
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/page/2/">2</a><a class="extend next" rel="next" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/page/2/">&lt;span class&#x3D;&quot;iconfont icon-arrow-right&quot;&gt;&lt;&#x2F;span&gt;</a>
+  </nav>
+
+
+
+  </div>
+  <div class="main-bottom">
+    <div class="music flex flex-pack-justify flex-align-center">
+      <div class="control">
+        <a onclick="preSong()"><span class="iconfont icon-shangyishou"></span></a>
+        <a onclick="playControl()"><span class="iconfont play-icon icon-kaishi1"></span></a>
+        <a onclick="nextSong()"><span class="iconfont icon-xiayishou-copy"></span></a>
+      </div>
+      <div class="msg">
+        <span class="time"></span>
+        <div class="line" ref="progress-line-warp">
+          <div class="song-msg">周杰伦 - 说好不哭</div>
+          <!--<div class="current-line" ref="progress-line">
+            <a tag="a" class="target" v-on:mousedown.prevent="mousedown"></a>
+          </div>-->
+        </div>
+        <span class="all-time"></span>
+      </div>
+      <div class="right-control">
+        <a class="order-btn flex flex-align-center" onclick="toogleShowMusicList()">
+          <span class="iconfont icon-ttpodicon"></span>
+          <span class="number flex1">3</span>
+        </a>
+      </div>
+      <audio id="audio" class="mian-audio" src="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E8%AF%B4%E5%A5%BD%E4%B8%8D%E5%93%AD.mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+  <div class="music-list">
+    <div id="musiclist">
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 说好不哭" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E8%AF%B4%E5%A5%BD%E4%B8%8D%E5%93%AD.mp3" onclick="changePlayIndex(0)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">说好不哭 - 周杰伦</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 爱在西元前" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E7%88%B1%E5%9C%A8%E8%A5%BF%E5%85%83%E5%89%8D%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(1)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">爱在西元前 - 周杰伦</span>
+        </a>
+      
+        <a class="music-item flex flex-align-center" data-name="周杰伦 - 龙拳" data-url="https://callmesoul-blog.oss-cn-shenzhen.aliyuncs.com/music/%E5%91%A8%E6%9D%B0%E4%BC%A6%20-%20%E9%BE%99%E6%8B%B3%20%5Bmqms2%5D.mp3" onclick="changePlayIndex(2)" >
+          <span class="iconfont" class="icon-kaishi"></span>
+          <span class="title flex1">龙拳 - 周杰伦</span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  var playIndex = localStorage.getItem('playIndex') ? parseInt(localStorage.getItem('playIndex')) : 0
+  let musics = $('.music-item')
+  musics.eq(playIndex).addClass('active')
+  var audio = document.getElementById("audio");
+
+  $('.song-msg').html(musics[playIndex].dataset.name)
+  audio.src = musics[playIndex].dataset.url
+
+
+  var playbtn = document.getElementsByClassName("play-icon")[0];
+  var playing = false;
+  audio.loop = false;
+  audio.addEventListener('ended', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  audio.addEventListener('play', function () {
+    playbtn.classList.remove("icon-kaishi1")
+    playbtn.classList.add("icon-kaishi")
+    playing= true
+  }, false);
+  audio.addEventListener('pause', function () {
+    playbtn.classList.remove("icon-kaishi")
+    playbtn.classList.add("icon-kaishi1")
+    playing = false
+  }, false);
+  function toogleShowMusicList() {
+    var musiclist = document.getElementsByClassName("music-list")[0];
+    if(musiclist.className.indexOf("active") === -1){
+      musiclist.classList.add("active")
+    }else{
+      musiclist.classList.remove("active");
+    }
+  }
+
+  function playControl() {
+    if(playing){
+      audio.pause()
+    }else{
+      audio.play()
+    }
+  }
+
+  function changePlayIndex(index) {
+    if(playIndex !== index){
+      localStorage.setItem('playIndex',index)
+      playIndex = index
+      musics.removeClass('active')
+      musics.eq(playIndex).addClass('active')
+      $('.song-msg').html(musics[playIndex].dataset.name)
+      audio.src = musics[playIndex].dataset.url
+      audio.play()
+    }else{
+      playControl()
+    }
+  }
+
+  function preSong() {
+    var index
+    if(playIndex === 0){
+      index = musics.length - 1
+    }else{
+      index = playIndex - 1
+    }
+    changePlayIndex(index)
+  }
+
+  function nextSong() {
+    var index
+    if(playIndex === musics.length - 1){
+      index = 0
+    }else{
+      index = playIndex + 1
+    }
+    changePlayIndex(index)
+  }
+
+  function toggleMenu() {
+    var mainLeft = $('.main-left')
+    if(mainLeft.hasClass('active')){
+      mainLeft.removeClass('active')
+      $('.menu').removeClass('icon-close')
+      $('.menu').addClass('icon-menu')
+    }else{
+      mainLeft.addClass('active')
+      $('.menu').removeClass('icon-menu')
+      $('.menu').addClass('icon-close')
+    }
+  }
+</script>
