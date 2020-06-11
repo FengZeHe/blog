@@ -1,449 +1,89 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="怕，你就输一辈子"><meta name="keywords" content=""><meta name="author" content="何泽丰"><meta name="copyright" content="何泽丰"><title>何泽丰的博客</title><link rel="shortcut icon" href="/blog/melody-favicon.ico"><link rel="stylesheet" href="/blog/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
   root: '/blog/',
   algolia: undefined,
-  localSearch: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   copy: {
     success: 'Copy successfully',
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
 } </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/blog/atom.xml" title="何泽丰的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/blog/img/avatar.png"></div><div class="author-info__name text-center">何泽丰</div><div class="author-info__description text-center">怕，你就输一辈子</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/blog/archives"><span class="pull-left">Articles</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/blog/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/blog/categories"><span class="pull-left">Categories</span><span class="pull-right">3</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/blog/">何泽丰的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/blog">Home</a><a class="site-page" href="/blog/archives">Archives</a><a class="site-page" href="/blog/tags">Tags</a><a class="site-page" href="/blog/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">何泽丰的博客</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/27/es6-async/">ES6异步的解决方案</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content"><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p>
-<ol>
-<li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li>
-<li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li>
-<li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li>
-</ol>
-<p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p>
-<h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol>
-<li>两个场景： unsettled (未决)  settled (已决)</li>
-<li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/2020/02/27/es6-async/scene.png" alt></li>
-</ol>
-<h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示<br><img src="/blog/2020/02/27/es6-async/image.png" alt></p>
-<h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/2020/02/27/es6-async/catchable.png" alt></p>
-<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol>
-<li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li>
-<li>以下代码可以让任务达到rejected 状态<ol>
-<li>调用reject</li>
-<li>代码执行报错</li>
-<li>抛出错误</li>
-</ol>
-</li>
-<li>后续处理函数一定是异步函数，并且放在微队列中</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/23/ES6-modular/">ES6模块化</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content"><h3 id="ES6的模块化"><a href="#ES6的模块化" class="headerlink" title="ES6的模块化"></a>ES6的模块化</h3><h4 id="模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"><a href="#模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件" class="headerlink" title="模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"></a>模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件</h4><h4 id="模块化背景"><a href="#模块化背景" class="headerlink" title="模块化背景"></a>模块化背景</h4><p>过去js很难编写大型应用，因为有以下两个问题：</p>
-<ol>
-<li>全局变量污染</li>
-<li>难以管理的依赖关系<br>这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致更多的全局污染更加负载的依赖关系，因为功能精细的划分有利于代码重用</li>
-</ol>
-<h4 id="前端的模块化有两个标准："><a href="#前端的模块化有两个标准：" class="headerlink" title="前端的模块化有两个标准："></a>前端的模块化有两个标准：</h4><ol>
-<li>Commonjs</li>
-<li>ES6 Module<br>注意：上面提到的两个均是模块化标准，具体的实现需要依托于JS的</li>
-</ol>
-<h4 id="ConmomJS"><a href="#ConmomJS" class="headerlink" title="ConmomJS"></a>ConmomJS</h4><p>简介：目前，只有node环境才支持CommonJs模块化标准，所以需要先安装node才能使用CommonJS<br>在CommonJS中，浏览器运行的是html页面，并加载页面通过script元素引入js，node.js直接运行某个js文件，该文件被称之为入口文件。node.js遵循ECMAScript标准，但脱离了浏览器环境：<br>你可以在node.js中使用ECMAScript标准的任何语法或api，例如循环，判断，数组，对象等等<br>但不能在node.js中使用浏览器的web api,例如说dom对象，window对象，document对象</p>
-<h5 id="CommonJS标准和使用"><a href="#CommonJS标准和使用" class="headerlink" title="CommonJS标准和使用"></a>CommonJS标准和使用</h5><p>node中的所有代码均在CommonJS下运行，具体规范如下 ：</p>
-<ol>
-<li><p>一个js文件既为一个模块<br>如果一个模块需要暴露依稀额数据或功能给其他模块使用，需要使用代码<code>module.exports = xxx</code> ,该过程称之为模块的导出</p>
-</li>
-<li><p>如果一个模块需要使用另一个模块导出的内容，需要使用代码require(‘模块路径’)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">路径必须以.&#x2F;或..&#x2F;开头</span><br><span class="line">如果模块文件后缀名为  .js 可以省略后缀名</span><br></pre></td></tr></table></figure>
-<p>require 函数中返回的是模块导出的内容,且模块中所有的全局代码产生的变量、函数均不会对全局造成任何污染，仅在模块内使用</p>
-</li>
-<li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
-</li>
-</ol>
-<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/2020/02/23/ES6-modular/image.png" alt></p>
-<p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/blog/img/avatar.png"></div><div class="author-info__name text-center">何泽丰</div><div class="author-info__description text-center">怕，你就输一辈子</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/blog/archives"><span class="pull-left">Articles</span><span class="pull-right">23</span></a><a class="author-info-articles__tags article-meta" href="/blog/tags"><span class="pull-left">Tags</span><span class="pull-right">16</span></a><a class="author-info-articles__categories article-meta" href="/blog/categories"><span class="pull-left">Categories</span><span class="pull-right">3</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/blog/">何泽丰的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/blog">Home</a><a class="site-page" href="/blog/archives">Archives</a><a class="site-page" href="/blog/tags">Tags</a><a class="site-page" href="/blog/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">何泽丰的博客</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/27/es6-async/">ES6异步的解决方案</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content">背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+
+面对这样的场景，JS没有一种标准 ...</div><a class="more" href="/blog/2020/02/27/es6-async/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/23/ES6-modular/">ES6模块化</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content">ES6的模块化模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件模块化背景过去js很难编写大型应用，因为有以下两个问题：
+
+全局变量污染
+难以管理的依赖关系这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致 ...</div><a class="more" href="/blog/2020/02/23/ES6-modular/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/15/when-Enter-an-address/">当在浏览器输入一个地址发生了什么</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content">是这样的：
+浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）
+
+浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其进行编码
+
+例如说在浏览器中搜索”王思聪”，汉字会被编码成ASCII码
 
 
-
-<h3 id="ES6-module"><a href="#ES6-module" class="headerlink" title="ES6 module"></a>ES6 module</h3><blockquote>
-<p>由于种种原因，CommonJS难以在浏览器中实现，因为一直在浏览器端没有合适的模块化标准，直到es6出现。<br>ES6规范了浏览器的模块化标准，一经发布，各大浏览器厂商纷纷在自己的浏览器中实现该规范。</p>
-</blockquote>
-<p>模块的引入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在浏览器使用以下方式引入ES6模块文件</span><br><span class="line">&lt;script src &#x3D; &quot;入口文件&quot; type &#x3D; &quot;module&quot;&gt;</span><br></pre></td></tr></table></figure>
+浏览器构造一个没有消息体的GE ...</div><a class="more" href="/blog/2020/02/15/when-Enter-an-address/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/12/vue-demo-1/">实现一个简单的VUE</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/demo/">demo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/vue/">vue</a></span><div class="content">
+实现的效果
 
 
 
 
-<h4 id="标准和使用"><a href="#标准和使用" class="headerlink" title="标准和使用"></a>标准和使用</h4><p>模块的导出分为两种，基本导出和默认导出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">可以将整个模块的导出想象成一个对象，基本导出导出的是该对象的某个属性，默认导出导出的是该对象的特殊属性default</span><br><span class="line">&#x2F;&#x2F;导出结果：想象成一个对象</span><br><span class="line">&#123;</span><br><span class="line">    a: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    b: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    default: xxx, &#x2F;&#x2F;默认导出</span><br><span class="line">    c: xxx &#x2F;&#x2F;基本导出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="ES6的导出方式："><a href="#ES6的导出方式：" class="headerlink" title="ES6的导出方式："></a>ES6的导出方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export var a &#x3D; 1 &#x2F;&#x2F;基本导出 a &#x3D; 1</span><br><span class="line">export var b &#x3D; function()&#123;&#125; &#x2F;&#x2F;基本导出 b &#x3D; function()&#123;&#125;</span><br><span class="line">export function method()&#123;&#125;  &#x2F;&#x2F;基本导出 method &#x3D; function()&#123;&#125;</span><br><span class="line">var c &#x3D; 3;</span><br><span class="line">export &#123;c&#125; &#x2F;&#x2F;基本导出 c &#x3D; 3</span><br><span class="line">export &#123; c as temp &#125; &#x2F;&#x2F;基本导出 temp &#x3D; 3</span><br><span class="line"></span><br><span class="line">export default 3 &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export default function()&#123;&#125; &#x2F;&#x2F;默认导出 default &#x3D; function()&#123;&#125;</span><br><span class="line">export &#123; c as default &#125; &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export &#123;a, b, c as default&#125; &#x2F;&#x2F;基本导出 a&#x3D;1, b&#x3D;function()&#123;&#125;, 默认导出 default &#x3D; 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">绝大部分时间写代码使用的导出方式是 export default()&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="ES6模块的导入："><a href="#ES6模块的导入：" class="headerlink" title="ES6模块的导入："></a>ES6模块的导入：</h4><p>使用以下的代码导入模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;a,b&#125; from &quot;模块路径&quot;   &#x2F;&#x2F;导入属性 a、b，放到变量a、b中</span><br><span class="line">import &#123;a as temp1, b as temp2&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性a、b，放到变量temp1、temp2 中</span><br><span class="line">import &#123;default as a&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default，放入变量a中，default是关键字，不能作为变量名，必须定义别名</span><br><span class="line">import &#123;default as a, b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default、b，放入变量a、b中</span><br><span class="line">import c from &quot;模块路径&quot;  &#x2F;&#x2F;相当于 import &#123;default as c&#125; from &quot;模块路径&quot;</span><br><span class="line">import c, &#123;a,b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;相当于 import &#123;default as c, a, b&#125; from &quot;模块路径&quot;</span><br><span class="line">import * as obj from &quot;模块路径&quot; &#x2F;&#x2F;将模块对象放入到变量obj中</span><br><span class="line">import &quot;模块路径&quot; &#x2F;&#x2F;不导入任何内容，仅执行一次模块</span><br></pre></td></tr></table></figure>
-<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>导入模块时，注意以下细节</p>
-<ol>
-<li>ES6 module 采用依赖预加载模式，所有模块导入代码均会提升到代码顶部</li>
-<li>不能将导入代码放置到判断、循环中</li>
-<li>导入的内容放置到常量中，不可更改</li>
-<li>ES6 module 使用了缓存，保证每个模块仅加载一次</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/15/when-Enter-an-address/">当在浏览器输入一个地址发生了什么</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-15</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content"><h4 id="是这样的："><a href="#是这样的：" class="headerlink" title="是这样的："></a>是这样的：</h4><ol>
-<li><p>浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）</p>
-</li>
-<li><p>浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其进行编码</p>
-<ol>
-<li>例如说在浏览器中搜索”王思聪”，汉字会被编码成ASCII码</li>
-</ol>
-</li>
-<li><p>浏览器构造一个没有消息体的GET请求，发送至服务器，等待服务器响应（此时浏览器标签应该有一个等等的图标–转圈）</p>
-</li>
-<li><p>服务器收到请求，将一个HTML页面代码组装到消息体中（不一定要html文件）响应给浏览器</p>
-</li>
-<li><p>浏览器拿到服务器的响应后，丢弃当前的页面，开始渲染消息体的HTML代码。浏览器之所以知道这是一个HTML代码，是因为服务器的响应头指定了消息类型为text/html</p>
-</li>
-<li><p>浏览器在渲染页面的过程中发现有嵌入的资源如CSS,JS图片等</p>
-</li>
-<li><p>浏览器使用不阻塞的渲染方式，重定向服务器发送该资源的请求，拿到响应结果后根据Content-Type做响应处理</p>
-</li>
-<li><p>当所有资源已经下载并处理好后，浏览器出发window.onload事件</p>
-</li>
-</ol>
-<p>   这里说的Content-Tpye是在http协议消息头中表示具体请求中的媒体类型信息</p>
-<p>   有一下几种类型：</p>
-<p>   <img src="/blog/2020/02/15/when-Enter-an-address/content-type.png" alt></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/12/vue-demo-1/">实现一个简单的VUE</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/demo/">demo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/vue/">vue</a></span><div class="content"><blockquote>
-<p>实现的效果</p>
-</blockquote>
-
-
-<div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=82283147&cid=140781854&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
-</div>
-
-
-<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
- 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
- 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
-<li>编译模块</li>
-<li>虚拟节点模块</li>
-<li>渲染模块</li>
-<li>数据响应模块</li>
-<li>VUE构造函数模块</li>
-</ol>
-<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><blockquote>
-<p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果<br>思想：</p>
-</blockquote>
-<ol>
-<li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
-<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
-<li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
-</ol>
-<p><img src="/blog/2020/02/12/vue-demo-1/1.png" alt></p>
-<blockquote>
-<p>compile.js 代码</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFragments</span>(<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> matches = template.match(<span class="regexp">/&#123;&#123;[^&#125;]+&#125;&#125;/g</span>); <span class="comment">//万一有人的用户名叫12&#125;  所以这里要处理一下</span></span><br><span class="line">    <span class="keyword">return</span> matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">fragment, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = fragment.replace(<span class="string">"&#123;&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> props = exp.split(<span class="string">"."</span>);<span class="comment">//将表达式分割为属性数组</span></span><br><span class="line">    <span class="keyword">var</span> obj = envObj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">template, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 提取模板中的&#123;&#123;&#125;&#125;</span></span><br><span class="line">    <span class="keyword">var</span> flags = getFragments(template);</span><br><span class="line">    <span class="keyword">var</span> result = template;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; flags.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+     
 
 
 
-<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
-<p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树<br>思想：</p>
-</blockquote>
-<ol>
-<li>需要创建虚拟DOM 以便以后操作数据</li>
-<li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VNode</span>(<span class="params">realDom, template</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// node 构造函数</span></span><br><span class="line">    <span class="keyword">this</span>.realDom = realDom;</span><br><span class="line">    <span class="keyword">this</span>.template = template;</span><br><span class="line">    <span class="keyword">this</span>.children = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">realDom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> root = <span class="keyword">new</span> VNode(realDom, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template = realDom.nodeValue;</span><br><span class="line">        <span class="comment">// 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span></span><br><span class="line">        <span class="comment">// 文本节点代表的数字是3</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = realDom.childNodes[i];</span><br><span class="line">            <span class="keyword">var</span> vNode = createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式
+思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点 ...</div><a class="more" href="/blog/2020/02/12/vue-demo-1/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/12/vue-demo/">vue_demo</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><div class="content"></div><a class="more" href="/blog/2020/02/12/vue-demo/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/01/10/ofo_demo/">如何实现一个简单的ofo微信小程序</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-10</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/demo/">demo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span><div class="content">
+实现的效果
 
 
 
 
-<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
-<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/2020/02/12/vue-demo-1/vnode.png" alt></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
-<p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)</p>
-</blockquote>
-<ol>
-<li><p>使用Object.defineProperty来实现数据的响应式</p>
-</li>
-<li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
-</li>
-</ol>
-<p><img src="/blog/2020/02/12/vue-demo-1/newTarget.png" alt></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+     
 
 
 
 
 
-<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><blockquote>
-<p>在前端页面写一个简单的VUE结构，测试一下是否正确</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"./vue/index.js"</span></span><br><span class="line">        <span class="built_in">window</span>.vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:<span class="string">"FengZe"</span>,</span><br><span class="line">                age:<span class="number">16</span>,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:<span class="string">"广东"</span>,</span><br><span class="line">                    city:<span class="string">"佛山"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="大概就是这样实现的了"><a href="#大概就是这样实现的了" class="headerlink" title="大概就是这样实现的了."></a>大概就是这样实现的了.</h4><blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/vue_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue_demo</a></p>
-</blockquote>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/02/12/vue-demo/">vue_demo</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-12</time><div class="content"></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2020/01/10/ofo_demo/">如何实现一个简单的ofo微信小程序</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-10</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/demo/">demo</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span><div class="content"><blockquote>
-<p>实现的效果</p>
-</blockquote>
+实现功能简介：
+
+扫码骑车记时功能
+用户登录及充值功能
+用户报障功能
+
+思路：
+
+要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮
+回到当前定位功能直接调用this.movetoCenter ...</div><a class="more" href="/blog/2020/01/10/ofo_demo/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/12/14/spring/">Spring学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-14</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/back-end/">back-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">后端技术</a></span><div class="content">Spring学习笔记框架的概念：
+高度抽取可重用代码的设计
+高度的通用性
+
+Spring的特点:优良特性：
+
+非侵入式
+依赖注入
+面向切面编程
+容器
+组件化
+一站式
 
 
-<div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=82787506&cid=141641375&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
-</div>
+Core Container（IOC）核心容器包含Bean Core Context expression 这几个容器
 
+Web： ...</div><a class="more" href="/blog/2019/12/14/spring/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/12/12/frontEnd_Loading/">用CSS3做LoadIng动画</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-12</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/CSS3/">CSS3</a></span><div class="content">使用CSS3做Loading动画</div><a class="more" href="/blog/2019/12/12/frontEnd_Loading/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/10/02/vue/">vue学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content">vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 ...</div><a class="more" href="/blog/2019/10/02/vue/#more" style="margin-top: 14px">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/09/03/2019.09.03/">2019-09-03 实习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-03</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content">背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
 
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符
 
-
-
-<p>实现功能简介：</p>
-<ol>
-<li>扫码骑车记时功能</li>
-<li>用户登录及充值功能</li>
-<li>用户报障功能</li>
-</ol>
-<p>思路：</p>
-<ol>
-<li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
-<li>回到当前定位功能直接调用this.movetoCenter()函数</li>
-<li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
-<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
-<li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
-</ol>
-</li>
-<li>单车报障功能<ol>
-<li>这里要说一嘴的是故障类型跟上传照片是必填，要验证内容是否为空。这里我只是判断了input框中的长度是否大于0；</li>
-<li>上传照片这里调用了微信的chooseImage()接口；我使用了一个数组存储上传的照片，所以在删除的时候直接在数组干掉就好了。</li>
-</ol>
-</li>
-<li>用户登录及充值功能<ol>
-<li>用户登录这里要注意下微信新版本是要授权，在按钮处设置open-type 为 getUserInfo才能使用。</li>
-<li>另外我把用户数据存进了storage,这样处理下一次就可以自动登录了。同时在登出的时候也会删除storage.</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>关于后台：<br>    因为时间<del>（技术）</del>问题暂时没有做出来，后续版本就有了嘿。因此这次我在modeHttp在线mock了后台数据。</p>
-</blockquote>
-<blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/ofo_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/ofo_demo</a></p>
-</blockquote>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/12/14/spring/">Spring学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-14</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/back-end/">back-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/">后端技术</a></span><div class="content"><h4 id="Spring学习笔记"><a href="#Spring学习笔记" class="headerlink" title="Spring学习笔记"></a>Spring学习笔记</h4><h4 id="框架的概念："><a href="#框架的概念：" class="headerlink" title="框架的概念："></a>框架的概念：</h4><ol>
-<li>高度抽取可重用代码的设计</li>
-<li>高度的通用性</li>
-</ol>
-<h4 id="Spring的特点"><a href="#Spring的特点" class="headerlink" title="Spring的特点:"></a>Spring的特点:</h4><p>优良特性：</p>
-<ol>
-<li>非侵入式</li>
-<li>依赖注入</li>
-<li>面向切面编程</li>
-<li>容器</li>
-<li>组件化</li>
-<li>一站式</li>
-</ol>
-<blockquote>
-<p>Core Container（IOC）核心容器包含Bean Core Context expression 这几个容器</p>
-</blockquote>
-<h4 id="Web：Sping开发Web应用"><a href="#Web：Sping开发Web应用" class="headerlink" title="Web：Sping开发Web应用"></a>Web：Sping开发Web应用</h4><ol>
-<li>WebSocket</li>
-<li>Servlet</li>
-<li>web protlet<blockquote>
-<p>(建议用哪个模块就导哪个包)</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="IOC："><a href="#IOC：" class="headerlink" title="IOC："></a>IOC：</h4><blockquote>
-<p>控制反转;被动式的资源获取方式：资源的获取不是自己创建，而是交给容器创建和设置</p>
-</blockquote>
-<h4 id="DI：（Injevtion-依赖注入）"><a href="#DI：（Injevtion-依赖注入）" class="headerlink" title="DI：（Injevtion  依赖注入）"></a>DI：（Injevtion  依赖注入）</h4><ol>
-<li>容器能知道哪个组件（类运行的时候时候需要另外一个类）</li>
-<li>只要使用管理的组件，都能使用组件提供的强大功能。现在所有的对象交给容器创建，容器中的组件注册。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id &#x3D; &quot;person03&quot; class&#x3D;&quot;com.bean.Person&quot;&gt;</span><br><span class="line">		&lt;constructor-arg name&#x3D;&quot;lastName&quot; value&#x3D;&quot;小明&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name&#x3D;&quot;email&quot; value&#x3D;&quot;skjdhfkjsdfhkd@126.com&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name&#x3D;&quot;gender&quot; value&#x3D;&quot;男&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">		&lt;constructor-arg name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;constructor-arg&gt;</span><br><span class="line">	&lt;&#x2F;bean&gt;</span><br><span class="line"> &#x2F;&#x2F;有参构造器 &lt;constructor-arg&gt;就代表一个属性</span><br><span class="line"> </span><br><span class="line"> &lt;bean id&#x3D;&quot;person01&quot; class&#x3D;&quot;com.bean.Person&quot;&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;lastName&quot; value&#x3D;&quot;he&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;age&quot; value &#x3D;&quot;18&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;email&quot; value&#x3D;&quot;hzf@666.com&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;gender&quot; value&#x3D;&quot;man&quot;&gt;&lt;&#x2F;property&gt;	</span><br><span class="line">  &lt;&#x2F;bean&gt;</span><br><span class="line">  &#x2F;&#x2F;通过无参构造器</span><br><span class="line">  &#x2F;&#x2F;如果省略name参数 就要严格按照构造器参数的位置</span><br><span class="line">  &#x2F;&#x2F;在重载的情况下 type可以指定参数的类型</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;名称空间：在xml中名称空间是用来防止标签重复的</span><br><span class="line">  &lt;book&gt;</span><br><span class="line">      &lt;b:name&gt;西游记&lt;&#x2F;name&gt;</span><br><span class="line">      &lt;author&gt;</span><br><span class="line">         &lt;a:name&gt;吴承恩&lt;&#x2F;name&gt; </span><br><span class="line">      &lt;&#x2F;author&gt;</span><br><span class="line">  &lt;&#x2F;book&gt;</span><br><span class="line">  通过标签的前缀，就可以知道name是指哪个name</span><br><span class="line">  </span><br><span class="line">  xmlns:p&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;p&quot;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  &lt;property name&#x3D;&quot;lastName&quot;&gt;</span><br><span class="line">      &lt;&#x2F;null&gt; &#x2F;&#x2F;进行复杂的赋值，在property标签里面</span><br><span class="line">   &lt;&#x2F;property&gt;</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;如果把多个属性赋值给一个对象呢</span><br><span class="line">  </span><br><span class="line">  &lt;bean  id &#x3D;&quot;car01&quot; class&#x3D;&quot;com.bean.Car&quot;&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;carName&quot; value&#x3D;&quot;宝马&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;color&quot; value&#x3D;&quot;pink&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;price&quot; value&#x3D;&quot;30000&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		</span><br><span class="line">  &lt;&#x2F;bean&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;property name&#x3D;&quot;car&quot; ref&#x3D;&quot;car01&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">  &#x2F;&#x2F;在person01的容器中加入这段代码就ok</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;在bean里面写property写是引用外部bean， 在property里面写bean是引用内部bean</span><br></pre></td></tr></table></figure>
-
-<h4 id="Spring在为各种属性赋值："><a href="#Spring在为各种属性赋值：" class="headerlink" title="Spring在为各种属性赋值："></a>Spring在为各种属性赋值：</h4><ol>
-<li>在bean使用ref写是引用外部bean， 在property里面写bean是引用内部bean</li>
-<li>在对list属性进行赋值，写在property里面，同时也可以使用ref引用外部赋值</li>
-<li>在对map属性进行赋值，在property键值对里面<code>&lt;entry&gt;</code>标签，在标签内使用key value进行键值对的赋值。</li>
-<li>util名称空间创建集合类型的bean 方便别人引用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;util:map id&#x3D;&quot;myMap&quot;&gt;&#x2F;&#x2F;一定要有Id</span><br><span class="line">    &#x2F;&#x2F;里面写的直接是元素</span><br><span class="line">&lt;&#x2F;util:map&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<blockquote>
-<p>级联属性赋值：就是属性的属性</p>
-</blockquote>
-<blockquote>
-<p>通过继承实现bean配置信息的重用</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id&#x3D;&quot;parent05&quot; class&#x3D;&quot;com.bean.Person&quot;&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;lastName&quot; value&#x3D;&quot;张三&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;age&quot; value&#x3D;&quot;18&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;gender&quot; value&#x3D;&quot;男&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;email&quot; value&#x3D;&quot;akshdajsk&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;&#x2F;bean&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;bean id&#x3D;&quot;person06&quot; class&#x3D;&quot;com.bean.Person&quot; parent&#x3D;&quot;parent05&quot;&gt;</span><br><span class="line">		&lt;property name&#x3D;&quot;lastName&quot; value&#x3D;&quot;fengZe&quot;&gt;&lt;&#x2F;property&gt;</span><br><span class="line">	&lt;&#x2F;bean&gt;</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;abstract&#x3D;&quot;true&quot;,这个Bean的配置是一个抽象的，不能获取他的实例，只能被别人用来继承</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>bean之间的依赖（只是改变创建顺序）如果在创建之前写入 depends-on=‘book,person“，那么就会先创建book 还有person。</p>
-</blockquote>
-<blockquote>
-<p>通过静态工厂方法创建bean，实例工厂方法创建bean<br>bean的创建默认就是框架利用反射new出来的bean实例，工厂模式就是有一个类帮你去创建对象</p>
-</blockquote>
-<ol>
-<li>静态工厂：工厂本身不用创建对象：通过静态方法调用  对象 = 工厂类.工厂方法名（）</li>
-<li>实例工厂：工厂本身需要创建对象：<blockquote>
-<p>工厂类 工厂对象 =  new 工厂类（）；<br>工厂对象.getAirplane</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">factory-method：指定工厂方法</span><br><span class="line">class:指定静态工厂全类名</span><br><span class="line">&lt;constructor-arg value&#x3D;&quot;李四&quot;&gt;&lt;&#x2F;constructor-arg&gt;传参</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>实例工厂</p>
-</blockquote>
-</li>
-<li>先配出实例工厂对象</li>
-<li>配置我们需要创建的airPlane使用哪个工厂创建</li>
-<li>facotry-bean ：指定使用哪个工厂实例</li>
-<li>factory-method：使用哪个工厂方法</li>
-</ol>
-<blockquote>
-<p>FactoryBean（是Spring规定的一个接口);只要是这个接口的实现类，Spring都认为是一个工厂，ioc容器启动的时候就不会创建实例</p>
-</blockquote>
-<h4 id="bean的生命周期"><a href="#bean的生命周期" class="headerlink" title="bean的生命周期"></a>bean的生命周期</h4><ol>
-<li><p>ioc容器中注册的bean：</p>
-<ol>
-<li>单例bean ，容器启动的时候才会创建好，容器关闭也会销毁创建的bean</li>
-<li>多例bean，获取的时候才会创建</li>
-</ol>
-</li>
-<li><p>引用外部属性文件:</p>
-<ol>
-<li>数据库连接池作为单实例是最好的，一个项目就一个连接池，连接池里面管理很多连接。连接直接从连接里拿，可以让spring 帮我们创建连接池对象。</li>
-<li>依赖context名称空间，可以加载外部配置文件</li>
-</ol>
-</li>
-</ol>
-<h4 id="自动装配（自动赋值）"><a href="#自动装配（自动赋值）" class="headerlink" title="自动装配（自动赋值）"></a>自动装配（自动赋值）</h4><ol>
-<li>autowire= “default” ，可以填byName ,byType, constructor,no。</li>
-<li>例如说byName，按照名字，以属性名作为id去容器里找到这个组件，给他赋值。如果找不到就装配null</li>
-</ol>
-<h4 id="Spring有四种注解："><a href="#Spring有四种注解：" class="headerlink" title="Spring有四种注解："></a>Spring有四种注解：</h4><ol>
-<li>@Controller  控制器</li>
-<li>@Service 业务逻辑</li>
-<li>@Respository 数据库（持久化层）</li>
-<li>@Component <blockquote>
-<p>注意：某个类上添加任何一个注解都能快速的将这个组件加入ioc容器的管理 </p>
-</blockquote>
-</li>
-</ol>
-<h5 id="添加步骤："><a href="#添加步骤：" class="headerlink" title="添加步骤："></a>添加步骤：</h5><ol>
-<li>加入注释:告诉Spring，自动扫描加注释，依赖名称空间 –context:component-scan<br>base.package:” “填入需要扫描的包，至少填两级目录</li>
-<li>在ioc获取bean的过程中，id是默认是类名的首字母小写， 也可以在注释后加入()来修改名字</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/12/12/frontEnd_Loading/">用CSS3做LoadIng动画</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-12</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/CSS3/">CSS3</a></span><div class="content"><h3 id="使用CSS3做Loading动画"><a href="#使用CSS3做Loading动画" class="headerlink" title="使用CSS3做Loading动画"></a>使用CSS3做Loading动画</h3></div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/10/02/vue/">vue学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/blog/categories/front-end/">front-end</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content"><h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre><h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
-<li>渐进式：vue的侵入性很少，可以与很多其他前端技术联用</li>
-<li>组件化</li>
-<li>响应式：数据响应式，vue会监控数据变化。当数据变化时</li>
-</ol>
-<h3 id="vue的核心功能："><a href="#vue的核心功能：" class="headerlink" title="vue的核心功能："></a>vue的核心功能：</h3><h4 id="关于创建vue工程"><a href="#关于创建vue工程" class="headerlink" title="关于创建vue工程"></a>关于创建vue工程</h4><ol>
-<li>直接在页面上引用vue.js</li>
-<li>使用构建工具vue-cli脚手架</li>
-</ol>
-<h4 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h4><h4 id="vue实例：通过new-vue（配置对象）得到的对象"><a href="#vue实例：通过new-vue（配置对象）得到的对象" class="headerlink" title="vue实例：通过new vue（配置对象）得到的对象"></a>vue实例：通过new vue（配置对象）得到的对象</h4><ol>
-<li>当创建vue实例的时候，vue将会把data（为了实现响应式）methods配置（为了在模板中方便使用）等配置成员提升到vue实例中.</li>
-<li>由于有提升的存在，为了防止命名冲突，vue会将自身的成员名称前加上$ 或 _ , 为了防止命名冲突，vue会将自身的成员加上$(可以使用),_符号就不用用了</li>
-</ol>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h4 id="插值：在模板的元素内部使用"><a href="#插值：在模板的元素内部使用" class="headerlink" title="插值：在模板的元素内部使用"></a>插值：在模板的元素内部使用</h4><h4 id="指令：通常作为元素的属性存在，名称上以v-开头"><a href="#指令：通常作为元素的属性存在，名称上以v-开头" class="headerlink" title="指令：通常作为元素的属性存在，名称上以v- 开头"></a>指令：通常作为元素的属性存在，名称上以v- 开头</h4><p>v-for:用于循环生成元素<br>v-on :用于注册事件。 语法糖@<br>v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用<br>v-show:元素已经显示,display:none<br>v-bind:用于绑定属性, 语法糖:<br>v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件</p>
-<h4 id="模板中的配置"><a href="#模板中的配置" class="headerlink" title="模板中的配置"></a>模板中的配置</h4><ol>
-<li>页面中直接书写</li>
-<li>在template配置中书写（常见）</li>
-<li>在render中手动配置用函数创建，render函数的参数是一个创建虚拟DOM对象，为什么要创建虚拟DOM,因为真实DOM操作特别慢</li>
-</ol>
-<h3 id="配置对象"><a href="#配置对象" class="headerlink" title="配置对象"></a>配置对象</h3><ol>
-<li>template:字符串，配置模板</li>
-<li>el:配置控制的元素，css选择器</li>
-<li>data: 管理的数据，该数据是响应式的</li>
-<li>mothods:配置方法，方法中的this指向vue实例，不能会用箭头函数,会干扰vue绑定this<h3 id="挂在的配置"><a href="#挂在的配置" class="headerlink" title="挂在的配置"></a>挂在的配置</h3></li>
-<li>通过el进行配置</li>
-<li>使用vue实例中的$mount函数进行配置</li>
-</ol>
-<h3 id="关于computed-–计算属性"><a href="#关于computed-–计算属性" class="headerlink" title="关于computed –计算属性"></a>关于computed –计算属性</h3><ol>
-<li>计算属性，其中的配置会提升到vue实例中，因为在模板中可以直接当做属性使用，使用时，实际上调用的是对应的方法。通常，计算属性用户通过data或其他计算属性得到的数据。</li>
-<li>与方法的区别：vue会检查计算属性的依赖，当依赖没有发生变化时，vue会直接使用之前缓存的结果，而不会重新计算</li>
-<li>能用计算属性尽量使用，因为效率很高。依赖不变时不会重新加载。（计算属性的读取函数不可以有参数，有参数没意义）</li>
-<li>计算属性可以配置get和set. 分别用于读取时和设置时。 get读取属性的时候可以监听到，然后检查那张表函数有没有变化。</li>
-</ol>
-<h3 id="关于v-html指令："><a href="#关于v-html指令：" class="headerlink" title="关于v-html指令："></a>关于v-html指令：</h3><ol>
-<li>vue为了安全，会将元素内部的插值进行实体编码</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-html &#x3D; &quot;html&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">config &#x3D; &#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        html:&lt;p&gt;带标签的元素&lt;&#x2F;p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这样就可以把html标签渲染出来了</span><br></pre></td></tr></table></figure>
-
-<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件是页面中可复用的功能单元</p>
-<h4 id="VUE中的组建"><a href="#VUE中的组建" class="headerlink" title="VUE中的组建"></a>VUE中的组建</h4><ol>
-<li>组件的创建：组件对于开发者，是一个普通的配置对象</li>
-<li>组件的注册：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;全局注册组件</span><br><span class="line">Vue.component(&quot;组件形成&quot;,pager)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;局部注册组件 在使用的组件和vue实例配置中进行注册</span><br><span class="line">const config &#x3D; &#123;</span><br><span class="line">    template:&#96;&lt;div&gt;</span><br><span class="line">        &lt;MyPager&gt;&lt;&#x2F;MyPager&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;&#96;,</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        MyPager :pager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="组件名称的规范，以下命名的方式任选其一："><a href="#组件名称的规范，以下命名的方式任选其一：" class="headerlink" title="组件名称的规范，以下命名的方式任选其一："></a>组件名称的规范，以下命名的方式任选其一：</h4><ol>
-<li>使用短横线命名</li>
-<li>使用大驼峰命名<h4 id="组件的使用：把组件当成标签使用即可，标签名任选其一"><a href="#组件的使用：把组件当成标签使用即可，标签名任选其一" class="headerlink" title="组件的使用：把组件当成标签使用即可，标签名任选其一"></a>组件的使用：把组件当成标签使用即可，标签名任选其一</h4></li>
-<li>短横线命名</li>
-<li>大驼峰命名</li>
-</ol>
-<p>组件可以嵌套，因为会形成一个组件树，组件树的根叫做根组件</p>
-<h3 id="组件中的数据通信："><a href="#组件中的数据通信：" class="headerlink" title="组件中的数据通信："></a>组件中的数据通信：</h3><ol>
-<li>prevent修饰符用于v-on指令，表示阻止默认行为</li>
-<li>stop修饰符用于v-on指令，表示阻止事件冒泡</li>
-</ol>
-<h4 id="组件的状态和属性："><a href="#组件的状态和属性：" class="headerlink" title="组件的状态和属性："></a>组件的状态和属性：</h4><ol>
-<li>通常讲组件中需要自身管理的数据（组件配置中的data）叫做组件状态（component state），组件状态只能在组件内部使用，外部原则上不可以使用.</li>
-<li>data(state 状态)在组件中的配置和在vue实例中配置的区别：<br>在组件中data必须是一个函数，而VUE实例中心必须是一个对象。因为组件是可以被复用的，每一个组件都是独立的，所以data必须是一个函数.</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在组件中</span><br><span class="line">export default&#123;</span><br><span class="line">    template,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            &#x2F;&#x2F;返回的结果是组件的状态</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="组件中可以有属性（component-props），而vue实例中没有"><a href="#组件中可以有属性（component-props），而vue实例中没有" class="headerlink" title="组件中可以有属性（component props），而vue实例中没有"></a>组件中可以有属性（component props），而vue实例中没有</h4><ol>
-<li>声明组件属性时，使用短横线或小驼峰命名法</li>
-<li>传递组件属性时，使用短横线或小驼峰命名法</li>
-<li>属性会被提升到vue组件实例中</li>
-</ol>
-<p>==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==  </p>
-<h3 id="自定义事件："><a href="#自定义事件：" class="headerlink" title="自定义事件："></a>自定义事件：</h3><ol>
-<li>在组件中触发事件： this.$emit(“事件名”,事件参数…)</li>
-<li>当一个组件状态发生变化时，该组件会重新渲染，在渲染的过程中，可能会导致其子组件的属性发生变化，而属性的变化会导致组件重新渲染。但根本原因，是状态的变化.</li>
-<li>v-model 的本质是一个语法糖，实际上是绑定value属性，同时监听input事件</li>
-</ol>
-<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><ol>
-<li>beforeCreate(){}  –&gt;这个是自动执行的</li>
-<li>created()  –&gt;组件实例中已经提升到实例总，但是没有渲染页面</li>
-<li>beforeMount   –&gt; 组件即将进行渲染，但还没有渲染，此时已经编译好模板</li>
-<li>mounted【常用】  –&gt;组件已经完成渲染（页面可见）</li>
-<li>beforeUpdate –&gt;组件即将更新，还没有更新，此时得到的数据是新的，但页面依旧是旧的</li>
-<li>updated –&gt; 数据，界面都是新的</li>
-<li>beforeDestory –&gt; 当组件即将被销毁  调用vm.$destroy()函数</li>
-<li>destoryed  –&gt; 解除绑定，销毁子组件以及事件监听器</li>
-</ol>
-<h3 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h3><p>vue路由，可以简单理解为，当访问某个地址时，渲染某个组件</p>
-<p>使用路由</p>
-<ol>
-<li>根据一个配置对象创建路由，得到路由对象</li>
-<li>在创建vue实例时，将路由对象配置到实例配置的router中</li>
-<li>在合适的位置写上router-view组件，表示路由匹配到组件渲染的位置，它实际上是vue-router做好的一个组件，并且做好了全局注册</li>
-</ol>
-<p>路由配置对象</p>
-<ol>
-<li>routes:路由规则配置</li>
-<li>mode:配置模式<ol>
-<li>hash模式，兼容性最好，地址出现#号后，切换地址不会导致页面刷新</li>
-<li>history模式，使用的是HTML5 history API，地址直接变化，并且页面不刷新</li>
-</ol>
-</li>
-</ol>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/blog/2019/09/03/2019.09.03/">2019-09-03 实习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-09-03</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">前端技术</a></span><div class="content"><h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
-<p>今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。</p>
-</blockquote>
-<h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><ol>
-<li>利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定</li>
-<li>通过遍历和累加，计算得出每个字符出现的次数</li>
-<li>通过对比出现的次数，返回出现次数最多的字符</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const str &#x3D; &#39;asddfgdfwwqeweqwezczxcsdfgdgd&#39;;</span><br><span class="line"></span><br><span class="line">   var obj &#x3D; &#123;&#125;;</span><br><span class="line">   var max &#x3D; 0;</span><br><span class="line">   var maxStr &#x3D; &quot;&quot;;</span><br><span class="line">   for(let i &#x3D; 0; i &lt; str.length ; i++)&#123;</span><br><span class="line">     var word &#x3D; str.charAt(i);</span><br><span class="line">     if(obj[word] !&#x3D; null)&#123;</span><br><span class="line">       obj[word]++;</span><br><span class="line">     &#125;else&#123;</span><br><span class="line">       obj[word] &#x3D; 1</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     for(let i in obj)&#123;</span><br><span class="line">       if(obj[i]&gt;max)&#123;</span><br><span class="line">         max &#x3D; obj[i];</span><br><span class="line">         maxStr &#x3D; i</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">   &#125;</span><br><span class="line">   console.log(&#39;出现最多次:&#39; + max +&#39;的字符是：&#39;+ maxStr)</span><br><span class="line">   console.log(obj);</span><br><span class="line">   &#x2F;&#x2F; &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;</span><br><span class="line">   &#x2F;&#x2F; a: 1</span><br><span class="line">   &#x2F;&#x2F; c: 2</span><br><span class="line">   &#x2F;&#x2F; d: 6</span><br><span class="line">   &#x2F;&#x2F; e: 3</span><br><span class="line">   &#x2F;&#x2F; f: 3</span><br><span class="line">   &#x2F;&#x2F; g: 3</span><br><span class="line">   &#x2F;&#x2F; q: 2</span><br><span class="line">   &#x2F;&#x2F; s: 2</span><br><span class="line">   &#x2F;&#x2F; w: 4</span><br><span class="line">   &#x2F;&#x2F; x: 1</span><br><span class="line">   &#x2F;&#x2F; z: 2</span><br><span class="line">   &#x2F;&#x2F; __proto__: Object</span><br></pre></td></tr></table></figure></div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By 何泽丰</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/blog/js/utils.js?version=1.7.0"></script><script src="/blog/js/fancybox.js?version=1.7.0"></script><script src="/blog/js/sidebar.js?version=1.7.0"></script><script src="/blog/js/copy.js?version=1.7.0"></script><script src="/blog/js/fireworks.js?version=1.7.0"></script><script src="/blog/js/transition.js?version=1.7.0"></script><script src="/blog/js/scroll.js?version=1.7.0"></script><script src="/blog/js/head.js?version=1.7.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+1234567891011121 ...</div><a class="more" href="/blog/2019/09/03/2019.09.03/#more" style="margin-top: 14px">Read more</a><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="page-number" href="/blog/page/3/">3</a><a class="extend next" rel="next" href="/blog/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By 何泽丰</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/blog/js/utils.js?version=1.7.0"></script><script src="/blog/js/fancybox.js?version=1.7.0"></script><script src="/blog/js/sidebar.js?version=1.7.0"></script><script src="/blog/js/copy.js?version=1.7.0"></script><script src="/blog/js/fireworks.js?version=1.7.0"></script><script src="/blog/js/transition.js?version=1.7.0"></script><script src="/blog/js/scroll.js?version=1.7.0"></script><script src="/blog/js/head.js?version=1.7.0"></script><script src="/blog/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
   $('#top-container').addClass('is-mobile')
-}</script></body></html>
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
