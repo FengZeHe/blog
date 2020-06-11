@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="怕，你就输一辈子">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    vue学习笔记 |
+    
+    欢迎来到何泽丰的博客</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/blog/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      vue学习笔记
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/10/02/vue/" class="article-date">
+  <time datetime="2019-10-02T01:03:25.000Z" itemprop="datePublished">2019-10-02</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/front-end/">front-end</a>
+  </div>
+
+                    </div>
+                    
+
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre><h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
+<li>渐进式：vue的侵入性很少，可以与很多其他前端技术联用</li>
+<li>组件化</li>
+<li>响应式：数据响应式，vue会监控数据变化。当数据变化时</li>
+</ol>
+<h3 id="vue的核心功能："><a href="#vue的核心功能：" class="headerlink" title="vue的核心功能："></a>vue的核心功能：</h3><h4 id="关于创建vue工程"><a href="#关于创建vue工程" class="headerlink" title="关于创建vue工程"></a>关于创建vue工程</h4><ol>
+<li>直接在页面上引用vue.js</li>
+<li>使用构建工具vue-cli脚手架</li>
+</ol>
+<h4 id="vue实例"><a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h4><h4 id="vue实例：通过new-vue（配置对象）得到的对象"><a href="#vue实例：通过new-vue（配置对象）得到的对象" class="headerlink" title="vue实例：通过new vue（配置对象）得到的对象"></a>vue实例：通过new vue（配置对象）得到的对象</h4><ol>
+<li>当创建vue实例的时候，vue将会把data（为了实现响应式）methods配置（为了在模板中方便使用）等配置成员提升到vue实例中.</li>
+<li>由于有提升的存在，为了防止命名冲突，vue会将自身的成员名称前加上$ 或 _ , 为了防止命名冲突，vue会将自身的成员加上$(可以使用),_符号就不用用了</li>
+</ol>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h4 id="插值：在模板的元素内部使用"><a href="#插值：在模板的元素内部使用" class="headerlink" title="插值：在模板的元素内部使用"></a>插值：在模板的元素内部使用</h4><h4 id="指令：通常作为元素的属性存在，名称上以v-开头"><a href="#指令：通常作为元素的属性存在，名称上以v-开头" class="headerlink" title="指令：通常作为元素的属性存在，名称上以v- 开头"></a>指令：通常作为元素的属性存在，名称上以v- 开头</h4><p>v-for:用于循环生成元素<br>v-on :用于注册事件。 语法糖@<br>v-if :用于判断该玄素是否可以生成,可以与v-else 或者v-else-if联用<br>v-show:元素已经显示,display:none<br>v-bind:用于绑定属性, 语法糖:<br>v-model：用于事件双向绑定，实际上是自动绑定用了value值,和注册了input事件</p>
+<h4 id="模板中的配置"><a href="#模板中的配置" class="headerlink" title="模板中的配置"></a>模板中的配置</h4><ol>
+<li>页面中直接书写</li>
+<li>在template配置中书写（常见）</li>
+<li>在render中手动配置用函数创建，render函数的参数是一个创建虚拟DOM对象，为什么要创建虚拟DOM,因为真实DOM操作特别慢</li>
+</ol>
+<h3 id="配置对象"><a href="#配置对象" class="headerlink" title="配置对象"></a>配置对象</h3><ol>
+<li>template:字符串，配置模板</li>
+<li>el:配置控制的元素，css选择器</li>
+<li>data: 管理的数据，该数据是响应式的</li>
+<li>mothods:配置方法，方法中的this指向vue实例，不能会用箭头函数,会干扰vue绑定this<h3 id="挂在的配置"><a href="#挂在的配置" class="headerlink" title="挂在的配置"></a>挂在的配置</h3></li>
+<li>通过el进行配置</li>
+<li>使用vue实例中的$mount函数进行配置</li>
+</ol>
+<h3 id="关于computed-–计算属性"><a href="#关于computed-–计算属性" class="headerlink" title="关于computed –计算属性"></a>关于computed –计算属性</h3><ol>
+<li>计算属性，其中的配置会提升到vue实例中，因为在模板中可以直接当做属性使用，使用时，实际上调用的是对应的方法。通常，计算属性用户通过data或其他计算属性得到的数据。</li>
+<li>与方法的区别：vue会检查计算属性的依赖，当依赖没有发生变化时，vue会直接使用之前缓存的结果，而不会重新计算</li>
+<li>能用计算属性尽量使用，因为效率很高。依赖不变时不会重新加载。（计算属性的读取函数不可以有参数，有参数没意义）</li>
+<li>计算属性可以配置get和set. 分别用于读取时和设置时。 get读取属性的时候可以监听到，然后检查那张表函数有没有变化。</li>
+</ol>
+<h3 id="关于v-html指令："><a href="#关于v-html指令：" class="headerlink" title="关于v-html指令："></a>关于v-html指令：</h3><ol>
+<li>vue为了安全，会将元素内部的插值进行实体编码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-html &#x3D; &quot;html&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">config &#x3D; &#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        html:&lt;p&gt;带标签的元素&lt;&#x2F;p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这样就可以把html标签渲染出来了</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件是页面中可复用的功能单元</p>
+<h4 id="VUE中的组建"><a href="#VUE中的组建" class="headerlink" title="VUE中的组建"></a>VUE中的组建</h4><ol>
+<li>组件的创建：组件对于开发者，是一个普通的配置对象</li>
+<li>组件的注册：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;全局注册组件</span><br><span class="line">Vue.component(&quot;组件形成&quot;,pager)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;局部注册组件 在使用的组件和vue实例配置中进行注册</span><br><span class="line">const config &#x3D; &#123;</span><br><span class="line">    template:&#96;&lt;div&gt;</span><br><span class="line">        &lt;MyPager&gt;&lt;&#x2F;MyPager&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;&#96;,</span><br><span class="line">    el:&quot;#app&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        MyPager :pager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="组件名称的规范，以下命名的方式任选其一："><a href="#组件名称的规范，以下命名的方式任选其一：" class="headerlink" title="组件名称的规范，以下命名的方式任选其一："></a>组件名称的规范，以下命名的方式任选其一：</h4><ol>
+<li>使用短横线命名</li>
+<li>使用大驼峰命名<h4 id="组件的使用：把组件当成标签使用即可，标签名任选其一"><a href="#组件的使用：把组件当成标签使用即可，标签名任选其一" class="headerlink" title="组件的使用：把组件当成标签使用即可，标签名任选其一"></a>组件的使用：把组件当成标签使用即可，标签名任选其一</h4></li>
+<li>短横线命名</li>
+<li>大驼峰命名</li>
+</ol>
+<p>组件可以嵌套，因为会形成一个组件树，组件树的根叫做根组件</p>
+<h3 id="组件中的数据通信："><a href="#组件中的数据通信：" class="headerlink" title="组件中的数据通信："></a>组件中的数据通信：</h3><ol>
+<li>prevent修饰符用于v-on指令，表示阻止默认行为</li>
+<li>stop修饰符用于v-on指令，表示阻止事件冒泡</li>
+</ol>
+<h4 id="组件的状态和属性："><a href="#组件的状态和属性：" class="headerlink" title="组件的状态和属性："></a>组件的状态和属性：</h4><ol>
+<li>通常讲组件中需要自身管理的数据（组件配置中的data）叫做组件状态（component state），组件状态只能在组件内部使用，外部原则上不可以使用.</li>
+<li>data(state 状态)在组件中的配置和在vue实例中配置的区别：<br>在组件中data必须是一个函数，而VUE实例中心必须是一个对象。因为组件是可以被复用的，每一个组件都是独立的，所以data必须是一个函数.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在组件中</span><br><span class="line">export default&#123;</span><br><span class="line">    template,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            &#x2F;&#x2F;返回的结果是组件的状态</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="组件中可以有属性（component-props），而vue实例中没有"><a href="#组件中可以有属性（component-props），而vue实例中没有" class="headerlink" title="组件中可以有属性（component props），而vue实例中没有"></a>组件中可以有属性（component props），而vue实例中没有</h4><ol>
+<li>声明组件属性时，使用短横线或小驼峰命名法</li>
+<li>传递组件属性时，使用短横线或小驼峰命名法</li>
+<li>属性会被提升到vue组件实例中</li>
+</ol>
+<p>==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==  </p>
+<h3 id="自定义事件："><a href="#自定义事件：" class="headerlink" title="自定义事件："></a>自定义事件：</h3><ol>
+<li>在组件中触发事件： this.$emit(“事件名”,事件参数…)</li>
+<li>当一个组件状态发生变化时，该组件会重新渲染，在渲染的过程中，可能会导致其子组件的属性发生变化，而属性的变化会导致组件重新渲染。但根本原因，是状态的变化.</li>
+<li>v-model 的本质是一个语法糖，实际上是绑定value属性，同时监听input事件</li>
+</ol>
+<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><ol>
+<li>beforeCreate(){}  –&gt;这个是自动执行的</li>
+<li>created()  –&gt;组件实例中已经提升到实例总，但是没有渲染页面</li>
+<li>beforeMount   –&gt; 组件即将进行渲染，但还没有渲染，此时已经编译好模板</li>
+<li>mounted【常用】  –&gt;组件已经完成渲染（页面可见）</li>
+<li>beforeUpdate –&gt;组件即将更新，还没有更新，此时得到的数据是新的，但页面依旧是旧的</li>
+<li>updated –&gt; 数据，界面都是新的</li>
+<li>beforeDestory –&gt; 当组件即将被销毁  调用vm.$destroy()函数</li>
+<li>destoryed  –&gt; 解除绑定，销毁子组件以及事件监听器</li>
+</ol>
+<h3 id="vue路由"><a href="#vue路由" class="headerlink" title="vue路由"></a>vue路由</h3><p>vue路由，可以简单理解为，当访问某个地址时，渲染某个组件</p>
+<p>使用路由</p>
+<ol>
+<li>根据一个配置对象创建路由，得到路由对象</li>
+<li>在创建vue实例时，将路由对象配置到实例配置的router中</li>
+<li>在合适的位置写上router-view组件，表示路由匹配到组件渲染的位置，它实际上是vue-router做好的一个组件，并且做好了全局注册</li>
+</ol>
+<p>路由配置对象</p>
+<ol>
+<li>routes:路由规则配置</li>
+<li>mode:配置模式<ol>
+<li>hash模式，兼容性最好，地址出现#号后，切换地址不会导致页面刷新</li>
+<li>history模式，使用的是HTML5 history API，地址直接变化，并且页面不刷新</li>
+</ol>
+</li>
+</ol>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/10/02/vue/" data-id="ckbaiqt57001wvoou2m702ouo" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/blog/2019/12/12/frontEnd_Loading/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer</strong>
+        <div class="article-nav-title">
+          
+            用CSS3做LoadIng动画
+          
+        </div>
+      </a>
+    
+    
+      <a href="/blog/2019/09/03/2019.09.03/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">2019-09-03 实习笔记</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 欢迎来到何泽丰的博客</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/blog/"><img src="/images/hexo.svg" alt="欢迎来到何泽丰的博客"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/blog/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/blog/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/blog/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/lazyload.min.js"></script>
+
+
+<script src="/blog/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/blog/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/blog/js/ocean.js"></script>
+
+
+</body>
+</html>

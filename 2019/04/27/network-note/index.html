@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="怕，你就输一辈子">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    图解HTTP |
+    
+    欢迎来到何泽丰的博客</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/blog/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-network-note" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      图解HTTP
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/04/27/network-note/" class="article-date">
+  <time datetime="2019-04-27T02:36:18.000Z" itemprop="datePublished">2019-04-27</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/front-end/">front-end</a>
+  </div>
+
+                    </div>
+                    
+
+                        
+                            
+    <div class="tocbot"></div>
+
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h4 id="简单HTTP协议："><a href="#简单HTTP协议：" class="headerlink" title="简单HTTP协议："></a>简单HTTP协议：</h4><blockquote>
+<p>HTTP协议用于客户端和服务器端之间的通信。</p>
+</blockquote>
+<p>告知服务器意图的各种HTTP方法：</p>
+<ol>
+<li><p>GET：获取资源</p>
+</li>
+<li><p>POST：用来传输实体的主体，post的主要目的并不是获取响应的主体内容</p>
+</li>
+<li><p>PUT：传输文件，跟FTPyiyang ,但PUT方法自身不带验证机制，因此存在安全性问题而不被使用。</p>
+</li>
+<li><p>HEAD：获得报文首部，用于确认URI的有效性及资源更新的日期时间。</p>
+</li>
+<li><p>ELETE: 删除文件，跟put相反的方法，DELETE方法按请求URI删除指定的资源</p>
+</li>
+<li><p>OPTIONS：询问支持的方法</p>
+</li>
+<li><p>TRACE:追踪路径 </p>
+</li>
+<li><p>OPTIONS：询问支持的方法</p>
+</li>
+<li><p>TRACE : 追踪路径，但容易受到跨站追踪的工资，因此很少使用。</p>
+</li>
+<li><p>CONNECT: 要求用隧道协议连接</p>
+</li>
+</ol>
+<ul>
+<li>持久连接：只要任意一方没有明确提出断开连接，则保持TCP连接状态。<blockquote>
+<p>优点：持久连接的好处在于减少了建立和断开所造成的额外开销，减轻了服务器端的负载。因此Web页面现在是速度也就相应提高了。只要任意一端没有明确提出断开连接，则保持TCP连接状态。这样的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减少了服务器端的负载。另外，减少开销的那部分时间，使HTTP请求和相应能更早的结束，这样Web页面显示的速度也相应提高了。HTTP1.1具有持久连接。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>HTTP是不保存状态的协议，因此引出了Cookie。</p>
+</blockquote>
+<ul>
+<li>Cookie的状态连接：<blockquote>
+<p>HTTP是无状态协议，可以减少服务器的CPU以及内存资源的消耗，而缺点在于每次跳转新页面都要再次登录或者再请求报文中附加参数来管理登录状态。Cookie会根据从服务器端发送的相应报文内的一个Set-cookie的首部字段信息，通知客户端保存Cookie。当下午客户端再向该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去。</p>
+</blockquote>
+</li>
+</ul>
+<p>HTTP报文的HTTP信息：</p>
+<ul>
+<li><p>HTTP报文：请求端（客户端）的HTTP报文称为请求报文，响应端（服务器端）的叫做响应报文。</p>
+</li>
+<li><p>报文主体和实体主体的差异：</p>
+</li>
+</ul>
+<ol>
+<li>报文是HTTP通信中的基本单位，由8位组字节流组，通过HTTP通信传输。</li>
+<li>实体：作为请求或响应的有效负载数据（补充项）被传输，其内容由实体首部和实体主体组成。</li>
+</ol>
+<ul>
+<li>返回结果的HTTP状态码：<blockquote>
+<p>1XX：信息性状态码，接受的请求正在处理</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>2XX：状态成功码，请求正常处理完毕<br>200 ok<br>204 No Content 代表服务器接受的请求已成功处理，但在返回的响应报文中不含实体的主体部分。</p>
+</blockquote>
+<blockquote>
+<p>3XX：重定向状态码，需要进行附加操作以完成请求<br>301 Moved Permanently 永久性重定向，说明请求的资源已经被分配了新的URI。<br>302 Found 临时重定向。该状态码表示请求资源已经被分配了新的URI，希望用户（本次）使用新的URI访问。<br>303 See Other 表示由于请求对应的资源存在另外一个URI，应使用GET方法定向获取请求的资源。<br>304 Not Modified 表示客户端发送附带条件的请求，服务器允许请求访问资源，但未满足条件的情况，304状态码返回。<br>307 Temporary Redirect 临时重定向。与302有相同的含义。</p>
+</blockquote>
+<blockquote>
+<p>4XX：客户端错误状态码，服务器无法处理请求<br>400 Bad Request 表示报文中存在语法错误<br>401 Unauthorized 该状态码表示发送的请求需要通过有HTTP认证（BASIC认证，DIGEST认证）的认证信息<br>403 Forbidden  表明请求资源的访问被服务器拒绝了。<br>404 Not Found 表明服务器上无法找到请求的资源。</p>
+</blockquote>
+<blockquote>
+<p>5XX：服务器错误状态码，服务器处理请求出错<br>500 Internal Server Error 表明服务器端在执行请求时发生了错误，也可能是Web应用存在的bug或某些临时的故障。<br>503 Server Unavailable 表明服务器处于超负载或者正在进行停机维护。</p>
+</blockquote>
+<p>与HTTP协作的Web服务器</p>
+<ul>
+<li>在互联网中，域名听过DNS服务映射到IP地址（域名解析）之后访问目标网站，可见，当请求发送到服务器时已经是以IP地址形式的访问了。</li>
+</ul>
+<p>通信数据转发程序：代理，网关，隧道</p>
+<ol>
+<li>代理——扮演者客户端和服务器的中间人角色，接受客户端发送的请求并转发给服务器，同时也接受服务器返回的响应并转发给客户端。</li>
+<li>网关是转发其他服务器通信数据的服务器，接受从客户端发送过来的请求，它就会像自由拥有资源的源服务器一样对请求进行处理。</li>
+</ol>
+<ul>
+<li>缓存服务器：优势在于利用缓存可避免对此从源服务器转发资源。</li>
+</ul>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/04/27/network-note/" data-id="ckbaiqt4z001dvoou6qdyh7sz" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTTP/" rel="tag">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/blog/2019/05/07/douban/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer</strong>
+        <div class="article-nav-title">
+          
+            douban
+          
+        </div>
+      </a>
+    
+    
+      <a href="/blog/2019/04/26/CSSnote/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">CSS2.0学习笔记</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 欢迎来到何泽丰的博客</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/blog/"><img src="/images/hexo.svg" alt="欢迎来到何泽丰的博客"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/blog/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/blog/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/blog/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/lazyload.min.js"></script>
+
+
+<script src="/blog/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/blog/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/blog/js/ocean.js"></script>
+
+
+</body>
+</html>

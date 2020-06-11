@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="怕，你就输一辈子">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    HTML 学习笔记 |
+    
+    欢迎来到何泽丰的博客</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/blog/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-HTMLnote" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 class="article-title" itemprop="name">
+      HTML 学习笔记
+    </h1>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/04/26/HTMLnote/" class="article-date">
+  <time datetime="2019-04-26T04:32:34.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/front-end/">front-end</a>
+  </div>
+
+                    </div>
+                    
+
+                        
+                            
+
+
+
+
+                                
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <!-- ## HTML 学习笔记 -->
+
+<ul>
+<li><p>HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。</p>
+</li>
+<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt; 表示根标签</span><br><span class="line">&lt;head&gt;&lt;body&gt;是结构化标签，&lt;head&gt;是给浏览器看的，&lt;body&gt;是给用户看的。</span><br><span class="line">&lt;titile&gt;表示页面标题 &lt;h&gt;表示标题 &lt;strong&gt;加粗 &lt;em&gt;表示斜体	 &lt;del&gt;表示中划线 &lt;address&gt;表示地址 </span><br><span class="line">容器：&lt;div&gt; &lt;span&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>高级标签：在编辑器里的空格只代表文本分隔符。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&amp;nbsp;代表一个空格</span><br><span class="line">&lt;ol&gt;&lt;ul&gt;常用作网页导航栏</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>ol表示有序列表，在标签内写type=“A”就是以字母表排序，“1”就是以数字排序，start=”2”就是以数字2开始排序</li>
+<li>ul表示无序列表</li>
+<li>通常通过list-style:none 取消掉圆点样式.</li>
+</ol>
+<p>相对路径：当html文和jpg文件在同一文件夹时，此时为相对路径。</p>
+<p>图片占位置和提示符的区别</p>
+<ol>
+<li>alt=”当图片展示不出来的时候，会用文字展示出来，这就是图片占位符”</li>
+<li>title=”图片提示符，当光标移动过去的时候会提示效果”</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">""</span>&gt; hyper Text reference--超文本引用</span><br></pre></td></tr></table></figure>
+<ul>
+<li>href 与src 之间的区别：</li>
+</ul>
+<ol>
+<li>href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。</li>
+<li>src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。</li>
+</ol>
+<hr>
+<p><a>标签的几个作用：①超链接  ，②锚点， ③打电话 ④协议限定符（可运行js代码）target=“blank”就是在新的空白页中打开。 </a></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;标签 能够把前端的数据完全发送给后端</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span>&gt; &lt;input <span class="built_in">type</span>=<span class="string">"password"</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mothod 表示发送的方法</li>
+<li>action  用来填发送给谁的地址</li>
+</ul>
+<p>单选框＆复选框</p>
+<ol>
+<li>当要做一个单选框的时候，input 里面的type=”radio”，请name相同，则只能单选一个</li>
+<li>当需要进行多选的时候，input 里面的type=“checkbox”，则能多选。</li>
+<li>在某些表单中，可以默认选中某些选项来提高用户体验，则可以使用check=”checked” 表示默认已经选中</li>
+</ol>
+<p>创建下拉框</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=<span class="string">"phone"</span>&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;iphone&lt;/option&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;vivo&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="ckbaiqt4p000pvoouhoa35nft" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+        
+  <nav class="article-nav">
+    
+      <a href="/blog/2019/04/26/CSSnote/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer</strong>
+        <div class="article-nav-title">
+          
+            CSS2.0学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/blog/2019/04/25/hello/" class="article-nav-link">
+        <strong class="article-nav-caption">Older</strong>
+        <div class="article-nav-title">hello</div>
+      </a>
+    
+  </nav>
+
+
+            
+
+                
+                    
+                        
+                            
+
+</article>
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 欢迎来到何泽丰的博客</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/blog/"><img src="/images/hexo.svg" alt="欢迎来到何泽丰的博客"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/blog/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/blog/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/blog/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/lazyload.min.js"></script>
+
+
+<script src="/blog/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+  
+<script src="/blog/js/tocbot.min.js"></script>
+
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+
+<script src="/blog/js/ocean.js"></script>
+
+
+</body>
+</html>

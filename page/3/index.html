@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="怕，你就输一辈子">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    欢迎来到何泽丰的博客</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/blog/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="jumbotron">
+  <div class="video">
+    
+      <div class="video-frame">
+        <img src="/images/ocean/overlay-hero.png" alt="Decorative image frame">
+      </div>
+    
+    <div class="video-media">
+      <video playsinline="" autoplay="" loop="" muted="" data-autoplay=""
+             poster="/images/ocean/ocean.png" x5-video-player-type="h5">
+        <source src="/images/ocean/ocean.mp4" type="video/mp4">
+        <source src="/images/ocean/ocean.ogv" type="video/ogg">
+        <source src="/images/ocean/ocean.webm" type="video/webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="video-inner text-center text-white">
+      <h1><a href="/blog/">欢迎来到何泽丰的博客</a></h1>
+      <p></p>
+      <div><img src="/images/hexo-inverted.svg" class="brand" alt="欢迎来到何泽丰的博客"></div>
+    </div>
+    <div class="video-learn-more">
+      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
+    </div>
+  </div>
+</section>
+
+<div id="landingpage">
+  <section class="outer">
+    <article class="articles">
+      
+      <h1 class="page-type-title"></h1>
+      
+        
+          <article id="post-CSSnote" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2019/04/26/CSSnote/">CSS2.0学习笔记</a>
+    </h2>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/04/26/CSSnote/" class="article-date">
+  <time datetime="2019-04-26T07:13:39.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/front-end/">front-end</a>
+  </div>
+
+                    </div>
+                    
+
+                        
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h2 id="CSS-cascading-style-sheet-层叠样式表"><a href="#CSS-cascading-style-sheet-层叠样式表" class="headerlink" title="CSS (cascading style sheet 层叠样式表)"></a>CSS (cascading style sheet 层叠样式表)</h2><h4 id="1-引入css"><a href="#1-引入css" class="headerlink" title="(1)引入css"></a>(1)引入css</h4><ol>
+<li>行间样式，即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>页面级CSS，在head里面引入一个style标签，在里面写css代码。</li>
+<li>引用外部css文件,即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&gt;</span><br></pre></td></tr></table></figure></li>
+<li>link和!import引入的区别<ol>
+<li>Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务;@import属于CSS范畴，只能加载CSS</li>
+<li>link引用CSS时，在页面载入是同时加载; @import需要页面网页完全载入后再加载</li>
+<li>link是XHTML标签，无兼容问题; @import是CSS2.1提出的 ，低版本浏览器不支持</li>
+<li>link使用Javascript控制DOM改变样式，而@import不支持</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>把html,css放在服务器上，浏览器下载一行代码并执行一行代码。属于异步执行，因为计算机的异步和同步相对于我们的理解来说是相反的。</li>
+</ul>
+<hr>
+<h4 id="2-选择器"><a href="#2-选择器" class="headerlink" title="(2)选择器"></a>(2)选择器</h4><ol>
+<li>id选择器一个元素只能有一个id选择器。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>类选择器,一个类选择器可对应对个元素。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li>标签选择器，适用于标签，例如说div a。</li>
+<li>通配符选择器 *{} 选中所有的标签。这个用于初始化标签非常有作用。</li>
+<li>属性选择器 </li>
+</ol>
+<ul>
+<li>选择器的权重（从高-低）<blockquote>
+<p>important（正无穷）-&gt;行间样式（1000）–&gt;id（100）–&gt;class 属性选择器 （10） –&gt;标签选择，伪元素（1） ——&gt;通配符（0）</p>
+</blockquote>
+</li>
+</ul>
+<p>父子选择器： div span{}</p>
+<ul>
+<li><p>特点：不在于一定要使用标签选择器，class id 选择器都可以，只要成立父子关系就可以了。</p>
+</li>
+<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
+</li>
+<li><p>子元素选择器：即符号下的直接向下的选择方式，例如h1&gt;strong{;}</p>
+</li>
+<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
+</li>
+</ul>
+<p>并列选择器：<br>特点：当同时存在相同标签及相同类名时，可通过标签名和类名混合使用达到选中区域的效果。</p>
+<p>权重选择器：<br>特点：只要是同一横行想选择器，权重值为相加，若权重值一样，则后面的代码会覆盖前面的代码。</p>
+<p>分组选择器：<br>特点：例如说div span想设置一样的背景颜色，在减少冗余的角度来看，div span{}这样写css。</p>
+<hr>
+<h4 id="3-CSS基础属性："><a href="#3-CSS基础属性：" class="headerlink" title="(3)CSS基础属性："></a>(3)CSS基础属性：</h4><ol>
+<li>字体大小<br>font-size px; 浏览器默认为16px;<br>font-wight:blod 字体加粗<br>font-style:italic；斜体<br>font-family:arial;互联网上的通用字体<br>color:设置字体颜色. </li>
+<li>纯英文字母</li>
+<li>颜色代码 （00-ff，00-ff,00-ff）分别代表rgb，red green,blue.</li>
+<li>颜色函数，color:rgb(0-255,0-255,0-255)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">border:10px solid(dotted点状，dashed 条状) black;（10px粗细，实线，黑色）</span><br><span class="line">text-align:right;文本向右对齐  text-align: center 文本居中显示</span><br><span class="line">line-height: 20px； 行高。因此让单行文本水平居中的做法就是让行高=容器高度</span><br><span class="line">text-indent:2em(2个font-size)</span><br><span class="line">cursor:(pointer 当光标移动到哪个区域，就会变成另外的符号，<span class="built_in">help</span> ,move, pointer)</span><br><span class="line">伪类选择器 a:hover&#123;&#125; 在元素被光标选中的时候触发各种效果。</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>元素的分类：<br>行级元素 inline</li>
+</ol>
+<ul>
+<li>特征：内容决定元素所占位置，不可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt; &lt;strong&gt; &lt;em&gt; &lt;a&gt; &lt;del&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<p>块级元素 block</p>
+<ul>
+<li>特征：独占一行，可通过css改变宽高<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt;&lt;ol&gt; &lt;form&gt; &lt;address&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>行级块元素 inline-block</p>
+<ul>
+<li>特征：1.内容决定元素所占位置 2.可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img&gt; &lt;input&gt;</span><br></pre></td></tr></table></figure></li>
+<li>凡是带有inline的都显示文字特性，因此会被分割，导致多张图片并排会有空隙产生。</li>
+<li>注意：在开发的时候先写css样式再写html，因为clas是一对多关系的，所以这些属性都能通过组合加上去——先定义后选样式。</li>
+<li>注意：用标签选择器做初始化，因为标签选择器的权重是0，若是用户想自定义修改那么通过增加权重就可以实现。</li>
+</ul>
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/04/26/CSSnote/" data-id="ckbaiqt430008voouhhsv2n5q" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+
+                
+
+</article>
+        
+          <article id="post-HTMLnote" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2019/04/26/HTMLnote/">HTML 学习笔记</a>
+    </h2>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/04/26/HTMLnote/" class="article-date">
+  <time datetime="2019-04-26T04:32:34.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+                            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/front-end/">front-end</a>
+  </div>
+
+                    </div>
+                    
+
+                        
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <!-- ## HTML 学习笔记 -->
+
+<ul>
+<li><p>HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。</p>
+</li>
+<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt; 表示根标签</span><br><span class="line">&lt;head&gt;&lt;body&gt;是结构化标签，&lt;head&gt;是给浏览器看的，&lt;body&gt;是给用户看的。</span><br><span class="line">&lt;titile&gt;表示页面标题 &lt;h&gt;表示标题 &lt;strong&gt;加粗 &lt;em&gt;表示斜体	 &lt;del&gt;表示中划线 &lt;address&gt;表示地址 </span><br><span class="line">容器：&lt;div&gt; &lt;span&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>高级标签：在编辑器里的空格只代表文本分隔符。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&amp;nbsp;代表一个空格</span><br><span class="line">&lt;ol&gt;&lt;ul&gt;常用作网页导航栏</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>ol表示有序列表，在标签内写type=“A”就是以字母表排序，“1”就是以数字排序，start=”2”就是以数字2开始排序</li>
+<li>ul表示无序列表</li>
+<li>通常通过list-style:none 取消掉圆点样式.</li>
+</ol>
+<p>相对路径：当html文和jpg文件在同一文件夹时，此时为相对路径。</p>
+<p>图片占位置和提示符的区别</p>
+<ol>
+<li>alt=”当图片展示不出来的时候，会用文字展示出来，这就是图片占位符”</li>
+<li>title=”图片提示符，当光标移动过去的时候会提示效果”</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">""</span>&gt; hyper Text reference--超文本引用</span><br></pre></td></tr></table></figure>
+<ul>
+<li>href 与src 之间的区别：</li>
+</ul>
+<ol>
+<li>href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。</li>
+<li>src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。</li>
+</ol>
+<hr>
+<p><a>标签的几个作用：①超链接  ，②锚点， ③打电话 ④协议限定符（可运行js代码）target=“blank”就是在新的空白页中打开。 </a></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;标签 能够把前端的数据完全发送给后端</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span>&gt; &lt;input <span class="built_in">type</span>=<span class="string">"password"</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mothod 表示发送的方法</li>
+<li>action  用来填发送给谁的地址</li>
+</ul>
+<p>单选框＆复选框</p>
+<ol>
+<li>当要做一个单选框的时候，input 里面的type=”radio”，请name相同，则只能单选一个</li>
+<li>当需要进行多选的时候，input 里面的type=“checkbox”，则能多选。</li>
+<li>在某些表单中，可以默认选中某些选项来提高用户体验，则可以使用check=”checked” 表示默认已经选中</li>
+</ol>
+<p>创建下拉框</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=<span class="string">"phone"</span>&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;iphone&lt;/option&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;vivo&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/04/26/HTMLnote/" data-id="ckbaiqt4p000pvoouhoa35nft" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a></li></ul>
+
+                                    </footer>
+
+    </div>
+
+    
+
+                
+
+</article>
+        
+          <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/blog/2019/04/25/hello/">hello</a>
+    </h2>
+  
+  
+
+
+
+
+            </header>
+            
+
+                
+                    <div class="article-meta">
+                        <a href="/blog/2019/04/25/hello/" class="article-date">
+  <time datetime="2019-04-25T13:04:39.000Z" itemprop="datePublished">2019-04-25</time>
+</a>
+                            
+                    </div>
+                    
+
+                        
+
+                                    <div class="article-entry" itemprop="articleBody">
+                                        
+
+
+                                            
+
+                                                
+                                                                    <h2 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h2><img src="/blog/2019/04/25/hello/2019/04/25/hello/1.png" class title="这是一个新的博客的图片的说明">
+<!-- ![kyrie irving](1.png) -->
+                                                                        
+                                    </div>
+                                    <footer class="article-footer">
+                                        <a data-url="http://yoursite.com/2019/04/25/hello/" data-id="ckbaiqt4w0013voou1wp721bi" class="article-share-link">
+                                            Share
+                                        </a>
+                                        
+                                    </footer>
+
+    </div>
+
+    
+
+                
+
+</article>
+        
+    </article>
+    
+  
+    
+      <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/blog/page/2/">Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span>
+      </nav>
+    
+  </section>
+</div>
+
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-bar-chart"></i> <span id="busuanzi_value_site_pv"></span></li>
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 欢迎来到何泽丰的博客</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/blog/"><img src="/images/hexo.svg" alt="欢迎来到何泽丰的博客"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/blog/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/blog/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/blog/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/blog/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/blog/js/lazyload.min.js"></script>
+
+
+<script src="/blog/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/blog/js/ocean.js"></script>
+
+
+</body>
+</html>
