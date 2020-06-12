@@ -83,10 +83,10 @@
   <div class='a'>
     
     
-      <p class="title">Volantis</p>
+      <p class="title">Feng's blog</p>
     
     
-      <p class="subtitle">A Wonderful Theme for Hexo</p>
+      <p class="subtitle">Be brave, or you will lose forever.</p>
     
   </div>
   <div class='b'>
@@ -104,55 +104,55 @@
           
             <li>
               <a class="nav home"
-                href="https://volantis.js.org/getting-started/"
+                href="https://fengzehe.github.io/blog/"
                 
                 
-                id="https:volantisjsorggetting-started">
+                id="https:fengzehegithubioblog">
                 <i class='fas fa-book fa-fw'></i>文档
               </a>
             </li>
           
             <li>
               <a class="nav home"
-                href="https://volantis.js.org/archives/"
+                href="https://fengzehe.github.io/blog/archives/"
                 
                 
-                id="https:volantisjsorgarchives">
-                <i class='fas fa-rss fa-fw'></i>博文
+                id="https:fengzehegithubioblogarchives">
+                <i class='fas fa-rss fa-fw'></i>归档
               </a>
             </li>
           
             <li>
               <a class="nav home"
-                href="https://volantis.js.org/examples/"
+                href="https://fengzehe.github.io/blog/categories/demo/"
                 
                 
-                id="https:volantisjsorgexamples">
-                <i class='fas fa-play-circle fa-fw'></i>示例
+                id="https:fengzehegithubioblogcategoriesdemo">
+                <i class='fas fa-play-circle fa-fw'></i>实战
               </a>
             </li>
           
             <li>
               <a class="nav home"
-                href="https://github.com/xaoxuu/hexo-theme-volantis/"
+                href="https://github.com/FengZeHe"
                 
                   rel="external nofollow noopener noreferrer"
                 
                 
                   target="_blank"
                 
-                id="https:githubcomxaoxuuhexo-theme-volantis">
+                id="https:githubcomFengZeHe">
                 <i class='fas fa-file-code fa-fw'></i>源码
               </a>
             </li>
           
             <li>
               <a class="nav home"
-                href="https://volantis.js.org/contributors/"
+                href="https://fengzehe.github.io/blog/about/"
                 
                 
-                id="https:volantisjsorgcontributors">
-                <i class='fas fa-handshake fa-fw'></i>鸣谢
+                id="https:fengzehegithubioblogabout">
+                <i class='fas fa-handshake fa-fw'></i>关于
               </a>
             </li>
           
@@ -265,22 +265,6 @@
             
             
               <li>
-                <a class="flat-box" href=/blog/friends/
-                  
-                  
-                  
-                    id="blogfriends"
-                  >
-                  <i class='fas fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
                 <a class="flat-box" href=/blog/about/
                   
                   
@@ -370,22 +354,6 @@
                     id="blogarchives"
                   >
                   <i class='fas fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="flat-box" href=/blog/friends/
-                  
-                  
-                  
-                    id="blogfriends"
-                  >
-                  <i class='fas fa-link fa-fw'></i>友链
                 </a>
                 
               </li>
@@ -509,9 +477,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -568,27 +536,15 @@
 <li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li>
 <li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li>
 </ol>
-<p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p>
-<h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol>
-<li>两个场景： unsettled (未决)  settled (已决)</li>
-<li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/FengZeHe/2020/02/27/es6-async/scene.png" alt></li>
-</ol>
-<h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示<br><img src="/blog/FengZeHe/2020/02/27/es6-async/image.png" alt></p>
-<h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/FengZeHe/2020/02/27/es6-async/catchable.png" alt></p>
-<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol>
-<li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li>
-<li>以下代码可以让任务达到rejected 状态<ol>
-<li>调用reject</li>
-<li>代码执行报错</li>
-<li>抛出错误</li>
-</ol>
-</li>
-<li>后续处理函数一定是异步函数，并且放在微队列中</li>
-</ol>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2020/02/27/es6-async/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -625,9 +581,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -768,9 +724,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -885,9 +841,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1059,9 +1015,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1144,9 +1100,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1282,9 +1238,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1479,9 +1435,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1564,9 +1520,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1756,9 +1712,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -1834,7 +1790,7 @@
         
           <a class="next" rel="next" href="/blog/page/2/">
             <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -1885,7 +1841,7 @@
           
         
           
-            <a href="mailto:me@xaoxuu.com"
+            <a href="mailto:316692151@qq.com"
               class="social fas fa-envelope flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -1893,16 +1849,8 @@
           
         
           
-            <a href="https://github.com/xaoxuu"
+            <a href="https://github.com/FengZeHe"
               class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
             </a>
@@ -2023,7 +1971,7 @@
             
           
             
-              <a href="mailto:me@xaoxuu.com"
+              <a href="mailto:316692151@qq.com"
                 class="social fas fa-envelope flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
@@ -2031,16 +1979,8 @@
             
           
             
-              <a href="https://github.com/xaoxuu"
+              <a href="https://github.com/FengZeHe"
                 class="social fab fa-github flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
-              </a>
-            
-          
-            
-              <a href="https://music.163.com/#/user/home?id=63035382"
-                class="social fas fa-headphones-alt flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
               </a>
@@ -2050,14 +1990,14 @@
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
         本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作为主题，总访问量为
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
           次
         
@@ -2065,7 +2005,7 @@
     
       
         <div class='copyright'>
-        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+        <p><a href="https://github.com/FengZeHe">Copyright © 2020 Feng</a></p>
 
         </div>
       

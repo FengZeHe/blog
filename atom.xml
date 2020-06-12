@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://github.com/FengZeHe/"/>
-  <updated>2020-06-12T01:45:48.000Z</updated>
+  <updated>2020-06-12T03:22:03.000Z</updated>
   <id>https://github.com/FengZeHe/</id>
   
   <author>
@@ -21,18 +21,18 @@
     <link href="https://github.com/FengZeHe/2020/02/27/es6-async/"/>
     <id>https://github.com/FengZeHe/2020/02/27/es6-async/</id>
     <published>2020-02-26T23:50:33.000Z</published>
-    <updated>2020-06-12T01:45:48.000Z</updated>
+    <updated>2020-06-12T03:22:03.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p><ol><li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li><li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li><li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li></ol><p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p><h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol><li>两个场景： unsettled (未决)  settled (已决)</li><li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/FengZeHe/2020/02/27/es6-async/scene.png" alt></li></ol><h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示<br><img src="/blog/FengZeHe/2020/02/27/es6-async/image.png" alt></p><h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/FengZeHe/2020/02/27/es6-async/catchable.png" alt></p><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol><li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li><li>以下代码可以让任务达到rejected 状态<ol><li>调用reject</li><li>代码执行报错</li><li>抛出错误</li></ol></li><li>后续处理函数一定是异步函数，并且放在微队列中</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p><ol><li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li><li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li><li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li></ol><a id="more"></a><p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p><h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol><li>两个场景： unsettled (未决)  settled (已决)</li><li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/FengZeHe/2020/02/27/es6-async/scene.png" alt></li></ol><h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示<br><img src="/blog/FengZeHe/2020/02/27/es6-async/image.png" alt></p><h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/FengZeHe/2020/02/27/es6-async/catchable.png" alt></p><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol><li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li><li>以下代码可以让任务达到rejected 状态<ol><li>调用reject</li><li>代码执行报错</li><li>抛出错误</li></ol></li><li>后续处理函数一定是异步函数，并且放在微队列中</li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）&lt;br&gt;例如说：&lt;/p&gt;
+      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）&lt;br&gt;例如说：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;使用ajax请求服
-      
+&lt;li&gt;使用ajax请求服务器，当服务器完成响应后拿到响应结果&lt;/li&gt;
+&lt;li&gt;监听按钮是否被点击，当按钮点击后拿到某个文本框的值&lt;/li&gt;
+&lt;li&gt;使用setTimeout 等待一段时间，当时间到达后做某些事情&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     

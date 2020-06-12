@@ -21,6 +21,13 @@
     <meta name="keywords" content="前端技术">
   
   
+    <meta name="description" content="背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+">
+  
 
   <!-- feed -->
   
@@ -172,22 +179,6 @@
             
             
               <li>
-                <a class="flat-box" href=/blog/friends/
-                  
-                  
-                  
-                    id="blogfriends"
-                  >
-                  <i class='fas fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
                 <a class="flat-box" href=/blog/about/
                   
                   
@@ -286,22 +277,6 @@
               
             
               <li>
-                <a class="flat-box" href=/blog/friends/
-                  
-                  
-                  
-                    id="blogfriends"
-                  >
-                  <i class='fas fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
                 <a class="flat-box" href=/blog/about/
                   
                   
@@ -361,9 +336,9 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+  <a href="https://github.com/FengZeHe" rel="nofollow">
     <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
-    <p>Mr. X</p>
+    <p>何泽丰</p>
   </a>
 </div>
 
@@ -415,6 +390,8 @@
 <li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li>
 <li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li>
 </ol>
+<a id="more"></a>
+
 <p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p>
 <h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol>
 <li>两个场景： unsettled (未决)  settled (已决)</li>
@@ -519,7 +496,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T11:22:03+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 12, 2020</p>
@@ -549,7 +526,12 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary=背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+"
           
           >
           
@@ -561,7 +543,12 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary=背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+"
           
           >
           
@@ -573,7 +560,12 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://github.com/FengZeHe/2020/02/27/es6-async/&title=ES6异步的解决方案 - 何泽丰的博客&summary=背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个文本框的值
+使用setTimeout 等待一段时间，当时间到达后做某些事情
+"
           
           >
           
@@ -723,7 +715,7 @@
             
           
             
-              <a href="mailto:me@xaoxuu.com"
+              <a href="mailto:316692151@qq.com"
                 class="social fas fa-envelope flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
@@ -731,16 +723,8 @@
             
           
             
-              <a href="https://github.com/xaoxuu"
+              <a href="https://github.com/FengZeHe"
                 class="social fab fa-github flat-btn"
-                target="_blank"
-                rel="external nofollow noopener noreferrer">
-              </a>
-            
-          
-            
-              <a href="https://music.163.com/#/user/home?id=63035382"
-                class="social fas fa-headphones-alt flat-btn"
                 target="_blank"
                 rel="external nofollow noopener noreferrer">
               </a>
@@ -750,14 +734,14 @@
       
     
       
-        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
         本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作为主题，总访问量为
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
           次
         
@@ -765,7 +749,7 @@
     
       
         <div class='copyright'>
-        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+        <p><a href="https://github.com/FengZeHe">Copyright © 2020 Feng</a></p>
 
         </div>
       
