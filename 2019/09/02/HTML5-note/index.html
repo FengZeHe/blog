@@ -18,20 +18,20 @@
 <meta property="og:url" content="https://github.com/FengZeHe/2019/09/02/HTML5-note/index.html">
 <meta property="og:site_name" content="何泽丰的博客">
 <meta property="og:description" content="HTML5学习笔记Canvas 画布Canvas应用场景： 游戏 图表 动画 condepen.io（HTML5动效）  Canvas 发展史 最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas  如何使用canvas添加canvas标签1234567&lt;canvas width &#x3D; 500 height &#x3D; 500&gt;&lt;&#x2F;">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/cookieAndSess.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/worker.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/geolocation1.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/geolocation2.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/readyState.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/networkState.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/error_medio.png">
-<meta property="og:image" content="https://github.com/blog/2019/09/02/HTML5-note/webSocket.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/cookieAndSess.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/worker.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/geolocation1.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/geolocation2.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/readyState.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/networkState.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/error_medio.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/webSocket.png">
 <meta property="article:published_time" content="2019-09-02T01:03:25.000Z">
 <meta property="article:modified_time" content="2020-01-17T02:46:37.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/blog/2019/09/02/HTML5-note/cookieAndSess.png">
+<meta name="twitter:image" content="https://github.com/blog/FengZeHe/2019/09/02/HTML5-note/cookieAndSess.png">
 
   <meta name="keywords" content=",前端技术">
   <meta name="format-detection" content="telephone=no,email=no">
@@ -147,8 +147,6 @@
 
   <div class="mdui-list" mdui-collapse="{accordion: true}">
     
-      <a href="/blog/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
-    
       <a href="/blog/gallery" class="mdui-list-item mdui-ripple">画廊</a>
     
     <div class="mdui-collapse-item">
@@ -172,7 +170,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-15.png" style="max-height: 240px;">
+      <img src="/images/random/material-18.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">HTML5学习笔记</div>
@@ -319,7 +317,7 @@
 <li>navigator.cookieEnable  监测是否开启了cookie</li>
 </ol>
 <h6 id="设置cookie值"><a href="#设置cookie值" class="headerlink" title="设置cookie值"></a>设置cookie值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getCookie(name) &#123;</span><br><span class="line">  var name &#x3D; name + &quot;&#x3D;&quot;;</span><br><span class="line">  var ca &#x3D; document.cookie.split(&#39;;&#39;);</span><br><span class="line">  for(var i&#x3D;0; i&lt;ca.length; i++) &#123;</span><br><span class="line">  var c &#x3D; ca[i];</span><br><span class="line">  while (c.charAt(0)&#x3D;&#x3D;&#39; &#39;) c &#x3D; c.substring(1);</span><br><span class="line">  if (c.indexOf(name) !&#x3D; -1) return c.substring(name.length, c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="/blog/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
+<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
 <h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><ol>
 <li>history.back();</li>
 <li>history.forward();</li>
@@ -328,7 +326,7 @@
 <h5 id="通过修改hash和hashchange事件来实现历史纪录管理"><a href="#通过修改hash和hashchange事件来实现历史纪录管理" class="headerlink" title="通过修改hash和hashchange事件来实现历史纪录管理"></a>通过修改hash和hashchange事件来实现历史纪录管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1、pushState</span><br><span class="line">history.pushState(state, title, url); &#x2F;&#x2F;添加一条历史记录</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2、replaceState</span><br><span class="line">history.replaceState(state, title, url);&#x2F;&#x2F; 替换当前的历史记录</span><br></pre></td></tr></table></figure>
 
 <h4 id="worker-异步操作的api"><a href="#worker-异步操作的api" class="headerlink" title="worker(异步操作的api)"></a>worker(异步操作的api)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var worker &#x3D; new Worker(&#39;workder.js&#39;)</span><br><span class="line">&#x2F;&#x2F;https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;html5&#x2F;html_5_webworkers.asp</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/2019/09/02/HTML5-note/worker.png" alt></p>
+<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/worker.png" alt></p>
 <h4 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h4><ol>
 <li>getCurrentPosition()     //获取当前的位置信息<ol>
 <li>getCurrentPosition(s,e,p)</li>
@@ -341,7 +339,7 @@
 <li>clearWatch()  //清除位置监视</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.geolocation.getCurrentPosition(suc)</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="/blog/2019/09/02/HTML5-note/geolocation2.png" alt></p>
+<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/geolocation2.png" alt></p>
 <h4 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h4><ol>
 <li>用户拒绝code = 1;</li>
 <li>获取不到 code = 2;</li>
@@ -399,7 +397,7 @@
 <li>loadedmetadata 浏览器获取完媒体的元数据触发</li>
 <li>loadedata 浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8</li>
 <li>ended 当前播放结束后触发<blockquote>
-<p>readyState属性音频的当前就绪状态<br><img src="/blog/2019/09/02/HTML5-note/readyState.png" alt><br><img src="/blog/2019/09/02/HTML5-note/networkState.png" alt><br><img src="/blog/2019/09/02/HTML5-note/error_medio.png" alt></p>
+<p>readyState属性音频的当前就绪状态<br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/readyState.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/networkState.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/error_medio.png" alt></p>
 </blockquote>
 </li>
 </ol>
@@ -458,7 +456,7 @@
 
 
 <h5 id="webSocket方法"><a href="#webSocket方法" class="headerlink" title="webSocket方法"></a>webSocket方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket.send() 方法使用连接传输数据</span><br><span class="line">socket.close()  方法用于终止任何现有连接</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/2019/09/02/HTML5-note/webSocket.png" alt></p>
+<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/webSocket.png" alt></p>
 <h5 id="webSocket的优点"><a href="#webSocket的优点" class="headerlink" title="webSocket的优点"></a>webSocket的优点</h5><ol>
 <li>客户端与服务器都可以主动传递数据给对方</li>
 <li>不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源</li>

@@ -18,13 +18,13 @@
 <meta property="og:url" content="https://github.com/FengZeHe/2020/02/23/ES6-modular/index.html">
 <meta property="og:site_name" content="何泽丰的博客">
 <meta property="og:description" content="ES6的模块化模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件模块化背景过去js很难编写大型应用，因为有以下两个问题：  全局变量污染 难以管理的依赖关系这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致更多的全局污染更加负载的依赖关系，因为功能精细的划分有利于代码重用  前端的模块化有两个标准： Co">
-<meta property="og:image" content="https://github.com/blog/2020/02/23/ES6-modular/image.png">
+<meta property="og:image" content="https://github.com/blog/FengZeHe/2020/02/23/ES6-modular/image.png">
 <meta property="article:published_time" content="2020-02-23T13:20:35.000Z">
 <meta property="article:modified_time" content="2020-02-23T13:37:30.000Z">
 <meta property="article:author" content="何泽丰">
 <meta property="article:tag" content="前端技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/blog/2020/02/23/ES6-modular/image.png">
+<meta name="twitter:image" content="https://github.com/blog/FengZeHe/2020/02/23/ES6-modular/image.png">
 
   <meta name="keywords" content=",前端技术">
   <meta name="format-detection" content="telephone=no,email=no">
@@ -140,8 +140,6 @@
 
   <div class="mdui-list" mdui-collapse="{accordion: true}">
     
-      <a href="/blog/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
-    
       <a href="/blog/gallery" class="mdui-list-item mdui-ripple">画廊</a>
     
     <div class="mdui-collapse-item">
@@ -165,7 +163,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-17.png" style="max-height: 240px;">
+      <img src="/images/random/material-9.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">ES6模块化</div>
@@ -236,7 +234,7 @@
 <li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
 </li>
 </ol>
-<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/2020/02/23/ES6-modular/image.png" alt></p>
+<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/FengZeHe/2020/02/23/ES6-modular/image.png" alt></p>
 <p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
