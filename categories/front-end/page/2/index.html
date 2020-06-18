@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Category: front-end - 何泽丰的博客</title>
+    <title>分类：front-end - 何泽丰的博客</title>
   
   
 
@@ -308,13 +308,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>395 words</p>
+      <p>字数：395字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -341,39 +341,15 @@
         <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
 <p>form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。</p>
 </blockquote>
-<h6 id="封装Ajax的具体参数"><a href="#封装Ajax的具体参数" class="headerlink" title="封装Ajax的具体参数"></a>封装Ajax的具体参数</h6><ol>
-<li>Mothod : GET POST等。</li>
-<li>action : address;</li>
-<li>enctype : 固定在发送表单数据之前如何对其进行编码，application /x -www-form -urlencoded<br>在发送前编码所有的字符（默认）。</li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multipart &#x2F; form-data (&lt;input type &#x3D;&#39; file &#39;&gt;)</span><br></pre></td></tr></table></figure>
-不对字符编码，在使用包含文件上擦黄空间的表单时，必须使用该值。</li>
-</ol>
-<blockquote>
-<p>因为IE中并没有xmlHttpRequest() 这种方法， 所以要使用  new ActiveXObject(‘Microsoft.XMLHttp’)</p>
-</blockquote>
-<h6 id="如何封装一个自己的Ajax"><a href="#如何封装一个自己的Ajax" class="headerlink" title="如何封装一个自己的Ajax"></a>如何封装一个自己的Ajax</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var xhr &#x3D; null;</span><br><span class="line">    if(window.XMLHttpRequest) &#123;</span><br><span class="line">        xhr &#x3D;  new XMLHttpRequest();    &#x2F;&#x2F;判断是否为主流浏览器</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        xhr &#x3D; new ActiveXObject(&#39;Microsoft.XMLHttp&#39;)    &#x2F;&#x2F;IE浏览器</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="Ajax的几种状态"><a href="#Ajax的几种状态" class="headerlink" title="Ajax的几种状态"></a>Ajax的几种状态</h6><ol>
-<li>ajax.open (method , url ,true);</li>
-<li>ajax.send();</li>
-<li>onreadystatechage 4     // ajax状态每次变化都会触发 </li>
-</ol>
-<ul>
-<li>0 = 未初始化，未调用send（） 方法</li>
-<li>1= 读取中，已调用send () 发送请求</li>
-<li>2 = 已读取  ,send 方法执行完成，接收到全部相应内容</li>
-<li>3 = 交互中， 正在解析响应内容</li>
-<li>4 = 完成 ，响应内容解析完成   //只关系这个过程</li>
-<li>status == 200 403 503   </li>
-<li>200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。</li>
-</ul>
-<h5 id="Ajax支持的数据类型："><a href="#Ajax支持的数据类型：" class="headerlink" title="Ajax支持的数据类型："></a>Ajax支持的数据类型：</h5><blockquote>
-<p>dataType选项除了单纯的xml,还可以指定html,json,jsonp,script 或者 text</p>
-</blockquote>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2019/05/07/Ajax-note/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -446,13 +422,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.3k words</p>
+      <p>字数：1.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>4 min</p>
+      <p>时长：4分钟</p>
     </a>
   </div>
 
@@ -479,89 +455,15 @@
         <h4 id="简单HTTP协议："><a href="#简单HTTP协议：" class="headerlink" title="简单HTTP协议："></a>简单HTTP协议：</h4><blockquote>
 <p>HTTP协议用于客户端和服务器端之间的通信。</p>
 </blockquote>
-<p>告知服务器意图的各种HTTP方法：</p>
-<ol>
-<li><p>GET：获取资源</p>
-</li>
-<li><p>POST：用来传输实体的主体，post的主要目的并不是获取响应的主体内容</p>
-</li>
-<li><p>PUT：传输文件，跟FTPyiyang ,但PUT方法自身不带验证机制，因此存在安全性问题而不被使用。</p>
-</li>
-<li><p>HEAD：获得报文首部，用于确认URI的有效性及资源更新的日期时间。</p>
-</li>
-<li><p>ELETE: 删除文件，跟put相反的方法，DELETE方法按请求URI删除指定的资源</p>
-</li>
-<li><p>OPTIONS：询问支持的方法</p>
-</li>
-<li><p>TRACE:追踪路径 </p>
-</li>
-<li><p>OPTIONS：询问支持的方法</p>
-</li>
-<li><p>TRACE : 追踪路径，但容易受到跨站追踪的工资，因此很少使用。</p>
-</li>
-<li><p>CONNECT: 要求用隧道协议连接</p>
-</li>
-</ol>
-<ul>
-<li>持久连接：只要任意一方没有明确提出断开连接，则保持TCP连接状态。<blockquote>
-<p>优点：持久连接的好处在于减少了建立和断开所造成的额外开销，减轻了服务器端的负载。因此Web页面现在是速度也就相应提高了。只要任意一端没有明确提出断开连接，则保持TCP连接状态。这样的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减少了服务器端的负载。另外，减少开销的那部分时间，使HTTP请求和相应能更早的结束，这样Web页面显示的速度也相应提高了。HTTP1.1具有持久连接。</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>HTTP是不保存状态的协议，因此引出了Cookie。</p>
-</blockquote>
-<ul>
-<li>Cookie的状态连接：<blockquote>
-<p>HTTP是无状态协议，可以减少服务器的CPU以及内存资源的消耗，而缺点在于每次跳转新页面都要再次登录或者再请求报文中附加参数来管理登录状态。Cookie会根据从服务器端发送的相应报文内的一个Set-cookie的首部字段信息，通知客户端保存Cookie。当下午客户端再向该服务器发送请求时，客户端会自动在请求报文中加入Cookie值后发送出去。</p>
-</blockquote>
-</li>
-</ul>
-<p>HTTP报文的HTTP信息：</p>
-<ul>
-<li><p>HTTP报文：请求端（客户端）的HTTP报文称为请求报文，响应端（服务器端）的叫做响应报文。</p>
-</li>
-<li><p>报文主体和实体主体的差异：</p>
-</li>
-</ul>
-<ol>
-<li>报文是HTTP通信中的基本单位，由8位组字节流组，通过HTTP通信传输。</li>
-<li>实体：作为请求或响应的有效负载数据（补充项）被传输，其内容由实体首部和实体主体组成。</li>
-</ol>
-<ul>
-<li>返回结果的HTTP状态码：<blockquote>
-<p>1XX：信息性状态码，接受的请求正在处理</p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>2XX：状态成功码，请求正常处理完毕<br>200 ok<br>204 No Content 代表服务器接受的请求已成功处理，但在返回的响应报文中不含实体的主体部分。</p>
-</blockquote>
-<blockquote>
-<p>3XX：重定向状态码，需要进行附加操作以完成请求<br>301 Moved Permanently 永久性重定向，说明请求的资源已经被分配了新的URI。<br>302 Found 临时重定向。该状态码表示请求资源已经被分配了新的URI，希望用户（本次）使用新的URI访问。<br>303 See Other 表示由于请求对应的资源存在另外一个URI，应使用GET方法定向获取请求的资源。<br>304 Not Modified 表示客户端发送附带条件的请求，服务器允许请求访问资源，但未满足条件的情况，304状态码返回。<br>307 Temporary Redirect 临时重定向。与302有相同的含义。</p>
-</blockquote>
-<blockquote>
-<p>4XX：客户端错误状态码，服务器无法处理请求<br>400 Bad Request 表示报文中存在语法错误<br>401 Unauthorized 该状态码表示发送的请求需要通过有HTTP认证（BASIC认证，DIGEST认证）的认证信息<br>403 Forbidden  表明请求资源的访问被服务器拒绝了。<br>404 Not Found 表明服务器上无法找到请求的资源。</p>
-</blockquote>
-<blockquote>
-<p>5XX：服务器错误状态码，服务器处理请求出错<br>500 Internal Server Error 表明服务器端在执行请求时发生了错误，也可能是Web应用存在的bug或某些临时的故障。<br>503 Server Unavailable 表明服务器处于超负载或者正在进行停机维护。</p>
-</blockquote>
-<p>与HTTP协作的Web服务器</p>
-<ul>
-<li>在互联网中，域名听过DNS服务映射到IP地址（域名解析）之后访问目标网站，可见，当请求发送到服务器时已经是以IP地址形式的访问了。</li>
-</ul>
-<p>通信数据转发程序：代理，网关，隧道</p>
-<ol>
-<li>代理——扮演者客户端和服务器的中间人角色，接受客户端发送的请求并转发给服务器，同时也接受服务器返回的响应并转发给客户端。</li>
-<li>网关是转发其他服务器通信数据的服务器，接受从客户端发送过来的请求，它就会像自由拥有资源的源服务器一样对请求进行处理。</li>
-</ol>
-<ul>
-<li>缓存服务器：优势在于利用缓存可避免对此从源服务器转发资源。</li>
-</ul>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2019/04/27/network-note/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -634,13 +536,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.1k words</p>
+      <p>字数：1.1k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>4 min</p>
+      <p>时长：4分钟</p>
     </a>
   </div>
 
@@ -664,86 +566,17 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CSS-cascading-style-sheet-层叠样式表"><a href="#CSS-cascading-style-sheet-层叠样式表" class="headerlink" title="CSS (cascading style sheet 层叠样式表)"></a>CSS (cascading style sheet 层叠样式表)</h2><h4 id="1-引入css"><a href="#1-引入css" class="headerlink" title="(1)引入css"></a>(1)引入css</h4><ol>
-<li>行间样式，即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-<li>页面级CSS，在head里面引入一个style标签，在里面写css代码。</li>
-<li>引用外部css文件,即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&gt;</span><br></pre></td></tr></table></figure></li>
-<li>link和!import引入的区别<ol>
-<li>Link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务;@import属于CSS范畴，只能加载CSS</li>
-<li>link引用CSS时，在页面载入是同时加载; @import需要页面网页完全载入后再加载</li>
-<li>link是XHTML标签，无兼容问题; @import是CSS2.1提出的 ，低版本浏览器不支持</li>
-<li>link使用Javascript控制DOM改变样式，而@import不支持</li>
-</ol>
-</li>
-</ol>
-<ul>
-<li>把html,css放在服务器上，浏览器下载一行代码并执行一行代码。属于异步执行，因为计算机的异步和同步相对于我们的理解来说是相反的。</li>
-</ul>
-<hr>
-<h4 id="2-选择器"><a href="#2-选择器" class="headerlink" title="(2)选择器"></a>(2)选择器</h4><ol>
-<li>id选择器一个元素只能有一个id选择器。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-<li>类选择器,一个类选择器可对应对个元素。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-<li>标签选择器，适用于标签，例如说div a。</li>
-<li>通配符选择器 *{} 选中所有的标签。这个用于初始化标签非常有作用。</li>
-<li>属性选择器 </li>
-</ol>
-<ul>
-<li>选择器的权重（从高-低）<blockquote>
-<p>important（正无穷）-&gt;行间样式（1000）–&gt;id（100）–&gt;class 属性选择器 （10） –&gt;标签选择，伪元素（1） ——&gt;通配符（0）</p>
-</blockquote>
-</li>
-</ul>
-<p>父子选择器： div span{}</p>
-<ul>
-<li><p>特点：不在于一定要使用标签选择器，class id 选择器都可以，只要成立父子关系就可以了。</p>
-</li>
-<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
-</li>
-<li><p>子元素选择器：即符号下的直接向下的选择方式，例如h1&gt;strong{;}</p>
-</li>
-<li><p>注意：浏览器定义父子选择器的顺序为从右到左，因为这样速度更快。</p>
-</li>
-</ul>
-<p>并列选择器：<br>特点：当同时存在相同标签及相同类名时，可通过标签名和类名混合使用达到选中区域的效果。</p>
-<p>权重选择器：<br>特点：只要是同一横行想选择器，权重值为相加，若权重值一样，则后面的代码会覆盖前面的代码。</p>
-<p>分组选择器：<br>特点：例如说div span想设置一样的背景颜色，在减少冗余的角度来看，div span{}这样写css。</p>
-<hr>
-<h4 id="3-CSS基础属性："><a href="#3-CSS基础属性：" class="headerlink" title="(3)CSS基础属性："></a>(3)CSS基础属性：</h4><ol>
-<li>字体大小<br>font-size px; 浏览器默认为16px;<br>font-wight:blod 字体加粗<br>font-style:italic；斜体<br>font-family:arial;互联网上的通用字体<br>color:设置字体颜色. </li>
-<li>纯英文字母</li>
-<li>颜色代码 （00-ff，00-ff,00-ff）分别代表rgb，red green,blue.</li>
-<li>颜色函数，color:rgb(0-255,0-255,0-255)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">border:10px solid(dotted点状，dashed 条状) black;（10px粗细，实线，黑色）</span><br><span class="line">text-align:right;文本向右对齐  text-align: center 文本居中显示</span><br><span class="line">line-height: 20px； 行高。因此让单行文本水平居中的做法就是让行高=容器高度</span><br><span class="line">text-indent:2em(2个font-size)</span><br><span class="line">cursor:(pointer 当光标移动到哪个区域，就会变成另外的符号，<span class="built_in">help</span> ,move, pointer)</span><br><span class="line">伪类选择器 a:hover&#123;&#125; 在元素被光标选中的时候触发各种效果。</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>元素的分类：<br>行级元素 inline</li>
-</ol>
-<ul>
-<li>特征：内容决定元素所占位置，不可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt; &lt;strong&gt; &lt;em&gt; &lt;a&gt; &lt;del&gt;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<p>块级元素 block</p>
-<ul>
-<li>特征：独占一行，可通过css改变宽高<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt; &lt;p&gt; &lt;ul&gt;&lt;li&gt;&lt;ol&gt; &lt;form&gt; &lt;address&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>行级块元素 inline-block</p>
-<ul>
-<li>特征：1.内容决定元素所占位置 2.可以通过css改变宽高。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img&gt; &lt;input&gt;</span><br></pre></td></tr></table></figure></li>
-<li>凡是带有inline的都显示文字特性，因此会被分割，导致多张图片并排会有空隙产生。</li>
-<li>注意：在开发的时候先写css样式再写html，因为clas是一对多关系的，所以这些属性都能通过组合加上去——先定义后选样式。</li>
-<li>注意：用标签选择器做初始化，因为标签选择器的权重是0，若是用户想自定义修改那么通过增加权重就可以实现。</li>
-</ul>
-
+        <h2 id="CSS-cascading-style-sheet-层叠样式表"><a href="#CSS-cascading-style-sheet-层叠样式表" class="headerlink" title="CSS (cascading style sheet 层叠样式表)"></a>CSS (cascading style sheet 层叠样式表)</h2><h4 id="引入css"><a href="#引入css" class="headerlink" title="引入css"></a>引入css</h4><ol>
+<li>行间样式，即<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">""</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li></ol>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2019/04/26/CSSnote/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -816,13 +649,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>694 words</p>
+      <p>字数：694字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>2 min</p>
+      <p>时长：2分钟</p>
     </a>
   </div>
 
@@ -851,57 +684,16 @@
 <ul>
 <li><p>HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。</p>
 </li>
-<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt; 表示根标签</span><br><span class="line">&lt;head&gt;&lt;body&gt;是结构化标签，&lt;head&gt;是给浏览器看的，&lt;body&gt;是给用户看的。</span><br><span class="line">&lt;titile&gt;表示页面标题 &lt;h&gt;表示标题 &lt;strong&gt;加粗 &lt;em&gt;表示斜体	 &lt;del&gt;表示中划线 &lt;address&gt;表示地址 </span><br><span class="line">容器：&lt;div&gt; &lt;span&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>高级标签：在编辑器里的空格只代表文本分隔符。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&amp;nbsp;代表一个空格</span><br><span class="line">&lt;ol&gt;&lt;ul&gt;常用作网页导航栏</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol>
-<li>ol表示有序列表，在标签内写type=“A”就是以字母表排序，“1”就是以数字排序，start=”2”就是以数字2开始排序</li>
-<li>ul表示无序列表</li>
-<li>通常通过list-style:none 取消掉圆点样式.</li>
-</ol>
-<p>相对路径：当html文和jpg文件在同一文件夹时，此时为相对路径。</p>
-<p>图片占位置和提示符的区别</p>
-<ol>
-<li>alt=”当图片展示不出来的时候，会用文字展示出来，这就是图片占位符”</li>
-<li>title=”图片提示符，当光标移动过去的时候会提示效果”</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">""</span>&gt; hyper Text reference--超文本引用</span><br></pre></td></tr></table></figure>
-<ul>
-<li>href 与src 之间的区别：</li>
-</ul>
-<ol>
-<li>href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系。</li>
-<li>src表示引用资源，表示替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。</li>
-</ol>
-<hr>
-<p><a>标签的几个作用：①超链接  ，②锚点， ③打电话 ④协议限定符（可运行js代码）target=“blank”就是在新的空白页中打开。 </a></p>
-<hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;标签 能够把前端的数据完全发送给后端</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span>&gt; &lt;input <span class="built_in">type</span>=<span class="string">"password"</span>&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>mothod 表示发送的方法</li>
-<li>action  用来填发送给谁的地址</li>
-</ul>
-<p>单选框＆复选框</p>
-<ol>
-<li>当要做一个单选框的时候，input 里面的type=”radio”，请name相同，则只能单选一个</li>
-<li>当需要进行多选的时候，input 里面的type=“checkbox”，则能多选。</li>
-<li>在某些表单中，可以默认选中某些选项来提高用户体验，则可以使用check=”checked” 表示默认已经选中</li>
-</ol>
-<p>创建下拉框</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=<span class="string">"phone"</span>&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;iphone&lt;/option&gt;</span><br><span class="line">&lt;option value=<span class="string">"数据值"</span>&gt;vivo&lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p></li></ul>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2019/04/26/HTMLnote/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -919,7 +711,7 @@
         
           <a class="prev" rel="prev" href="/blog/categories/front-end/">
             <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous&nbsp;
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
             </section>
           </a>
         
@@ -1126,16 +918,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

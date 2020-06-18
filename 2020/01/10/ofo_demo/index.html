@@ -21,6 +21,15 @@
     <meta name="keywords" content="前端技术,微信小程序">
   
   
+    <meta name="description" content="
+实现的效果
+
+
+
+
+     
+">
+  
 
   <!-- feed -->
   
@@ -325,7 +334,7 @@
 
 
 
-
+<a id="more"></a>
 <p>实现功能简介：</p>
 <ol>
 <li>扫码骑车记时功能</li>
@@ -337,7 +346,7 @@
 <li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
 <li>回到当前定位功能直接调用this.movetoCenter()函数</li>
 <li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
-<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/FengZeHe/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
+<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/blog/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
 <li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
 </ol>
 </li>
@@ -445,10 +454,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:16:15+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -475,7 +484,14 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+"
           
           >
           
@@ -487,7 +503,14 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+"
           
           >
           
@@ -499,7 +522,14 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/01/10/ofo_demo/&title=如何实现一个简单的ofo微信小程序 - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+"
           
           >
           
@@ -523,9 +553,22 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blog/2020/02/12/vue-demo/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>vue_demo</p>
-                <p class='content'></p>
+              <a class='prev' href='/blog/2020/02/12/vue-demo-1/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>实现一个简单的VUE</p>
+                <p class='content'>
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式
+
+
+思路1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xx...</p>
               </a>
             
             
@@ -534,9 +577,7 @@
                 <p class='content'>Spring学习笔记框架的概念：
 高度抽取可重用代码的设计
 高度的通用性
-
 Spring的特点:优良特性：
-
 非侵入式
 依赖注入
 面向切面编程
@@ -545,7 +586,7 @@ Spring的特点:优良特性：
 一站式
 
 
-Core Contain...</p>
+Core Container...</p>
               </a>
             
           </div>
@@ -673,16 +714,16 @@ Core Contain...</p>
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

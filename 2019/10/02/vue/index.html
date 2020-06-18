@@ -21,6 +21,8 @@
     <meta name="keywords" content="前端技术">
   
   
+    <meta name="description" content="vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。">
+  
 
   <!-- feed -->
   
@@ -313,7 +315,8 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre><h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
+          <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre><a id="more"></a>
+<h3 id="vue的特点："><a href="#vue的特点：" class="headerlink" title="vue的特点："></a>vue的特点：</h3><ol>
 <li>渐进式：vue的侵入性很少，可以与很多其他前端技术联用</li>
 <li>组件化</li>
 <li>响应式：数据响应式，vue会监控数据变化。当数据变化时</li>
@@ -349,7 +352,7 @@
 <h3 id="关于v-html指令："><a href="#关于v-html指令：" class="headerlink" title="关于v-html指令："></a>关于v-html指令：</h3><ol>
 <li>vue为了安全，会将元素内部的插值进行实体编码</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-html &#x3D; &quot;html&quot;&gt;</span><br><span class="line">    </span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">config &#x3D; &#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        html:&lt;p&gt;带标签的元素&lt;&#x2F;p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这样就可以把html标签渲染出来了</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-html &#x3D; &quot;html&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">config &#x3D; &#123;</span><br><span class="line">    data:&#123;</span><br><span class="line">        html:&lt;p&gt;带标签的元素&lt;&#x2F;p&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这样就可以把html标签渲染出来了</span><br></pre></td></tr></table></figure>
 
 <h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>组件是页面中可复用的功能单元</p>
 <h4 id="VUE中的组建"><a href="#VUE中的组建" class="headerlink" title="VUE中的组建"></a>VUE中的组建</h4><ol>
@@ -380,7 +383,7 @@
 <li>传递组件属性时，使用短横线或小驼峰命名法</li>
 <li>属性会被提升到vue组件实例中</li>
 </ol>
-<p>==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==  </p>
+<p>==组件的属性时只读的，不允许更改，根本原因是要保证单向数据流==</p>
 <h3 id="自定义事件："><a href="#自定义事件：" class="headerlink" title="自定义事件："></a>自定义事件：</h3><ol>
 <li>在组件中触发事件： this.$emit(“事件名”,事件参数…)</li>
 <li>当一个组件状态发生变化时，该组件会重新渲染，在渲染的过程中，可能会导致其子组件的属性发生变化，而属性的变化会导致组件重新渲染。但根本原因，是状态的变化.</li>
@@ -499,10 +502,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:17:03+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -529,7 +532,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary=vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。"
           
           >
           
@@ -541,7 +544,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary=vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。"
           
           >
           
@@ -553,7 +556,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/10/02/vue/&title=vue学习笔记 - 何泽丰的博客&summary=vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。"
           
           >
           
@@ -732,16 +735,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

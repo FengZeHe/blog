@@ -21,6 +21,10 @@
     <meta name="keywords" content="前端技术,Ajax">
   
   
+    <meta name="description" content="背景：
+form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。
+">
+  
 
   <!-- feed -->
   
@@ -316,6 +320,7 @@
           <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
 <p>form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。</p>
 </blockquote>
+<a id="more"></a>
 <h6 id="封装Ajax的具体参数"><a href="#封装Ajax的具体参数" class="headerlink" title="封装Ajax的具体参数"></a>封装Ajax的具体参数</h6><ol>
 <li>Mothod : GET POST等。</li>
 <li>action : address;</li>
@@ -331,7 +336,7 @@
 <h6 id="Ajax的几种状态"><a href="#Ajax的几种状态" class="headerlink" title="Ajax的几种状态"></a>Ajax的几种状态</h6><ol>
 <li>ajax.open (method , url ,true);</li>
 <li>ajax.send();</li>
-<li>onreadystatechage 4     // ajax状态每次变化都会触发 </li>
+<li>onreadystatechage 4     // ajax状态每次变化都会触发</li>
 </ol>
 <ul>
 <li>0 = 未初始化，未调用send（） 方法</li>
@@ -339,7 +344,7 @@
 <li>2 = 已读取  ,send 方法执行完成，接收到全部相应内容</li>
 <li>3 = 交互中， 正在解析响应内容</li>
 <li>4 = 完成 ，响应内容解析完成   //只关系这个过程</li>
-<li>status == 200 403 503   </li>
+<li>status == 200 403 503</li>
 <li>200代表成功 ,403代表请求访问的资源被服务器拒绝了,503表明服务器处于超负载或者正在进行停机维护。</li>
 </ul>
 <h5 id="Ajax支持的数据类型："><a href="#Ajax支持的数据类型：" class="headerlink" title="Ajax支持的数据类型："></a>Ajax支持的数据类型：</h5><blockquote>
@@ -432,10 +437,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:17:24+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -462,7 +467,9 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary=背景：
+form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。
+"
           
           >
           
@@ -474,7 +481,9 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary=背景：
+form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。
+"
           
           >
           
@@ -486,7 +495,9 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/07/Ajax-note/&title=Ajax笔记 - 何泽丰的博客&summary=背景：
+form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript and xml)可以局部的获取数据。异步的过程。异步 javascript，和xml，用异步的javascipt获取xml数据，现在操作的是json。
+"
           
           >
           
@@ -525,7 +536,8 @@ Flash (很少了)
                 <p class='title'>douban<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>使用豆瓣api做联想搜索项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。
 
-首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写...</p>
+
+首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框...</p>
               </a>
             
           </div>
@@ -667,16 +679,16 @@ Flash (很少了)
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

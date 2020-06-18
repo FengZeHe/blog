@@ -21,6 +21,14 @@
     <meta name="keywords" content="前端技术">
   
   
+    <meta name="description" content="背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
+
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符">
+  
 
   <!-- feed -->
   
@@ -311,9 +319,10 @@
 <h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><ol>
 <li>利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定</li>
 <li>通过遍历和累加，计算得出每个字符出现的次数</li>
-<li>通过对比出现的次数，返回出现次数最多的字符</li>
+<li>通过对比出现的次数，返回出现次数最多的字符<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const str &#x3D; &#39;asddfgdfwwqeweqwezczxcsdfgdgd&#39;;</span><br><span class="line"></span><br><span class="line">   var obj &#x3D; &#123;&#125;;</span><br><span class="line">   var max &#x3D; 0;</span><br><span class="line">   var maxStr &#x3D; &quot;&quot;;</span><br><span class="line">   for(let i &#x3D; 0; i &lt; str.length ; i++)&#123;</span><br><span class="line">     var word &#x3D; str.charAt(i);</span><br><span class="line">     if(obj[word] !&#x3D; null)&#123;</span><br><span class="line">       obj[word]++;</span><br><span class="line">     &#125;else&#123;</span><br><span class="line">       obj[word] &#x3D; 1</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     for(let i in obj)&#123;</span><br><span class="line">       if(obj[i]&gt;max)&#123;</span><br><span class="line">         max &#x3D; obj[i];</span><br><span class="line">         maxStr &#x3D; i</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   console.log(&#39;出现最多次:&#39; + max +&#39;的字符是：&#39;+ maxStr)</span><br><span class="line">   console.log(obj);</span><br><span class="line">   &#x2F;&#x2F; &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;</span><br><span class="line">   &#x2F;&#x2F; a: 1</span><br><span class="line">   &#x2F;&#x2F; c: 2</span><br><span class="line">   &#x2F;&#x2F; d: 6</span><br><span class="line">   &#x2F;&#x2F; e: 3</span><br><span class="line">   &#x2F;&#x2F; f: 3</span><br><span class="line">   &#x2F;&#x2F; g: 3</span><br><span class="line">   &#x2F;&#x2F; q: 2</span><br><span class="line">   &#x2F;&#x2F; s: 2</span><br><span class="line">   &#x2F;&#x2F; w: 4</span><br><span class="line">   &#x2F;&#x2F; x: 1</span><br><span class="line">   &#x2F;&#x2F; z: 2</span><br><span class="line">   &#x2F;&#x2F; __proto__: Object</span><br></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const str &#x3D; &#39;asddfgdfwwqeweqwezczxcsdfgdgd&#39;;</span><br><span class="line"></span><br><span class="line">   var obj &#x3D; &#123;&#125;;</span><br><span class="line">   var max &#x3D; 0;</span><br><span class="line">   var maxStr &#x3D; &quot;&quot;;</span><br><span class="line">   for(let i &#x3D; 0; i &lt; str.length ; i++)&#123;</span><br><span class="line">     var word &#x3D; str.charAt(i);</span><br><span class="line">     if(obj[word] !&#x3D; null)&#123;</span><br><span class="line">       obj[word]++;</span><br><span class="line">     &#125;else&#123;</span><br><span class="line">       obj[word] &#x3D; 1</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     for(let i in obj)&#123;</span><br><span class="line">       if(obj[i]&gt;max)&#123;</span><br><span class="line">         max &#x3D; obj[i];</span><br><span class="line">         maxStr &#x3D; i</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">   &#125;</span><br><span class="line">   console.log(&#39;出现最多次:&#39; + max +&#39;的字符是：&#39;+ maxStr)</span><br><span class="line">   console.log(obj);</span><br><span class="line">   &#x2F;&#x2F; &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;</span><br><span class="line">   &#x2F;&#x2F; a: 1</span><br><span class="line">   &#x2F;&#x2F; c: 2</span><br><span class="line">   &#x2F;&#x2F; d: 6</span><br><span class="line">   &#x2F;&#x2F; e: 3</span><br><span class="line">   &#x2F;&#x2F; f: 3</span><br><span class="line">   &#x2F;&#x2F; g: 3</span><br><span class="line">   &#x2F;&#x2F; q: 2</span><br><span class="line">   &#x2F;&#x2F; s: 2</span><br><span class="line">   &#x2F;&#x2F; w: 4</span><br><span class="line">   &#x2F;&#x2F; x: 1</span><br><span class="line">   &#x2F;&#x2F; z: 2</span><br><span class="line">   &#x2F;&#x2F; __proto__: Object</span><br></pre></td></tr></table></figure>
+
           
             <div class='article_footer'>
               
@@ -400,10 +409,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:17:14+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -430,7 +439,13 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
+
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符"
           
           >
           
@@ -442,7 +457,13 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
+
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符"
           
           >
           
@@ -454,7 +475,13 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
+今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
+
+思路
+利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
+通过遍历和累加，计算得出每个字符出现的次数
+通过对比出现的次数，返回出现次数最多的字符"
           
           >
           
@@ -491,9 +518,8 @@
 图表
 动画
 condepen.io（HTML5动效）
-
 Canvas 发展史
-最早在apple Safari1.3中引入，ie9...</p>
+最早在apple Safari1.3中引入，ie9之...</p>
               </a>
             
           </div>
@@ -635,16 +661,16 @@ Canvas 发展史
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

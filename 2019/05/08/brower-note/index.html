@@ -21,6 +21,14 @@
     <meta name="keywords" content="浏览器渲染原理">
   
   
+    <meta name="description" content="浏览器渲染原理 -步骤：
+
+清楚HTML 生成DOM树
+处理CSS生成 CSSDOM树
+将两树合并成render 树
+将render 树进行布局计算
+将render树中的每一个节点绘制到屏幕上">
+  
 
   <!-- feed -->
   
@@ -319,7 +327,7 @@
 <li>处理CSS生成 CSSDOM树</li>
 <li>将两树合并成render 树</li>
 <li>将render 树进行布局计算</li>
-<li>将render树中的每一个节点绘制到屏幕上</li>
+<li>将render树中的每一个节点绘制到屏幕上<a id="more"></a></li>
 </ol>
 <ul>
 <li>重排，重绘</li>
@@ -328,7 +336,7 @@
 <li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li>
 <li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li>
 </ol>
-<img src="/blog/FengZeHe/2019/05/08/brower-note/2019/05/08/brower-note/1.png" class title="如图">
+<img src="/blog/blog/2019/05/08/brower-note/2019/05/08/brower-note/1.png" class title="如图">
 
 <blockquote>
 <p>蓝色代表网络通信和HTML 解析</p>
@@ -429,10 +437,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:17:35+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -459,7 +467,13 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary=浏览器渲染原理 -步骤：
+
+清楚HTML 生成DOM树
+处理CSS生成 CSSDOM树
+将两树合并成render 树
+将render 树进行布局计算
+将render树中的每一个节点绘制到屏幕上"
           
           >
           
@@ -471,7 +485,13 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary=浏览器渲染原理 -步骤：
+
+清楚HTML 生成DOM树
+处理CSS生成 CSSDOM树
+将两树合并成render 树
+将render 树进行布局计算
+将render树中的每一个节点绘制到屏幕上"
           
           >
           
@@ -483,7 +503,13 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/08/brower-note/&title=浏览器渲染原理 - 何泽丰的博客&summary=浏览器渲染原理 -步骤：
+
+清楚HTML 生成DOM树
+处理CSS生成 CSSDOM树
+将两树合并成render 树
+将render 树进行布局计算
+将render树中的每一个节点绘制到屏幕上"
           
           >
           
@@ -666,16 +692,16 @@ Flash (很少了)
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

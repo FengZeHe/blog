@@ -21,6 +21,18 @@
     <meta name="keywords" content="前端技术,vue">
   
   
+    <meta name="description" content="
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式">
+  
 
   <!-- feed -->
   
@@ -324,6 +336,8 @@
 
 
 <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
+<a id="more"></a>
+
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
  2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
  3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
@@ -341,7 +355,7 @@
 <li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
 <li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
 </ol>
-<p><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/1.png" alt></p>
+<p><img src="/blog/blog/2020/02/12/vue-demo-1/1.png" alt></p>
 <blockquote>
 <p>compile.js 代码</p>
 </blockquote>
@@ -362,7 +376,7 @@
 
 
 <h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
-<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/vnode.png" alt></p>
+<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/blog/2020/02/12/vue-demo-1/vnode.png" alt></p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -377,7 +391,7 @@
 <li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
 </li>
 </ol>
-<p><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/newTarget.png" alt></p>
+<p><img src="/blog/blog/2020/02/12/vue-demo-1/newTarget.png" alt></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -481,10 +495,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:14:16+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -511,7 +525,17 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式"
           
           >
           
@@ -523,7 +547,17 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式"
           
           >
           
@@ -535,7 +569,17 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/&title=实现一个简单的VUE - 何泽丰的博客&summary=
+实现的效果
+
+
+
+
+     
+
+
+
+目标​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式"
           
           >
           
@@ -561,16 +605,38 @@
             
               <a class='prev' href='/blog/2020/02/15/when-Enter-an-address/'>
                 <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>当在浏览器输入一个地址发生了什么</p>
-                <p class='content'>是这样的：
+                <p class='content'>过程是这样的：
 浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）
 
-浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其...</p>
+
+浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则...</p>
               </a>
             
             
-              <a class='next' href='/blog/2020/02/12/vue-demo/'>
-                <p class='title'>vue_demo<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'></p>
+              <a class='next' href='/blog/2020/01/10/ofo_demo/'>
+                <p class='title'>如何实现一个简单的ofo微信小程序<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+实现的效果
+
+
+
+
+     
+
+
+
+
+
+
+实现功能简介：
+
+扫码骑车记时功能
+用户登录及充值功能
+用户报障功能
+
+思路：
+
+要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括...</p>
               </a>
             
           </div>
@@ -712,16 +778,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: 微信小程序 - 何泽丰的博客</title>
+    <title>标签：微信小程序 - 何泽丰的博客</title>
   
   
 
@@ -314,13 +314,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>475 words</p>
+      <p>字数：475字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -352,47 +352,15 @@
 <div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?aid=82787506&cid=141641375&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
 </div>
-
-
-
-
-
-<p>实现功能简介：</p>
-<ol>
-<li>扫码骑车记时功能</li>
-<li>用户登录及充值功能</li>
-<li>用户报障功能</li>
-</ol>
-<p>思路：</p>
-<ol>
-<li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
-<li>回到当前定位功能直接调用this.movetoCenter()函数</li>
-<li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
-<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/FengZeHe/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
-<li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
-</ol>
-</li>
-<li>单车报障功能<ol>
-<li>这里要说一嘴的是故障类型跟上传照片是必填，要验证内容是否为空。这里我只是判断了input框中的长度是否大于0；</li>
-<li>上传照片这里调用了微信的chooseImage()接口；我使用了一个数组存储上传的照片，所以在删除的时候直接在数组干掉就好了。</li>
-</ol>
-</li>
-<li>用户登录及充值功能<ol>
-<li>用户登录这里要注意下微信新版本是要授权，在按钮处设置open-type 为 getUserInfo才能使用。</li>
-<li>另外我把用户数据存进了storage,这样处理下一次就可以自动登录了。同时在登出的时候也会删除storage.</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>关于后台：<br>    因为时间<del>（技术）</del>问题暂时没有做出来，后续版本就有了嘿。因此这次我在modeHttp在线mock了后台数据。</p>
-</blockquote>
-<blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/ofo_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/ofo_demo</a></p>
-</blockquote>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2020/01/10/ofo_demo/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -601,16 +569,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

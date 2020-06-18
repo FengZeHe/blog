@@ -21,6 +21,8 @@
     <meta name="keywords" content="前端技术">
   
   
+    <meta name="description" content="ES6学习笔记">
+  
 
   <!-- feed -->
   
@@ -313,10 +315,11 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><h3 id="ES6语法的一个特性"><a href="#ES6语法的一个特性" class="headerlink" title="ES6语法的一个特性"></a>ES6语法的一个特性</h3><p>块级作用域：<br>{</p>
+          <h2 id="ES6学习笔记"><a href="#ES6学习笔记" class="headerlink" title="ES6学习笔记"></a>ES6学习笔记</h2><a id="more"></a>
+<h3 id="ES6语法的一个特性"><a href="#ES6语法的一个特性" class="headerlink" title="ES6语法的一个特性"></a>ES6语法的一个特性</h3><p>块级作用域：<br>{</p>
 <p>}</p>
 <h3 id="LET命令"><a href="#LET命令" class="headerlink" title="LET命令"></a>LET命令</h3><ol>
-<li>LET声明的变量具有块级作用域的概念<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)&#x2F;&#x2F;Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization</span><br><span class="line">    let a &#x3D; 42;</span><br><span class="line">    var b &#x3D; 1212;</span><br><span class="line">    console.log(typeof a)  &#x2F;&#x2F;number</span><br><span class="line"></span><br><span class="line">&#125;    </span><br><span class="line">    console.log(typeof a)  &#x2F;&#x2F;underfind</span><br></pre></td></tr></table></figure>
+<li>LET声明的变量具有块级作用域的概念<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(typeof a)&#x2F;&#x2F;Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization</span><br><span class="line">    let a &#x3D; 42;</span><br><span class="line">    var b &#x3D; 1212;</span><br><span class="line">    console.log(typeof a)  &#x2F;&#x2F;number</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">    console.log(typeof a)  &#x2F;&#x2F;underfind</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -333,13 +336,13 @@
 3. 只在作用域内生效以及不允许重复声明
 4. const变量不能更改的实质是变量指向的那个内存地址所保存的数据不得改动.</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> const foo &#x3D; &#123;&#125;;</span><br><span class="line">     foo.prop &#x3D; 123;&#x2F;&#x2F;添加一个属性，没有问题</span><br><span class="line">     console.log(foo.prop)</span><br><span class="line">     foo&#x3D; 123;&#x2F;&#x2F;就会报错</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 浏览器的 ES6 环境</span><br><span class="line">function f() &#123; console.log(&#39;I am outside!&#39;); &#125;</span><br><span class="line"></span><br><span class="line">(function () &#123;</span><br><span class="line">  if (false) &#123;</span><br><span class="line">    &#x2F;&#x2F; 重复声明一次函数f</span><br><span class="line">    function f() &#123; console.log(&#39;I am inside!&#39;); &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  f();</span><br><span class="line">&#125;());</span><br><span class="line">&#x2F;&#x2F;上面在ES6代码当中会报错，ES6规定，浏览器始兴县要遵循一些规定</span><br><span class="line">&#x2F;&#x2F;1.允许在块级作用于内声明函数</span><br><span class="line">&#x2F;&#x2F;2.函数声明类似于var ,即会提升到全局作用于函数作用于的头部</span><br><span class="line">&#x2F;&#x2F;3.同时，函数声明还会提升到所在的块级作用于的头部</span><br><span class="line"></span><br><span class="line">注意：以上三条规则只对ES6浏览器内有效，其他环境还是将块级作用于的函数声明当做let处理</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意：在ES6中一共有6种赋值的方式，有var 和 function 命令，还有let 和const命令，以及import和class命令。var 和 function 命令声明的全局变量是顶层对象的属性；let、const和class命令声明全局变量，不属于顶层对象的属性。 </p>
+<p>注意：在ES6中一共有6种赋值的方式，有var 和 function 命令，还有let 和const命令，以及import和class命令。var 和 function 命令声明的全局变量是顶层对象的属性；let、const和class命令声明全局变量，不属于顶层对象的属性。</p>
 </blockquote>
 <h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3><ol>
 <li>数组的解构赋值</li>
 <li>概念：ES6允许按照一定的模式，从数组和对象中提取，对变量进行赋值<br>注意：要是被赋值一边有一项没有被赋值或者赋值underfind，则被称为解构失败；要是赋值一边有三个值，被赋值一边只有两个变量，则被称为不完全解构</li>
-<li>匹配模式其实是懒散匹配，如第6行代码，如果赋值一方对应位置有值，x就不会管默认值是10,而当赋值一边【】啥都没有的时候，才取默认值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;模式匹配</span><br><span class="line">let [a , b, c] &#x3D; [1, 2, 3]</span><br><span class="line"></span><br><span class="line">let [a ,[b,[c]]] &#x3D; [1,[2,[3]]]</span><br><span class="line"></span><br><span class="line">let [x &#x3D; 10] &#x3D;[20] &#x2F;&#x2F;x &#x3D; 20 </span><br><span class="line"></span><br><span class="line">对象的解构赋值</span><br><span class="line">无序性：只要变量与属性同名，就能取到正确的值。当右边没有同名的属性，那么不叫取不到值而取得underfind</span><br><span class="line">let &#123;bar ,foo &#125; &#x3D; &#123;foo :234, bar:123&#125;</span><br><span class="line">&#x2F;&#x2F;无论赋值的一方的顺序是怎么样的，赋值都不影响</span><br><span class="line"></span><br><span class="line">let &#123;foo:bar&#125; &#x3D; &#123;foo:123&#125;</span><br><span class="line">        console.log(bar);&#x2F;&#x2F;123</span><br><span class="line">        console.log(foo);&#x2F;&#x2F; foo is not defined</span><br><span class="line">        </span><br><span class="line">        let&#123;length&#125; &#x3D; &quot;123&quot; &#x2F;&#x2F;length &#x3D; 3</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F;可用于嵌套</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">  p: [</span><br><span class="line">    &#39;abcabc&#39;,</span><br><span class="line">    &#123; y: &#39;123123&#39; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; p, p: [x, &#123; y &#125;] &#125; &#x3D; obj;&#x2F;&#x2F;&#39;abcabc&#39; &#39;123123&#39;</span><br></pre></td></tr></table></figure>
-<h3 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const [a,b,c,d,e] &#x3D; &#39;hello&#39;;</span><br><span class="line">        </span><br><span class="line">        console.log(a);</span><br><span class="line">        console.log(b);</span><br><span class="line">        console.log(d);</span><br><span class="line"></span><br><span class="line">        let&#123; length :len&#125; &#x3D; &#39;hello&#39;</span><br><span class="line">        console.log(len)</span><br><span class="line">&#x2F;&#x2F; a b l 5</span><br></pre></td></tr></table></figure>
+<li>匹配模式其实是懒散匹配，如第6行代码，如果赋值一方对应位置有值，x就不会管默认值是10,而当赋值一边【】啥都没有的时候，才取默认值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;模式匹配</span><br><span class="line">let [a , b, c] &#x3D; [1, 2, 3]</span><br><span class="line"></span><br><span class="line">let [a ,[b,[c]]] &#x3D; [1,[2,[3]]]</span><br><span class="line"></span><br><span class="line">let [x &#x3D; 10] &#x3D;[20] &#x2F;&#x2F;x &#x3D; 20</span><br><span class="line"></span><br><span class="line">对象的解构赋值</span><br><span class="line">无序性：只要变量与属性同名，就能取到正确的值。当右边没有同名的属性，那么不叫取不到值而取得underfind</span><br><span class="line">let &#123;bar ,foo &#125; &#x3D; &#123;foo :234, bar:123&#125;</span><br><span class="line">&#x2F;&#x2F;无论赋值的一方的顺序是怎么样的，赋值都不影响</span><br><span class="line"></span><br><span class="line">let &#123;foo:bar&#125; &#x3D; &#123;foo:123&#125;</span><br><span class="line">        console.log(bar);&#x2F;&#x2F;123</span><br><span class="line">        console.log(foo);&#x2F;&#x2F; foo is not defined</span><br><span class="line"></span><br><span class="line">        let&#123;length&#125; &#x3D; &quot;123&quot; &#x2F;&#x2F;length &#x3D; 3</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;可用于嵌套</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">  p: [</span><br><span class="line">    &#39;abcabc&#39;,</span><br><span class="line">    &#123; y: &#39;123123&#39; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123; p, p: [x, &#123; y &#125;] &#125; &#x3D; obj;&#x2F;&#x2F;&#39;abcabc&#39; &#39;123123&#39;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的解构赋值"><a href="#字符串的解构赋值" class="headerlink" title="字符串的解构赋值"></a>字符串的解构赋值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const [a,b,c,d,e] &#x3D; &#39;hello&#39;;</span><br><span class="line"></span><br><span class="line">        console.log(a);</span><br><span class="line">        console.log(b);</span><br><span class="line">        console.log(d);</span><br><span class="line"></span><br><span class="line">        let&#123; length :len&#125; &#x3D; &#39;hello&#39;</span><br><span class="line">        console.log(len)</span><br><span class="line">&#x2F;&#x2F; a b l 5</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -361,7 +364,7 @@
 <p>便利Map结构：<br>部署了Iterator接口的对象，都可以用for…of循环遍历。配合变量的解构赋值，获取键名和键值就肥肠方便</p>
 <h3 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h3><ol>
 <li><p>字符串的遍历器接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; &#96;hzfnb&#96;;</span><br><span class="line"></span><br><span class="line">for(let  condePoint of a )&#123;</span><br><span class="line">    console.log(condePoint)</span><br><span class="line">&#125;        </span><br><span class="line">&#x2F;&#x2F; h z f n b</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; &#96;hzfnb&#96;;</span><br><span class="line"></span><br><span class="line">for(let  condePoint of a )&#123;</span><br><span class="line">    console.log(condePoint)</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; h z f n b</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>模板字符串</p>
 </li>
@@ -372,7 +375,7 @@
 <li><p>${}对变量进行抓取</p>
 </li>
 <li><p>${} 对变量进行运算</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;hello&#39;;</span><br><span class="line">var newStr &#x3D; &#96;hello world&#96;;</span><br><span class="line"></span><br><span class="line"> var xm &#x3D; &#123;</span><br><span class="line">            age :19,</span><br><span class="line">            height:180,</span><br><span class="line">            name :&#39;xiaoming&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        var &#123;age ,name, height&#125; &#x3D; xm;</span><br><span class="line"></span><br><span class="line">        var newstr &#x3D;&#96;name: $&#123;name&#125; age: $&#123;age&#125; &#96;</span><br><span class="line">        console.log(newstr);&#x2F;&#x2F;通过对象的解构拿到对象的值， 再通过$&#123;&#125;直接取得这个值</span><br><span class="line">        &#x2F;&#x2F;$&#123;&#125;也是可以进行运算的，还可以添加方法</span><br><span class="line">        </span><br><span class="line">        var x &#x3D; 3, y &#x3D; 5;</span><br><span class="line">        function getName()&#123;</span><br><span class="line">            return &#39;xiaoming&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">        var str &#x3D; &#96;my name is $&#123;getName()&#125;&#96;;</span><br><span class="line">        console.log(str);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">        var resStr &#x3D;&#96;$&#123;arr.map(function(item,index)&#123;</span><br><span class="line">            return &#96;$&#123;item&#125;: $&#123;index&#125;&#96;</span><br><span class="line">        &#125;)&#125;&#96;&#x2F;&#x2F;通过增强字符串与函数把值赋给另外一个变量（对象）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var str &#x3D; &#39;hello&#39;;</span><br><span class="line">var newStr &#x3D; &#96;hello world&#96;;</span><br><span class="line"></span><br><span class="line"> var xm &#x3D; &#123;</span><br><span class="line">            age :19,</span><br><span class="line">            height:180,</span><br><span class="line">            name :&#39;xiaoming&#39;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var &#123;age ,name, height&#125; &#x3D; xm;</span><br><span class="line"></span><br><span class="line">        var newstr &#x3D;&#96;name: $&#123;name&#125; age: $&#123;age&#125; &#96;</span><br><span class="line">        console.log(newstr);&#x2F;&#x2F;通过对象的解构拿到对象的值， 再通过$&#123;&#125;直接取得这个值</span><br><span class="line">        &#x2F;&#x2F;$&#123;&#125;也是可以进行运算的，还可以添加方法</span><br><span class="line"></span><br><span class="line">        var x &#x3D; 3, y &#x3D; 5;</span><br><span class="line">        function getName()&#123;</span><br><span class="line">            return &#39;xiaoming&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">        var str &#x3D; &#96;my name is $&#123;getName()&#125;&#96;;</span><br><span class="line">        console.log(str);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">        var resStr &#x3D;&#96;$&#123;arr.map(function(item,index)&#123;</span><br><span class="line">            return &#96;$&#123;item&#125;: $&#123;index&#125;&#96;</span><br><span class="line">        &#125;)&#125;&#96;&#x2F;&#x2F;通过增强字符串与函数把值赋给另外一个变量（对象）</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -383,90 +386,97 @@
 
 </li>
 </ol>
-<h3 id="字符串的新增方法"><a href="#字符串的新增方法" class="headerlink" title="字符串的新增方法"></a>字符串的新增方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">String.fromCodePoint() --用于从Unicode编码返回对应的字符串</span><br><span class="line">String.raw()		--用于转义字符串，往往用于模板字符串的处理方法</span><br><span class="line">        a &#x3D; String.raw&#96;hi\n\n$&#123;5&#125;!&#96;</span><br><span class="line">        console.log(a); &#x2F;&#x2F;hi\n\n5!</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F;String.raw 作为正常的函数使用</span><br><span class="line">        a &#x3D; String.raw(&#123;raw:&#39;hzfnb&#39;&#125;,0,1,2)</span><br><span class="line">        console.log(a); &#x2F;&#x2F;h0z1f2nb</span><br><span class="line">&#96;&#96;&#96;       </span><br><span class="line"></span><br><span class="line">1. 实例方法：codePointAt() --测试一个字符由两字节还是四个字节组成的最简单方法</span><br><span class="line">2. 实例方法：normailza()</span><br><span class="line">3. includes(): 返回布尔值，表示是否找到了参数字符串</span><br><span class="line">4. startsWith() ： 返回布尔值，表示参数字符串是否在原字符串的头部</span><br><span class="line">5. endWith(): 返回布尔值，表示参数字符串是否在原字符串尾部</span><br></pre></td></tr></table></figure>
-<pre><code>var a = &quot;hzfnb zf&quot;
-var r1 = a.includes(&apos;hzfnb&apos;)
-var r2 = a.startsWith(&apos;h&apos;)
-var r3 = a.endsWith(&apos;f&apos;)
+<h3 id="字符串的新增方法"><a href="#字符串的新增方法" class="headerlink" title="字符串的新增方法"></a>字符串的新增方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String.fromCodePoint() --用于从Unicode编码返回对应的字符串</span><br><span class="line">String.raw()		--用于转义字符串，往往用于模板字符串的处理方法</span><br><span class="line">        a &#x3D; String.raw&#96;hi\n\n$&#123;5&#125;!&#96;</span><br><span class="line">        console.log(a); &#x2F;&#x2F;hi\n\n5!</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;String.raw 作为正常的函数使用</span><br><span class="line">        a &#x3D; String.raw(&#123;raw:&#39;hzfnb&#39;&#125;,0,1,2)</span><br><span class="line">        console.log(a); &#x2F;&#x2F;h0z1f2nb</span><br></pre></td></tr></table></figure>
 
-console.log(r1,r2,r3)//true true true</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6. 实例方法： repeat()返回一个新的字符串，并将原字符串重复N次</span><br><span class="line">7. 实例方法：padStart() padEnd()：接受两个参数，第一个参数是字符串补全的位数，第二个填的是要补全的字符串</span><br></pre></td></tr></table></figure>
-<p>padStart() 用于补全头部<br>padEnd()  用于补全尾部<br>        console.log(‘hzf’.padStart(5,’nb’)) //hzfnb</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">8. 实例方法：trimStart() , trimEnd();</span><br><span class="line">分别用于消除字符串最前面的空格以及最后面的空格</span><br><span class="line">9. 实例方法：matchAll()</span><br><span class="line">方法返回一个正则表达式在当前字符串的所有匹配</span><br><span class="line"></span><br><span class="line">### 正则表达式的扩展</span><br><span class="line">#### 字符串的正则方法</span><br><span class="line">1. match()</span><br><span class="line">2. replace()</span><br><span class="line">3. search()</span><br><span class="line">4. split()</span><br><span class="line">5. u修饰符:含义为unicode模式，用来处理四个字节的UTF-16编码</span><br><span class="line">6. 点字符</span><br><span class="line">7. i修饰符</span><br><span class="line">8. y修饰符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 函数的扩展</span><br><span class="line">函数的默认值</span><br></pre></td></tr></table></figure>
-<p>function Persion(name ,age = 100){<br>            console.log(name,age)<br>        }<br>Persion(‘hs’); // hs 100<br>Persion(‘hs’,12); // hs 12</p>
-<p>默认值与解构赋值的使用<br>  function f1( {x = 0, y = 0} ={}){<br>           console.log(x,y)<br>        }</p>
-<pre><code>function f2({x,y} = {x:0,y:0}){
-    console.log(x,y)
-}
+<ol>
+<li>实例方法：codePointAt() –测试一个字符由两字节还是四个字节组成的最简单方法</li>
+<li>实例方法：normailza()</li>
+<li>includes(): 返回布尔值，表示是否找到了参数字符串</li>
+<li>startsWith() ： 返回布尔值，表示参数字符串是否在原字符串的头部</li>
+<li>endWith(): 返回布尔值，表示参数字符串是否在原字符串尾部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; &quot;hzfnb zf&quot;</span><br><span class="line">var r1 &#x3D; a.includes(&#39;hzfnb&#39;)</span><br><span class="line">var r2 &#x3D; a.startsWith(&#39;h&#39;)</span><br><span class="line">var r3 &#x3D; a.endsWith(&#39;f&#39;)</span><br><span class="line"></span><br><span class="line">console.log(r1,r2,r3)&#x2F;&#x2F;true true true</span><br></pre></td></tr></table></figure></li>
+<li>实例方法： repeat()返回一个新的字符串，并将原字符串重复N次</li>
+<li>实例方法：padStart() padEnd()：接受两个参数，第一个参数是字符串补全的位数，第二个填的是要补全的字符串<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">padStart() 用于补全头部</span><br><span class="line">padEnd()  用于补全尾部</span><br><span class="line">        console.log(&#39;hzf&#39;.padStart(5,&#39;nb&#39;)) &#x2F;&#x2F;hzfnb</span><br></pre></td></tr></table></figure></li>
+<li>实例方法：trimStart() , trimEnd();<br>分别用于消除字符串最前面的空格以及最后面的空格</li>
+<li>实例方法：matchAll()<br>方法返回一个正则表达式在当前字符串的所有匹配</li>
+</ol>
+<h3 id="正则表达式的扩展"><a href="#正则表达式的扩展" class="headerlink" title="正则表达式的扩展"></a>正则表达式的扩展</h3><h4 id="字符串的正则方法"><a href="#字符串的正则方法" class="headerlink" title="字符串的正则方法"></a>字符串的正则方法</h4><ol>
+<li>match()</li>
+<li>replace()</li>
+<li>search()</li>
+<li>split()</li>
+<li>u修饰符:含义为unicode模式，用来处理四个字节的UTF-16编码</li>
+<li>点字符</li>
+<li>i修饰符</li>
+<li>y修饰符</li>
+</ol>
+<h3 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h3><p>函数的默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">function Persion(name ,age &#x3D; 100)&#123;</span><br><span class="line">            console.log(name,age)</span><br><span class="line">        &#125;</span><br><span class="line">Persion(&#39;hs&#39;); &#x2F;&#x2F; hs 100</span><br><span class="line">Persion(&#39;hs&#39;,12); &#x2F;&#x2F; hs 12</span><br><span class="line"></span><br><span class="line">默认值与解构赋值的使用</span><br><span class="line">  function f1( &#123;x &#x3D; 0, y &#x3D; 0&#125; &#x3D;&#123;&#125;)&#123;</span><br><span class="line">           console.log(x,y)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function f2(&#123;x,y&#125; &#x3D; &#123;x:0,y:0&#125;)&#123;</span><br><span class="line">            console.log(x,y)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        f1()</span><br><span class="line">        f2()</span><br><span class="line">        f1(&#123;x:1,y:2&#125;)</span><br><span class="line">        f2(&#123;x:1,y:2&#125;)</span><br><span class="line">        f1(&#123;x:1&#125;)</span><br><span class="line">        f2(&#123;x:1&#125;)</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;0 0</span><br><span class="line">        &#x2F;&#x2F;0 0</span><br><span class="line"> &#x2F;&#x2F;1 2</span><br><span class="line">&#x2F;&#x2F;1 2</span><br><span class="line">&#x2F;&#x2F;1 0</span><br><span class="line">&#x2F;&#x2F;1 undefined   最后一个解构赋值之后表示为 &#123;x:1&#125; 所以y &#x3D; underfined</span><br><span class="line"></span><br><span class="line">参数作用域已经注意事项</span><br><span class="line">在函数体内用let定义的变量，不能提前当做参数（放在括号内）</span><br><span class="line">es6在参数默认值方面是使用let来定义的</span><br><span class="line">REST</span><br><span class="line">var arr &#x3D; [1,2,3,4,5];</span><br><span class="line">        fn.call(null,...arr) &#x2F;&#x2F;...相当于把括号去掉</span><br><span class="line">        fn.apply(null,arr) &#x2F;&#x2F;apply 要用数组的形式引入</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; (5) [1, 2, 3, 4, 5]</span><br><span class="line">        &#x2F;&#x2F; (5) [1, 2, 3, 4, 5]</span><br><span class="line"></span><br><span class="line">        function fn(...args)&#123;</span><br><span class="line">            console.log(args)</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><blockquote>
+<p>注意事项：箭头函数里面没有this这个对象，它只会依次找到父级，也没有arguments</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var f &#x3D;            ()   &#x3D;&gt;   num</span><br><span class="line">var f &#x3D; function  参数      return 参数</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;箭头函数的嵌套</span><br><span class="line"> function fn(str)&#123;</span><br><span class="line">         return function()&#123;</span><br><span class="line">                return str.splite(&#96;&#96;)</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     var fn &#x3D; str &#x3D;&gt; () &#x3D;&gt;str.splite(&#96;&#96;)</span><br></pre></td></tr></table></figure>
 
-f1()
-f2()
-f1({x:1,y:2})
-f2({x:1,y:2})
-f1({x:1})
-f2({x:1})
+<h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><h3 id="数组的合并"><a href="#数组的合并" class="headerlink" title="数组的合并"></a>数组的合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [&#39;dy1&#39;]</span><br><span class="line">        var arr1 &#x3D; [&#39;1,2,3,4,5&#39;]</span><br><span class="line">        var arr2 &#x3D; [&#39;false&#39;,NaN]</span><br><span class="line">        var newArr &#x3D; [...arr,...arr1,...arr2]</span><br><span class="line">        console.log(newArr)&#x2F;&#x2F;[&quot;dy1&quot;, &quot;1,2,3,4,5&quot;, &quot;false&quot;, NaN]</span><br><span class="line"></span><br><span class="line">        var arr3 &#x3D; [...&#39;hzf&#39;]</span><br><span class="line">        console.log(arr3);&#x2F;&#x2F;[&quot;h&quot;, &quot;z&quot;, &quot;f&quot;]</span><br><span class="line"></span><br><span class="line">Array.from()</span><br><span class="line">把类数组和可遍历的对象转换成数组</span><br><span class="line">Array.of()</span><br><span class="line"> 数组实例的方法copyWithin()</span><br><span class="line">   var arr &#x3D; [1,2,3,4,5]</span><br><span class="line">    &#x2F;&#x2F; Array.prototype.copyWithin(target ,start &#x3D; 0,end &#x3D; this.length))</span><br><span class="line">       console.log (arr.copyWithin(0,3))</span><br><span class="line">       &#x2F;&#x2F; 0 3 还有一位end没写出来，0代表从第0位开始，3代表start&#x3D;3, 第三位是4 end 没写表示到一直最后，</span><br><span class="line">       &#x2F;&#x2F;表示从4,5替换掉从0开始的两位 因此结果 &#x3D; 4,5,3,4,5</span><br></pre></td></tr></table></figure>
 
-//0 0
-//0 0</code></pre><p> //1 2<br>//1 2<br>//1 0<br>//1 undefined   最后一个解构赋值之后表示为 {x:1} 所以y = underfined</p>
-<p>参数作用域已经注意事项<br>在函数体内用let定义的变量，不能提前当做参数（放在括号内）<br>es6在参数默认值方面是使用let来定义的<br>REST<br>var arr = [1,2,3,4,5];<br>        fn.call(null,…arr) //…相当于把括号去掉<br>        fn.apply(null,arr) //apply 要用数组的形式引入</p>
-<pre><code>// (5) [1, 2, 3, 4, 5]
-// (5) [1, 2, 3, 4, 5]
+<h3 id="数组实例方法"><a href="#数组实例方法" class="headerlink" title="数组实例方法"></a>数组实例方法</h3><h4 id="fill-entries-，keys-values"><a href="#fill-entries-，keys-values" class="headerlink" title="fill() , entries()，keys()   values()"></a>fill() , entries()，keys()   values()</h4><ol>
+<li>entries() 是对键值对的遍历</li>
+<li>values() 是对键值的遍历</li>
+<li>key() 是对键名的遍历<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3,4,5]</span><br><span class="line">       var a &#x3D; arr.keys()</span><br><span class="line">       console.log(a) &#x2F;&#x2F;Array Iterator &#123;&#125;</span><br><span class="line"></span><br><span class="line">       var arr1 &#x3D; new Array(5);</span><br><span class="line">       arr1.fill(7,3,4)</span><br><span class="line">       console.log(arr1)  &#x2F;&#x2F;(5) [empty x 3 ,7 empty x 3]</span><br><span class="line">       &#x2F;&#x2F;fill的用法是添加某个数，用法跟copywithin()差不多，</span><br><span class="line">       &#x2F;&#x2F;添加7这个数字，在第3跟第4个数之间插入数字7</span><br><span class="line"></span><br><span class="line">       var arr2 &#x3D; [&#39;2&#39;,2,3,4,5]</span><br><span class="line">       var a &#x3D; arr2.keys()</span><br><span class="line"></span><br><span class="line">       for([item, index] of arr.entries())</span><br><span class="line">       &#123;</span><br><span class="line">           console.log(item ,index)</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;entries 可以用于遍历数组，列出是第几位的并且把值打印出来</span><br><span class="line">       &#x2F;&#x2F;  0 &quot;2&quot;</span><br><span class="line">       &#x2F;&#x2F;  1  2</span><br><span class="line">       &#x2F;&#x2F;  2  3</span><br></pre></td></tr></table></figure>
 
-function fn(...args){
-    console.log(args)
-}</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">### 箭头函数</span><br><span class="line">&gt; 注意事项：箭头函数里面没有this这个对象，它只会依次找到父级，也没有arguments</span><br></pre></td></tr></table></figure>
-<p>var f =            ()   =&gt;   num<br>var f = function  参数      return 参数</p>
-<p>//箭头函数的嵌套<br> function fn(str){<br>         return function(){<br>                return str.splite(``)<br>         }<br>     }</p>
-<pre><code>var fn = str =&gt; () =&gt;str.splite(``)</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组的扩展</span><br><span class="line">### 数组的合并</span><br></pre></td></tr></table></figure>
-<p>var arr = [‘dy1’]<br>        var arr1 = [‘1,2,3,4,5’]<br>        var arr2 = [‘false’,NaN]<br>        var newArr = […arr,…arr1,…arr2]<br>        console.log(newArr)//[“dy1”, “1,2,3,4,5”, “false”, NaN]</p>
-<pre><code>var arr3 = [...&apos;hzf&apos;]
-console.log(arr3);//[&quot;h&quot;, &quot;z&quot;, &quot;f&quot;]</code></pre><p>Array.from()<br>把类数组和可遍历的对象转换成数组<br>Array.of()<br> 数组实例的方法copyWithin()<br>   var arr = [1,2,3,4,5]<br>    // Array.prototype.copyWithin(target ,start = 0,end = this.length))<br>       console.log (arr.copyWithin(0,3))<br>       // 0 3 还有一位end没写出来，0代表从第0位开始，3代表start=3, 第三位是4 end 没写表示到一直最后，<br>       //表示从4,5替换掉从0开始的两位 因此结果 = 4,5,3,4,5</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组实例方法</span><br><span class="line">#### fill() , entries()，keys()   values()</span><br><span class="line">1. entries() 是对键值对的遍历</span><br><span class="line">2. values() 是对键值的遍历</span><br><span class="line">3. key() 是对键名的遍历</span><br></pre></td></tr></table></figure>
-<p> var arr = [1,2,3,4,5]<br>        var a = arr.keys()<br>        console.log(a) //Array Iterator {}</p>
-<pre><code>var arr1 = new Array(5);
-arr1.fill(7,3,4)
-console.log(arr1)  //(5) [empty x 3 ,7 empty x 3] 
-//fill的用法是添加某个数，用法跟copywithin()差不多，
-//添加7这个数字，在第3跟第4个数之间插入数字7
+</li>
+</ol>
+<h3 id="数组的实例方法"><a href="#数组的实例方法" class="headerlink" title="数组的实例方法"></a>数组的实例方法</h3><h4 id="includes-find-findIndex"><a href="#includes-find-findIndex" class="headerlink" title="includes() find() findIndex()"></a>includes() find() findIndex()</h4><ol>
+<li>includes() ——返回一个布尔值，表示某个数组是否包含给定的值。如果包含则返回true，否则返回false</li>
+<li>find() ——找到第一个符合条件的数组成员</li>
+<li>findIndex() 返回第一个负荷而条件的数组成员的位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [20 , 4, -5, 10]</span><br><span class="line">        var str &#x3D; [arr.find((n) &#x3D;&gt; n &lt;19)]</span><br><span class="line">        console.log(str)    &#x2F;&#x2F;[4]</span><br></pre></td></tr></table></figure>
 
-var arr2 = [&apos;2&apos;,2,3,4,5]
-var a = arr2.keys()
+</li>
+</ol>
+<h3 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">属性的简洁表示法</span><br><span class="line"> var foo &#x3D; &#39;123&#39;</span><br><span class="line"> var bar &#x3D; &#123;foo&#125;</span><br></pre></td></tr></table></figure>
 
-for([item, index] of arr.entries())
-{   
-    console.log(item ,index)
-}
-//entries 可以用于遍历数组，列出是第几位的并且把值打印出来
-//  0 &quot;2&quot;
-//  1  2
-//  2  3</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数组的实例方法 </span><br><span class="line">#### includes() find() findIndex()</span><br><span class="line">1. includes() ——返回一个布尔值，表示某个数组是否包含给定的值。如果包含则返回true，否则返回false</span><br><span class="line">2. find() ——找到第一个符合条件的数组成员</span><br><span class="line">3. findIndex() 返回第一个负荷而条件的数组成员的位置</span><br></pre></td></tr></table></figure>
-<p>var arr = [20 , 4, -5, 10]<br>        var str = [arr.find((n) =&gt; n &lt;19)]<br>        console.log(str)    //[4]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 对象的扩展</span><br></pre></td></tr></table></figure>
-<p>属性的简洁表示法<br> var foo = ‘123’<br> var bar = {foo}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 属性的可枚举性以及属性的遍历</span><br><span class="line">1. 对象的每个属性都有一个遍历对象（Descriptor）用来控制该属性的行为</span><br></pre></td></tr></table></figure>
-<p>var obj = {age :123,name:’dv’}</p>
-<p>console.log(Object.getOwnPropertyDescriptor(Object.prototype,’toString’))<br>//enumerable: false 说明不可枚举</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; 但是有4种操作会忽略enumerable 为flase的属性</span><br><span class="line">&gt; 1. for... in 循环：遍历对象自身的和继承的可枚举属性</span><br><span class="line">&gt; 2. object.keys()  返回对象自身的所有可枚举的属性的键名</span><br><span class="line">&gt; 3. JSON.stringify() 只串行话独享自身的可枚举属性</span><br><span class="line">&gt; 4. object.assign() （ES6新增）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 对象的新增方法</span><br><span class="line">1. Object.is()</span><br><span class="line"></span><br><span class="line">ES5判断两个值知否相等只有 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;。它们的缺点在于， &#x3D;&#x3D; 回自动转换数据类型， &#x3D;&#x3D;&#x3D; 会使得Nan不等于自身，-0 不等于 +0</span><br></pre></td></tr></table></figure>
-<p>object.is()<br>       console.log (Object.is(-0,+0))      //false<br>       console.log (Object.is(NaN,NaN))    //true</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Class类</span><br><span class="line"></span><br><span class="line">&gt; class 一定要先定义再使用</span><br></pre></td></tr></table></figure>
-<pre><code>class Person{
-    constructor( name=&apos;zf&apos;,age = 18){
-        this.name = name
-        this.age = age
-    } //这里不能写  &apos;,&apos; 写了就报错 
-    show(){
-        console.log(this.age,this.name)
-    }
-}
+<h5 id="属性的可枚举性以及属性的遍历"><a href="#属性的可枚举性以及属性的遍历" class="headerlink" title="属性的可枚举性以及属性的遍历"></a>属性的可枚举性以及属性的遍历</h5><ol>
+<li>对象的每个属性都有一个遍历对象（Descriptor）用来控制该属性的行为<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;age :123,name:&#39;dv&#39;&#125;</span><br><span class="line"></span><br><span class="line">console.log(Object.getOwnPropertyDescriptor(Object.prototype,&#39;toString&#39;))</span><br><span class="line">&#x2F;&#x2F;enumerable: false 说明不可枚举</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>但是有4种操作会忽略enumerable 为flase的属性</p>
+<ol>
+<li>for… in 循环：遍历对象自身的和继承的可枚举属性</li>
+<li>object.keys()  返回对象自身的所有可枚举的属性的键名</li>
+<li>JSON.stringify() 只串行话独享自身的可枚举属性</li>
+<li>object.assign() （ES6新增）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="对象的新增方法"><a href="#对象的新增方法" class="headerlink" title="对象的新增方法"></a>对象的新增方法</h3><ol>
+<li>Object.is()</li>
+</ol>
+<p>ES5判断两个值知否相等只有 == 和 ===。它们的缺点在于， == 回自动转换数据类型， === 会使得Nan不等于自身，-0 不等于 +0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object.is()</span><br><span class="line">       console.log (Object.is(-0,+0))      &#x2F;&#x2F;false</span><br><span class="line">       console.log (Object.is(NaN,NaN))    &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
 
-var per = new Person()
-// per.name 表示实例属性</code></pre><p>立即执行class<br>var p = new class{ //这个类只能使用一次<br>        }</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### this指向</span><br><span class="line"> &#x3D;&gt; 指向父级作用域，跟ES5里面的this指向有些不同</span><br><span class="line">### 静态方法</span><br><span class="line">### 静态属性	</span><br><span class="line">### 继承</span><br><span class="line">&gt; 与es5的不同之处</span><br><span class="line">&gt;1. 子类 __proto__表示构造函数的继承</span><br><span class="line">&gt;2. 子类 __proto__.prototype 表示方法的继承</span><br><span class="line">&gt;3. 注意：__proto__并不属实语言本身的特征，目前很多浏览器的JS引擎都提供了这个私有属性，但依旧不建议在生产中使用该属性，避免对环境产生依赖。生产环境中，推荐使用Object.getPrototypeof()来获取实例对象的原型，再为原型添加属性</span><br></pre></td></tr></table></figure>
-<p>class A{<br>            constructor(){<br>                this.name = ‘zf’<br>            }<br>            print(){<br>                console.log(this.name)//console.log(‘father A’)<br>            }<br>        }<br>        class B extends A{<br>            constructor(){<br>                super() //为啥要调用super？<br>                //子类要调用super方法，才能使用this，给父级绑定才有this<br>                this.name = ‘aasda’<br>            }<br>            print(){<br>                super.print() //b.print() -&gt; father A<br>            }<br>        }</p>
-<pre><code>var b = new B()
-// b.name = &apos;aasda&apos;
-// b.print() aasda </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">### Promise对象</span><br><span class="line">#### Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）</span><br><span class="line">1. 基本用法</span><br><span class="line">2. 三种状态</span><br><span class="line">    1. pending 就绪状态</span><br><span class="line">    2. resolved 成功状态</span><br><span class="line">    3. rejected 失败状态</span><br></pre></td></tr></table></figure>
-<p>实例方法<br>Promise.all Promise.race</p>
-<p>```</p>
+<h3 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h3><blockquote>
+<p>class 一定要先定义再使用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">        class Person&#123;</span><br><span class="line">            constructor( name&#x3D;&#39;zf&#39;,age &#x3D; 18)&#123;</span><br><span class="line">                this.name &#x3D; name</span><br><span class="line">                this.age &#x3D; age</span><br><span class="line">            &#125; &#x2F;&#x2F;这里不能写  &#39;,&#39; 写了就报错</span><br><span class="line">            show()&#123;</span><br><span class="line">                console.log(this.age,this.name)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var per &#x3D; new Person()</span><br><span class="line">        &#x2F;&#x2F; per.name 表示实例属性</span><br><span class="line"></span><br><span class="line">立即执行class</span><br><span class="line">var p &#x3D; new class&#123; &#x2F;&#x2F;这个类只能使用一次</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p> =&gt; 指向父级作用域，跟ES5里面的this指向有些不同</p>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><h3 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><blockquote>
+<p>与es5的不同之处</p>
+<ol>
+<li>子类 <strong>proto</strong>表示构造函数的继承</li>
+<li>子类 <strong>proto</strong>.prototype 表示方法的继承</li>
+<li>注意：<strong>proto</strong>并不属实语言本身的特征，目前很多浏览器的JS引擎都提供了这个私有属性，但依旧不建议在生产中使用该属性，避免对环境产生依赖。生产环境中，推荐使用Object.getPrototypeof()来获取实例对象的原型，再为原型添加属性</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">            constructor()&#123;</span><br><span class="line">                this.name &#x3D; &#39;zf&#39;</span><br><span class="line">            &#125;</span><br><span class="line">            print()&#123;</span><br><span class="line">                console.log(this.name)&#x2F;&#x2F;console.log(&#39;father A&#39;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        class B extends A&#123;</span><br><span class="line">            constructor()&#123;</span><br><span class="line">                super() &#x2F;&#x2F;为啥要调用super？</span><br><span class="line">                &#x2F;&#x2F;子类要调用super方法，才能使用this，给父级绑定才有this</span><br><span class="line">                this.name &#x3D; &#39;aasda&#39;</span><br><span class="line">            &#125;</span><br><span class="line">            print()&#123;</span><br><span class="line">                super.print() &#x2F;&#x2F;b.print() -&gt; father A</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var b &#x3D; new B()</span><br><span class="line">        &#x2F;&#x2F; b.name &#x3D; &#39;aasda&#39;</span><br><span class="line">        &#x2F;&#x2F; b.print() aasda</span><br></pre></td></tr></table></figure>
+<h3 id="Promise对象"><a href="#Promise对象" class="headerlink" title="Promise对象"></a>Promise对象</h3><h4 id="Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）"><a href="#Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）" class="headerlink" title="Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）"></a>Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）</h4><ol>
+<li>基本用法</li>
+<li>三种状态<ol>
+<li>pending 就绪状态</li>
+<li>resolved 成功状态</li>
+<li>rejected 失败状态<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">实例方法</span><br><span class="line">Promise.all Promise.race</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
 
           
             <div class='article_footer'>
@@ -554,10 +564,10 @@ var per = new Person()
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:18:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -584,7 +594,7 @@ var per = new Person()
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary=ES6学习笔记"
           
           >
           
@@ -596,7 +606,7 @@ var per = new Person()
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary=ES6学习笔记"
           
           >
           
@@ -608,7 +618,7 @@ var per = new Person()
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/08/12/ES6/&title=ES6 - 何泽丰的博客&summary=ES6学习笔记"
           
           >
           
@@ -639,9 +649,8 @@ var per = new Person()
 图表
 动画
 condepen.io（HTML5动效）
-
 Canvas 发展史
-最早在apple Safari1.3中引入，ie9...</p>
+最早在apple Safari1.3中引入，ie9之...</p>
               </a>
             
             
@@ -720,7 +729,7 @@ CSS3提供了更加强大的且精准的选择器，提供多种背景填充方�
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6学习笔记"><span class="toc-text">ES6学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6语法的一个特性"><span class="toc-text">ES6语法的一个特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LET命令"><span class="toc-text">LET命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const命令"><span class="toc-text">const命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量的解构赋值"><span class="toc-text">变量的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的解构赋值"><span class="toc-text">字符串的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数值和布尔值的解构赋值"><span class="toc-text">数值和布尔值的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的扩展"><span class="toc-text">字符串的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值"><span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签模板"><span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的新增方法"><span class="toc-text">字符串的新增方法</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6学习笔记"><span class="toc-text">ES6学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6语法的一个特性"><span class="toc-text">ES6语法的一个特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LET命令"><span class="toc-text">LET命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const命令"><span class="toc-text">const命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量的解构赋值"><span class="toc-text">变量的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的解构赋值"><span class="toc-text">字符串的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数值和布尔值的解构赋值"><span class="toc-text">数值和布尔值的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的扩展"><span class="toc-text">字符串的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值"><span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签模板"><span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的新增方法"><span class="toc-text">字符串的新增方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式的扩展"><span class="toc-text">正则表达式的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串的正则方法"><span class="toc-text">字符串的正则方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的扩展"><span class="toc-text">函数的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箭头函数"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的扩展"><span class="toc-text">数组的扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的合并"><span class="toc-text">数组的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组实例方法"><span class="toc-text">数组实例方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fill-entries-，keys-values"><span class="toc-text">fill() , entries()，keys()   values()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的实例方法"><span class="toc-text">数组的实例方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#includes-find-findIndex"><span class="toc-text">includes() find() findIndex()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的扩展"><span class="toc-text">对象的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#属性的可枚举性以及属性的遍历"><span class="toc-text">属性的可枚举性以及属性的遍历</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的新增方法"><span class="toc-text">对象的新增方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类"><span class="toc-text">Class类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this指向"><span class="toc-text">this指向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态属性"><span class="toc-text">静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise对象"><span class="toc-text">Promise对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）"><span class="toc-text">Promise的含义：简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常来说是一个异步操作。）</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -791,16 +800,16 @@ CSS3提供了更加强大的且精准的选择器，提供多种背景填充方�
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

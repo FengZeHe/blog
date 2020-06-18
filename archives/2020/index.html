@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Archive: 2020 - 何泽丰的博客</title>
+    <title>归档：2020 - 何泽丰的博客</title>
   
   
 
@@ -351,8 +351,6 @@
         
           
         
-          
-        
       
     
     
@@ -421,13 +419,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>545 words</p>
+      <p>字数：545字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -538,13 +536,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.4k words</p>
+      <p>字数：1.4k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 min</p>
+      <p>时长：5分钟</p>
     </a>
   </div>
 
@@ -568,60 +566,16 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ES6的模块化"><a href="#ES6的模块化" class="headerlink" title="ES6的模块化"></a>ES6的模块化</h3><h4 id="模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"><a href="#模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件" class="headerlink" title="模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"></a>模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件</h4><h4 id="模块化背景"><a href="#模块化背景" class="headerlink" title="模块化背景"></a>模块化背景</h4><p>过去js很难编写大型应用，因为有以下两个问题：</p>
-<ol>
-<li>全局变量污染</li>
-<li>难以管理的依赖关系<br>这些问题，都导致了JS无法进行精细的模块划分，因为精细的模块划分会导致更多的全局污染更加负载的依赖关系，因为功能精细的划分有利于代码重用</li>
-</ol>
-<h4 id="前端的模块化有两个标准："><a href="#前端的模块化有两个标准：" class="headerlink" title="前端的模块化有两个标准："></a>前端的模块化有两个标准：</h4><ol>
-<li>Commonjs</li>
-<li>ES6 Module<br>注意：上面提到的两个均是模块化标准，具体的实现需要依托于JS的</li>
-</ol>
-<h4 id="ConmomJS"><a href="#ConmomJS" class="headerlink" title="ConmomJS"></a>ConmomJS</h4><p>简介：目前，只有node环境才支持CommonJs模块化标准，所以需要先安装node才能使用CommonJS<br>在CommonJS中，浏览器运行的是html页面，并加载页面通过script元素引入js，node.js直接运行某个js文件，该文件被称之为入口文件。node.js遵循ECMAScript标准，但脱离了浏览器环境：<br>你可以在node.js中使用ECMAScript标准的任何语法或api，例如循环，判断，数组，对象等等<br>但不能在node.js中使用浏览器的web api,例如说dom对象，window对象，document对象</p>
-<h5 id="CommonJS标准和使用"><a href="#CommonJS标准和使用" class="headerlink" title="CommonJS标准和使用"></a>CommonJS标准和使用</h5><p>node中的所有代码均在CommonJS下运行，具体规范如下 ：</p>
-<ol>
-<li><p>一个js文件既为一个模块<br>如果一个模块需要暴露依稀额数据或功能给其他模块使用，需要使用代码<code>module.exports = xxx</code> ,该过程称之为模块的导出</p>
-</li>
-<li><p>如果一个模块需要使用另一个模块导出的内容，需要使用代码require(‘模块路径’)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">路径必须以.&#x2F;或..&#x2F;开头</span><br><span class="line">如果模块文件后缀名为  .js 可以省略后缀名</span><br></pre></td></tr></table></figure>
-<p>require 函数中返回的是模块导出的内容,且模块中所有的全局代码产生的变量、函数均不会对全局造成任何污染，仅在模块内使用</p>
-</li>
-<li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
-</li>
-</ol>
-<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/FengZeHe/2020/02/23/ES6-modular/image.png" alt></p>
-<p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="ES6-module"><a href="#ES6-module" class="headerlink" title="ES6 module"></a>ES6 module</h3><blockquote>
-<p>由于种种原因，CommonJS难以在浏览器中实现，因为一直在浏览器端没有合适的模块化标准，直到es6出现。<br>ES6规范了浏览器的模块化标准，一经发布，各大浏览器厂商纷纷在自己的浏览器中实现该规范。</p>
-</blockquote>
-<p>模块的引入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在浏览器使用以下方式引入ES6模块文件</span><br><span class="line">&lt;script src &#x3D; &quot;入口文件&quot; type &#x3D; &quot;module&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h4 id="标准和使用"><a href="#标准和使用" class="headerlink" title="标准和使用"></a>标准和使用</h4><p>模块的导出分为两种，基本导出和默认导出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">可以将整个模块的导出想象成一个对象，基本导出导出的是该对象的某个属性，默认导出导出的是该对象的特殊属性default</span><br><span class="line">&#x2F;&#x2F;导出结果：想象成一个对象</span><br><span class="line">&#123;</span><br><span class="line">    a: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    b: xxx, &#x2F;&#x2F;基本导出</span><br><span class="line">    default: xxx, &#x2F;&#x2F;默认导出</span><br><span class="line">    c: xxx &#x2F;&#x2F;基本导出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="ES6的导出方式："><a href="#ES6的导出方式：" class="headerlink" title="ES6的导出方式："></a>ES6的导出方式：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export var a &#x3D; 1 &#x2F;&#x2F;基本导出 a &#x3D; 1</span><br><span class="line">export var b &#x3D; function()&#123;&#125; &#x2F;&#x2F;基本导出 b &#x3D; function()&#123;&#125;</span><br><span class="line">export function method()&#123;&#125;  &#x2F;&#x2F;基本导出 method &#x3D; function()&#123;&#125;</span><br><span class="line">var c &#x3D; 3;</span><br><span class="line">export &#123;c&#125; &#x2F;&#x2F;基本导出 c &#x3D; 3</span><br><span class="line">export &#123; c as temp &#125; &#x2F;&#x2F;基本导出 temp &#x3D; 3</span><br><span class="line"></span><br><span class="line">export default 3 &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export default function()&#123;&#125; &#x2F;&#x2F;默认导出 default &#x3D; function()&#123;&#125;</span><br><span class="line">export &#123; c as default &#125; &#x2F;&#x2F;默认导出 default &#x3D; 3</span><br><span class="line">export &#123;a, b, c as default&#125; &#x2F;&#x2F;基本导出 a&#x3D;1, b&#x3D;function()&#123;&#125;, 默认导出 default &#x3D; 3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">绝大部分时间写代码使用的导出方式是 export default()&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="ES6模块的导入："><a href="#ES6模块的导入：" class="headerlink" title="ES6模块的导入："></a>ES6模块的导入：</h4><p>使用以下的代码导入模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123;a,b&#125; from &quot;模块路径&quot;   &#x2F;&#x2F;导入属性 a、b，放到变量a、b中</span><br><span class="line">import &#123;a as temp1, b as temp2&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性a、b，放到变量temp1、temp2 中</span><br><span class="line">import &#123;default as a&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default，放入变量a中，default是关键字，不能作为变量名，必须定义别名</span><br><span class="line">import &#123;default as a, b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;导入属性default、b，放入变量a、b中</span><br><span class="line">import c from &quot;模块路径&quot;  &#x2F;&#x2F;相当于 import &#123;default as c&#125; from &quot;模块路径&quot;</span><br><span class="line">import c, &#123;a,b&#125; from &quot;模块路径&quot; &#x2F;&#x2F;相当于 import &#123;default as c, a, b&#125; from &quot;模块路径&quot;</span><br><span class="line">import * as obj from &quot;模块路径&quot; &#x2F;&#x2F;将模块对象放入到变量obj中</span><br><span class="line">import &quot;模块路径&quot; &#x2F;&#x2F;不导入任何内容，仅执行一次模块</span><br></pre></td></tr></table></figure>
-<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>导入模块时，注意以下细节</p>
-<ol>
-<li>ES6 module 采用依赖预加载模式，所有模块导入代码均会提升到代码顶部</li>
-<li>不能将导入代码放置到判断、循环中</li>
-<li>导入的内容放置到常量中，不可更改</li>
-<li>ES6 module 使用了缓存，保证每个模块仅加载一次</li>
-</ol>
-
+        <h3 id="ES6的模块化"><a href="#ES6的模块化" class="headerlink" title="ES6的模块化"></a>ES6的模块化</h3><h4 id="模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"><a href="#模块（module）-一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件" class="headerlink" title="模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件"></a>模块（module）:一块具有独立功能的代码，可以是一个函数，一个对象，甚至是一个字符串或数字，通常存储为一个单独的js文件</h4>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2020/02/23/ES6-modular/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -694,13 +648,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>363 words</p>
+      <p>字数：365字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -724,34 +678,17 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="是这样的："><a href="#是这样的：" class="headerlink" title="是这样的："></a>是这样的：</h4><ol>
-<li><p>浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）</p>
-</li>
-<li><p>浏览器对url地址进行url编码，如果url地址中出现了非ASCII字符，浏览器则会对其进行编码</p>
-<ol>
-<li>例如说在浏览器中搜索”王思聪”，汉字会被编码成ASCII码</li>
-</ol>
-</li>
-<li><p>浏览器构造一个没有消息体的GET请求，发送至服务器，等待服务器响应（此时浏览器标签应该有一个等等的图标–转圈）</p>
-</li>
-<li><p>服务器收到请求，将一个HTML页面代码组装到消息体中（不一定要html文件）响应给浏览器</p>
-</li>
-<li><p>浏览器拿到服务器的响应后，丢弃当前的页面，开始渲染消息体的HTML代码。浏览器之所以知道这是一个HTML代码，是因为服务器的响应头指定了消息类型为text/html</p>
-</li>
-<li><p>浏览器在渲染页面的过程中发现有嵌入的资源如CSS,JS图片等</p>
-</li>
-<li><p>浏览器使用不阻塞的渲染方式，重定向服务器发送该资源的请求，拿到响应结果后根据Content-Type做响应处理</p>
-</li>
-<li><p>当所有资源已经下载并处理好后，浏览器出发window.onload事件</p>
-</li>
-</ol>
-<p>   这里说的Content-Tpye是在http协议消息头中表示具体请求中的媒体类型信息</p>
-<p>   有一下几种类型：</p>
-<p>   <img src="/blog/FengZeHe/2020/02/15/when-Enter-an-address/content-type.png" alt></p>
-
+        <h4 id="过程是这样的："><a href="#过程是这样的：" class="headerlink" title="过程是这样的："></a>过程是这样的：</h4><ol>
+<li><p>浏览器将url地址补充完整，如果没有写协议就自动添加上协议（http： / https：）</p></li></ol>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2020/02/15/when-Enter-an-address/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -824,13 +761,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.3k words</p>
+      <p>字数：1.3k字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 min</p>
+      <p>时长：5分钟</p>
     </a>
   </div>
 
@@ -865,178 +802,15 @@
 
 
 <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>​    实现一个简单的vue函数，包括双向数据绑定，数据的响应式</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><pre><code>1. 首先想到要实现vue的数据绑定，根据vue的双向数据绑定，把{{xxx}} 与data{}里面的值进行绑定。将值绑定后，我们想到要将这些数据渲染出来，这里就需要知道页面的各个节点与各节点的子节点
- 2. 再到数据响应模块，使用object.defineProperty来实现数据的响应式，用get方法来读取属性的值，用set方法来写入属性的值，以此来实现数据绑定
- 3. 最后为Vue添加构造函数，例如说this.$el 来表示绑定的元素，$data来表示绑定的数据，$vnode代表虚拟节点</code></pre><h3 id="模块划分"><a href="#模块划分" class="headerlink" title="模块划分"></a>模块划分</h3><ol>
-<li>编译模块</li>
-<li>虚拟节点模块</li>
-<li>渲染模块</li>
-<li>数据响应模块</li>
-<li>VUE构造函数模块</li>
-</ol>
-<h3 id="编译模块"><a href="#编译模块" class="headerlink" title="编译模块"></a>编译模块</h3><blockquote>
-<p>提供一个compile函数，将一个模板文本(数据)和环境对象（DOM节点）编译成一个结果<br>思想：</p>
-</blockquote>
-<ol>
-<li>使用正则表达式匹配到html代码中包含 括号 的字符串</li>
-<li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
-<li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
-</ol>
-<p><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/1.png" alt></p>
-<blockquote>
-<p>compile.js 代码</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过程： 先拿到&#123;&#123;xxx&#125;&#125;里面的字符串，然后再对字符串进行加工</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFragments</span>(<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> matches = template.match(<span class="regexp">/&#123;&#123;[^&#125;]+&#125;&#125;/g</span>); <span class="comment">//万一有人的用户名叫12&#125;  所以这里要处理一下</span></span><br><span class="line">    <span class="keyword">return</span> matches || [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">fragment, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> exp = fragment.replace(<span class="string">"&#123;&#123;"</span>, <span class="string">""</span>).replace(<span class="string">"&#125;&#125;"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> props = exp.split(<span class="string">"."</span>);<span class="comment">//将表达式分割为属性数组</span></span><br><span class="line">    <span class="keyword">var</span> obj = envObj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">        obj = obj[props[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compile</span>(<span class="params">template, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 提取模板中的&#123;&#123;&#125;&#125;</span></span><br><span class="line">    <span class="keyword">var</span> flags = getFragments(template);</span><br><span class="line">    <span class="keyword">var</span> result = template;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; flags.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> flag = flags[i];</span><br><span class="line">        result = result.replace(flag, getValue(flag, envObj))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM:"></a>虚拟DOM:</h3><blockquote>
-<p>提供一个函数createVNode,根据提供真实的DOM，构建一个虚拟DOM树<br>思想：</p>
-</blockquote>
-<ol>
-<li>需要创建虚拟DOM 以便以后操作数据</li>
-<li>需要判断真实节点是否为文本节点，如果是就要记录到虚拟节点</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VNode</span>(<span class="params">realDom, template</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// node 构造函数</span></span><br><span class="line">    <span class="keyword">this</span>.realDom = realDom;</span><br><span class="line">    <span class="keyword">this</span>.template = template;</span><br><span class="line">    <span class="keyword">this</span>.children = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createVNode</span>(<span class="params">realDom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> root = <span class="keyword">new</span> VNode(realDom, <span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span> (realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        root.template = realDom.nodeValue;</span><br><span class="line">        <span class="comment">// 判断真实节点是否为文本节点，如果是，就要记录到虚拟节点</span></span><br><span class="line">        <span class="comment">// 文本节点代表的数字是3</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i  = <span class="number">0</span>; i&lt; realDom.childNodes.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = realDom.childNodes[i];</span><br><span class="line">            <span class="keyword">var</span> vNode = createVNode(childNode)</span><br><span class="line">            root.children.push(vNode);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
-<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/vnode.png" alt></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="数据响应模块"><a href="#数据响应模块" class="headerlink" title="数据响应模块"></a>数据响应模块</h3><blockquote>
-<p>主要负责将原始对象的数据附加到代理对象上，代理对象能够监听到数据的更改，当数据发生改变时，执行某个回调函数(就可以实现数据响应)</p>
-</blockquote>
-<ol>
-<li><p>使用Object.defineProperty来实现数据的响应式</p>
-</li>
-<li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
-</li>
-</ol>
-<p><img src="/blog/FengZeHe/2020/02/12/vue-demo-1/newTarget.png" alt></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="在前端页面写一个简单的VUE结构"><a href="#在前端页面写一个简单的VUE结构" class="headerlink" title="在前端页面写一个简单的VUE结构"></a>在前端页面写一个简单的VUE结构</h3><blockquote>
-<p>在前端页面写一个简单的VUE结构，测试一下是否正确</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"./vue/index.js"</span></span><br><span class="line">        <span class="built_in">window</span>.vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">"#app"</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                name:<span class="string">"FengZe"</span>,</span><br><span class="line">                age:<span class="number">16</span>,</span><br><span class="line">                addr:&#123;</span><br><span class="line">                    province:<span class="string">"广东"</span>,</span><br><span class="line">                    city:<span class="string">"佛山"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="大概就是这样实现的了"><a href="#大概就是这样实现的了" class="headerlink" title="大概就是这样实现的了."></a>大概就是这样实现的了.</h4><blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/vue_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue_demo</a></p>
-</blockquote>
-
       
     </div>
     
       
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/blog/2020/02/12/vue-demo/">
-      vue_demo
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://fengzehe.github.io/blog/" rel="nofollow">
-    <img src="https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg">
-    <p>何泽丰</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Feb 12, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>0 words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
+        <div class="button readmore">
+          <a href="/blog/2020/02/12/vue-demo-1/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
         </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
       
     
   </section>
@@ -1109,13 +883,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>475 words</p>
+      <p>字数：475字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -1147,47 +921,15 @@
 <div style="position: relative; width: 100%; height: 100%; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?aid=82787506&cid=141641375&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe>
 </div>
-
-
-
-
-
-<p>实现功能简介：</p>
-<ol>
-<li>扫码骑车记时功能</li>
-<li>用户登录及充值功能</li>
-<li>用户报障功能</li>
-</ol>
-<p>思路：</p>
-<ol>
-<li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
-<li>回到当前定位功能直接调用this.movetoCenter()函数</li>
-<li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
-<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/FengZeHe/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
-<li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
-</ol>
-</li>
-<li>单车报障功能<ol>
-<li>这里要说一嘴的是故障类型跟上传照片是必填，要验证内容是否为空。这里我只是判断了input框中的长度是否大于0；</li>
-<li>上传照片这里调用了微信的chooseImage()接口；我使用了一个数组存储上传的照片，所以在删除的时候直接在数组干掉就好了。</li>
-</ol>
-</li>
-<li>用户登录及充值功能<ol>
-<li>用户登录这里要注意下微信新版本是要授权，在按钮处设置open-type 为 getUserInfo才能使用。</li>
-<li>另外我把用户数据存进了storage,这样处理下一次就可以自动登录了。同时在登出的时候也会删除storage.</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>关于后台：<br>    因为时间<del>（技术）</del>问题暂时没有做出来，后续版本就有了嘿。因此这次我在modeHttp在线mock了后台数据。</p>
-</blockquote>
-<blockquote>
-<p>源码地址：<a href="https://github.com/FengZeHe/ofo_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/ofo_demo</a></p>
-</blockquote>
-
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2020/01/10/ofo_demo/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -1395,16 +1137,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

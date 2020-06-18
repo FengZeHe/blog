@@ -21,6 +21,12 @@
     <meta name="keywords" content="前端技术">
   
   
+    <meta name="description" content="HTML5学习笔记Canvas 画布Canvas应用场景：
+游戏
+图表
+动画
+condepen.io（HTML5动效）">
+  
 
   <!-- feed -->
   
@@ -317,11 +323,12 @@
 <li>游戏</li>
 <li>图表</li>
 <li>动画</li>
-<li>condepen.io（HTML5动效）</li>
-</ol>
+<li>condepen.io（HTML5动效）<a id="more"></a>
 <h5 id="Canvas-发展史"><a href="#Canvas-发展史" class="headerlink" title="Canvas 发展史"></a>Canvas 发展史</h5><blockquote>
 <p>最早在apple Safari1.3中引入，ie9之前的浏览器不支持canvas</p>
 </blockquote>
+</li>
+</ol>
 <h4 id="如何使用canvas"><a href="#如何使用canvas" class="headerlink" title="如何使用canvas"></a>如何使用canvas</h4><h5 id="添加canvas标签"><a href="#添加canvas标签" class="headerlink" title="添加canvas标签"></a>添加canvas标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas width &#x3D; 500 height &#x3D; 500&gt;&lt;&#x2F;canvas&gt;</span><br><span class="line"></span><br><span class="line">获取cancas元素</span><br><span class="line">var canvas &#x3D; document.getElementById(&#39;myCanvas&#39;)</span><br><span class="line"></span><br><span class="line">获取canvas上下文对象</span><br><span class="line">var ctx &#x3D; camvas.getContext(&#39;2d&#39;);</span><br></pre></td></tr></table></figure>
 
 <h5 id="如何画线段"><a href="#如何画线段" class="headerlink" title="如何画线段"></a>如何画线段</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(x,y) 移动到x,y坐标点</span><br><span class="line">ctx.lineTo(x,y) 从当前点描绘直线到x,y点</span><br><span class="line">ctx.stroke();描边</span><br><span class="line">ctx.lineWidth &#x3D; 20  设置线条宽度</span><br><span class="line">ctx.closePath();  闭合当前路径</span><br><span class="line">ctx.fill() 填充</span><br></pre></td></tr></table></figure>
@@ -410,7 +417,7 @@
 <li>navigator.cookieEnable  监测是否开启了cookie</li>
 </ol>
 <h6 id="设置cookie值"><a href="#设置cookie值" class="headerlink" title="设置cookie值"></a>设置cookie值</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getCookie(name) &#123;</span><br><span class="line">  var name &#x3D; name + &quot;&#x3D;&quot;;</span><br><span class="line">  var ca &#x3D; document.cookie.split(&#39;;&#39;);</span><br><span class="line">  for(var i&#x3D;0; i&lt;ca.length; i++) &#123;</span><br><span class="line">  var c &#x3D; ca[i];</span><br><span class="line">  while (c.charAt(0)&#x3D;&#x3D;&#39; &#39;) c &#x3D; c.substring(1);</span><br><span class="line">  if (c.indexOf(name) !&#x3D; -1) return c.substring(name.length, c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
+<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="/blog/blog/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
 <h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><ol>
 <li>history.back();</li>
 <li>history.forward();</li>
@@ -419,7 +426,7 @@
 <h5 id="通过修改hash和hashchange事件来实现历史纪录管理"><a href="#通过修改hash和hashchange事件来实现历史纪录管理" class="headerlink" title="通过修改hash和hashchange事件来实现历史纪录管理"></a>通过修改hash和hashchange事件来实现历史纪录管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1、pushState</span><br><span class="line">history.pushState(state, title, url); &#x2F;&#x2F;添加一条历史记录</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2、replaceState</span><br><span class="line">history.replaceState(state, title, url);&#x2F;&#x2F; 替换当前的历史记录</span><br></pre></td></tr></table></figure>
 
 <h4 id="worker-异步操作的api"><a href="#worker-异步操作的api" class="headerlink" title="worker(异步操作的api)"></a>worker(异步操作的api)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var worker &#x3D; new Worker(&#39;workder.js&#39;)</span><br><span class="line">&#x2F;&#x2F;https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;html5&#x2F;html_5_webworkers.asp</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/worker.png" alt></p>
+<p><img src="/blog/blog/2019/09/02/HTML5-note/worker.png" alt></p>
 <h4 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h4><ol>
 <li>getCurrentPosition()     //获取当前的位置信息<ol>
 <li>getCurrentPosition(s,e,p)</li>
@@ -432,7 +439,7 @@
 <li>clearWatch()  //清除位置监视</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.navigator.geolocation.getCurrentPosition(suc)</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/geolocation2.png" alt></p>
+<p><img src="/blog/blog/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/geolocation2.png" alt></p>
 <h4 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h4><ol>
 <li>用户拒绝code = 1;</li>
 <li>获取不到 code = 2;</li>
@@ -490,7 +497,7 @@
 <li>loadedmetadata 浏览器获取完媒体的元数据触发</li>
 <li>loadedata 浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8</li>
 <li>ended 当前播放结束后触发<blockquote>
-<p>readyState属性音频的当前就绪状态<br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/readyState.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/networkState.png" alt><br><img src="/blog/FengZeHe/2019/09/02/HTML5-note/error_medio.png" alt></p>
+<p>readyState属性音频的当前就绪状态<br><img src="/blog/blog/2019/09/02/HTML5-note/readyState.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/networkState.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/error_medio.png" alt></p>
 </blockquote>
 </li>
 </ol>
@@ -549,7 +556,7 @@
 
 
 <h5 id="webSocket方法"><a href="#webSocket方法" class="headerlink" title="webSocket方法"></a>webSocket方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket.send() 方法使用连接传输数据</span><br><span class="line">socket.close()  方法用于终止任何现有连接</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/FengZeHe/2019/09/02/HTML5-note/webSocket.png" alt></p>
+<p><img src="/blog/blog/2019/09/02/HTML5-note/webSocket.png" alt></p>
 <h5 id="webSocket的优点"><a href="#webSocket的优点" class="headerlink" title="webSocket的优点"></a>webSocket的优点</h5><ol>
 <li>客户端与服务器都可以主动传递数据给对方</li>
 <li>不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源</li>
@@ -641,10 +648,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:16:29+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -671,7 +678,11 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary=HTML5学习笔记Canvas 画布Canvas应用场景：
+游戏
+图表
+动画
+condepen.io（HTML5动效）"
           
           >
           
@@ -683,7 +694,11 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary=HTML5学习笔记Canvas 画布Canvas应用场景：
+游戏
+图表
+动画
+condepen.io（HTML5动效）"
           
           >
           
@@ -695,7 +710,11 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/09/02/HTML5-note/&title=HTML5学习笔记 - 何泽丰的博客&summary=HTML5学习笔记Canvas 画布Canvas应用场景：
+游戏
+图表
+动画
+condepen.io（HTML5动效）"
           
           >
           
@@ -732,10 +751,11 @@
             
               <a class='next' href='/blog/2019/08/12/ES6/'>
                 <p class='title'>ES6<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>ES6学习笔记ES6语法的一个特性块级作用域：{
+                <p class='content'>ES6学习笔记
+ES6语法的一个特性块级作用域：{
 }
 LET命令
-LET声明的变量具有块级作用域的概念12345678&#123;    console.log(typeof a)&#x2F;&...</p>
+LET声明的变量具有块级作用域的概念12345678&#123;    console.log(typeof a)&#x2F;...</p>
               </a>
             
           </div>
@@ -877,16 +897,16 @@ LET声明的变量具有块级作用域的概念12345678&#123;    console.log(ty
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

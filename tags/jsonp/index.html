@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: jsonp - 何泽丰的博客</title>
+    <title>标签：jsonp - 何泽丰的博客</title>
   
   
 
@@ -306,13 +306,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>344 words</p>
+      <p>字数：344字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>时长：1分钟</p>
     </a>
   </div>
 
@@ -342,31 +342,16 @@
 <ol>
 <li>Flash (很少了)</li>
 <li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li>
-<li>Jsonp</li>
-</ol>
-<blockquote>
-<p>jsonp跨域的原理</p>
-</blockquote>
-<ol>
-<li>web页面上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
-引入js文件时则不受是否跨域的影响（src不受同源策略限制）</li>
-<li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li>
-<li>因为我们无法监控<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
-的src属性是否把数据获取完成，所以我们需要做一个处理。</li>
-<li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li>
-<li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li>
-</ol>
-<blockquote>
-<p>doucument.domain （针对基础域名相同的情况）  //基础域名必须相同</p>
-</blockquote>
-<ul>
-<li>bj.58.com  document.domain  = ‘58.com’</li>
-<li>tj.58.com   document.domain = ‘58.com’</li>
-</ul>
-
+<li>Jsonp</li></ol>
       
     </div>
     
+      
+        <div class="button readmore">
+          <a href="/blog/2019/05/08/jonp/">
+            阅读全文 <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
       
     
   </section>
@@ -575,16 +560,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     

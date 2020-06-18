@@ -21,6 +21,14 @@
     <meta name="keywords" content="跨域,jsonp">
   
   
+    <meta name="description" content="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制
+解决跨域问题的几种方法:
+
+
+Flash (很少了)
+服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。
+Jsonp">
+  
 
   <!-- feed -->
   
@@ -311,7 +319,9 @@
 <ol>
 <li>Flash (很少了)</li>
 <li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li>
-<li>Jsonp</li>
+<li>Jsonp<a id="more"></a>
+
+</li>
 </ol>
 <blockquote>
 <p>jsonp跨域的原理</p>
@@ -419,10 +429,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-12T09:45:48+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:18:50+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 12, 2020</p>
+    <p>更新于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -449,7 +459,13 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary=jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制
+解决跨域问题的几种方法:
+
+
+Flash (很少了)
+服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。
+Jsonp"
           
           >
           
@@ -461,7 +477,13 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary=jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制
+解决跨域问题的几种方法:
+
+
+Flash (很少了)
+服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。
+Jsonp"
           
           >
           
@@ -473,7 +495,13 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary="
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/05/08/jonp/&title=jonp跨域 - 何泽丰的博客&summary=jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制
+解决跨域问题的几种方法:
+
+
+Flash (很少了)
+服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。
+Jsonp"
           
           >
           
@@ -655,16 +683,16 @@ form表单操作起来只会让整个页面刷新。Ajax(Asynchronoud javascript
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
