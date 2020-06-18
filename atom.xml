@@ -5,9 +5,9 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://fengzehe.github.io/blog/"/>
-  <updated>2020-06-12T03:22:03.000Z</updated>
-  <id>https://fengzehe.github.io/blog/</id>
+  <link href="https://fengzehe.github.io/"/>
+  <updated>2020-06-18T12:43:47.000Z</updated>
+  <id>https://fengzehe.github.io/</id>
   
   <author>
     <name>何泽丰</name>
@@ -18,16 +18,18 @@
   
   <entry>
     <title>ES6异步的解决方案</title>
-    <link href="https://fengzehe.github.io/blog/2020/02/27/es6-async/"/>
-    <id>https://fengzehe.github.io/blog/2020/02/27/es6-async/</id>
+    <link href="https://fengzehe.github.io/2020/02/27/es6-async/"/>
+    <id>https://fengzehe.github.io/2020/02/27/es6-async/</id>
     <published>2020-02-26T23:50:33.000Z</published>
-    <updated>2020-06-12T03:22:03.000Z</updated>
+    <updated>2020-06-18T12:43:47.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p><ol><li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li><li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li><li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li></ol><a id="more"></a><p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p><h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol><li>两个场景： unsettled (未决)  settled (已决)</li><li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/FengZeHe/2020/02/27/es6-async/scene.png" alt></li></ol><h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示<br><img src="/blog/FengZeHe/2020/02/27/es6-async/image.png" alt></p><h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/FengZeHe/2020/02/27/es6-async/catchable.png" alt></p><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol><li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li><li>以下代码可以让任务达到rejected 状态<ol><li>调用reject</li><li>代码执行报错</li><li>抛出错误</li></ol></li><li>后续处理函数一定是异步函数，并且放在微队列中</li></ol>]]></content>
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）<br>例如说：</p><ol><li>使用ajax请求服务器，当服务器完成响应后拿到响应结果</li><li>监听按钮是否被点击，当按钮点击后拿到某个文本框的值</li><li>使用setTimeout 等待一段时间，当时间到达后做某些事情</li></ol><a id="more"></a><p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p><h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol><li>两个场景： unsettled (未决)  settled (已决)</li><li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/blog/2020/02/27/es6-async/scene.png" alt></li></ol><h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示</p><h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/blog/2020/02/27/es6-async/catchable.png" alt></p><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol><li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li><li>以下代码可以让任务达到rejected 状态<ol><li>调用reject</li><li>代码执行报错</li><li>抛出错误</li></ol></li><li>后续处理函数一定是异步函数，并且放在微队列中</li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）&lt;br&gt;例如说：&lt;/p&gt;
+      &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+
+&lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）&lt;br&gt;例如说：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用ajax请求服务器，当服务器完成响应后拿到响应结果&lt;/li&gt;
 &lt;li&gt;监听按钮是否被点击，当按钮点击后拿到某个文本框的值&lt;/li&gt;
@@ -37,17 +39,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>ES6模块化</title>
-    <link href="https://fengzehe.github.io/blog/2020/02/23/ES6-modular/"/>
-    <id>https://fengzehe.github.io/blog/2020/02/23/ES6-modular/</id>
+    <link href="https://fengzehe.github.io/2020/02/23/ES6-modular/"/>
+    <id>https://fengzehe.github.io/2020/02/23/ES6-modular/</id>
     <published>2020-02-23T13:20:35.000Z</published>
     <updated>2020-06-18T10:13:29.000Z</updated>
     
@@ -60,17 +62,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>当在浏览器输入一个地址发生了什么</title>
-    <link href="https://fengzehe.github.io/blog/2020/02/15/when-Enter-an-address/"/>
-    <id>https://fengzehe.github.io/blog/2020/02/15/when-Enter-an-address/</id>
+    <link href="https://fengzehe.github.io/2020/02/15/when-Enter-an-address/"/>
+    <id>https://fengzehe.github.io/2020/02/15/when-Enter-an-address/</id>
     <published>2020-02-15T02:28:28.000Z</published>
     <updated>2020-06-18T10:14:03.000Z</updated>
     
@@ -84,17 +86,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>实现一个简单的VUE</title>
-    <link href="https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/"/>
-    <id>https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/</id>
+    <link href="https://fengzehe.github.io/2020/02/12/vue-demo-1/"/>
+    <id>https://fengzehe.github.io/2020/02/12/vue-demo-1/</id>
     <published>2020-02-12T00:33:19.000Z</published>
     <updated>2020-06-18T10:14:16.000Z</updated>
     
@@ -117,19 +119,19 @@
     </summary>
     
     
-      <category term="demo" scheme="https://fengzehe.github.io/blog/categories/demo/"/>
+      <category term="demo" scheme="https://fengzehe.github.io/categories/demo/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="vue" scheme="https://fengzehe.github.io/blog/tags/vue/"/>
+      <category term="vue" scheme="https://fengzehe.github.io/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>如何实现一个简单的ofo微信小程序</title>
-    <link href="https://fengzehe.github.io/blog/2020/01/10/ofo_demo/"/>
-    <id>https://fengzehe.github.io/blog/2020/01/10/ofo_demo/</id>
+    <link href="https://fengzehe.github.io/2020/01/10/ofo_demo/"/>
+    <id>https://fengzehe.github.io/2020/01/10/ofo_demo/</id>
     <published>2020-01-10T02:03:40.000Z</published>
     <updated>2020-06-18T10:16:15.000Z</updated>
     
@@ -149,19 +151,19 @@
     </summary>
     
     
-      <category term="demo" scheme="https://fengzehe.github.io/blog/categories/demo/"/>
+      <category term="demo" scheme="https://fengzehe.github.io/categories/demo/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="微信小程序" scheme="https://fengzehe.github.io/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="https://fengzehe.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>Spring学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/12/14/spring/"/>
-    <id>https://fengzehe.github.io/blog/2019/12/14/spring/</id>
+    <link href="https://fengzehe.github.io/2019/12/14/spring/"/>
+    <id>https://fengzehe.github.io/2019/12/14/spring/</id>
     <published>2019-12-14T12:40:13.000Z</published>
     <updated>2020-06-18T10:16:53.000Z</updated>
     
@@ -176,17 +178,17 @@
     </summary>
     
     
-      <category term="back-end" scheme="https://fengzehe.github.io/blog/categories/back-end/"/>
+      <category term="back-end" scheme="https://fengzehe.github.io/categories/back-end/"/>
     
     
-      <category term="后端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="后端技术" scheme="https://fengzehe.github.io/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>用CSS3做LoadIng动画</title>
-    <link href="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/"/>
-    <id>https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/</id>
+    <link href="https://fengzehe.github.io/2019/12/12/frontEnd_Loading/"/>
+    <id>https://fengzehe.github.io/2019/12/12/frontEnd_Loading/</id>
     <published>2019-12-12T06:47:13.000Z</published>
     <updated>2020-06-12T01:45:48.000Z</updated>
     
@@ -203,16 +205,16 @@
     
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="CSS3" scheme="https://fengzehe.github.io/blog/tags/CSS3/"/>
+      <category term="CSS3" scheme="https://fengzehe.github.io/tags/CSS3/"/>
     
   </entry>
   
   <entry>
     <title>vue学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/10/02/vue/"/>
-    <id>https://fengzehe.github.io/blog/2019/10/02/vue/</id>
+    <link href="https://fengzehe.github.io/2019/10/02/vue/"/>
+    <id>https://fengzehe.github.io/2019/10/02/vue/</id>
     <published>2019-10-02T01:03:25.000Z</published>
     <updated>2020-06-18T10:17:03.000Z</updated>
     
@@ -225,17 +227,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>2019-09-03 实习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/09/03/2019.09.03/"/>
-    <id>https://fengzehe.github.io/blog/2019/09/03/2019.09.03/</id>
+    <link href="https://fengzehe.github.io/2019/09/03/2019.09.03/"/>
+    <id>https://fengzehe.github.io/2019/09/03/2019.09.03/</id>
     <published>2019-09-03T14:58:13.000Z</published>
     <updated>2020-06-18T10:17:14.000Z</updated>
     
@@ -255,14 +257,14 @@
     
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>HTML5学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/09/02/HTML5-note/</id>
+    <link href="https://fengzehe.github.io/2019/09/02/HTML5-note/"/>
+    <id>https://fengzehe.github.io/2019/09/02/HTML5-note/</id>
     <published>2019-09-02T01:03:25.000Z</published>
     <updated>2020-06-18T10:16:29.000Z</updated>
     
@@ -279,17 +281,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>ES6</title>
-    <link href="https://fengzehe.github.io/blog/2019/08/12/ES6/"/>
-    <id>https://fengzehe.github.io/blog/2019/08/12/ES6/</id>
+    <link href="https://fengzehe.github.io/2019/08/12/ES6/"/>
+    <id>https://fengzehe.github.io/2019/08/12/ES6/</id>
     <published>2019-08-12T13:10:57.000Z</published>
     <updated>2020-06-18T10:18:21.000Z</updated>
     
@@ -302,17 +304,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>CSS3学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/12/CSS3-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/12/CSS3-note/</id>
+    <link href="https://fengzehe.github.io/2019/05/12/CSS3-note/"/>
+    <id>https://fengzehe.github.io/2019/05/12/CSS3-note/</id>
     <published>2019-05-12T06:47:13.000Z</published>
     <updated>2020-06-18T10:17:46.000Z</updated>
     
@@ -327,19 +329,19 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="CSS3" scheme="https://fengzehe.github.io/blog/tags/CSS3/"/>
+      <category term="CSS3" scheme="https://fengzehe.github.io/tags/CSS3/"/>
     
   </entry>
   
   <entry>
     <title>JQuery笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/12/JQuery-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/12/JQuery-note/</id>
+    <link href="https://fengzehe.github.io/2019/05/12/JQuery-note/"/>
+    <id>https://fengzehe.github.io/2019/05/12/JQuery-note/</id>
     <published>2019-05-12T06:20:06.000Z</published>
     <updated>2020-06-18T10:19:01.000Z</updated>
     
@@ -352,19 +354,19 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="JQuery" scheme="https://fengzehe.github.io/blog/tags/JQuery/"/>
+      <category term="JQuery" scheme="https://fengzehe.github.io/tags/JQuery/"/>
     
   </entry>
   
   <entry>
     <title>javascript学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/11/javascript-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/11/javascript-note/</id>
+    <link href="https://fengzehe.github.io/2019/05/11/javascript-note/"/>
+    <id>https://fengzehe.github.io/2019/05/11/javascript-note/</id>
     <published>2019-05-11T09:22:32.000Z</published>
     <updated>2020-06-18T10:18:42.000Z</updated>
     
@@ -382,19 +384,19 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="JavaScript" scheme="https://fengzehe.github.io/blog/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://fengzehe.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>浏览器渲染原理</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/08/brower-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/08/brower-note/</id>
+    <link href="https://fengzehe.github.io/2019/05/08/brower-note/"/>
+    <id>https://fengzehe.github.io/2019/05/08/brower-note/</id>
     <published>2019-05-08T04:02:16.000Z</published>
     <updated>2020-06-18T10:17:35.000Z</updated>
     
@@ -413,17 +415,17 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="浏览器渲染原理" scheme="https://fengzehe.github.io/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/"/>
+      <category term="浏览器渲染原理" scheme="https://fengzehe.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>jonp跨域</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/08/jonp/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/08/jonp/</id>
+    <link href="https://fengzehe.github.io/2019/05/08/jonp/"/>
+    <id>https://fengzehe.github.io/2019/05/08/jonp/</id>
     <published>2019-05-08T03:18:14.000Z</published>
     <updated>2020-06-18T10:18:50.000Z</updated>
     
@@ -443,16 +445,16 @@
     
     
     
-      <category term="跨域" scheme="https://fengzehe.github.io/blog/tags/%E8%B7%A8%E5%9F%9F/"/>
+      <category term="跨域" scheme="https://fengzehe.github.io/tags/%E8%B7%A8%E5%9F%9F/"/>
     
-      <category term="jsonp" scheme="https://fengzehe.github.io/blog/tags/jsonp/"/>
+      <category term="jsonp" scheme="https://fengzehe.github.io/tags/jsonp/"/>
     
   </entry>
   
   <entry>
     <title>Ajax笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/07/Ajax-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/07/Ajax-note/</id>
+    <link href="https://fengzehe.github.io/2019/05/07/Ajax-note/"/>
+    <id>https://fengzehe.github.io/2019/05/07/Ajax-note/</id>
     <published>2019-05-07T15:13:13.000Z</published>
     <updated>2020-06-18T10:17:24.000Z</updated>
     
@@ -467,19 +469,19 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Ajax" scheme="https://fengzehe.github.io/blog/tags/Ajax/"/>
+      <category term="Ajax" scheme="https://fengzehe.github.io/tags/Ajax/"/>
     
   </entry>
   
   <entry>
     <title>douban</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/07/douban/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/07/douban/</id>
+    <link href="https://fengzehe.github.io/2019/05/07/douban/"/>
+    <id>https://fengzehe.github.io/2019/05/07/douban/</id>
     <published>2019-05-07T01:03:25.000Z</published>
     <updated>2020-06-18T10:18:12.000Z</updated>
     
@@ -493,16 +495,16 @@
     
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="实战项目" scheme="https://fengzehe.github.io/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/"/>
+      <category term="实战项目" scheme="https://fengzehe.github.io/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
   <entry>
     <title>图解HTTP</title>
-    <link href="https://fengzehe.github.io/blog/2019/04/27/network-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/04/27/network-note/</id>
+    <link href="https://fengzehe.github.io/2019/04/27/network-note/"/>
+    <id>https://fengzehe.github.io/2019/04/27/network-note/</id>
     <published>2019-04-27T02:36:18.000Z</published>
     <updated>2020-06-18T10:19:12.000Z</updated>
     
@@ -517,19 +519,19 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="HTTP" scheme="https://fengzehe.github.io/blog/tags/HTTP/"/>
+      <category term="HTTP" scheme="https://fengzehe.github.io/tags/HTTP/"/>
     
-      <category term="读书笔记" scheme="https://fengzehe.github.io/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://fengzehe.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>CSS2.0学习笔记</title>
-    <link href="https://fengzehe.github.io/blog/2019/04/26/CSSnote/"/>
-    <id>https://fengzehe.github.io/blog/2019/04/26/CSSnote/</id>
+    <link href="https://fengzehe.github.io/2019/04/26/CSSnote/"/>
+    <id>https://fengzehe.github.io/2019/04/26/CSSnote/</id>
     <published>2019-04-26T07:13:39.000Z</published>
     <updated>2020-06-18T10:18:02.000Z</updated>
     
@@ -543,12 +545,12 @@
     </summary>
     
     
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
+      <category term="front-end" scheme="https://fengzehe.github.io/categories/front-end/"/>
     
     
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="前端技术" scheme="https://fengzehe.github.io/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="CSS" scheme="https://fengzehe.github.io/blog/tags/CSS/"/>
+      <category term="CSS" scheme="https://fengzehe.github.io/tags/CSS/"/>
     
   </entry>
   
