@@ -3,7 +3,7 @@
   <entry>
     <title>new</title>
     <url>/blog/2020/06/18/new-1/</url>
-    <content><![CDATA[<h4 id="hello-this-is-a-demo"><a href="#hello-this-is-a-demo" class="headerlink" title="hello this is a demo"></a>hello this is a demo</h4><p><img src="/blog/blog/2020/06/18/new-1/pic.png" alt><br><img src="/blog/blog/2020/06/18/new-1/pic.jpg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/mt2olfv0N4bwzxwc8ZjVic9wzmmaqicQEY4iauIKhlerbibbQ7z4eKFXUia3gBpSS9c6DEuA0mDnNeTcn1wxwr69Aicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt></p>
+    <content><![CDATA[<h4 id="hello-this-is-a-demo"><a href="#hello-this-is-a-demo" class="headerlink" title="hello this is a demo"></a>hello this is a demo</h4><p><img src="https://fengzehe.github.io/blog/2020/06/18/new-1/pic.png" alt><br><img src="https://fengzehe.github.io/blog/2020/06/18/new-1/pic.jpg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/mt2olfv0N4bwzxwc8ZjVic9wzmmaqicQEY4iauIKhlerbibbQ7z4eKFXUia3gBpSS9c6DEuA0mDnNeTcn1wxwr69Aicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt></p>
 ]]></content>
   </entry>
   <entry>
@@ -22,10 +22,10 @@
 <p>面对这样的场景，JS没有一种标准的模式来进行处理，我们处理这些问题的方式是杂乱的，这就导致了不同的人书写的异步任务代码使用方式不一致。例如说实用第三方库，不知道要传进去多少个参数，或者各种参数放第几位。</p>
 <h3 id="ES6异步处理模型"><a href="#ES6异步处理模型" class="headerlink" title="ES6异步处理模型"></a>ES6异步处理模型</h3><h4 id="ES6将异步场景分为两个阶段和三种状态"><a href="#ES6将异步场景分为两个阶段和三种状态" class="headerlink" title="ES6将异步场景分为两个阶段和三种状态"></a>ES6将异步场景分为两个阶段和三种状态</h4><ol>
 <li>两个场景： unsettled (未决)  settled (已决)</li>
-<li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="/blog/blog/2020/02/27/es6-async/scene.png" alt></li>
+<li>三种状态： pending (挂起) resolved(完成) rejected (失败)<br><img src="https://fengzehe.github.io/blog/2020/02/27/es6-async/scene.png" alt></li>
 </ol>
 <h5 id="当任务处于未决时"><a href="#当任务处于未决时" class="headerlink" title="当任务处于未决时"></a>当任务处于未决时</h5><pre><code>状态一定是pending的，表示任务从开始至拿到结果之间的过程。例如说网络完成了各种配置，发送了请求但还没有收到回复</code></pre><h5 id="当任务处于已决时"><a href="#当任务处于已决时" class="headerlink" title="当任务处于已决时"></a>当任务处于已决时</h5><pre><code>它只能是resolved和reject两种状态之间的一种。例如说拿到或者没拿到数据--&gt; resolved状态 。网络不通畅 --&gt; rejected状态</code></pre><p><strong>我们把从未决推向已决的resolved状态的过程，叫做resolve，从未决推向已决的rejected状态的过程，叫做reject</strong>如下图所示</p>
-<h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="/blog/blog/2020/02/27/es6-async/catchable.png" alt></p>
+<h5 id="任务已决后-有了结果"><a href="#任务已决后-有了结果" class="headerlink" title="任务已决后(有了结果)"></a>任务已决后(有了结果)</h5><pre><code>进一步做后续处理，如果任务成功了（resolved）,有后续处理，如果任务失败了（rejected）,仍可能做后续处理</code></pre><p><strong>我们把针对resolved的后续处理称之为thenable，针对rejected的后续处理，称之为catchable</strong><br><img src="https://fengzehe.github.io/blog/2020/02/27/es6-async/catchable.png" alt></p>
 <h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ol>
 <li>任务一旦进入已决后，所有企图改变代码任务状态的代码都将失效</li>
 <li>以下代码可以让任务达到rejected 状态<ol>
@@ -69,7 +69,7 @@
 <li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
 </li>
 </ol>
-<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/blog/2020/02/23/ES6-modular/image.png" alt></p>
+<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="https://fengzehe.github.io/blog/2020/02/23/ES6-modular/image.png" alt></p>
 <p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -133,7 +133,7 @@
 </ol>
 <p>   这里说的Content-Tpye是在http协议消息头中表示具体请求中的媒体类型信息</p>
 <p>   有一下几种类型：</p>
-<p>   <img src="/blog/blog/2020/02/15/when-Enter-an-address/content-type.png" alt></p>
+<p>   <img src="https://fengzehe.github.io/blog/2020/02/15/when-Enter-an-address/content-type.png" alt></p>
 ]]></content>
       <categories>
         <category>front-end</category>
@@ -175,7 +175,7 @@
 <li>拿到字符串之后把两边括号替换掉，把表达式分割成数组</li>
 <li>这需要与envObj环境变量进行配合使用，绑定后变成一个数组</li>
 </ol>
-<p><img src="/blog/blog/2020/02/12/vue-demo-1/1.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/1.png" alt></p>
 <blockquote>
 <p>compile.js 代码</p>
 </blockquote>
@@ -196,7 +196,7 @@
 
 
 <h3 id="渲染模块"><a href="#渲染模块" class="headerlink" title="渲染模块"></a>渲染模块</h3><blockquote>
-<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="/blog/blog/2020/02/12/vue-demo-1/vnode.png" alt></p>
+<p>用于提取虚拟节点，将其模板编译结果设置到真实的dom中，对虚拟节点的子节点也做同样的操作<br><img src="https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/vnode.png" alt></p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> compile <span class="keyword">from</span> <span class="string">"./compile.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 渲染一个虚拟节点（将文本的虚拟节点进行编译）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, envObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vnode.realDom.nodeType === Node.TEXT_NODE) &#123;</span><br><span class="line">        vnode.realDom.nodeValue = compile(vnode.template, envObj);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; vnode.children.length; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> childNode = vnode.children[i];</span><br><span class="line">            render(childNode, envObj);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -211,7 +211,7 @@
 <li><p>这里有一个关键是当代理一个对象是，发现对象里面还有属性没法代理。这时候就要重新申请一个新的代理（如下图）</p>
 </li>
 </ol>
-<p><img src="/blog/blog/2020/02/12/vue-demo-1/newTarget.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/02/12/vue-demo-1/newTarget.png" alt></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将原始对象的prop属性添加到代理对象中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxyProp</span>(<span class="params">originalObj, targetObj, prop, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> originalObj[prop] === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="comment">// 要代理的属性是一个对象,对象要单独处理</span></span><br><span class="line">        <span class="keyword">var</span> newTarget = &#123;&#125;;<span class="comment">//新的 要代理的对象</span></span><br><span class="line">        createResponsive(originalObj[prop], newTarget, callback);</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj,prop,&#123;</span><br><span class="line">            <span class="keyword">get</span>:function()&#123;</span><br><span class="line">                <span class="keyword">return</span> newTarget;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>:function(value)&#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                newTarget = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(targetObj, prop, &#123;</span><br><span class="line">            <span class="keyword">get</span>: function () &#123;</span><br><span class="line">                <span class="keyword">return</span> originalObj[prop];</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">                originalObj[prop] = value;</span><br><span class="line">                callback &amp;&amp; callback(prop);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将原始对象的属性，提取到代理对象中</span></span><br><span class="line"><span class="comment">// org是原始对象， target是代理对象 当代理对象被赋值的时候要调用回调函数</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createResponsive</span>(<span class="params">originalObj, targetObj, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> originalObj) &#123;</span><br><span class="line">        proxyProp(originalObj, targetObj, prop, callback);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="为vue写一个构造函数"><a href="#为vue写一个构造函数" class="headerlink" title="为vue写一个构造函数"></a>为vue写一个构造函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> createVNode <span class="keyword">from</span> <span class="string">'./vnode.js'</span></span><br><span class="line"><span class="keyword">import</span> createResponsive <span class="keyword">from</span> <span class="string">'./dataResponsive.js'</span></span><br><span class="line"><span class="keyword">import</span> render <span class="keyword">from</span> <span class="string">'./render.js'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">vue</span>(<span class="params">option</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.$el = option &amp;&amp; option.el;</span><br><span class="line">    <span class="keyword">this</span>.$data = option &amp;&amp; option.data;</span><br><span class="line">    <span class="keyword">this</span>.$vnode = createVNode(<span class="built_in">document</span>.querySelector(<span class="keyword">this</span>.$el))</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    createResponsive(<span class="keyword">this</span>.$data, <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 重新渲染</span></span><br><span class="line">        that.render();</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">this</span>.render()<span class="comment">//初次渲染</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vue.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    render(<span class="keyword">this</span>.$vnode, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -264,7 +264,7 @@
 <li>要实现这些功能，首先要设置一个首页，首页里面包含所有功能按钮，包括回到当前定位，立即用车，单车报障及个人用户按钮</li>
 <li>回到当前定位功能直接调用this.movetoCenter()函数</li>
 <li>立即用车功能;调用扫码接口获取开锁密码与当前单车编号，完事进入开锁界面并在90秒后跳转到计费页面并开始记录用户当前开始用车时间。<ol>
-<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="/blog/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
+<li>不过这里需要注意的是在计费中页面，用户仍然可以切换到首页地图，再次点击扫码用车的时候直接进入计费页面。<img src="https://fengzehe.github.io/blog/2020/01/10/ofo_demo/2020/01/10/ofo_demo/ride_logic.png" class title="是这个意思"></li>
 <li>因为切回首页是把计费页面放在后台,所以使用navtgateTo()方法，而不是使用redirectTo()方法。</li>
 </ol>
 </li>
@@ -645,7 +645,7 @@
 <li>navigator.cookieEnable  监测是否开启了cookie</li>
 </ol>
 <h6 id="设置cookie值"><a href="#设置cookie值" class="headerlink" title="设置cookie值"></a>设置cookie值</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line">document.cookie &#x3D; “name&#x3D;aimee”</span><br><span class="line">&#x2F;&#x2F;（每次只能设置一个值，因为浏览器会认为后面的键值对是这个cookie的属性）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function getCookie(name) &#123;</span><br><span class="line">  var name &#x3D; name + &quot;&#x3D;&quot;;</span><br><span class="line">  var ca &#x3D; document.cookie.split(&#39;;&#39;);</span><br><span class="line">  for(var i&#x3D;0; i&lt;ca.length; i++) &#123;</span><br><span class="line">  var c &#x3D; ca[i];</span><br><span class="line">  while (c.charAt(0)&#x3D;&#x3D;&#39; &#39;) c &#x3D; c.substring(1);</span><br><span class="line">  if (c.indexOf(name) !&#x3D; -1) return c.substring(name.length, c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  return &quot;&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="/blog/blog/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
+<h5 id="cookie-与-storage的对比"><a href="#cookie-与-storage的对比" class="headerlink" title="cookie 与 storage的对比"></a>cookie 与 storage的对比</h5><p><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/cookieAndSess.png" alt></p>
 <h4 id="history"><a href="#history" class="headerlink" title="history"></a>history</h4><ol>
 <li>history.back();</li>
 <li>history.forward();</li>
@@ -654,7 +654,7 @@
 <h5 id="通过修改hash和hashchange事件来实现历史纪录管理"><a href="#通过修改hash和hashchange事件来实现历史纪录管理" class="headerlink" title="通过修改hash和hashchange事件来实现历史纪录管理"></a>通过修改hash和hashchange事件来实现历史纪录管理</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1、pushState</span><br><span class="line">history.pushState(state, title, url); &#x2F;&#x2F;添加一条历史记录</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2、replaceState</span><br><span class="line">history.replaceState(state, title, url);&#x2F;&#x2F; 替换当前的历史记录</span><br></pre></td></tr></table></figure>
 
 <h4 id="worker-异步操作的api"><a href="#worker-异步操作的api" class="headerlink" title="worker(异步操作的api)"></a>worker(异步操作的api)</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var worker &#x3D; new Worker(&#39;workder.js&#39;)</span><br><span class="line">&#x2F;&#x2F;https:&#x2F;&#x2F;www.w3school.com.cn&#x2F;html5&#x2F;html_5_webworkers.asp</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/blog/2019/09/02/HTML5-note/worker.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/worker.png" alt></p>
 <h4 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h4><ol>
 <li>getCurrentPosition()     //获取当前的位置信息<ol>
 <li>getCurrentPosition(s,e,p)</li>
@@ -667,7 +667,7 @@
 <li>clearWatch()  //清除位置监视</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.navigator.geolocation.getCurrentPosition(suc)</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/blog/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/geolocation2.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/geolocation1.png" alt><br><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/geolocation2.png" alt></p>
 <h4 id="PositionError对象"><a href="#PositionError对象" class="headerlink" title="PositionError对象"></a>PositionError对象</h4><ol>
 <li>用户拒绝code = 1;</li>
 <li>获取不到 code = 2;</li>
@@ -725,7 +725,7 @@
 <li>loadedmetadata 浏览器获取完媒体的元数据触发</li>
 <li>loadedata 浏览器已经加载完当前帧数据，准备播放时触发，注意兼容IE8</li>
 <li>ended 当前播放结束后触发<blockquote>
-<p>readyState属性音频的当前就绪状态<br><img src="/blog/blog/2019/09/02/HTML5-note/readyState.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/networkState.png" alt><br><img src="/blog/blog/2019/09/02/HTML5-note/error_medio.png" alt></p>
+<p>readyState属性音频的当前就绪状态<br><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/readyState.png" alt><br><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/networkState.png" alt><br><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/error_medio.png" alt></p>
 </blockquote>
 </li>
 </ol>
@@ -784,7 +784,7 @@
 
 
 <h5 id="webSocket方法"><a href="#webSocket方法" class="headerlink" title="webSocket方法"></a>webSocket方法</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Socket.send() 方法使用连接传输数据</span><br><span class="line">socket.close()  方法用于终止任何现有连接</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/blog/2019/09/02/HTML5-note/webSocket.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2019/09/02/HTML5-note/webSocket.png" alt></p>
 <h5 id="webSocket的优点"><a href="#webSocket的优点" class="headerlink" title="webSocket的优点"></a>webSocket的优点</h5><ol>
 <li>客户端与服务器都可以主动传递数据给对方</li>
 <li>不用频率创建TCP请求及销毁请求，减少网络带宽资源的占用，同时也节省服务器资源</li>
@@ -1054,7 +1054,7 @@
 <li>transition 过渡动画</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">transition 第一项选择属性(什么width height fontsize opacity ，就是一项属性，用于监听)，第二项选择时间，第三项选择速度，第四项指定过渡函数，第五项为动画的延迟时间</span><br></pre></td></tr></table></figure>
-<img src="/blog/2019/05/12/CSS3-note/1.png" class>
+<img src="https://fengzehe.github.io/blog/2019/05/12/CSS3-note/2019/05/12/CSS3-note/1.png" class>
 
 <ol start="9">
 <li>animation  动画<ol>
@@ -1069,7 +1069,7 @@
 <p> 设置列与列之间的宽度，直接用数值即可（eg:10px）<br>column-span  设置多列布局的子元素可以跨列，类似标题效果。</p>
 <h5 id="CSS3-盒模型："><a href="#CSS3-盒模型：" class="headerlink" title="CSS3 盒模型："></a>CSS3 盒模型：</h5><p>IE6混杂模式，首先要触发一个怪异模式。 在IE6混杂模式盒模型下(IE6及以下浏览器)，内容宽度（盒子） = width - padding -border.width包含padding 和 border<br>W3C标准下的空间高度（盒子）= width +padding +border;  width 为内容宽度，不包括padding 和 border</p>
 <h5 id="CSS3-弹性盒子-display-flex"><a href="#CSS3-弹性盒子-display-flex" class="headerlink" title="CSS3 弹性盒子 display :flex"></a>CSS3 弹性盒子 display :flex</h5><p>==flex为复合属性，必须配合父元素display :flex使用==<br>如图</p>
-<img src="/blog/2019/05/12/CSS3-note/2.png" class>
+<img src="https://fengzehe.github.io/blog/2019/05/12/CSS3-note/2019/05/12/CSS3-note/2.png" class>
 
 <h6 id="6个属性"><a href="#6个属性" class="headerlink" title="6个属性"></a>6个属性</h6><ol>
 <li><p>flex-grow    把盒子分成多少份，要是1 的话就分成1分自己独占。默认是0；</p>
@@ -1305,7 +1305,7 @@
   <entry>
     <title>javascript学习笔记</title>
     <url>/blog/2019/05/11/javascript-note/</url>
-    <content><![CDATA[<h4 id="JavaScript笔记"><a href="#JavaScript笔记" class="headerlink" title="JavaScript笔记"></a>JavaScript笔记</h4><img src="/blog/2019/05/11/javascript-note/map.png" class title="这是js思维导图">
+    <content><![CDATA[<h4 id="JavaScript笔记"><a href="#JavaScript笔记" class="headerlink" title="JavaScript笔记"></a>JavaScript笔记</h4><img src="https://fengzehe.github.io/blog/2019/05/11/javascript-note/2019/05/11/javascript-note/map.png" class title="这是js思维导图">
 <h5 id="Web-发展史："><a href="#Web-发展史：" class="headerlink" title="Web 发展史："></a>Web 发展史：</h5><ol>
 <li>Mosaic：是全世界第一款可以显示图片的浏览器</li>
 <li>Netscape Navigator -&gt;2003 firefox 浏览器</li>
@@ -1992,7 +1992,7 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
 <li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li>
 <li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li>
 </ol>
-<img src="/blog/2019/05/08/brower-note/1.png" class title="如图">
+<img src="https://fengzehe.github.io/blog/2019/05/08/brower-note/2019/05/08/brower-note/1.png" class title="如图">
 
 <blockquote>
 <p>蓝色代表网络通信和HTML 解析</p>
@@ -2103,7 +2103,7 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
     <content><![CDATA[<h2 id="使用豆瓣api做联想搜索"><a href="#使用豆瓣api做联想搜索" class="headerlink" title="使用豆瓣api做联想搜索"></a>使用豆瓣api做联想搜索</h2><h6 id="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"><a href="#项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。" class="headerlink" title="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"></a>项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。</h6><a id="more"></a>
 <hr>
 <ol>
-<li>首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。<img src="/blog/2019/05/07/douban/1.png" class title="写好的样式，在搜索框内填入信息进行联想搜索">
+<li>首先我们先写一下样式，仿照豆瓣的导航栏还有搜索框写一个样式。<img src="https://fengzehe.github.io/blog/2019/05/07/douban/2019/05/07/douban/1.png" class title="写好的样式，在搜索框内填入信息进行联想搜索">
 <blockquote>
 <p>HTML代码</p>
 </blockquote>
@@ -2126,7 +2126,7 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
 <blockquote>
 <p>在数据获取成功之后我们通过foEach循环把获取回来的数据通过JQuery的html()方法插入到指定的文本当中,点击图片会跳转到歌曲页面。</p>
 </blockquote>
-<img src="/blog/2019/05/07/douban/2.png" class title="根据歌曲id，跳转到歌手页面">
+<img src="https://fengzehe.github.io/blog/2019/05/07/douban/2019/05/07/douban/2.png" class title="根据歌曲id，跳转到歌手页面">
 
 <h2 id="豆瓣后台的项目大致就是这样啦。"><a href="#豆瓣后台的项目大致就是这样啦。" class="headerlink" title="豆瓣后台的项目大致就是这样啦。"></a>豆瓣后台的项目大致就是这样啦。</h2>]]></content>
       <tags>
@@ -2388,7 +2388,7 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
   <entry>
     <title>hello</title>
     <url>/blog/2019/04/25/hello/</url>
-    <content><![CDATA[<h2 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h2><img src="/blog/2019/04/25/hello/1.png" class title="这是一个新的博客的图片的说明">
+    <content><![CDATA[<h2 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h2><img src="https://fengzehe.github.io/blog/2019/04/25/hello/2019/04/25/hello/1.png" class title="这是一个新的博客的图片的说明">
 <!-- ![kyrie irving](1.png) -->]]></content>
   </entry>
 </search>

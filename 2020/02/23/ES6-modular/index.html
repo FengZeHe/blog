@@ -337,7 +337,7 @@
 <li><p>模块具有缓存，第一次导入模块时会缓存模块的导出，之后再导入同一个模块 会使用之前缓存的结果</p>
 </li>
 </ol>
-<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="/blog/blog/2020/02/23/ES6-modular/image.png" alt></p>
+<p>有了CommomJS模块化，代码就会形成以下结构：<br><img src="https://fengzehe.github.io/blog/2020/02/23/ES6-modular/image.png" alt></p>
 <p>原理：node实际上是将模块文件中的代码防止到一个函数环境中执行，可以想象该函数是下面的样子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function(module)&#123;</span><br><span class="line">    module.exports &#x3D; &#123;&#125;;</span><br><span class="line">    var exports &#x3D; module.exports;</span><br><span class="line">    return module.exports;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -690,16 +690,16 @@
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
