@@ -16,18 +16,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>2019-09-03 实习笔记 - 何泽丰的博客</title>
+    <title>new - 何泽丰的博客</title>
   
-    <meta name="keywords" content="前端技术">
-  
-  
-    <meta name="description" content="背景：
-今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
-
-思路
-利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
-通过遍历和累加，计算得出每个字符出现的次数
-通过对比出现的次数，返回出现次数最多的字符">
   
 
   <!-- feed -->
@@ -259,8 +249,8 @@
         
           
   <h1 class="title">
-    <a href="/blog/2019/09/03/2019.09.03/">
-      2019-09-03 实习笔记
+    <a href="/blog/2020/06/18/new-1/">
+      new
     </a>
   </h1>
 
@@ -290,7 +280,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Sep 3, 2019</p>
+    <p>发布于：Jun 18, 2020</p>
   </a>
 </div>
 
@@ -313,15 +303,7 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h5 id="背景："><a href="#背景：" class="headerlink" title="背景："></a>背景：</h5><blockquote>
-<p>今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。</p>
-</blockquote>
-<h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><ol>
-<li>利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定</li>
-<li>通过遍历和累加，计算得出每个字符出现的次数</li>
-<li>通过对比出现的次数，返回出现次数最多的字符<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const str &#x3D; &#39;asddfgdfwwqeweqwezczxcsdfgdgd&#39;;</span><br><span class="line"></span><br><span class="line">   var obj &#x3D; &#123;&#125;;</span><br><span class="line">   var max &#x3D; 0;</span><br><span class="line">   var maxStr &#x3D; &quot;&quot;;</span><br><span class="line">   for(let i &#x3D; 0; i &lt; str.length ; i++)&#123;</span><br><span class="line">     var word &#x3D; str.charAt(i);</span><br><span class="line">     if(obj[word] !&#x3D; null)&#123;</span><br><span class="line">       obj[word]++;</span><br><span class="line">     &#125;else&#123;</span><br><span class="line">       obj[word] &#x3D; 1</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     for(let i in obj)&#123;</span><br><span class="line">       if(obj[i]&gt;max)&#123;</span><br><span class="line">         max &#x3D; obj[i];</span><br><span class="line">         maxStr &#x3D; i</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   console.log(&#39;出现最多次:&#39; + max +&#39;的字符是：&#39;+ maxStr)</span><br><span class="line">   console.log(obj);</span><br><span class="line">   &#x2F;&#x2F; &#123;a: 1, s: 2, d: 6, f: 3, g: 3, …&#125;</span><br><span class="line">   &#x2F;&#x2F; a: 1</span><br><span class="line">   &#x2F;&#x2F; c: 2</span><br><span class="line">   &#x2F;&#x2F; d: 6</span><br><span class="line">   &#x2F;&#x2F; e: 3</span><br><span class="line">   &#x2F;&#x2F; f: 3</span><br><span class="line">   &#x2F;&#x2F; g: 3</span><br><span class="line">   &#x2F;&#x2F; q: 2</span><br><span class="line">   &#x2F;&#x2F; s: 2</span><br><span class="line">   &#x2F;&#x2F; w: 4</span><br><span class="line">   &#x2F;&#x2F; x: 1</span><br><span class="line">   &#x2F;&#x2F; z: 2</span><br><span class="line">   &#x2F;&#x2F; __proto__: Object</span><br></pre></td></tr></table></figure></li>
-</ol>
+          <h4 id="hello-this-is-a-demo"><a href="#hello-this-is-a-demo" class="headerlink" title="hello this is a demo"></a>hello this is a demo</h4><p><img src="/blog/blog/2020/06/18/new-1/pic.png" alt><br><img src="/blog/blog/2020/06/18/new-1/pic.jpg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/mt2olfv0N4bwzxwc8ZjVic9wzmmaqicQEY4iauIKhlerbibbQ7z4eKFXUia3gBpSS9c6DEuA0mDnNeTcn1wxwr69Aicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt></p>
 
           
             <div class='article_footer'>
@@ -358,7 +340,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/>https://fengzehe.github.io/blog/2019/09/03/2019.09.03/</a></p>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/06/18/new-1/>https://fengzehe.github.io/blog/2020/06/18/new-1/</a></p>
           
         
       </blockquote>
@@ -409,7 +391,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T18:17:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-18T23:00:25+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 18, 2020</p>
@@ -420,9 +402,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>前端技术</p></a></div>
-
 
         
       
@@ -439,13 +418,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
-今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
-
-思路
-利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
-通过遍历和累加，计算得出每个字符出现的次数
-通过对比出现的次数，返回出现次数最多的字符"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/06/18/new-1/&title=new - 何泽丰的博客&summary="
           
           >
           
@@ -457,13 +430,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
-今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
-
-思路
-利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
-通过遍历和累加，计算得出每个字符出现的次数
-通过对比出现的次数，返回出现次数最多的字符"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/06/18/new-1/&title=new - 何泽丰的博客&summary="
           
           >
           
@@ -475,13 +442,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2019/09/03/2019.09.03/&title=2019-09-03 实习笔记 - 何泽丰的博客&summary=背景：
-今天刷面试题的时候，遇到一个问题——如何判断一段字符串里面出现最多的字符以及出现次数。
-
-思路
-利用javascript对象的属性特征，可以实现每个字符与出现次数的绑定
-通过遍历和累加，计算得出每个字符出现的次数
-通过对比出现的次数，返回出现次数最多的字符"
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/06/18/new-1/&title=new - 何泽丰的博客&summary="
           
           >
           
@@ -505,21 +466,15 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blog/2019/10/02/vue/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>vue学习笔记</p>
-                <p class='content'>vue学习笔记概念：Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目...</p>
-              </a>
             
-            
-              <a class='next' href='/blog/2019/09/02/HTML5-note/'>
-                <p class='title'>HTML5学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>HTML5学习笔记Canvas 画布Canvas应用场景：
-游戏
-图表
-动画
-condepen.io（HTML5动效）
-Canvas 发展史
-最早在apple Safari1.3中引入，ie9之...</p>
+              <a class='next' href='/blog/2020/02/27/es6-async/'>
+                <p class='title'>ES6异步的解决方案<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+
+背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
+
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个...</p>
               </a>
             
           </div>
@@ -564,7 +519,7 @@ Canvas 发展史
 
   <script>
     window.subData = {
-      title: '2019-09-03 实习笔记',
+      title: 'new',
       tools: true
     }
   </script>
@@ -590,7 +545,7 @@ Canvas 发展史
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#背景："><span class="toc-text">背景：</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#hello-this-is-a-demo"><span class="toc-text">hello this is a demo</span></a></li></ol>
     </div>
   </section>
 
