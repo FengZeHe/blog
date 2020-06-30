@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>new</title>
-    <url>/blog/2020/06/18/new-1/</url>
-    <content><![CDATA[<h4 id="hello-this-is-a-demo"><a href="#hello-this-is-a-demo" class="headerlink" title="hello this is a demo"></a>hello this is a demo</h4><p><img src="https://fengzehe.github.io/blog/2020/06/18/new-1/pic.png" alt><br><img src="https://fengzehe.github.io/blog/2020/06/18/new-1/pic.jpg" alt><br><img src="https://mmbiz.qpic.cn/mmbiz_png/mt2olfv0N4bwzxwc8ZjVic9wzmmaqicQEY4iauIKhlerbibbQ7z4eKFXUia3gBpSS9c6DEuA0mDnNeTcn1wxwr69Aicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt></p>
+    <title>菜鸟成长记 01</title>
+    <url>/blog/2020/06/29/record01/</url>
+    <content><![CDATA[<h4 id="移动端适配问题"><a href="#移动端适配问题" class="headerlink" title="移动端适配问题"></a>移动端适配问题</h4><p>当我们拿到750px像素的原型，移动端适配的时候将原型转换成html文件需要像素减半。</p>
+<a id="more"></a>
+
+<p>如我拿到一张750px 1206px的psd原型，放在移动端要设置成375px和603px。因为之前我在学习的时候并没有ui设计图让我切，所以在公司练手啥也不会。</p>
+<p>另外是要导出一个组合图形的时候，先转换成智能对象，清除栅格化，导出为PNG就可以得到背景是透明度的图形了。</p>
+<p>话虽如此，但我在开发过程中发现，虽然图片背景是透明的，但还是看到了一些端倪。</p>
+<p>虽然导出了背景是透明的PNG图片，但我们还是能看到按钮的背景图片边角并不是透明的。</p>
+<p>一开始我以为是导出图片的问题.</p>
+<p><img src="https://fengzehe.github.io/blog/2020/06/29/record01/change.png" alt></p>
 ]]></content>
+      <categories>
+        <category>rookie growth record</category>
+      </categories>
+      <tags>
+        <tag>--  记录</tag>
+      </tags>
   </entry>
   <entry>
     <title>ES6异步的解决方案</title>
@@ -230,7 +244,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>demo</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>前端技术</tag>
@@ -287,7 +301,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>demo</category>
+        <category>project</category>
       </categories>
       <tags>
         <tag>前端技术</tag>
@@ -2129,6 +2143,9 @@ DocumentFragment</code></pre><p>节点的四个属性：</p>
 <img src="https://fengzehe.github.io/blog/2019/05/07/douban/2019/05/07/douban/2.png" class title="根据歌曲id，跳转到歌手页面">
 
 <h2 id="豆瓣后台的项目大致就是这样啦。"><a href="#豆瓣后台的项目大致就是这样啦。" class="headerlink" title="豆瓣后台的项目大致就是这样啦。"></a>豆瓣后台的项目大致就是这样啦。</h2>]]></content>
+      <categories>
+        <category>project</category>
+      </categories>
       <tags>
         <tag>前端技术</tag>
         <tag>实战项目</tag>
