@@ -318,12 +318,16 @@
           <h4 id="移动端适配问题"><a href="#移动端适配问题" class="headerlink" title="移动端适配问题"></a>移动端适配问题</h4><p>当我们拿到750px像素的原型，移动端适配的时候将原型转换成html文件需要像素减半。</p>
 <a id="more"></a>
 
-<p>如我拿到一张750px 1206px的psd原型，放在移动端要设置成375px和603px。因为之前我在学习的时候并没有ui设计图让我切，所以在公司练手啥也不会。</p>
-<p>另外是要导出一个组合图形的时候，先转换成智能对象，清除栅格化，导出为PNG就可以得到背景是透明度的图形了。</p>
-<p>话虽如此，但我在开发过程中发现，虽然图片背景是透明的，但还是看到了一些端倪。</p>
-<p>虽然导出了背景是透明的PNG图片，但我们还是能看到按钮的背景图片边角并不是透明的。</p>
-<p>一开始我以为是导出图片的问题.</p>
+<p>​    如我拿到一张750px 1206px的psd原型，放在移动端要设置成375px和603px。因为之前我在学习的时候并没有ui设计图让我切，所以在公司练手啥也不会。</p>
+<p>​    另外是要导出一个组合图形的时候，先转换成智能对象，清除栅格化，导出为PNG就可以得到背景是透明度的图形了。</p>
 <p><img src="https://fengzehe.github.io/blog/2020/06/29/record01/change.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/06/29/record01/output.png" alt></p>
+<p>​    话虽如此，但我在开发过程中发现，虽然图片背景是透明的，但还是看到了一些端倪。</p>
+<p>​    虽然导出了背景是透明的PNG图片，但我们还是能看到按钮的背景图片边角并不是透明的。</p>
+<p>一开始我以为是导出图片的问题.</p>
+<p><img src="https://fengzehe.github.io/blog/2020/06/29/record01/back.png" alt></p>
+<p>​    其实并不是导出图片的问题。因为我使用了一个button包裹里面的a标签，在设置button背景的时候还受到button自身背景的影响，于是在button处设置 background-color : transparent就可以了。对比如下图。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/06/29/record01/after.png" alt></p>
 
           
             <div class='article_footer'>
@@ -411,7 +415,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-30T09:30:56+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-30T09:38:09+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 30, 2020</p>
@@ -639,14 +643,14 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
         本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        作为主题，总访问量为
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
           次
         
