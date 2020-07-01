@@ -333,18 +333,17 @@
 <p>现代浏览器都有内建的XMLHttpRequest对象，老旧浏览器（IE5 ，IE6）需要使用ActiveXObject对象</p>
 </li>
 <li><p>GET请求</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhttp.open(<span class="string">"GET"</span>, <span class="string">"data.json"</span>, <span class="literal">true</span>);</span><br><span class="line">xhttp.send();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xhttp.open(<span class="string">"GET"</span>, <span class="string">"data.json"</span>, <span class="literal">true</span>);</span><br><span class="line">xhttp.send();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>POST请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhttp.open(<span class="string">"POST"</span>, <span class="string">"ajax_test.asp"</span>, <span class="literal">true</span>);</span><br><span class="line">xhttp.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">xhttp.send(<span class="string">"fname=Bill&amp;lname=Gates"</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><pre><code class="js">xhttp.open(<span class="string">"POST"</span>, <span class="string">"ajax_test.asp"</span>, <span class="literal">true</span>);
-xhttp.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);
-xhttp.send(<span class="string">"fname=Bill&amp;lname=Gates"</span>);
-&lt;!--￼<span class="number">2</span>--&gt;</code></pre>
-</li>
-<li><p>这里补充一个，response里面存的是JSON类型的字符换，使用JSON.parse()方法可以使JSON字符串转换为js对象，这样调用起来就很方便了。</p>
+<li><p>最终实现</p>
 </li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> xhttp;</span><br><span class="line">  	<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)&#123;</span><br><span class="line">				xhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				 xhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHttp"</span>)<span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">		xhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span> &amp;&amp; <span class="keyword">this</span>.status == <span class="number">200</span>) &#123;</span><br><span class="line">				data =  <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.response);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		xhttp.open(<span class="string">"GET"</span>, <span class="string">"data.json"</span>, <span class="literal">true</span>);</span><br><span class="line">		xhttp.send();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    5. 这里补充一下，response里面存的是JSON类型的字符换，使用JSON.parse()方法可以使JSON字符串转换为js对象，这样调用起来就很方便了。</p>
 
           
             <div class='article_footer'>
@@ -400,20 +399,6 @@ xhttp.send(<span class="string">"fname=Bill&amp;lname=Gates"</span>);
 
   <div class='content article-entry'>
     
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
-      
-        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
-        
-          height='64px'
-        ></div>
-      
-    
   </div>
 </section>
 
@@ -432,10 +417,10 @@ xhttp.send(<span class="string">"fname=Bill&amp;lname=Gates"</span>);
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-06-30T22:44:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-01T09:14:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 30, 2020</p>
+    <p>更新于：Jul 1, 2020</p>
   </a>
 </div>
 
@@ -664,16 +649,16 @@ xhttp.send(<span class="string">"fname=Bill&amp;lname=Gates"</span>);
       
     
       
-        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
