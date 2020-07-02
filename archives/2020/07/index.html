@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-    <title>Tag: HTML - 何泽丰的博客</title>
+    <title>Archive: 2020/7 - 何泽丰的博客</title>
   
   
 
@@ -72,7 +72,105 @@
 
 <body>
   
-  <div id="loading-bar-wrapper">
+  <div class="cover-wrapper">
+    
+      <cover class='cover  half'>
+        <div class='cover-body'>
+  <div class='a'>
+    
+    
+      <p class="title">Feng's blog</p>
+    
+    
+      <p class="subtitle">Be brave, or you will lose forever.</p>
+    
+  </div>
+  <div class='b'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+          
+            <li>
+              <a class="nav home"
+                href="https://fengzehe.github.io/blog/"
+                
+                
+                id="https:fengzehegithubioblog">
+                <i class='fas fa-book fa-fw'></i>首页
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://fengzehe.github.io/blog/archives/"
+                
+                
+                id="https:fengzehegithubioblogarchives">
+                <i class='fas fa-rss fa-fw'></i>归档
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://fengzehe.github.io/blog/categories/demo/"
+                
+                
+                id="https:fengzehegithubioblogcategoriesdemo">
+                <i class='fas fa-play-circle fa-fw'></i>项目
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://github.com/FengZeHe"
+                
+                  rel="external nofollow noopener noreferrer"
+                
+                
+                  target="_blank"
+                
+                id="https:githubcomFengZeHe">
+                <i class='fas fa-file-code fa-fw'></i>源码
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://fengzehe.github.io/blog/about/"
+                
+                
+                id="https:fengzehegithubioblogabout">
+                <i class='fas fa-handshake fa-fw'></i>关于
+              </a>
+            </li>
+          
+            <li>
+              <a class="nav home"
+                href="https://fengzehe.github.io/blog/about/"
+                
+                
+                id="https:fengzehegithubioblogabout">
+                <i class='fas fa-handshake fa-fw'></i>人生不止有技术
+              </a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </cover>
+    
+    <div id="loading-bar-wrapper">
   <div id="loading-bar"></div>
 </div>
 <header class="l_header shadow blur">
@@ -229,17 +327,16 @@
 
 <script>setLoadingBarProgress(40);</script>
 
+  </div>
 
 
-  <div class="l_body nocover">
+  <div class="l_body">
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list ">
     
       
@@ -264,8 +361,8 @@
         
           
   <h2 class="title">
-    <a href="/blog/2019/04/26/HTMLnote/">
-      HTML 学习笔记
+    <a href="/blog/2020/07/01/record03/">
+      菜鸟成长记 03
     </a>
   </h2>
 
@@ -290,9 +387,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/blog/categories/front-end/' rel="nofollow">
+    <a href='/blog/categories/rookie-growth-record/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>front-end</p>
+      <p>rookie growth record</p>
     </a>
   </div>
 
@@ -303,7 +400,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Apr 26, 2019</p>
+    <p>发布于：Jul 1, 2020</p>
   </a>
 </div>
 
@@ -314,13 +411,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>694 words</p>
+      <p>254 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>2 min</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -344,21 +441,21 @@
   <section class="article typo">
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- ## HTML 学习笔记 -->
+        <h4 id="减少代码冗余"><a href="#减少代码冗余" class="headerlink" title="减少代码冗余"></a>减少代码冗余</h4><p>​    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/before.png" alt></p>
+<p>​    因为每个弹窗固定的位置都有一个关闭按钮，按钮的位置是每个父级div下的一个元素节点。所以我想在点击事件后传入dom元素的父节点的ID，以此来绑定父级ID。因此用show()函数设置元素显示，通过hide()函数设置函数隐藏。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"please_login"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn_close "</span> <span class="attr">onclick</span>=<span class="string">"hide(this.parentNode.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login"</span> <span class="attr">onclick</span>=<span class="string">"login()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>HTML（HyperText markup language 超文本标记语言）从出现到现在，从以前是文本编辑语言到现在只是用来表达内容。样式是由CSS做的。</p>
-</li>
-<li><p>HTML 语义化：根据内容的结构化，选择合适的标签，便于开发者阅读和写出更优雅的代码同时让浏览器的爬虫和机器很好的解析。</p></li></ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'block'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hide</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成后减少了40行左右的代码，看起来更加清爽了。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/1.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/3.png" alt></p>
+<p>​    </p>
+
       
     </div>
     
-      
-        <div class="button readmore">
-          <a href="/blog/2019/04/26/HTMLnote/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
       
     
   </section>
@@ -378,8 +475,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -595,6 +691,14 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
+
+
+
+
+	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+	
+
+	
 
 
       <script>setLoadingBarProgress(60);</script>

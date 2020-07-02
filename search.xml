@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>菜鸟成长记 03</title>
+    <url>/blog/2020/07/01/record03/</url>
+    <content><![CDATA[<h4 id="减少代码冗余"><a href="#减少代码冗余" class="headerlink" title="减少代码冗余"></a>减少代码冗余</h4><p>​    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/before.png" alt></p>
+<p>​    因为每个弹窗固定的位置都有一个关闭按钮，按钮的位置是每个父级div下的一个元素节点。所以我想在点击事件后传入dom元素的父节点的ID，以此来绑定父级ID。因此用show()函数设置元素显示，通过hide()函数设置函数隐藏。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"please_login"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn_close "</span> <span class="attr">onclick</span>=<span class="string">"hide(this.parentNode.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login"</span> <span class="attr">onclick</span>=<span class="string">"login()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'block'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hide</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成后减少了40行左右的代码，看起来更加清爽了。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/1.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/3.png" alt></p>
+<p>​    </p>
+]]></content>
+      <categories>
+        <category>rookie growth record</category>
+      </categories>
+      <tags>
+        <tag>-- 记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>菜鸟成长记 02</title>
     <url>/blog/2020/06/30/record02/</url>
     <content><![CDATA[<h3 id="实现原生JS封装一个AJAS"><a href="#实现原生JS封装一个AJAS" class="headerlink" title="实现原生JS封装一个AJAS"></a>实现原生JS封装一个AJAS</h3><blockquote>

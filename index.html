@@ -393,9 +393,128 @@
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/blog/2020/07/01/record03/">
+      菜鸟成长记 03
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://fengzehe.github.io/blog/" rel="nofollow">
+    <img src="https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg">
+    <p>何泽丰</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/blog/categories/rookie-growth-record/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>rookie growth record</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 1, 2020</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>254 words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>1 min</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="减少代码冗余"><a href="#减少代码冗余" class="headerlink" title="减少代码冗余"></a>减少代码冗余</h4><p>​    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/before.png" alt></p>
+<p>​    因为每个弹窗固定的位置都有一个关闭按钮，按钮的位置是每个父级div下的一个元素节点。所以我想在点击事件后传入dom元素的父节点的ID，以此来绑定父级ID。因此用show()函数设置元素显示，通过hide()函数设置函数隐藏。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"please_login"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn_close "</span> <span class="attr">onclick</span>=<span class="string">"hide(this.parentNode.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login"</span> <span class="attr">onclick</span>=<span class="string">"login()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'block'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hide</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完成后减少了40行左右的代码，看起来更加清爽了。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/1.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/3.png" alt></p>
+<p>​    </p>
+
+      
+    </div>
+    
+      
+    
+  </section>
+</article>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -461,13 +580,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：354字</p>
+      <p>354 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -575,13 +694,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：293字</p>
+      <p>293 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -687,13 +806,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：545字</p>
+      <p>545 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -806,13 +925,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：1.4k字</p>
+      <p>1.4k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：5分鐘</p>
+      <p>5 min</p>
     </a>
   </div>
 
@@ -918,13 +1037,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：365字</p>
+      <p>365 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -1031,13 +1150,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：1.3k字</p>
+      <p>1.3k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：5分鐘</p>
+      <p>5 min</p>
     </a>
   </div>
 
@@ -1153,13 +1272,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：475字</p>
+      <p>475 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -1272,13 +1391,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：1.7k字</p>
+      <p>1.7k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：7分鐘</p>
+      <p>7 min</p>
     </a>
   </div>
 
@@ -1378,13 +1497,13 @@
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：6字</p>
+      <p>6 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：1分鐘</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -1420,118 +1539,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/blog/2019/10/02/vue/">
-      vue学习笔记
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://fengzehe.github.io/blog/" rel="nofollow">
-    <img src="https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg">
-    <p>何泽丰</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/blog/categories/front-end/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>front-end</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Oct 2, 2019</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字數：1.9k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>時長：6分鐘</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="vue学习笔记"><a href="#vue学习笔记" class="headerlink" title="vue学习笔记"></a>vue学习笔记</h2><h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><pre><code>Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现在话的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</code></pre>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/blog/2019/10/02/vue/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1545,7 +1552,7 @@
         
           <a class="next" rel="next" href="/blog/page/2/">
             <section class="post next white-box shadow">
-              &nbsp;下一頁&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
+              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
             </section>
           </a>
         
@@ -1653,7 +1660,7 @@
           <li><a class="flat-box"
             title="/blog/categories/rookie-growth-record/" href="/blog/categories/rookie-growth-record/"
             id="blogcategoriesrookie-growth-record"
-            ><div class='name'>rookie growth record</div><div class='badge'>(2)</div></a></li>
+            ><div class='name'>rookie growth record</div><div class='badge'>(3)</div></a></li>
         
       </ul>
     </div>
@@ -1677,7 +1684,7 @@
 
 
     <div class='content'>
-      <a href="/blog/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 19px; color: #777">--  记录</a> <a href="/blog/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/CSS3/" style="font-size: 19px; color: #777">CSS3</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/blog/tags/JQuery/" style="font-size: 14px; color: #999">JQuery</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/jsonp/" style="font-size: 14px; color: #999">jsonp</a> <a href="/blog/tags/vue/" style="font-size: 14px; color: #999">vue</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 24px; color: #555">前端技术</a> <a href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 14px; color: #999">后端技术</a> <a href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">实战项目</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">浏览器渲染原理</a> <a href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 14px; color: #999">跨域</a>
+      <a href="/blog/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 19px; color: #777">--  记录</a> <a href="/blog/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 14px; color: #999">-- 记录</a> <a href="/blog/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/CSS3/" style="font-size: 19px; color: #777">CSS3</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/blog/tags/JQuery/" style="font-size: 14px; color: #999">JQuery</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/jsonp/" style="font-size: 14px; color: #999">jsonp</a> <a href="/blog/tags/vue/" style="font-size: 14px; color: #999">vue</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 24px; color: #555">前端技术</a> <a href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 14px; color: #999">后端技术</a> <a href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">实战项目</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">浏览器渲染原理</a> <a href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 14px; color: #999">跨域</a>
     </div>
   </section>
 
@@ -1750,16 +1757,16 @@
       
     
       
-        <div><p>博客內容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank" rel="noopener">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
