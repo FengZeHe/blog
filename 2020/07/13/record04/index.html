@@ -16,13 +16,13 @@
 
   <!-- 页面元数据 -->
   
-    <title>rem移动端适配 - 何泽丰的博客</title>
+    <title>菜鸟成长记 04 - 何泽丰的博客</title>
   
-    <meta name="keywords" content="-- record">
+    <meta name="keywords" content="-- 记录">
   
   
-    <meta name="description" content="|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
-  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。">
+    <meta name="description" content=" 在看vue.js实战的时候笔者留下了一道题:
+  1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。">
   
 
   <!-- feed -->
@@ -254,8 +254,8 @@
         
           
   <h1 class="title">
-    <a href="/blog/2020/07/05/mobile-terminal-rem/">
-      rem移动端适配
+    <a href="/blog/2020/07/13/record04/">
+      菜鸟成长记 04
     </a>
   </h1>
 
@@ -280,9 +280,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/blog/categories/front-end/' rel="nofollow">
+    <a href='/blog/categories/rookie-growth-record/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>front-end</p>
+      <p>rookie growth record</p>
     </a>
   </div>
 
@@ -293,7 +293,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 5, 2020</p>
+    <p>发布于：Jul 13, 2020</p>
   </a>
 </div>
 
@@ -316,31 +316,40 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h4 id="前言：什么是移动端适配？"><a href="#前言：什么是移动端适配？" class="headerlink" title="|前言：什么是移动端适配？"></a>|前言：什么是移动端适配？</h4><p>  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。</p>
-<p>  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。</p>
+          <p> 在看vue.js实战的时候笔者留下了一道题:</p>
+<p>  <strong>1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。</strong></p>
 <a id="more"></a>
 
-<h4 id="常见的适配方法"><a href="#常见的适配方法" class="headerlink" title="|常见的适配方法"></a><strong>|常见的适配方法</strong></h4><ol>
-<li>viewport</li>
-<li>rem</li>
-<li>flex</li>
-<li>vm/vh</li>
-</ol>
-<h4 id="物理像素是什么"><a href="#物理像素是什么" class="headerlink" title="|物理像素是什么"></a><strong>|物理像素是什么</strong></h4><p>  显示屏的最佳分辨率，即屏幕实际存在的像素行数乘以列数的数学表达方式，是显示屏固有的参数，不能调节，其含义是指显示屏最高可显示的像素数。物理分辨率也叫标准分辨率，是指LED显示屏显示的图像原始分辨率，也叫真实分辨率。和物理分辨率对应的是压缩分辨率，决定图像清晰程度的是物理分辨率，决定显示屏的适用范围的是压缩分辨率。物理分辨率即LED液晶板的实际分辨率，在LED液晶板上通过网格来划分液晶体，一个液晶体为一个像素点。物理分辨率越高，则可接收分辨率的范围越大，则显示屏的适应范围越广。</p>
-<p>  这里就肯定要提到Retina屏，2560X1600个像素每四个一组，输出原来屏幕的一个像素显示的大小区域内的图像。用户看到的图片与文字大小与1280x800分辨率的显示器相同，但精细度是原来的4倍。所以说<strong>Retina显示目的是为了解决画面精细度的问题而不是增加显示内容。</strong></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/1.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/2.png" alt></p>
-<p>​    上图是Retina屏，下图是旧显示器。上图是我们可以发现像素边缘下图更加平滑，是使用更多的像素点来表示图形的缘故。</p>
-<h4 id="rem移动端适配"><a href="#rem移动端适配" class="headerlink" title="|rem移动端适配"></a><strong>|rem移动端适配</strong></h4><ol>
-<li><p>定义 ：rem是一个css单位，这个单位比em多一个字母所以说多少有点类似。但不同的是<strong>em根据父元素显示大小，rem是相对于根标签对于px的定义来显示大小。</strong>例如说font-size = 16px表示 1rem = 16px;<strong>在移动端适配的时候设置rem可以让元素等比例放大或缩小以达到在不同设备显示一致的效果</strong>。</p>
+<p>  <strong>2. “将商品列表list改成一个二维数组来实现商品的分类，比如可分为”电子产品”，”生活用品”和”果蔬”，同类商品聚合在一起，你可能用到两次v-for。</strong></p>
+<p>做出来的效果是这样的：</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/13/record04/image.png" alt></p>
+<p><strong>|思路：</strong></p>
+<p>  选中商品功能，商品需要添加一个check属性。<strong>通过查询商品的check属性判断是否被选中。</strong></p>
+<p>  总价变为计算选中商品的总价，因此我们可以在 computed计算总价totalPrice加一步验证。商品属性check = true才计算总价。</p>
+<p>  在全选的时候把商品的check属性都遍历一遍  –&gt; <strong>把商品的check属性都设置为true，并把全选属性 isCheckedAll设置为true表示已经全选</strong>。</p>
+<p>  当单件商品取消选中的时候要把i<strong>sCheckedAll设置为fasle，表示已经取消全选。</strong></p>
+<p><strong>|步骤：</strong></p>
+<ol>
+<li><p>收到的数据是一个二维数组，分别显示商品类别以及商品内容。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">list: [</span><br><span class="line">        &#123;</span><br><span class="line">                title_name: <span class="string">'电子产品'</span>,</span><br><span class="line">                content: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'iPad Pro'</span>, <span class="attr">price</span>: <span class="number">5799</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'iPhone XS '</span>, <span class="attr">price</span>: <span class="number">5089</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">'Macbook Pro'</span>, <span class="attr">price</span>: <span class="number">13199</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>根据设备宽度作为基准 ，设置其根标签大小。我们可以通过函数来设置根标签的rem大小，并且在每次设备窗口宽度改变的时候重新计算根标签的fontsize。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">e</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = <span class="built_in">document</span>.documentElement.clintWidth, </span><br><span class="line">        t = <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>),</span><br><span class="line">        f = ( e &gt; <span class="number">750</span> ? <span class="number">750</span> : e) /  ??? ;<span class="comment">//根据实际情况设置</span></span><br><span class="line">        t.style.fontSize = f + <span class="string">'px'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    e(), <span class="built_in">window</span>.addEventListener(<span class="string">'resize'</span>,e);</span><br><span class="line">   <span class="comment">// 当调整浏览器窗口的大小时，发生 resize 事件并重新计算参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>购物车页面显示商品类别，名称数量以及操作。底部显示总价以及结账。</p>
+</li>
+<li><p>通过计算属性来显示总价。循环二维数组两次，根据是否选中情况计算总价</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">       totalPrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> total = <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">               <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                   <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                   <span class="keyword">if</span> (items.check == <span class="literal">true</span>) &#123;</span><br><span class="line">                       total += items.price * items.count;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">this</span>.total = total</span><br><span class="line">           <span class="keyword">return</span> total;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>单选和全选。实现的原理与全选类似，在选中按钮中绑定checked属性，绑定check属性确定绑定状态</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">check: <span class="function"><span class="keyword">function</span> (<span class="params">index1, index2</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.list[index1].content[index2].check) &#123;</span><br><span class="line">                <span class="keyword">this</span>.list[index1].content[index2].check = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.list[index1].content[index2].check = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">checkAll: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.isCheckedAll == <span class="literal">false</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                        <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                        items.check = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                        <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                        items.check = <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
 </ol>
+</li>
+</ol>
+<p>   所以大致就是这样实现的啦。我把题目的代码放在这里：</p>
+<p>   <a href="https://github.com/FengZeHe/vue.jsPracticalsubject/tree/master/shoppingCar/shop_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue.jsPracticalsubject/tree/master/shoppingCar/shop_demo</a></p>
 
           
             <div class='article_footer'>
@@ -377,7 +386,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/>https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/</a></p>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/13/record04/>https://fengzehe.github.io/blog/2020/07/13/record04/</a></p>
           
         
       </blockquote>
@@ -414,10 +423,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-05T15:27:06+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-13T22:20:37+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 5, 2020</p>
+    <p>更新于：Jul 13, 2020</p>
   </a>
 </div>
 
@@ -426,7 +435,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/record/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>-- record</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E8%AE%B0%E5%BD%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>-- 记录</p></a></div>
 
 
         
@@ -444,8 +453,8 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/&title=rem移动端适配 - 何泽丰的博客&summary=|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
-  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/13/record04/&title=菜鸟成长记 04 - 何泽丰的博客&summary= 在看vue.js实战的时候笔者留下了一道题:
+  1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。"
           
           >
           
@@ -457,8 +466,8 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/&title=rem移动端适配 - 何泽丰的博客&summary=|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
-  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/13/record04/&title=菜鸟成长记 04 - 何泽丰的博客&summary= 在看vue.js实战的时候笔者留下了一道题:
+  1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。"
           
           >
           
@@ -470,8 +479,8 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/05/mobile-terminal-rem/&title=rem移动端适配 - 何泽丰的博客&summary=|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
-  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。"
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/13/record04/&title=菜鸟成长记 04 - 何泽丰的博客&summary= 在看vue.js实战的时候笔者留下了一道题:
+  1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。"
           
           >
           
@@ -495,21 +504,15 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blog/2020/07/13/record04/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>菜鸟成长记 04</p>
-                <p class='content'> 在看vue.js实战的时候笔者留下了一道题:
-  1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。
-
-
-  2. “将商...</p>
-              </a>
             
-            
-              <a class='next' href='/blog/2020/07/01/record03/'>
-                <p class='title'>菜鸟成长记 03<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>减少代码冗余​    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。
+              <a class='next' href='/blog/2020/07/05/mobile-terminal-rem/'>
+                <p class='title'>rem移动端适配<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
+  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。
 
-...</p>
+
+|常见的适配方法
+viewpo...</p>
               </a>
             
           </div>
@@ -554,7 +557,7 @@
 
   <script>
     window.subData = {
-      title: 'rem移动端适配',
+      title: '菜鸟成长记 04',
       tools: true
     }
   </script>
@@ -569,20 +572,6 @@
     
     
 
-
-  <section class="widget toc-wrapper shadow desktop mobile">
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言：什么是移动端适配？"><span class="toc-text">|前言：什么是移动端适配？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的适配方法"><span class="toc-text">|常见的适配方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#物理像素是什么"><span class="toc-text">|物理像素是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rem移动端适配"><span class="toc-text">|rem移动端适配</span></a></li></ol>
-    </div>
-  </section>
 
 
   

@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://fengzehe.github.io/blog/"/>
-  <updated>2020-07-05T07:27:06.000Z</updated>
+  <updated>2020-07-13T14:20:37.000Z</updated>
   <id>https://fengzehe.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>菜鸟成长记 04</title>
+    <link href="https://fengzehe.github.io/blog/2020/07/13/record04/"/>
+    <id>https://fengzehe.github.io/blog/2020/07/13/record04/</id>
+    <published>2020-07-13T14:03:01.000Z</published>
+    <updated>2020-07-13T14:20:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p> 在看vue.js实战的时候笔者留下了一道题:</p><p>  <strong>1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。</strong></p><a id="more"></a><p>  <strong>2. “将商品列表list改成一个二维数组来实现商品的分类，比如可分为”电子产品”，”生活用品”和”果蔬”，同类商品聚合在一起，你可能用到两次v-for。</strong></p><p>做出来的效果是这样的：</p><p><img src="https://fengzehe.github.io/blog/2020/07/13/record04/image.png" alt></p><p><strong>|思路：</strong></p><p>  选中商品功能，商品需要添加一个check属性。<strong>通过查询商品的check属性判断是否被选中。</strong></p><p>  总价变为计算选中商品的总价，因此我们可以在 computed计算总价totalPrice加一步验证。商品属性check = true才计算总价。</p><p>  在全选的时候把商品的check属性都遍历一遍  –&gt; <strong>把商品的check属性都设置为true，并把全选属性 isCheckedAll设置为true表示已经全选</strong>。</p><p>  当单件商品取消选中的时候要把i<strong>sCheckedAll设置为fasle，表示已经取消全选。</strong></p><p><strong>|步骤：</strong></p><ol><li><p>收到的数据是一个二维数组，分别显示商品类别以及商品内容。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">list: [</span><br><span class="line">        &#123;</span><br><span class="line">                title_name: <span class="string">'电子产品'</span>,</span><br><span class="line">                content: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'iPad Pro'</span>, <span class="attr">price</span>: <span class="number">5799</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'iPhone XS '</span>, <span class="attr">price</span>: <span class="number">5089</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        id: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">'Macbook Pro'</span>, <span class="attr">price</span>: <span class="number">13199</span>, <span class="attr">count</span>: <span class="number">1</span>, <span class="attr">check</span>: <span class="literal">false</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br></pre></td></tr></table></figure></li><li><p>购物车页面显示商品类别，名称数量以及操作。底部显示总价以及结账。</p></li><li><p>通过计算属性来显示总价。循环二维数组两次，根据是否选中情况计算总价</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">       totalPrice: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> total = <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">               <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                   <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                   <span class="keyword">if</span> (items.check == <span class="literal">true</span>) &#123;</span><br><span class="line">                       total += items.price * items.count;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">this</span>.total = total</span><br><span class="line">           <span class="keyword">return</span> total;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><ol start="4"><li><p>单选和全选。实现的原理与全选类似，在选中按钮中绑定checked属性，绑定check属性确定绑定状态</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">check: <span class="function"><span class="keyword">function</span> (<span class="params">index1, index2</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.list[index1].content[index2].check) &#123;</span><br><span class="line">                <span class="keyword">this</span>.list[index1].content[index2].check = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.list[index1].content[index2].check = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">checkAll: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.isCheckedAll == <span class="literal">false</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                        <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                        items.check = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.list.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">var</span> item = <span class="keyword">this</span>.list[i];</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; item.content.length; j++) &#123;</span><br><span class="line">                        <span class="keyword">var</span> items = item.content[j];</span><br><span class="line">                        items.check = <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.isCheckedAll = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li></ol></li></ol><p>   所以大致就是这样实现的啦。我把题目的代码放在这里：</p><p>   <a href="https://github.com/FengZeHe/vue.jsPracticalsubject/tree/master/shoppingCar/shop_demo" target="_blank" rel="noopener">https://github.com/FengZeHe/vue.jsPracticalsubject/tree/master/shoppingCar/shop_demo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 在看vue.js实战的时候笔者留下了一道题:&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;1. 在当前示例基础上扩展商品列表，新增一项是否选中该商品的功能，总价变为只计算选中商品的总价，同时提供一个全选的按钮。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="rookie growth record" scheme="https://fengzehe.github.io/blog/categories/rookie-growth-record/"/>
+    
+    
+      <category term="-- 记录" scheme="https://fengzehe.github.io/blog/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>rem移动端适配</title>
@@ -512,35 +536,6 @@
     
     
       <category term="浏览器渲染原理" scheme="https://fengzehe.github.io/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jonp跨域</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/08/jonp/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/08/jonp/</id>
-    <published>2019-05-08T03:18:14.000Z</published>
-    <updated>2020-06-18T10:18:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制"><a href="#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制" class="headerlink" title="jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制"></a>jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制</h5><blockquote><p>解决跨域问题的几种方法:</p></blockquote><ol><li>Flash (很少了)</li><li>服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。</li><li>Jsonp<a id="more"></a></li></ol><blockquote><p>jsonp跨域的原理</p></blockquote><ol><li>web页面上<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>引入js文件时则不受是否跨域的影响（src不受同源策略限制）</li><li>于是我们把数据放到服务器上并且数据位json格式 （因为js可以轻松处理json数据）</li><li>因为我们无法监控<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>的src属性是否把数据获取完成，所以我们需要做一个处理。</li><li>实现定义好处理跨域获取数据的函数， 如function doJSON(data){}</li><li>用src获取数据的时候添加一个参数 cb = ‘doJSON’(服务端会根据参数cb的值返回 对应的内容) 此内容为cb对应的值doJSON为函数真实要传递的数据为函数的参数的一串字符 如doJSON (‘数据’)。</li></ol><blockquote><p>doucument.domain （针对基础域名相同的情况）  //基础域名必须相同</p></blockquote><ul><li>bj.58.com  document.domain  = ‘58.com’</li><li>tj.58.com   document.domain = ‘58.com’</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制&quot;&gt;&lt;a href=&quot;#jsonp可以实现跨域获取数据-其实是get请求-而Ajax跨域受到限制&quot; class=&quot;headerlink&quot; title=&quot;jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制&quot;&gt;&lt;/a&gt;jsonp可以实现跨域获取数据 (其实是get请求),而Ajax跨域受到限制&lt;/h5&gt;&lt;blockquote&gt;
-&lt;p&gt;解决跨域问题的几种方法:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;Flash (很少了)&lt;/li&gt;
-&lt;li&gt;服务器代理中转  （用得还算比较多）通过一个中间域名相同的php文件（借助自己同源的服务器），因为中间php不属于浏览器，因此不存在同源策略，即服务器之间可以互相转发信息。&lt;/li&gt;
-&lt;li&gt;Jsonp&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="跨域" scheme="https://fengzehe.github.io/blog/tags/%E8%B7%A8%E5%9F%9F/"/>
-    
-      <category term="jsonp" scheme="https://fengzehe.github.io/blog/tags/jsonp/"/>
     
   </entry>
   
