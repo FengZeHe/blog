@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://fengzehe.github.io/blog/"/>
-  <updated>2020-07-13T14:20:37.000Z</updated>
+  <updated>2020-07-15T01:56:37.000Z</updated>
   <id>https://fengzehe.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>人生不止有技术01</title>
+    <link href="https://fengzehe.github.io/blog/2020/07/15/technology01/"/>
+    <id>https://fengzehe.github.io/blog/2020/07/15/technology01/</id>
+    <published>2020-07-15T01:55:59.000Z</published>
+    <updated>2020-07-15T01:56:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>人生不止有技术</p><a id="more"></a><p>还有生活和远方</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;人生不止有技术&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="not only technology" scheme="https://fengzehe.github.io/blog/categories/not-only-technology/"/>
+    
+    
+      <category term="-- 人生不止有技术" scheme="https://fengzehe.github.io/blog/tags/%E4%BA%BA%E7%94%9F%E4%B8%8D%E6%AD%A2%E6%9C%89%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>菜鸟成长记 04</title>
@@ -507,35 +530,6 @@
       <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
       <category term="JavaScript" scheme="https://fengzehe.github.io/blog/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器渲染原理</title>
-    <link href="https://fengzehe.github.io/blog/2019/05/08/brower-note/"/>
-    <id>https://fengzehe.github.io/blog/2019/05/08/brower-note/</id>
-    <published>2019-05-08T04:02:16.000Z</published>
-    <updated>2020-06-18T10:17:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="浏览器渲染原理"><a href="#浏览器渲染原理" class="headerlink" title="浏览器渲染原理"></a>浏览器渲染原理</h4><p> -步骤：</p><ol><li>清楚HTML 生成DOM树</li><li>处理CSS生成 CSSDOM树</li><li>将两树合并成render 树</li><li>将render 树进行布局计算</li><li>将render树中的每一个节点绘制到屏幕上<a id="more"></a></li></ol><ul><li>重排，重绘</li></ul><ol><li>当render tree 中的一部分（或全部）因为元素的规模尺寸，布局，隐藏等改变需要重新构建，会回流。每个页面至少需要一次回流，就是在页面的第一次加载的时候。</li><li>重绘。当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格而不影响布局的，例如background-color，就叫做重绘。</li></ol><img src="https://fengzehe.github.io/blog/2019/05/08/brower-note/2019/05/08/brower-note/1.png" class title="如图"><blockquote><p>蓝色代表网络通信和HTML 解析</p></blockquote><blockquote><p>黄色代表javascipt执行</p></blockquote><blockquote><p>紫色代表样式计算和布局，即重排</p></blockquote><blockquote><p>绿色代表重绘</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;浏览器渲染原理&quot;&gt;&lt;a href=&quot;#浏览器渲染原理&quot; class=&quot;headerlink&quot; title=&quot;浏览器渲染原理&quot;&gt;&lt;/a&gt;浏览器渲染原理&lt;/h4&gt;&lt;p&gt; -步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;清楚HTML 生成DOM树&lt;/li&gt;
-&lt;li&gt;处理CSS生成 CSSDOM树&lt;/li&gt;
-&lt;li&gt;将两树合并成render 树&lt;/li&gt;
-&lt;li&gt;将render 树进行布局计算&lt;/li&gt;
-&lt;li&gt;将render树中的每一个节点绘制到屏幕上&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-    
-      <category term="front-end" scheme="https://fengzehe.github.io/blog/categories/front-end/"/>
-    
-    
-      <category term="浏览器渲染原理" scheme="https://fengzehe.github.io/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
