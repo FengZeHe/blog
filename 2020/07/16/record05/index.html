@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,12 @@
 
   <!-- 页面元数据 -->
   
-    <title>标签：实战项目 - 何泽丰的博客</title>
+    <title>菜鸟成长记05 - 何泽丰的博客</title>
   
+    <meta name="keywords" content="-- record">
+  
+  
+    <meta name="description" content="|前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取">
   
 
   <!-- feed -->
@@ -235,25 +237,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -263,11 +252,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/blog/2019/05/07/douban/">
-      douban
+  <h1 class="title">
+    <a href="/blog/2020/07/16/record05/">
+      菜鸟成长记05
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -290,9 +279,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/blog/categories/project/' rel="nofollow">
+    <a href='/blog/categories/rookie-growth-record/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>project</p>
+      <p>rookie growth record</p>
     </a>
   </div>
 
@@ -303,27 +292,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 7, 2019</p>
+    <p>发布于：Jul 16, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>字数：1.1k字</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>时长：6分钟</p>
-    </a>
-  </div>
-
 
             
           
@@ -341,94 +312,78 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="使用豆瓣api做联想搜索"><a href="#使用豆瓣api做联想搜索" class="headerlink" title="使用豆瓣api做联想搜索"></a>使用豆瓣api做联想搜索</h2><h6 id="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"><a href="#项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。" class="headerlink" title="项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。"></a>项目目的：进行JQuery和Ajax的练习，仿照豆瓣的输入联想功能。在豆瓣后台返回数据的时候点击选项跳转到相关页面。</h6>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/blog/2019/05/07/douban/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>|前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取</p>
+<a id="more"></a>
 
-          </div>
-        
-      
-    
-  </section>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/get.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/get1.png" alt></p>
+<p>但现在有业务需求需要用post来获取，如果在vscode中使用live server打开就会出现这种错误。</p>
+<p><strong>Failed to load resource: the server responded with a status of 405 (Method Not Allowed)</strong></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post1.png" alt></p>
+<p>网上许多解决方法都是windows下的解决方案，例如说</p>
+<p>（1）不通过IIS访问，使用其他的访问方式</p>
+<p>（2）修改IIS的“处理程序映射”。</p>
+<p>但在Mac下并没有特别好的解决方法。</p>
+<p>这时候我回想了一下，请求静态资源是要用get请求，使用post请求的时候并且发送url是一个具体的资源的时候，网络会把url当做域名来解析。</p>
+<p>虽然道理是这样的，我想了一下live server是小型服务器，那我或许也可以在apache上跑一下。</p>
+<p>然后配置了一下apache并启动就可以了。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/start.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post2.png" alt></p>
+<p>Apache的配置</p>
+<p>Mac虽然是自带Apache，但文件根目录非常难找，在<code>/etc/apache2/</code> 的文件夹下</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache1.png" alt></p>
+<p>我们找到httpd.conf文件后可以用sublime Text打开。找到DocumentRoot 这两行，修改为自定义路径。</p>
+<p>例如我修改为<code>/Users/hezefeng/Server</code></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache2.png" alt></p>
+<p>然后往下找，把<code>Options FollowSymLink</code>修改为<code>Options Indexes FollowSymLinks</code></p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache3.png" alt></p>
+<p>再往下找，把<code>#LoadModule php7_module libexec/apache2/libphp7.so</code>最前面的#去掉。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache4.png" alt></p>
+<p>事后重启一下服务器就好了</p>
+
+          
+            <div class='article_footer'>
+              
+                
   
     
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
     
-    
+
+
 
   
 
-
-    
-  
-</div>
-<aside class='l_side'>
-  
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/blog/about/'>
-          <img no-lazy src='https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
-        
-          <p>怕, 就输一辈子</p>
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/blog/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
           
         
           
-            <a href="mailto:316692151@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/16/record05/>https://fengzehe.github.io/blog/2020/07/16/record05/</a></p>
           
         
-          
-            <a href="https://github.com/FengZeHe"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -438,73 +393,176 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
     
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/blog/categories/back-end/" href="/blog/categories/back-end/"
-            id="blogcategoriesback-end"
-            ><div class='name'>back-end</div><div class='badge'>(1)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box"
-            title="/blog/categories/front-end/" href="/blog/categories/front-end/"
-            id="blogcategoriesfront-end"
-            ><div class='name'>front-end</div><div class='badge'>(15)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-16T11:58:15+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 16, 2020</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/blog/categories/not-only-technology/" href="/blog/categories/not-only-technology/"
-            id="blogcategoriesnot-only-technology"
-            ><div class='name'>not only technology</div><div class='badge'>(1)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/blog/categories/project/" href="/blog/categories/project/"
-            id="blogcategoriesproject"
-            ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/record/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>-- record</p></a></div>
+
+
         
-          <li><a class="flat-box"
-            title="/blog/categories/rookie-growth-record/" href="/blog/categories/rookie-growth-record/"
-            id="blogcategoriesrookie-growth-record"
-            ><div class='name'>rookie growth record</div><div class='badge'>(5)</div></a></li>
+      
         
-      </ul>
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=|前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=|前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=|前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/blog/2020/07/15/technology01/'>
+                <p class='title'>人生不止有技术01<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>人生不止有技术
+
+
+还有生活和远方
+</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '菜鸟成长记05',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <a href="/blog/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 19px; color: #777">--  记录</a> <a href="/blog/tags/record/" style="font-size: 19px; color: #777">-- record</a> <a href="/blog/tags/%E4%BA%BA%E7%94%9F%E4%B8%8D%E6%AD%A2%E6%9C%89%E6%8A%80%E6%9C%AF/" style="font-size: 14px; color: #999">-- 人生不止有技术</a> <a href="/blog/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 19px; color: #777">-- 记录</a> <a href="/blog/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/CSS3/" style="font-size: 19px; color: #777">CSS3</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/blog/tags/JQuery/" style="font-size: 14px; color: #999">JQuery</a> <a href="/blog/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/blog/tags/jsonp/" style="font-size: 14px; color: #999">jsonp</a> <a href="/blog/tags/vue/" style="font-size: 14px; color: #999">vue</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 24px; color: #555">前端技术</a> <a href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 14px; color: #999">后端技术</a> <a href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">实战项目</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">浏览器渲染原理</a> <a href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 14px; color: #999">跨域</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -709,6 +767,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
