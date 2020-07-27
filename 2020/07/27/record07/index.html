@@ -16,13 +16,13 @@
 
   <!-- 页面元数据 -->
   
-    <title>菜鸟成长记05 - 何泽丰的博客</title>
+    <title>菜鸟成长记07 - 何泽丰的博客</title>
   
     <meta name="keywords" content="-- record">
   
   
     <meta name="description" content="
-前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取
+前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？
 ">
   
 
@@ -255,8 +255,8 @@
         
           
   <h1 class="title">
-    <a href="/blog/2020/07/16/record05/">
-      菜鸟成长记05
+    <a href="/blog/2020/07/27/record07/">
+      菜鸟成长记07
     </a>
   </h1>
 
@@ -294,7 +294,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 16, 2020</p>
+    <p>发布于：Jul 27, 2020</p>
   </a>
 </div>
 
@@ -318,36 +318,23 @@
         <div class="article-entry" itemprop="articleBody">
           
           <blockquote>
-<p>前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取</p>
+<p>前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？</p>
 </blockquote>
 <a id="more"></a>
 
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/get.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/get1.png" alt></p>
-<p>但现在有业务需求需要用post来获取，如果在vscode中使用live server打开就会出现这种错误。</p>
-<p><strong>Failed to load resource: the server responded with a status of 405 (Method Not Allowed)</strong></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post1.png" alt></p>
-<p>网上许多解决方法都是windows下的解决方案，例如说</p>
-<p>（1）不通过IIS访问，使用其他的访问方式</p>
-<p>（2）修改IIS的“处理程序映射”。</p>
-<p>但在Mac下并没有特别好的解决方法。</p>
-<p>这时候我回想了一下，请求静态资源是要用get请求，使用post请求的时候并且发送url是一个具体的资源的时候，网络会把url当做域名来解析。</p>
-<p>虽然道理是这样的，我想了一下live server是小型服务器，那我或许也可以在apache上跑一下。</p>
-<p>然后配置了一下apache并启动就可以了。</p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/start.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/post2.png" alt></p>
-<p>Apache的配置</p>
-<p>Mac虽然是自带Apache，但文件根目录非常难找，在<code>/etc/apache2/</code> 的文件夹下</p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache1.png" alt></p>
-<p>我们找到httpd.conf文件后可以用sublime Text打开。找到DocumentRoot 这两行，修改为自定义路径。</p>
-<p>例如我修改为<code>/Users/hezefeng/Server</code></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache2.png" alt></p>
-<p>然后往下找，把<code>Options FollowSymLink</code>修改为<code>Options Indexes FollowSymLinks</code></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache3.png" alt></p>
-<p>再往下找，把<code>#LoadModule php7_module libexec/apache2/libphp7.so</code>最前面的#去掉。</p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/16/record05/apache4.png" alt></p>
-<p>事后重启一下服务器就好了，可以通过POST获取本地的json数据了。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
+<li><p>在整个页面中选取某个className，需要拿到整个DOM树。可以这样实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> allDomArray = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>因为拿到的类名不是规整的，有时候我们需要处理一下空格字符串。我们把处理该方法的操作封装在函数上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trimSpace</span>(<span class="params">strClass</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> reg = <span class="regexp">/\s+/g</span>;</span><br><span class="line">			<span class="keyword">var</span> newstrClass = strClass.replace(reg, <span class="string">' '</span>).trim();<span class="comment">//封装好的方法，去除首尾空格</span></span><br><span class="line">			<span class="keyword">return</span> newstrClass;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在处理完类名的格式后，我们大概就能选中DOM结构。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Element.prototype.getElementsByClassName = Element.prototype.getElementsByClassName = <span class="function"><span class="keyword">function</span> (<span class="params">_className</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> allDomArray = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>);</span><br><span class="line">			<span class="keyword">var</span> lastDomArray = [];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; allDomArray.length; i++) &#123;</span><br><span class="line">				<span class="keyword">var</span> lastClassName = trimSpace(allDomArray[i].className).trim();</span><br><span class="line">				<span class="keyword">var</span> classArray = lastClassName.split(<span class="string">' '</span>);</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; lastClassName.length; j++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (classArray[j] == _className) &#123;</span><br><span class="line">						lastDomArray = lastDomArray.push(classArray[i]);</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> lastDomArray;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trimSpace</span>(<span class="params">strClass</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> reg = <span class="regexp">/\s+/g</span>;</span><br><span class="line">			<span class="keyword">var</span> newstrClass = strClass.replace(reg, <span class="string">' '</span>);<span class="comment">//封装好的方法，去除首尾空格</span></span><br><span class="line">			<span class="keyword">return</span> newstrClass;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="效果如下图"><a href="#效果如下图" class="headerlink" title="效果如下图"></a>效果如下图</h4><p><img src="https://fengzehe.github.io/blog/2020/07/27/record07/output.png" alt></p>
 
           
             <div class='article_footer'>
@@ -384,7 +371,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/16/record05/>https://fengzehe.github.io/blog/2020/07/16/record05/</a></p>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/27/record07/>https://fengzehe.github.io/blog/2020/07/27/record07/</a></p>
           
         
       </blockquote>
@@ -421,10 +408,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-16T14:11:11+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T17:25:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 16, 2020</p>
+    <p>更新于：Jul 27, 2020</p>
   </a>
 </div>
 
@@ -451,8 +438,8 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=
-前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/27/record07/&title=菜鸟成长记07 - 何泽丰的博客&summary=
+前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？
 "
           
           >
@@ -465,8 +452,8 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=
-前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/27/record07/&title=菜鸟成长记07 - 何泽丰的博客&summary=
+前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？
 "
           
           >
@@ -479,8 +466,8 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/16/record05/&title=菜鸟成长记05 - 何泽丰的博客&summary=
-前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/27/record07/&title=菜鸟成长记07 - 何泽丰的博客&summary=
+前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？
 "
           
           >
@@ -505,22 +492,14 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blog/2020/07/27/record06/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>菜鸟成长记06</p>
-                <p class='content'>
-前言：用户使用产品时有些小细节需要我们注意，例如显示弹窗时不让用户再点击其他操作。
-
-
-
-弹窗是怎么实现的呢？思路
-弹窗不仅仅是一个弹窗，仔细观察会发现后面的背景也暗下来变成了透明的深灰色。
-...</p>
-              </a>
             
-            
-              <a class='next' href='/blog/2020/07/15/technology01/'>
-                <p class='title'>我们的小宇宙<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>​    朋友们，如果你在这时候打开了这篇推文，恰好手头上也没有事情，请静下心来听我娓娓道来。上周阅读的《王阳明心学》，是笔者王觉仁对王阳明部分思想的解读。如果想看原本的王阳明可以看《传习录》。...</p>
+              <a class='next' href='/blog/2020/07/27/technology02/'>
+                <p class='title'>诚者自成也<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>上一篇文章分别从内心强大，内在情感与不把事情当做手段进行赘述。这一篇文章将从内秀和做你自己这两方面展开阐述。
+
+
+
+内秀笔者认为成功的内涵是人的内在精神品质，但成功是披着金钱地位的外表而来。让我...</p>
               </a>
             
           </div>
@@ -565,7 +544,7 @@
 
   <script>
     window.subData = {
-      title: '菜鸟成长记05',
+      title: '菜鸟成长记07',
       tools: true
     }
   </script>
@@ -580,6 +559,20 @@
     
     
 
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#效果如下图"><span class="toc-text">效果如下图</span></a></li></ol>
+    </div>
+  </section>
 
 
   

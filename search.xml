@@ -2796,4 +2796,33 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
         <tag>-- 人生不止有技术</tag>
       </tags>
   </entry>
+  <entry>
+    <title>菜鸟成长记07</title>
+    <url>/blog/2020/07/27/record07/</url>
+    <content><![CDATA[<blockquote>
+<p>前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？</p>
+</blockquote>
+<a id="more"></a>
+
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
+<li><p>在整个页面中选取某个className，需要拿到整个DOM树。可以这样实现。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> allDomArray = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>因为拿到的类名不是规整的，有时候我们需要处理一下空格字符串。我们把处理该方法的操作封装在函数上</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trimSpace</span>(<span class="params">strClass</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> reg = <span class="regexp">/\s+/g</span>;</span><br><span class="line">			<span class="keyword">var</span> newstrClass = strClass.replace(reg, <span class="string">' '</span>).trim();<span class="comment">//封装好的方法，去除首尾空格</span></span><br><span class="line">			<span class="keyword">return</span> newstrClass;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在处理完类名的格式后，我们大概就能选中DOM结构。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Element.prototype.getElementsByClassName = Element.prototype.getElementsByClassName = <span class="function"><span class="keyword">function</span> (<span class="params">_className</span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> allDomArray = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>);</span><br><span class="line">			<span class="keyword">var</span> lastDomArray = [];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; allDomArray.length; i++) &#123;</span><br><span class="line">				<span class="keyword">var</span> lastClassName = trimSpace(allDomArray[i].className).trim();</span><br><span class="line">				<span class="keyword">var</span> classArray = lastClassName.split(<span class="string">' '</span>);</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; lastClassName.length; j++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (classArray[j] == _className) &#123;</span><br><span class="line">						lastDomArray = lastDomArray.push(classArray[i]);</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> lastDomArray;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trimSpace</span>(<span class="params">strClass</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> reg = <span class="regexp">/\s+/g</span>;</span><br><span class="line">			<span class="keyword">var</span> newstrClass = strClass.replace(reg, <span class="string">' '</span>);<span class="comment">//封装好的方法，去除首尾空格</span></span><br><span class="line">			<span class="keyword">return</span> newstrClass;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="效果如下图"><a href="#效果如下图" class="headerlink" title="效果如下图"></a>效果如下图</h4><p><img src="https://fengzehe.github.io/blog/2020/07/27/record07/output.png" alt></p>
+]]></content>
+      <categories>
+        <category>rookie growth record</category>
+      </categories>
+      <tags>
+        <tag>-- record</tag>
+      </tags>
+  </entry>
 </search>
