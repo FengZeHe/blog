@@ -2484,7 +2484,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记 01</title>
+    <title>菜鸟成长记 01 rem移动端适配</title>
     <url>/blog/2020/06/29/record01/</url>
     <content><![CDATA[<h4 id="移动端适配问题"><a href="#移动端适配问题" class="headerlink" title="移动端适配问题"></a>移动端适配问题</h4><blockquote>
 <p> 前言 当我们拿到750px像素的原型，移动端适配的时候将原型转换成html文件需要像素减半。</p>
@@ -2510,7 +2510,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记 02</title>
+    <title>菜鸟成长记 02 手动封装一个ajax</title>
     <url>/blog/2020/06/30/record02/</url>
     <content><![CDATA[<h3 id="实现原生JS封装一个AJAS"><a href="#实现原生JS封装一个AJAS" class="headerlink" title="实现原生JS封装一个AJAS"></a>实现原生JS封装一个AJAS</h3><blockquote>
 <p>前言：我们的使用ajax实现异步请求数据的时候，通常都是使用jQuery封装好的方法。</p>
@@ -2548,7 +2548,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记 03</title>
+    <title>菜鸟成长记 03 减少了一点代码冗余</title>
     <url>/blog/2020/07/01/record03/</url>
     <content><![CDATA[<h4 id="减少代码冗余"><a href="#减少代码冗余" class="headerlink" title="减少代码冗余"></a>减少代码冗余</h4><blockquote>
 <p>前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。</p>
@@ -2613,7 +2613,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记 04</title>
+    <title>菜鸟成长记 04 vue.js实战题目</title>
     <url>/blog/2020/07/13/record04/</url>
     <content><![CDATA[<blockquote>
 <p> 在看vue.js实战的时候笔者留下了一道题:</p>
@@ -2660,7 +2660,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>我们的小宇宙</title>
+    <title>人生不止有技术 -- 我们的小宇宙</title>
     <url>/blog/2020/07/15/technology01/</url>
     <content><![CDATA[<p>​    朋友们，如果你在这时候打开了这篇推文，恰好手头上也没有事情，请静下心来听我娓娓道来。上周阅读的《王阳明心学》，是笔者王觉仁对王阳明部分思想的解读。<strong>如果想看原本的王阳明可以看《传习录》</strong>。书的内容比较杂，但总能予以读者启发。下面是我对书中内容部分的摘录与理解，想与大家分享。</p>
 <a id="more"></a>
@@ -2698,7 +2698,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记05</title>
+    <title>菜鸟成长记05 Mac下配置apache</title>
     <url>/blog/2020/07/16/record05/</url>
     <content><![CDATA[<blockquote>
 <p>前言 平时我们在开发的时候会写一份本地的json假数据。之前我们都用ajax的GET方式来获取</p>
@@ -2740,7 +2740,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记06</title>
+    <title>菜鸟成长记06 蒙层是怎么实现的</title>
     <url>/blog/2020/07/27/record06/</url>
     <content><![CDATA[<blockquote>
 <p>前言：用户使用产品时有些小细节需要我们注意，例如显示弹窗时不让用户再点击其他操作。</p>
@@ -2797,7 +2797,7 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
       </tags>
   </entry>
   <entry>
-    <title>菜鸟成长记07</title>
+    <title>菜鸟成长记07 getElementsByClassName()的实现</title>
     <url>/blog/2020/07/27/record07/</url>
     <content><![CDATA[<blockquote>
 <p>前言：我们在使用js使用DOM选中元素时一般都是document.getElementsByClassName()，那具体此方法是如何实现的呢？</p>
@@ -2817,6 +2817,31 @@ DocumentFragment --11</code></pre><p>节点的四个属性：</p>
 </li>
 </ol>
 <h4 id="效果如下图"><a href="#效果如下图" class="headerlink" title="效果如下图"></a>效果如下图</h4><p><img src="https://fengzehe.github.io/blog/2020/07/27/record07/output.png" alt></p>
+]]></content>
+      <categories>
+        <category>rookie growth record</category>
+      </categories>
+      <tags>
+        <tag>-- record</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>菜鸟成长记08 计算base64格式图片大小</title>
+    <url>/blog/2020/07/30/record08/</url>
+    <content><![CDATA[<blockquote>
+<p>前言： 我们在使用vant uploader组件的时候，除了需要校验单张图片上传大小，有时候还要验证多张图片一共的大小。</p>
+<p>我们知道uploader组件有max-size和oversize事件，在文件超过限制的时候触发。但图片大小之和怎么计算呢？</p>
+</blockquote>
+<a id="more"></a>
+
+<h4 id="after-read"><a href="#after-read" class="headerlink" title="after-read"></a>after-read</h4><p>在查看vant官方文档的时候发现当图片读取完成后的回调函数时after-read。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/30/record08/after-read.png" alt></p>
+<p>我们把函数传递的参数打印一下，发现里面的content部分是base64格式的图片，一张2.4M大小的图片base64格式看起来就如下图。</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/30/record08/base64.png" alt></p>
+<h4 id="函数处理"><a href="#函数处理" class="headerlink" title="函数处理"></a>函数处理</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取base64图片大小，返回kb数字</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baseSize</span>(<span class="params">file</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> content  = file.content;</span><br><span class="line">  <span class="comment">//把头部去掉</span></span><br><span class="line">  <span class="keyword">var</span> str = content.replace(<span class="string">'data:image/png;base64,'</span>, <span class="string">''</span>);</span><br><span class="line">  <span class="comment">// 找到等号，把等号也去掉</span></span><br><span class="line">  <span class="keyword">var</span> equalIndex = str.indexOf(<span class="string">'='</span>);</span><br><span class="line">  <span class="keyword">if</span>(str.indexOf(<span class="string">'='</span>)&gt;<span class="number">0</span>) &#123;</span><br><span class="line">      str=str.substring(<span class="number">0</span>, equalIndex);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 原来的字符流大小，单位为字节</span></span><br><span class="line">  <span class="keyword">var</span> strLength=str.length;</span><br><span class="line">  <span class="comment">// 计算后得到的文件流大小，单位为字节</span></span><br><span class="line">  <span class="keyword">var</span> fileLength=<span class="built_in">parseInt</span>(strLength-(strLength/<span class="number">8</span>)*<span class="number">2</span>);</span><br><span class="line">  <span class="comment">// 由字节转换为kb</span></span><br><span class="line">  <span class="keyword">var</span> size = <span class="string">""</span>;</span><br><span class="line">  size = (fileLength / <span class="number">1024</span>).toFixed(<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">var</span> sizeStr = size + <span class="string">""</span>; <span class="comment">//转成字符串</span></span><br><span class="line">  <span class="keyword">var</span> index = sizeStr.indexOf(<span class="string">"."</span>); <span class="comment">//获取小数点处的索引</span></span><br><span class="line">  <span class="keyword">var</span> dou = sizeStr.substr(index + <span class="number">1</span>, <span class="number">2</span>) <span class="comment">//获取小数点后两位的值</span></span><br><span class="line">  <span class="keyword">if</span> (dou == <span class="string">"00"</span>) &#123; <span class="comment">//判断后两位是否为00，如果是则删除00                </span></span><br><span class="line">    <span class="keyword">return</span> sizeStr.substring(<span class="number">0</span>, index) + sizeStr.substr(index + <span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>如图，我们就能计算这张图片的实际大小了</p>
+<p><img src="https://fengzehe.github.io/blog/2020/07/30/record08/allpic.png" alt></p>
 ]]></content>
       <categories>
         <category>rookie growth record</category>
