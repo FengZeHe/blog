@@ -16,14 +16,8 @@
 
   <!-- 页面元数据 -->
   
-    <title>菜鸟成长记 03 减少了一点代码冗余 - 何泽丰的博客</title>
+    <title>JavaScript 数组方法 - 何泽丰的博客</title>
   
-    <meta name="keywords" content="-- 记录">
-  
-  
-    <meta name="description" content="减少代码冗余
-前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。
-">
   
 
   <!-- feed -->
@@ -255,8 +249,8 @@
         
           
   <h1 class="title">
-    <a href="/blog/2020/07/01/record03/">
-      菜鸟成长记 03 减少了一点代码冗余
+    <a href="/blog/2020/08/06/Javascript-array/">
+      JavaScript 数组方法
     </a>
   </h1>
 
@@ -279,14 +273,6 @@
           
             
               
-  
-  <div class='new-meta-item category'>
-    <a href='/blog/categories/rookie-growth-record/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>rookie growth record</p>
-    </a>
-  </div>
-
 
             
           
@@ -294,7 +280,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 1, 2020</p>
+    <p>发布于：Aug 6, 2020</p>
   </a>
 </div>
 
@@ -317,25 +303,15 @@
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h4 id="减少代码冗余"><a href="#减少代码冗余" class="headerlink" title="减少代码冗余"></a>减少代码冗余</h4><blockquote>
-<p>前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。</p>
+          <blockquote>
+<p>JavaScript中有许多好用的数组方法，例如说forEach，filter…等等</p>
+<p>那这些方法是都有什么用途呢？以及自己能否写一个方法出来替代呢？</p>
 </blockquote>
-<a id="more"></a>
+<h4 id="forEach方法"><a href="#forEach方法" class="headerlink" title="forEach方法"></a>forEach方法</h4><p>​    我们拿到一组数据的时候，通常需要通过遍历循环拿到自己想要的数据。 forEach函数能够做到这一点，通常是这样使用的。例如说我们眼前有这样一个数组，需要遍历循环这个数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [&#123;</span><br><span class="line">	name: <span class="string">'abc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">	name: <span class="string">'adsds'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">	name: <span class="string">'aaseed'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">	name: <span class="string">'acccc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span></span><br><span class="line">&#125;]</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// forEach()</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, index, self</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ele, ele.name, ele.sex);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/before.png" alt></p>
-<p>​    因为每个弹窗固定的位置都有一个关闭按钮，按钮的位置是每个父级div下的一个元素节点。所以我想在点击事件后传入dom元素的父节点的ID，以此来绑定父级ID。因此用show()函数设置元素显示，通过hide()函数设置函数隐藏。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"please_login"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn_close "</span> <span class="attr">onclick</span>=<span class="string">"hide(this.parentNode.id)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login"</span> <span class="attr">onclick</span>=<span class="string">"login()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'block'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hide</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nodeId = <span class="built_in">document</span>.getElementById(node);</span><br><span class="line">    nodeId.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>完成后减少了40行左右的代码，看起来更加清爽了。</p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/1.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/07/01/record03/3.png" alt></p>
-<p>但我过了一天发现其实可以把两个函数写成一个啊</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function ShowHide(state)&#123;</span><br><span class="line">	var b &#x3D; document.getElementById(state);</span><br><span class="line">	if(b.style.display !&#x3D; &#39;none&#39;)&#123;</span><br><span class="line">		b.style.display &#x3D; &#39;none&#39;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		b.style.display &#x3D; &#39;block&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach.png" alt></p>
+<h4 id="filter方法"><a href="#filter方法" class="headerlink" title="filter方法"></a>filter方法</h4><h4 id="Map方法"><a href="#Map方法" class="headerlink" title="Map方法"></a>Map方法</h4>
           
             <div class='article_footer'>
               
@@ -371,7 +347,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/07/01/record03/>https://fengzehe.github.io/blog/2020/07/01/record03/</a></p>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/08/06/Javascript-array/>https://fengzehe.github.io/blog/2020/08/06/Javascript-array/</a></p>
           
         
       </blockquote>
@@ -408,10 +384,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-30T14:39:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-06T14:12:12+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 30, 2020</p>
+    <p>更新于：Aug 6, 2020</p>
   </a>
 </div>
 
@@ -419,9 +395,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E8%AE%B0%E5%BD%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>-- 记录</p></a></div>
-
 
         
       
@@ -438,9 +411,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/07/01/record03/&title=菜鸟成长记 03 减少了一点代码冗余 - 何泽丰的博客&summary=减少代码冗余
-前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。
-"
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/08/06/Javascript-array/&title=JavaScript 数组方法 - 何泽丰的博客&summary="
           
           >
           
@@ -452,9 +423,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/07/01/record03/&title=菜鸟成长记 03 减少了一点代码冗余 - 何泽丰的博客&summary=减少代码冗余
-前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。
-"
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/08/06/Javascript-array/&title=JavaScript 数组方法 - 何泽丰的博客&summary="
           
           >
           
@@ -466,9 +435,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/07/01/record03/&title=菜鸟成长记 03 减少了一点代码冗余 - 何泽丰的博客&summary=减少代码冗余
-前言    在写一个项目的时候发现一个页面有许多弹窗触发，一开始写的时候通过ID名选中元素并设置显示或不显示。后来发现一个弹窗还好，当出现若干弹窗的时候代码重复度非常高，非常冗余。
-"
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/08/06/Javascript-array/&title=JavaScript 数组方法 - 何泽丰的博客&summary="
           
           >
           
@@ -492,25 +459,10 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blog/2020/07/05/mobile-terminal-rem/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>rem移动端适配</p>
-                <p class='content'>|前言：什么是移动端适配？  web移动端网页跟PC端显示大小与内容不一样，因此需要适配。
-  而且手机设备之间屏幕尺寸不一，需要适配不同屏幕宽度的移动设备。
-
-
-|常见的适配方法
-viewpo...</p>
-              </a>
             
-            
-              <a class='next' href='/blog/2020/06/30/record02/'>
-                <p class='title'>菜鸟成长记 02 手动封装一个ajax<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>实现原生JS封装一个AJAS
-前言：我们的使用ajax实现异步请求数据的时候，通常都是使用jQuery封装好的方法。
-
-
-
-什么是AJAX?​    A J A X = asynchronous...</p>
+              <a class='next' href='/blog/2020/08/06/Javascript-movement/'>
+                <p class='title'>Javascript_movement<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'></p>
               </a>
             
           </div>
@@ -555,7 +507,7 @@ viewpo...</p>
 
   <script>
     window.subData = {
-      title: '菜鸟成长记 03 减少了一点代码冗余',
+      title: 'JavaScript 数组方法',
       tools: true
     }
   </script>
@@ -581,7 +533,7 @@ viewpo...</p>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#减少代码冗余"><span class="toc-text">减少代码冗余</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#forEach方法"><span class="toc-text">forEach方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter方法"><span class="toc-text">filter方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map方法"><span class="toc-text">Map方法</span></a></li></ol>
     </div>
   </section>
 
