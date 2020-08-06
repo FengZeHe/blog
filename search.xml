@@ -57,9 +57,18 @@
   <entry>
     <title>JavaScript 运动</title>
     <url>/blog/2020/08/06/Javascript-movement/</url>
-    <content><![CDATA[<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-movement/popup.gif" alt></p>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-movement/popup.gif" alt></p>
 <p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-movement/disappear.gif" alt></p>
 ]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>前端技术</tag>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>菜鸟成长记08 计算base64格式图片大小</title>
@@ -834,7 +843,10 @@
   <entry>
     <title>用CSS3做LoadIng动画</title>
     <url>/blog/2019/12/12/frontEnd_Loading/</url>
-    <content><![CDATA[<h3 id="使用CSS3做Loading动画"><a href="#使用CSS3做Loading动画" class="headerlink" title="使用CSS3做Loading动画"></a>使用CSS3做Loading动画</h3>]]></content>
+    <content><![CDATA[<h3 id="使用CSS3做Loading动画"><a href="#使用CSS3做Loading动画" class="headerlink" title="使用CSS3做Loading动画"></a>使用CSS3做Loading动画</h3><p><img src="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/loading01.png" alt></p>
+<p><img src="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/loading02.png" alt></p>
+<p>两个小方块一上一下动起来</p>
+]]></content>
       <tags>
         <tag>前端技术</tag>
         <tag>CSS3</tag>
