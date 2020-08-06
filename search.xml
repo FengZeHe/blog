@@ -19,8 +19,6 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'abc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span>&#125;, </span><br><span class="line">	&#123;<span class="attr">name</span>: <span class="string">'adsds'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span>&#125;, </span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'aaseed'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'acccc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// forEach()</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, index, self</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ele, ele.name, ele.sex);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach2.png" alt></p>
 <h5 id="实现一个forEach-方法"><a href="#实现一个forEach-方法" class="headerlink" title="实现一个forEach()方法"></a>实现一个forEach()方法</h5><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> len = <span class="keyword">this</span>.length;</span><br><span class="line">	<span class="keyword">var</span> _this = <span class="built_in">arguments</span>[<span class="number">1</span>] != <span class="literal">undefined</span> ? <span class="built_in">arguments</span>[<span class="number">1</span>] : <span class="built_in">window</span>;</span><br><span class="line">	<span class="comment">//_this 值的是可以传递this指向</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		func.apply(_this, [<span class="keyword">this</span>[i], i, <span class="keyword">this</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'feng'</span> &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deal</span>(<span class="params">ele, index, self</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ele, index, self, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  arr.forEach(deal, obj);</span><br></pre></td></tr></table></figure>
 
 <p>​    就能得到一个功能相同的方法</p>
@@ -48,6 +46,13 @@
 <p>​    我们在调用<code>myfilter</code>方法把性别是男的过滤出来</p>
 <p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/filter2.png" alt></p>
 <h4 id="Map方法"><a href="#Map方法" class="headerlink" title="Map方法"></a>Map方法</h4>]]></content>
+      <categories>
+        <category>front-end</category>
+      </categories>
+      <tags>
+        <tag>前端技术</tag>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>Javascript_movement</title>

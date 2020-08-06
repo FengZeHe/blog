@@ -18,6 +18,8 @@
   
     <title>JavaScript 数组方法 - 何泽丰的博客</title>
   
+    <meta name="keywords" content="前端技术,JavaScript">
+  
   
     <meta name="description" content="
 JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
@@ -278,6 +280,14 @@ JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
           
             
               
+  
+  <div class='new-meta-item category'>
+    <a href='/blog/categories/front-end/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>front-end</p>
+    </a>
+  </div>
+
 
             
           
@@ -324,8 +334,6 @@ JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'abc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span>&#125;, </span><br><span class="line">	&#123;<span class="attr">name</span>: <span class="string">'adsds'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span>&#125;, </span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'aaseed'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'m'</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'acccc'</span>, <span class="attr">desc</span>: <span class="string">'技术好'</span>, <span class="attr">sex</span>: <span class="string">'f'</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// forEach()</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, index, self</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ele, ele.name, ele.sex);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach.png" alt></p>
-<p><img src="https://fengzehe.github.io/blog/2020/08/06/Javascript-array/forEach2.png" alt></p>
 <h5 id="实现一个forEach-方法"><a href="#实现一个forEach-方法" class="headerlink" title="实现一个forEach()方法"></a>实现一个forEach()方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span> (<span class="params">func</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> len = <span class="keyword">this</span>.length;</span><br><span class="line">	<span class="keyword">var</span> _this = <span class="built_in">arguments</span>[<span class="number">1</span>] != <span class="literal">undefined</span> ? <span class="built_in">arguments</span>[<span class="number">1</span>] : <span class="built_in">window</span>;</span><br><span class="line">	<span class="comment">//_this 值的是可以传递this指向</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">		func.apply(_this, [<span class="keyword">this</span>[i], i, <span class="keyword">this</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">'feng'</span> &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deal</span>(<span class="params">ele, index, self</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ele, index, self, <span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  arr.forEach(deal, obj);</span><br></pre></td></tr></table></figure>
 
 <p>​    就能得到一个功能相同的方法</p>
@@ -425,7 +433,7 @@ JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-06T15:04:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-06T15:06:04+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 6, 2020</p>
@@ -436,6 +444,9 @@ JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>前端技术</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div>
+
 
         
       
