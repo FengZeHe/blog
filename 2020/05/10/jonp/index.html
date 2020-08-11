@@ -260,7 +260,7 @@ JSONP跨域
         
           
   <h1 class="title">
-    <a href="/blog/2020/08/10/jonp/">
+    <a href="/blog/2020/05/10/jonp/">
       JSONP跨域实现及其原理
     </a>
   </h1>
@@ -291,7 +291,7 @@ JSONP跨域
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 10, 2020</p>
+    <p>发布于：May 10, 2020</p>
   </a>
 </div>
 
@@ -333,8 +333,8 @@ JSONP跨域
 <li><p>其他域的缓存</p>
 </li>
 </ol>
-<h4 id="怎么样算跨域以及跨域发生在哪里"><a href="#怎么样算跨域以及跨域发生在哪里" class="headerlink" title="怎么样算跨域以及跨域发生在哪里"></a>怎么样算跨域以及跨域发生在哪里</h4><p><strong>要请求的数据协议，域名，端⼝这三个，有任意⼀个不一样就算跨域。</strong></p>
-<p>跨域发生的过程</p>
+<h4 id="跨域的定义以及跨域发生在哪里"><a href="#跨域的定义以及跨域发生在哪里" class="headerlink" title="跨域的定义以及跨域发生在哪里"></a>跨域的定义以及跨域发生在哪里</h4><p><strong>要请求的数据协议，域名，端⼝这三个，有任意⼀个不一样就算跨域。</strong></p>
+<p>跨域发生的过程（跨域发生在浏览器）</p>
 <p><strong>1.</strong> 即使跨域了(协议，域名，端口号有不⼀样的)，请求也可以发出。</p>
 <p><strong>2.</strong> 服务器端也是可以接收的。</p>
 <p><strong>3.</strong> 服务器端也是可以正常处理理的。</p>
@@ -342,7 +342,6 @@ JSONP跨域
 <p><strong>5.</strong> 浏览器也能接收到这些数据。</p>
 <p><strong>6.</strong> 接收到之后，发现当前⻚面的域和请求的域不不同，所以判定为跨域。</p>
 <p><strong>7.</strong> 我们的代码在这等着结果呢，但是因为浏览器器判定跨域了，不会把结果传递给我们的代码。</p>
-<p>虽然跨域了了，但是我们依然需要这个数据，怎么办?</p>
 <h4 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a><strong>解决跨域问题</strong></h4><p>后端(别⼈家的)配合我们进⾏跨域。</p>
 <pre><code>1. JSONP(正常的情况，返回的数据都是JSON格式。JSONP是⼀种特殊的格式。)
 2. 后端设置Access-Control-Allow-Origin属性以⽀持跨域。</code></pre><h4 id="JSONP跨域的原理"><a href="#JSONP跨域的原理" class="headerlink" title="JSONP跨域的原理"></a>JSONP跨域的原理</h4><pre><code>1. 判断请求与当前页面的域是否同源，若同源则发送ajax。
@@ -363,7 +362,9 @@ JSONP跨域
 <li>浏览器接收到内容，会当做js代码来执行。</li>
 <li>从而执行名为asd123456的方法。这样我们就接收到了后端返回给我们的对象。在返回对象的data里面就能访问到JSON格式的数据。</li>
 </ol>
-<h4 id="JSONP实现原理"><a href="#JSONP实现原理" class="headerlink" title="JSONP实现原理"></a>JSONP实现原理</h4>
+<h4 id="JSONP实现原理"><a href="#JSONP实现原理" class="headerlink" title="JSONP实现原理"></a>JSONP实现原理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $ = &#123;</span><br><span class="line">            ajax: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> url = options.url;</span><br><span class="line">                <span class="keyword">var</span> type = options.type;</span><br><span class="line">                <span class="keyword">var</span> dataType = options.dataType;</span><br><span class="line">                <span class="comment">//判断是否同源（协议，域名，端口号）</span></span><br><span class="line">                <span class="keyword">var</span> targetProtocol = <span class="string">""</span>;<span class="comment">//目标接口的协议</span></span><br><span class="line">                <span class="keyword">var</span> targetHost = <span class="string">""</span>;<span class="comment">//目标接口的host，host是包涵域名和端口的</span></span><br><span class="line">                <span class="comment">//如果url不带http，那么访问的一定是相对路径，相对路径一定是同源的。</span></span><br><span class="line">                <span class="keyword">if</span> (url.indexOf(<span class="string">"http://"</span>) == <span class="number">0</span> || url.indexOf(<span class="string">"https://"</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">var</span> targetUrl = <span class="keyword">new</span> URL(url);</span><br><span class="line">                    targetProtocol = targetUrl.protocol;</span><br><span class="line">                    targetHost = targetUrl.host;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    targetProtocol = location.protocol;</span><br><span class="line">                    targetHost = location.host;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//首先判断是否为jsonp，因为不是jsonp不用做其他的判断，直接发送ajax</span></span><br><span class="line">                <span class="keyword">if</span> (dataType == <span class="string">"jsonp"</span>) &#123;</span><br><span class="line">                    <span class="comment">//要看是否同源</span></span><br><span class="line">                    <span class="keyword">if</span> (location.protocol == targetProtocol &amp;&amp; location.host == targetHost) &#123;<span class="comment">//表示同源</span></span><br><span class="line">                        <span class="comment">//此处省略。因为同源，jsonp会当做普通的ajax做请求</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;<span class="comment">//不同源，跨域</span></span><br><span class="line">                        <span class="comment">//随机生成一个callback</span></span><br><span class="line">                        <span class="keyword">var</span> callback = <span class="string">"cb"</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">1000000</span>);</span><br><span class="line">                        <span class="comment">//给window上添加一个方法</span></span><br><span class="line">                        <span class="built_in">window</span>[callback] = options.success;</span><br><span class="line">                        <span class="comment">//生成script标签。</span></span><br><span class="line">                        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">                        <span class="keyword">if</span> (url.indexOf(<span class="string">"?"</span>) &gt; <span class="number">0</span>) &#123;<span class="comment">//表示已经有参数了</span></span><br><span class="line">                            script.src = url + <span class="string">"&amp;callback="</span> + callback;</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;<span class="comment">//表示没有参数</span></span><br><span class="line">                            script.src = url + <span class="string">"?callback="</span> + callback;</span><br><span class="line">                        &#125;</span><br><span class="line">                        script.id = callback;</span><br><span class="line">                        <span class="built_in">document</span>.head.appendChild(script);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
           
             <div class='article_footer'>
               
@@ -399,7 +400,7 @@ JSONP跨域
           
         
           
-            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/08/10/jonp/>https://fengzehe.github.io/blog/2020/08/10/jonp/</a></p>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/05/10/jonp/>https://fengzehe.github.io/blog/2020/05/10/jonp/</a></p>
           
         
       </blockquote>
@@ -436,10 +437,10 @@ JSONP跨域
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-10T19:37:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-11T09:23:36+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 10, 2020</p>
+    <p>更新于：Aug 11, 2020</p>
   </a>
 </div>
 
@@ -466,7 +467,7 @@ JSONP跨域
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/08/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/05/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
 解决跨域问题的几种方法: 
 
 a标签跳转,表单提交;
@@ -485,7 +486,7 @@ JSONP跨域
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/08/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/05/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
 解决跨域问题的几种方法: 
 
 a标签跳转,表单提交;
@@ -504,7 +505,7 @@ JSONP跨域
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/08/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/05/10/jonp/&title=JSONP跨域实现及其原理 - 何泽丰的博客&summary=
 解决跨域问题的几种方法: 
 
 a标签跳转,表单提交;
@@ -535,16 +536,25 @@ JSONP跨域
         
           <div class="prev-next">
             
+              <a class='prev' href='/blog/2020/06/29/record01/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>菜鸟成长记 01 rem移动端适配</p>
+                <p class='content'>移动端适配问题
+ 前言 当我们拿到750px像素的原型，移动端适配的时候将原型转换成html文件需要像素减半。
+
+
+
+​    如我拿到一张750px 1206px的psd原型，放在移动端要设置...</p>
+              </a>
             
-              <a class='next' href='/blog/2020/08/06/Javascript-array/'>
-                <p class='title'>JavaScript 数组方法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+            
+              <a class='next' href='/blog/2020/02/27/es6-async/'>
+                <p class='title'>ES6异步的解决方案<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
                 <p class='content'>
-JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
-那这些方法是都有什么用途呢？以及自己能否写一个方法出来替代呢？
 
+背景js经常会遇到一些异步任务（需要经过一段时间或当某个时机到达后才能得到的任务）例如说：
 
-
-forEach方法日常用法​    ...</p>
+使用ajax请求服务器，当服务器完成响应后拿到响应结果
+监听按钮是否被点击，当按钮点击后拿到某个...</p>
               </a>
             
           </div>
@@ -615,7 +625,7 @@ forEach方法日常用法​    ...</p>
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域请求的是哪些资源"><span class="toc-text">跨域请求的是哪些资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哪些资源算跨域请求资源"><span class="toc-text">哪些资源算跨域请求资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#怎么样算跨域以及跨域发生在哪里"><span class="toc-text">怎么样算跨域以及跨域发生在哪里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决跨域问题"><span class="toc-text">解决跨域问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP跨域的原理"><span class="toc-text">JSONP跨域的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP实现原理"><span class="toc-text">JSONP实现原理</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域请求的是哪些资源"><span class="toc-text">跨域请求的是哪些资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哪些资源算跨域请求资源"><span class="toc-text">哪些资源算跨域请求资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域的定义以及跨域发生在哪里"><span class="toc-text">跨域的定义以及跨域发生在哪里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决跨域问题"><span class="toc-text">解决跨域问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP跨域的原理"><span class="toc-text">JSONP跨域的原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP实现原理"><span class="toc-text">JSONP实现原理</span></a></li></ol>
     </div>
   </section>
 
