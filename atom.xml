@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://fengzehe.github.io/blog/"/>
-  <updated>2020-08-06T07:06:04.000Z</updated>
+  <updated>2020-08-10T11:37:01.000Z</updated>
   <id>https://fengzehe.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSONP跨域实现及其原理</title>
+    <link href="https://fengzehe.github.io/blog/2020/08/10/jonp/"/>
+    <id>https://fengzehe.github.io/blog/2020/08/10/jonp/</id>
+    <published>2020-08-10T03:18:14.000Z</published>
+    <updated>2020-08-10T11:37:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>解决跨域问题的几种方法: </p><ol><li>a标签跳转,表单提交;</li><li>资源嵌入 link  iframe img iframe script标签</li><li>JSONP跨域</li></ol></blockquote><a id="more"></a><h4 id="跨域请求的是哪些资源"><a href="#跨域请求的是哪些资源" class="headerlink" title="跨域请求的是哪些资源"></a>跨域请求的是哪些资源</h4><p>例如说js文件是资源，图片视频属于资源，css 文件等等都属于资源</p><h4 id="哪些资源算跨域请求资源"><a href="#哪些资源算跨域请求资源" class="headerlink" title="哪些资源算跨域请求资源"></a>哪些资源算跨域请求资源</h4><ol><li><p>后端接口的数据</p></li><li><p>其他域的cookie</p></li><li><p>其他域的缓存</p></li></ol><h4 id="怎么样算跨域以及跨域发生在哪里"><a href="#怎么样算跨域以及跨域发生在哪里" class="headerlink" title="怎么样算跨域以及跨域发生在哪里"></a>怎么样算跨域以及跨域发生在哪里</h4><p><strong>要请求的数据协议，域名，端⼝这三个，有任意⼀个不一样就算跨域。</strong></p><p>跨域发生的过程</p><p><strong>1.</strong> 即使跨域了(协议，域名，端口号有不⼀样的)，请求也可以发出。</p><p><strong>2.</strong> 服务器端也是可以接收的。</p><p><strong>3.</strong> 服务器端也是可以正常处理理的。</p><p><strong>4.</strong> 服务器端也是可以正常返回数据。</p><p><strong>5.</strong> 浏览器也能接收到这些数据。</p><p><strong>6.</strong> 接收到之后，发现当前⻚面的域和请求的域不不同，所以判定为跨域。</p><p><strong>7.</strong> 我们的代码在这等着结果呢，但是因为浏览器器判定跨域了，不会把结果传递给我们的代码。</p><p>虽然跨域了了，但是我们依然需要这个数据，怎么办?</p><h4 id="解决跨域问题"><a href="#解决跨域问题" class="headerlink" title="解决跨域问题"></a><strong>解决跨域问题</strong></h4><p>后端(别⼈家的)配合我们进⾏跨域。</p><pre><code>1. JSONP(正常的情况，返回的数据都是JSON格式。JSONP是⼀种特殊的格式。)2. 后端设置Access-Control-Allow-Origin属性以⽀持跨域。</code></pre><h4 id="JSONP跨域的原理"><a href="#JSONP跨域的原理" class="headerlink" title="JSONP跨域的原理"></a>JSONP跨域的原理</h4><pre><code>1. 判断请求与当前页面的域是否同源，若同源则发送ajax。2. 如果不同源则生成一个script标签3.  生成一个随机的callback名字，还得创建一个名为这个的方法。（因为JSONP格式一定要传回调函数）</code></pre><ol start="4"><li><p>设置script标签的src，设置为要请求的接口。</p></li><li><p>将callback作为参数拼接在后面。</p></li><li><p>后端接收到请求后，开始准备要返回的数据</p></li><li><p>后端拼接数据，将要返回的数据用callback的值和括号包裹起来</p></li></ol><p>​             例如：callback=asd123456，要返回的数据为{“a”:1, “b”:2},</p><p>​             就要拼接为：asd123456({“a”:1, “b”:2});</p><ol start="8"><li>浏览器接收到内容，会当做js代码来执行。</li><li>从而执行名为asd123456的方法。这样我们就接收到了后端返回给我们的对象。在返回对象的data里面就能访问到JSON格式的数据。</li></ol><h4 id="JSONP实现原理"><a href="#JSONP实现原理" class="headerlink" title="JSONP实现原理"></a>JSONP实现原理</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;解决跨域问题的几种方法: &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;a标签跳转,表单提交;&lt;/li&gt;
+&lt;li&gt;资源嵌入 link  iframe img iframe script标签&lt;/li&gt;
+&lt;li&gt;JSONP跨域&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="跨域" scheme="https://fengzehe.github.io/blog/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="jsonp" scheme="https://fengzehe.github.io/blog/tags/jsonp/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript 数组方法</title>
@@ -510,32 +540,6 @@
     
     
       <category term="后端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用CSS3做LoadIng动画</title>
-    <link href="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/"/>
-    <id>https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/</id>
-    <published>2019-12-12T06:47:13.000Z</published>
-    <updated>2020-08-06T07:19:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="使用CSS3做Loading动画"><a href="#使用CSS3做Loading动画" class="headerlink" title="使用CSS3做Loading动画"></a>使用CSS3做Loading动画</h3><p><img src="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/loading01.png" alt></p><p><img src="https://fengzehe.github.io/blog/2019/12/12/frontEnd_Loading/loading02.png" alt></p><p>两个小方块一上一下动起来</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;使用CSS3做Loading动画&quot;&gt;&lt;a href=&quot;#使用CSS3做Loading动画&quot; class=&quot;headerlink&quot; title=&quot;使用CSS3做Loading动画&quot;&gt;&lt;/a&gt;使用CSS3做Loading动画&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http
-      
-    
-    </summary>
-    
-    
-    
-      <category term="前端技术" scheme="https://fengzehe.github.io/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="CSS3" scheme="https://fengzehe.github.io/blog/tags/CSS3/"/>
     
   </entry>
   
