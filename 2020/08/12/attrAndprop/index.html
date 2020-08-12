@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,7 +16,9 @@
 
   <!-- 页面元数据 -->
   
-    <title>Category: not only technology - 何泽丰的博客</title>
+    <title>jQuery attr与prop之间的区别 - 何泽丰的博客</title>
+  
+    <meta name="keywords" content="前端技术,jQuery">
   
   
 
@@ -235,27 +235,12 @@
     <div class='body-wrapper'>
       
 
-
 <div class='l_main'>
   
-    
-      
-  <section class="post-list ">
-    
-      
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
+
   
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -265,11 +250,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/blog/2020/07/27/technology02/">
-      人生不止有技术 -- 诚者自成也
+  <h1 class="title">
+    <a href="/blog/2020/08/12/attrAndprop/">
+      jQuery attr与prop之间的区别
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -292,9 +277,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/blog/categories/not-only-technology/' rel="nofollow">
+    <a href='/blog/categories/front-end/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>not only technology</p>
+      <p>front-end</p>
     </a>
   </div>
 
@@ -305,27 +290,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 27, 2020</p>
+    <p>发布于：Aug 12, 2020</p>
   </a>
 </div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.4k words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>4 min</p>
-    </a>
-  </div>
-
 
             
           
@@ -343,207 +310,60 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上一篇文章分别从内心强大，内在情感与不把事情当做手段进行赘述。这一篇文章将从<strong>内秀</strong>和<strong>做你自己</strong>这两方面展开阐述。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/blog/2020/07/27/technology02/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box shadow reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/blog/2020/07/15/technology01/">
-      人生不止有技术 -- 我们的小宇宙
-    </a>
-  </h2>
+          <blockquote>
+<p>前言：我们都知道attr和prop都有获取和改变元素内属性值的能力，但他们之间有什么区别吗？</p>
+</blockquote>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><pre><code>1. `attribute`（特性），是我们赋予某个事物的特质或对象,而`attribute`是我们通过设置HTML标签而给之赋予的特性。
+ 2. `property`（属性），是早已存在的不需要外界赋予的特质,`property`是DOM对象自身就拥有的属性。</code></pre><h4 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h4><p>如图，写了两个标签，一个span和input标签。他们都有各自的属性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"sp"</span> <span class="attr">name</span>=<span class="string">"aspan"</span>&gt;</span>我是一个span标签<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>=<span class="string">"checked"</span> <span class="attr">name</span>=<span class="string">'handsome'</span> <span class="attr">class</span>=<span class="string">"ainput"</span> <span class="attr">aname</span>=<span class="string">'aname'</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.sp'</span>).prop(<span class="string">'class'</span>)); </span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.sp'</span>).attr(<span class="string">'class'</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"----------------------"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.sp'</span>).prop(<span class="string">'name'</span>)) <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.sp'</span>).attr(<span class="string">'name'</span>)) <span class="comment">// aspan</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'------------------------'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.ainput'</span>).prop(<span class="string">'checked'</span>)) <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.ainput'</span>).attr(<span class="string">'checked'</span>)) <span class="comment">//checked</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"-----------------------"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.ainput'</span>).prop(<span class="string">'aname'</span>)); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'.ainput'</span>).attr(<span class="string">'aname'</span>)); <span class="comment">//aname</span></span><br></pre></td></tr></table></figure>
 
-        
-        <div class='new-meta-box'>
+<p><img src="https://fengzehe.github.io/blog/2020/08/12/attrAndprop/output.png" alt></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><strong>我们可以发现对于元素自身添加的属性<code>attr</code>处理更加好，例如添加的<code>aname</code>属性<code>prop</code>方法会显示<code>undefined</code>。而<code>prop</code>方法对于元素中已有的属性处理更好，例如获取input框checked状态。</strong></p>
+
           
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="https://fengzehe.github.io/blog/" rel="nofollow">
-    <img src="https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg">
-    <p>何泽丰</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/blog/categories/not-only-technology/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>not only technology</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 15, 2020</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.8k words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 min</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    朋友们，如果你在这时候打开了这篇推文，恰好手头上也没有事情，请静下心来听我娓娓道来。上周阅读的《王阳明心学》，是笔者王觉仁对王阳明部分思想的解读。<strong>如果想看原本的王阳明可以看《传习录》</strong>。书的内容比较杂，但总能予以读者启发。下面是我对书中内容部分的摘录与理解，想与大家分享。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/blog/2020/07/15/technology01/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-    
-  
-
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger shadow desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/blog/about/'>
-          <img no-lazy src='https://wx3.sinaimg.cn/mw690/e016f0aegy1gfplyrl8o3j207907ajub.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
+      <blockquote>
         
-        
-          <p>怕, 就输一辈子</p>
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/blog/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
           
         
           
-            <a href="mailto:316692151@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://fengzehe.github.io/blog/2020/08/12/attrAndprop/>https://fengzehe.github.io/blog/2020/08/12/attrAndprop/</a></p>
           
         
-          
-            <a href="https://github.com/FengZeHe"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -553,73 +373,192 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category shadow desktop">
+  <div class='content article-entry'>
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-12T10:26:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Aug 12, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>前端技术</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/jQuery/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>jQuery</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://fengzehe.github.io/blog/2020/08/12/attrAndprop/&title=jQuery attr与prop之间的区别 - 何泽丰的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://fengzehe.github.io/blog/2020/08/12/attrAndprop/&title=jQuery attr与prop之间的区别 - 何泽丰的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://fengzehe.github.io/blog/2020/08/12/attrAndprop/&title=jQuery attr与prop之间的区别 - 何泽丰的博客&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/blog/2020/08/06/Javascript-array/'>
+                <p class='title'>JavaScript 数组方法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>
+JavaScript中有许多好用的数组方法，例如说forEach，filter…等等
+那这些方法是都有什么用途呢？以及自己能否写一个方法出来替代呢？
+
+
+
+forEach方法日常用法​    ...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'jQuery attr与prop之间的区别',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/blog/categories/back-end/" href="/blog/categories/back-end/"
-            id="blogcategoriesback-end"
-            ><div class='name'>back-end</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/front-end/" href="/blog/categories/front-end/"
-            id="blogcategoriesfront-end"
-            ><div class='name'>front-end</div><div class='badge'>(18)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/not-only-technology/" href="/blog/categories/not-only-technology/"
-            id="blogcategoriesnot-only-technology"
-            ><div class='name'>not only technology</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/project/" href="/blog/categories/project/"
-            id="blogcategoriesproject"
-            ><div class='name'>project</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/rookie-growth-record/" href="/blog/categories/rookie-growth-record/"
-            id="blogcategoriesrookie-growth-record"
-            ><div class='name'>rookie growth record</div><div class='badge'>(8)</div></a></li>
-        
-      </ul>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码演示"><span class="toc-text">代码演示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/blog/tags/record/" style="font-size: 16.5px; color: #888">-- record</a> <a href="/blog/tags/Ajax/" style="font-size: 14px; color: #999">Ajax</a> <a href="/blog/tags/CSS/" style="font-size: 14px; color: #999">CSS</a> <a href="/blog/tags/CSS3/" style="font-size: 16.5px; color: #888">CSS3</a> <a href="/blog/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/blog/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/blog/tags/JQuery/" style="font-size: 14px; color: #999">JQuery</a> <a href="/blog/tags/JavaScript/" style="font-size: 19px; color: #777">JavaScript</a> <a href="/blog/tags/jQuery/" style="font-size: 14px; color: #999">jQuery</a> <a href="/blog/tags/jsonp/" style="font-size: 14px; color: #999">jsonp</a> <a href="/blog/tags/record/" style="font-size: 21.5px; color: #666">record</a> <a href="/blog/tags/vue/" style="font-size: 14px; color: #999">vue</a> <a href="/blog/tags/%E4%BA%BA%E7%94%9F%E4%B8%8D%E6%AD%A2%E6%9C%89%E6%8A%80%E6%9C%AF/" style="font-size: 16.5px; color: #888">人生不止有技术</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 24px; color: #555">前端技术</a> <a href="/blog/tags/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 14px; color: #999">后端技术</a> <a href="/blog/tags/%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" style="font-size: 14px; color: #999">实战项目</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 14px; color: #999">微信小程序</a> <a href="/blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">浏览器渲染原理</a> <a href="/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 14px; color: #999">跨域</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -824,6 +763,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
